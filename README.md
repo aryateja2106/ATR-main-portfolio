@@ -19,7 +19,7 @@
 ### Chat Dashboard
 ```markdown
 <div align="center">
-  <img src="./app/(chat)/chat-dashboard-preview.png" alt="Chat Interface" width="800">
+  <img src="app/(chat)/chat-dashboard-preview.png" alt="Chat Interface" width="800">
   <p><em>Main interface with model selector and history panel</em></p>
 </div>
 ```
@@ -27,7 +27,7 @@
 ### Reasoning Capabilities
 ```markdown
 <div align="center">
-  <img src="./app/(chat)/chat-reasoning.png" alt="Reasoning UI" width="800">
+  <img src="app/(chat)/chat-reasoning.png" alt="Reasoning UI" width="800">
   <p><em>See how the model thinks before responding to complex questions</em></p>
 </div>
 ```
@@ -35,7 +35,7 @@
 ### Code Generation
 ```markdown
 <div align="center">
-  <img src="./app/(chat)/chat-artifacts.png" alt="Code Artifacts" width="800">
+  <img src="app/(chat)/chat-artifacts.png" alt="Code Artifacts" width="800">
   <p><em>Generate runnable code with syntax highlighting</em></p>
 </div>
 ```
@@ -43,7 +43,7 @@
 ### Document Creation
 ```markdown
 <div align="center">
-  <img src="./app/(chat)/chat-markdown.png" alt="Markdown Documents" width="800">
+  <img src="app/(chat)/chat-markdown.png" alt="Markdown Documents" width="800">
   <p><em>Create and edit documents in markdown format</em></p>
 </div>
 ```
