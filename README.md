@@ -4,7 +4,18 @@
   <img src="app/(portfolio)/portfolio-preview.png" alt="Portfolio Preview" width="800">
 </div>
 
----
+<p align="center">
+  <b>A powerful AI chatbot with multiple models, reasoning capabilities, and artifact generation</b>
+</p>
+
+<p align="center">
+  <a href="#-features">Features</a> •
+  <a href="#-installation">Installation</a> •
+  <a href="#-environment-setup">Environment Setup</a> •
+  <a href="#-usage">Usage</a> •
+  <a href="#-development">Development</a> •
+  <a href="#-documentation">Documentation</a>
+</p>
 
 ## ✨ Features
 
@@ -17,49 +28,41 @@
 ## 📸 Screenshots
 
 ### Chat Dashboard
-```markdown
 <div align="center">
-  <img src="app/(chat)/chat-dashboard-preview.png" alt="Chat Interface" width="800">
-  <p><em>Main interface with model selector and history panel</em></p>
+  <img src="./app/(chat)/chat-dashboard-preview.png" alt="Chat Dashboard" width="800">
+  <p><i>Main chat interface with history sidebar, model selector, and input suggestions</i></p>
 </div>
-```
 
 ### Reasoning Capabilities
-```markdown
 <div align="center">
-  <img src="app/(chat)/chat-reasoning.png" alt="Reasoning UI" width="800">
-  <p><em>See how the model thinks before responding to complex questions</em></p>
+  <img src="./app/(chat)/chat-reasoning.png" alt="Reasoning UI" width="800">
+  <p><i>See how the model thinks before responding to complex questions</i></p>
 </div>
-```
 
 ### Code Generation
-```markdown
 <div align="center">
-  <img src="app/(chat)/chat-artifacts.png" alt="Code Artifacts" width="800">
-  <p><em>Generate runnable code with syntax highlighting</em></p>
+  <img src="./app/(chat)/chat-artifacts.png" alt="Code Artifacts" width="800">
+  <p><i>Generate runnable code with syntax highlighting</i></p>
 </div>
-```
 
 ### Document Creation
-```markdown
 <div align="center">
-  <img src="app/(chat)/chat-markdown.png" alt="Markdown Documents" width="800">
-  <p><em>Create and edit documents in markdown format</em></p>
+  <img src="./app/(chat)/chat-markdown.png" alt="Markdown Documents" width="800">
+  <p><i>Create and edit documents in markdown format</i></p>
 </div>
-```
 
 ## 🚀 Installation
 
 For detailed guide : [Installation Guide](docs/Installation.md)
 
-### Clone the Repository
+## Clone the Repository
 
 ```bash
 git clone https://github.com/AryaTejaRudraraju/portfoliov1.git
 cd portfoliov1
 ```
 
-### Install Dependencies
+## Install Dependencies
 
 This project uses React 19 (RC) and Next.js 15 (Canary). Due to potential dependency conflicts, use one of the following installation methods:
 
@@ -75,7 +78,7 @@ npm install --legacy-peer-deps
 
 1. Create a `.env.local` file in the project root with the following variables:
 
-```ini
+```
 # Authentication
 AUTH_SECRET=<your-auth-secret>
 AUTH_URL=http://localhost:3000
