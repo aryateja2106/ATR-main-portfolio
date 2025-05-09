@@ -4,15 +4,15 @@ import React from 'react'
 import Link from 'next/link'
 import { Header } from '../../_components/header'
 import { useParams } from 'next/navigation'
-import { getBlogById, getRelatedBlogs } from '../../_hooks/blog'
+import { getBlogBySlug, getRelatedBlogs } from '../../_hooks/blog'
 import MarkdownRenderer from '../../_components/markdowmRender'
 import Image from 'next/image'
 
 export default function BlogPostPage() {
   const params = useParams()
-  const postId = typeof params.blogId === 'string' ? params.blogId : '1'
-  const post = getBlogById(postId)
-  const relatedPosts = getRelatedBlogs(postId)
+  const postSlug = typeof params.slug === 'string' ? params.slug : '1'
+  const post = getBlogBySlug(postSlug)
+  const relatedPosts = getRelatedBlogs(postSlug)
   
   if (!post) {
     return (
@@ -31,7 +31,7 @@ export default function BlogPostPage() {
       </main>
     )
   }
-  
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Header />
@@ -100,11 +100,25 @@ export default function BlogPostPage() {
         </div>
         
         {/* Post cover image */}
-        <div className="w-full h-64 md:h-96 bg-neutral-100 dark:bg-neutral-800 rounded-lg mb-8 overflow-hidden">
-          <div className="size-full flex items-center justify-center text-neutral-400">
-            Cover Image Placeholder
-          </div>
-        </div>
+        {
+          post.coverImage ? (
+              <div className="relative w-full h-64 md:h-96 bg-neutral-800 overflow-hidden">
+                <Image 
+                  src={post.coverImage} 
+                  alt={post.title} 
+                  fill
+                  objectFit="cover"
+                  className="opacity-70"
+                />
+            </div>
+          ) : (
+            <div className="w-full h-64 md:h-96 bg-neutral-100 dark:bg-neutral-800 rounded-lg mb-8 overflow-hidden">
+              <div className="size-full flex items-center justify-center text-neutral-400">
+                No Cover Image
+              </div>
+            </div>
+          )
+        }
         
         {/* Post content - Markdown renderer */}
         <MarkdownRenderer content={post.content} />

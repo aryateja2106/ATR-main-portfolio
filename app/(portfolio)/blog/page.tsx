@@ -64,7 +64,7 @@ export default function BlogsPage() {
           <button 
             type="button" 
             role="tab"
-            aria-selected={activeCategory === 'all'}
+            // aria-selected={activeCategory === 'all'}
             aria-controls="blog-posts"
             id="tab-all"
             className={`rounded-full px-4 py-1 text-sm ${
@@ -82,7 +82,7 @@ export default function BlogsPage() {
               key={category}
               type="button"
               role="tab"
-              aria-selected={activeCategory === category}
+              // aria-selected={activeCategory === category}
               aria-controls="blog-posts"
               id={`tab-${category.toLowerCase().replace(/\s+/g, '-')}`}
               className={`rounded-full px-4 py-1 text-sm ${

@@ -25,7 +25,6 @@ const BlogCard = ({ post, variant = 'default', className = '' }: {
   // Default placeholder for image
   const ImagePlaceholder = () => (
     <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-neutral-900/80 to-neutral-800/60 text-teal-400/40">
-      {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
       <svg xmlns="http://www.w3.org/2000/svg" width={variant === 'compact' ? "32" : "48"} height={variant === 'compact' ? "32" : "48"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-label="Document placeholder">
         <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
         <polyline points="14 2 14 8 20 8" />
@@ -35,13 +34,10 @@ const BlogCard = ({ post, variant = 'default', className = '' }: {
     </div>
   );
 
-  // Generate slug from id if not provided
-  const slug = post.slug || post.id;
-
   // Determine card style based on variant
   if (variant === 'featured') {
     return (
-      <Link href={`/blog/${slug}`} className={`block group ${className}`}>
+      <Link href={`/blog/${post.slug}`} className={`block group ${className}`}>
         <div className="relative overflow-hidden rounded-xl border border-neutral-800 transition-all duration-300 hover:shadow-lg hover:shadow-teal-900/10 hover:border-teal-500/20 bg-gradient-to-b from-neutral-900 to-neutral-950">
           <div className="grid md:grid-cols-2 gap-6">
             {/* Image */}
@@ -119,7 +115,7 @@ const BlogCard = ({ post, variant = 'default', className = '' }: {
   
   if (variant === 'compact') {
     return (
-      <Link href={`/blog/${slug}`} className={`block group ${className}`}>
+      <Link href={`/blog/${post.slug}`} className={`block group ${className}`}>
         <div className="bg-neutral-900/60 rounded-lg overflow-hidden border border-neutral-800 hover:border-neutral-700 transition-all duration-300 h-full">
           <div className="relative w-full h-40 bg-neutral-800 overflow-hidden">
             {post.imagePath ? (
@@ -185,7 +181,7 @@ const BlogCard = ({ post, variant = 'default', className = '' }: {
   
   // Default variant
   return (
-    <Link href={`/blog/${slug}`} className={`block group ${className}`}>
+    <Link href={`/blog/${post.slug}`} className={`block group ${className}`}>
       <div className="bg-neutral-900/60 rounded-xl overflow-hidden border border-neutral-800 hover:border-neutral-700 transition-all duration-300 h-full flex flex-col">
         <div className="relative w-full h-48 bg-neutral-800 overflow-hidden">
           {post.imagePath ? (
@@ -266,6 +262,7 @@ const BlogCard = ({ post, variant = 'default', className = '' }: {
 export const Blogs = () => {
 	// Get blog posts from the hook
 	const blogData = getAllBlogs();
+  console.log(blogData);
 
 	// Map the blog data to the format expected by this component
 	const blogPosts: BlogPostProps[] = blogData.map((post) => ({
@@ -273,6 +270,7 @@ export const Blogs = () => {
 		title: post.title,
 		excerpt: post.excerpt,
 		date: post.formattedDate,
+    slug: post.slug,
 		category: post.category,
 		readTime: post.readTime,
 		imagePath: post.coverImage,

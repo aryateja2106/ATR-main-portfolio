@@ -1,4 +1,5 @@
 // utils/blog.ts
+// eslint-disable-next-line import/no-unresolved
 import blogData from '@/lib/portfolio/blogs.json';
 import type { BlogPost, Author } from '../_utils/types/blog-types';
 
