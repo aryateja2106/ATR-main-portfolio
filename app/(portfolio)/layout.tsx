@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   description:
     "AI Engineer specializing in LLMs, generative AI, and automation solutions for business challenges",
-  metadataBase: new URL("https://aryarudraraju.com"), // Replace with your actual domain when available
+  metadataBase: new URL("https://www.aryateja.com"), // Fixed to match GA configuration
   applicationName: "Arya Teja Rudraraju's Portfolio",
   authors: [
     {
@@ -90,11 +90,13 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-8ELMHNMBW2";
+
   return (
-    <div lang="en" className="dark scroll-smooth">
-      {/* Google Analytics */}
+    <>
+      {/* Google Analytics - Moved to top for better loading */}
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-8ELMHNMBW2"
+        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -102,23 +104,28 @@ export default async function Layout({
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-8ELMHNMBW2');
+          gtag('config', '${gaId}', {
+            page_title: document.title,
+            page_location: window.location.href,
+          });
         `}
       </Script>
 
-      <div
-        className={`scroll-smooth bg-neutral-50 dark:bg-neutral-950 font-sans text-neutral-900 dark:text-neutral-300 selection:bg-purple-400 selection:text-white dark:selection:bg-purple-700 dark:selection:text-white ${inter.variable} ${poppins.variable} ${firaCode.variable}`}
-      >
-        <div className="relative">
-          <BinaryCursor />
-          <Header />
-          <main>{children}</main>
-          <Footer />
+      <div lang="en" className="dark scroll-smooth">
+        <div
+          className={`scroll-smooth bg-neutral-50 dark:bg-neutral-950 font-sans text-neutral-900 dark:text-neutral-300 selection:bg-purple-400 selection:text-white dark:selection:bg-purple-700 dark:selection:text-white ${inter.variable} ${poppins.variable} ${firaCode.variable}`}
+        >
+          <div className="relative">
+            <BinaryCursor />
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
         </div>
-      </div>
 
-      {/* Vercel Analytics */}
-      <Analytics />
-    </div>
+        {/* Vercel Analytics */}
+        <Analytics />
+      </div>
+    </>
   );
 }
