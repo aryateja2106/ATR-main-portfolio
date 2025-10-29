@@ -4,10 +4,10 @@ import React from "react";
 
 export const Footer = () => {
 	return (
-		<footer id="contact" className="relative mt-32 pb-6 overflow-hidden">
+		<footer id="contact" className="relative mt-32 pb-6 overflow-hidden bg-neutral-950">
 			{/* Background with stars and cosmic element */}
 			<div className="absolute inset-0 -z-10 overflow-hidden">
-				<div className="absolute inset-0 bg-[#050816]" />
+				<div className="absolute inset-0 bg-neutral-950" />
 
 				{/* Stars effect - small dots */}
 				<div className="stars-small absolute inset-0" />
@@ -18,7 +18,7 @@ export const Footer = () => {
 				<div className="absolute left-1/2 top-2/3 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[150px] rounded-full bg-teal-400/10 blur-[60px]" />
 			</div>
 
-			<div className="container mx-auto px-4 pt-16">
+			<div className="w-full px-4 md:max-w-4xl lg:px-0 m-auto pt-16">
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
 					{/* Left column */}
 					<div>
@@ -72,8 +72,8 @@ export const Footer = () => {
 					<div className="space-y-8">
 						<div>
 							<h4 className="text-lg font-semibold mb-6">Get in Touch</h4>
-							<div className="bg-slate-900/80 border border-slate-800 rounded-lg p-4">
-								<p className="text-sm text-gray-300 mb-4">
+							<div className="bg-neutral-900/60 backdrop-blur-sm border border-neutral-800 rounded-lg p-4 hover:border-neutral-700 transition-colors">
+								<p className="text-sm text-neutral-300 mb-4">
 									AI Engineer & Marketing Specialist with a passion for creating
 									intelligent solutions that deliver measurable business impact.
 								</p>
@@ -81,7 +81,7 @@ export const Footer = () => {
 								<div className="grid grid-cols-2 gap-3">
 									<Link
 										href="mailto:aryateja2106@gmail.com"
-										className="place-items-center place-content-center py-2 px-3 bg-slate-800 hover:bg-slate-700 rounded-md text-sm text-gray-300 hover:text-white transition-colors"
+										className="flex items-center justify-center gap-2 py-2 px-3 bg-neutral-800/80 hover:bg-neutral-700 border border-neutral-700 rounded-md text-sm text-neutral-300 hover:text-white transition-colors"
 									>
 										<svg
 											aria-hidden="true"
@@ -102,7 +102,7 @@ export const Footer = () => {
 									</Link>
 									<Link
 										href="/contact"
-										className="place-items-center place-content-center py-2 px-3 bg-slate-800 hover:bg-slate-700 rounded-md text-sm text-gray-300 hover:text-white transition-colors"
+										className="flex items-center justify-center gap-2 py-2 px-3 bg-neutral-800/80 hover:bg-neutral-700 border border-neutral-700 rounded-md text-sm text-neutral-300 hover:text-white transition-colors"
 									>
 										<svg
 											aria-hidden="true"
@@ -132,7 +132,7 @@ export const Footer = () => {
 									href="https://github.com/"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="size-10 grid place-items-center place-content-center rounded-full bg-slate-800 hover:bg-slate-700 text-gray-400 hover:text-white transition-colors"
+									className="size-10 grid place-items-center place-content-center rounded-full bg-neutral-800/80 hover:bg-neutral-700 border border-neutral-700 text-neutral-400 hover:text-teal-400 transition-colors"
 									aria-label="GitHub"
 								>
 									<svg
@@ -149,7 +149,7 @@ export const Footer = () => {
 									href="https://linkedin.com/in/arya-teja-rudraraju"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="size-10 grid place-items-center place-content-center rounded-full bg-slate-800 hover:bg-slate-700 text-gray-400 hover:text-white transition-colors"
+									className="size-10 grid place-items-center place-content-center rounded-full bg-neutral-800/80 hover:bg-neutral-700 border border-neutral-700 text-neutral-400 hover:text-teal-400 transition-colors"
 									aria-label="LinkedIn"
 								>
 									<svg
@@ -166,7 +166,7 @@ export const Footer = () => {
 									href="https://twitter.com/"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="size-10 grid place-items-center place-content-center rounded-full bg-slate-800 hover:bg-slate-700 text-gray-400 hover:text-white transition-colors"
+									className="size-10 grid place-items-center place-content-center rounded-full bg-neutral-800/80 hover:bg-neutral-700 border border-neutral-700 text-neutral-400 hover:text-teal-400 transition-colors"
 									aria-label="Twitter"
 								>
 									<svg
@@ -185,8 +185,8 @@ export const Footer = () => {
 				</div>
 
 				{/* Bottom bar with copyright and links */}
-				<div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-					<p> 2025 Arya Teja Rudraraju | Portfolio. All rights reserved.</p>
+				<div className="pt-8 border-t border-neutral-800 flex flex-col md:flex-row justify-between items-center text-sm text-neutral-500">
+					<p>© 2025 Arya Teja Rudraraju | Portfolio. All rights reserved.</p>
 					<div className="flex space-x-6 mt-4 md:mt-0">
 						<Link
 							href="/privacy"
