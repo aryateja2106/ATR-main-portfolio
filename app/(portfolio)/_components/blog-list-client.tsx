@@ -1,0 +1,163 @@
+'use client';
+
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import type { BlogPost } from '../_utils/types/blog-types';
+
+interface BlogListClientProps {
+  initialBlogs: BlogPost[];
+  categories: string[];
+}
+
+export default function BlogListClient({ initialBlogs, categories }: BlogListClientProps) {
+  const [blogs, setBlogs] = useState<BlogPost[]>(initialBlogs);
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  const handleCategoryFilter = (category: string) => {
+    setActiveCategory(category);
+
+    if (category === 'all') {
+      setBlogs(initialBlogs);
+    } else {
+      const filteredBlogs = initialBlogs.filter((post) => post.category === category);
+      setBlogs(filteredBlogs);
+    }
+  };
+
+  return (
+    <div className="w-full px-4 max-w-4xl mx-auto pt-32 pb-20">
+      <div className="mb-10">
+        <h1 className="text-4xl font-bold mb-4">Blog</h1>
+        <p className="text-neutral-500 dark:text-neutral-400">
+          Insights on AI Agents, RAG Systems, MCP, and Product Management for AI-first companies.
+        </p>
+      </div>
+
+      {/* Category filter */}
+      <div className="flex flex-wrap gap-3 mb-10" role="tablist" aria-label="Blog categories">
+        <button
+          type="button"
+          role="tab"
+          aria-controls="blog-posts"
+          id="tab-all"
+          className={`rounded-full px-4 py-1 text-sm ${
+            activeCategory === 'all'
+              ? 'bg-teal-500 text-white'
+              : 'bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-teal-500 hover:text-white transition-colors'
+          }`}
+          onClick={() => handleCategoryFilter('all')}
+        >
+          All
+        </button>
+
+        {categories.map((category) => (
+          <button
+            key={category}
+            type="button"
+            role="tab"
+            aria-controls="blog-posts"
+            id={`tab-${category.toLowerCase().replace(/\s+/g, '-')}`}
+            className={`rounded-full px-4 py-1 text-sm ${
+              activeCategory === category
+                ? 'bg-teal-500 text-white'
+                : 'bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-teal-500 hover:text-white transition-colors'
+            }`}
+            onClick={() => handleCategoryFilter(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      {/* Empty state */}
+      {blogs.length === 0 && (
+        <div className="text-center py-20">
+          <p className="text-neutral-500 dark:text-neutral-400 mb-4">
+            No blog posts found in this category.
+          </p>
+          <button
+            type="button"
+            onClick={() => handleCategoryFilter('all')}
+            className="px-4 py-2 bg-teal-500 text-white rounded hover:bg-teal-600 transition-colors"
+          >
+            View All Posts
+          </button>
+        </div>
+      )}
+
+      {/* Blog posts grid */}
+      {blogs.length > 0 && (
+        <div id="blog-posts" role="tabpanel" className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {blogs.map((post) => (
+            <Link
+              href={`/blog/${post.slug}`}
+              key={post.id}
+              className="group flex flex-col rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:border-teal-500 dark:hover:border-teal-500 transition-all hover:shadow-md"
+            >
+              <div className="relative h-48 w-full overflow-hidden">
+                {post.coverImage ? (
+                  <div className="relative size-full">
+                    <Image
+                      src={post.coverImage}
+                      alt={`Cover image for ${post.title}`}
+                      fill
+                      className="object-cover size-full transition-transform group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 384px"
+                      priority={Number.parseInt(post.id) <= 4}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/70 to-transparent" />
+                  </div>
+                ) : (
+                  <div className="absolute inset-0 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
+                    <div className="text-neutral-400">Image Placeholder</div>
+                  </div>
+                )}
+                <div className="absolute top-4 left-4 bg-neutral-900/70 text-white text-xs px-2 py-1 rounded-full">
+                  {post.category}
+                </div>
+              </div>
+
+              <div className="p-5 grow flex flex-col">
+                <div className="flex items-center text-sm text-neutral-500 dark:text-neutral-400 mb-2">
+                  <span>{post.formattedDate}</span>
+                  <span className="mx-2" aria-hidden="true">
+                    •
+                  </span>
+                  <span>{post.readTime}</span>
+                </div>
+
+                <h2 className="text-xl font-bold mb-2 group-hover:text-teal-500 transition-colors">
+                  {post.title}
+                </h2>
+
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-4 line-clamp-2">
+                  {post.excerpt}
+                </p>
+
+                <div className="mt-auto flex items-center text-teal-500 text-sm font-medium">
+                  Read article
+                  <svg
+                    className="ml-1 size-4 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <title>Arrow right</title>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
