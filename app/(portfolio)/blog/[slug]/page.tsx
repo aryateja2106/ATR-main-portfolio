@@ -1,14 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Header } from '../../_components/header';
 import { getBlogBySlug, getRelatedBlogs } from '../../_hooks/blog';
-import MDXRenderer from '../../_components/mdx-renderer';
-import { YouTubeEmbed } from '../../_components/mdx-renderer';
-import Image from 'next/image';
+import MDXRenderer, { YouTubeEmbed } from '../../_components/mdx-renderer';
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const postSlug = params.slug;
-  const post = getBlogBySlug(postSlug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getBlogBySlug(slug);
   const relatedPosts = post ? getRelatedBlogs(post.id) : [];
   
   if (!post) {

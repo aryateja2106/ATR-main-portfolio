@@ -1,4 +1,6 @@
 // utils/blog.ts
+import 'server-only';
+
 import {
   getAllBlogPosts,
   getBlogPostBySlug,

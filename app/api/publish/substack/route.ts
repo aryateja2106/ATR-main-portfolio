@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { getBlogPostBySlug } from '@/lib/mdx/mdx-utils';
 
 export async function POST(request: NextRequest) {

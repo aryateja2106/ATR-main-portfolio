@@ -14,7 +14,8 @@ import {
 import { calculatePosition } from '../../../_utils/calculate-position';
 import { parsePathToVertices } from '../../../_utils/svg-path-to-vertices';
 import { debounce } from 'lodash';
-import Matter, {
+import type Matter from 'matter-js';
+import {
   Body,
   Bodies,
   Common,

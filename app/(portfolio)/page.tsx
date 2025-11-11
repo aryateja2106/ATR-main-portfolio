@@ -1,5 +1,3 @@
-'use client';
-
 import { About } from "./_components/about";
 import {Blogs} from "./_components/blogs";
 import {Experience} from "./_components/experience";
@@ -7,10 +5,11 @@ import { Hero } from "./_components/hero";
 import {Projects} from "./_components/projects";
 import {Qualities} from "./_components/qualities";
 import {TechStack} from "./_components/skills";
-
-
+import { getPublishedBlogPosts } from '@/lib/mdx/mdx-utils';
 
 export default function Page() {
+  const blogs = getPublishedBlogPosts();
+
   return (
     <div className="relative w-full">
       <Hero />
@@ -21,7 +20,7 @@ export default function Page() {
       <TechStack/>
          <Qualities/>
          <Projects/>
-       <Blogs/>
+       <Blogs blogs={blogs} />
       </div>
     </div>
   )

@@ -1,8 +1,8 @@
 "use client";
-import { getAllBlogs } from "../_hooks/blog";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import type { BlogPost } from '../_utils/types/blog-types';
 
 type BlogPostProps = {
 	id: string;
@@ -259,13 +259,13 @@ const BlogCard = ({ post, variant = 'default', className = '' }: {
   );
 };
 
-export const Blogs = () => {
-	// Get blog posts from the hook
-	const blogData = getAllBlogs();
-  console.log(blogData);
+interface BlogsProps {
+	blogs: BlogPost[];
+}
 
+export const Blogs = ({ blogs }: BlogsProps) => {
 	// Map the blog data to the format expected by this component
-	const blogPosts: BlogPostProps[] = blogData.map((post) => ({
+	const blogPosts: BlogPostProps[] = blogs.map((post) => ({
 		id: post.id,
 		title: post.title,
 		excerpt: post.excerpt,
@@ -274,7 +274,7 @@ export const Blogs = () => {
 		category: post.category,
 		readTime: post.readTime,
 		imagePath: post.coverImage,
-		featured: post.id === "1", // Mark the first post as featured
+		featured: post.featured || post.id === "1", // Mark the first post as featured
 	}));
 
 	// Separate featured post from regular posts
