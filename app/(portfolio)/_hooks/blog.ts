@@ -1,76 +1,83 @@
 // utils/blog.ts
-// eslint-disable-next-line import/no-unresolved
-import blogData from '@/lib/portfolio/blogs.json';
+import {
+  getAllBlogPosts,
+  getBlogPostBySlug,
+  getBlogPostsByCategory,
+  getBlogPostsByTag,
+  getAllCategories,
+  getAllTags,
+  getRelatedBlogPosts,
+  getFeaturedBlogPosts,
+  getPublishedBlogPosts,
+} from '@/lib/mdx/mdx-utils';
 import type { BlogPost, Author } from '../_utils/types/blog-types';
 
-// Get all blog posts
+// Get all blog posts (published only)
 export function getAllBlogs(): BlogPost[] {
-  return blogData.blogPosts;
+  return getPublishedBlogPosts();
 }
 
 // Get blog post by ID
 export function getBlogById(id: string): BlogPost | undefined {
-  return blogData.blogPosts.find(post => post.id === id);
+  const allPosts = getAllBlogPosts();
+  return allPosts.find((post) => post.id === id);
 }
 
 // Get blog post by slug
 export function getBlogBySlug(slug: string): BlogPost | undefined {
-  return blogData.blogPosts.find(post => post.slug === slug);
+  const post = getBlogPostBySlug(slug);
+  return post || undefined;
 }
 
 // Get all authors (extract unique authors from blog posts)
 export function getAllAuthors(): Author[] {
   const authorsMap = new Map<string, Author>();
-  
-  for (const post of blogData.blogPosts) {
+  const allPosts = getAllBlogPosts();
+
+  for (const post of allPosts) {
     if (!authorsMap.has(post.author.id)) {
       authorsMap.set(post.author.id, post.author);
     }
-  };
-  
+  }
+
   return Array.from(authorsMap.values());
 }
 
 // Get author by ID
 export function getAuthorById(id: string): Author | undefined {
-  return getAllAuthors().find(author => author.id === id);
+  return getAllAuthors().find((author) => author.id === id);
 }
 
 // Get all categories (extract unique categories from blog posts)
-export function getAllCategories(): string[] {
-  const categories = new Set<string>();
-  
-  for (const post of blogData.blogPosts) {
-    categories.add(post.category);
-  }
-  
-  return Array.from(categories);
-}
+export { getAllCategories };
 
 // Get blogs by category
 export function getBlogsByCategory(categoryName: string): BlogPost[] {
-  return blogData.blogPosts.filter(post => post.category === categoryName);
+  return getBlogPostsByCategory(categoryName);
 }
 
 // Get blogs by tag
 export function getBlogsByTag(tag: string): BlogPost[] {
-  return blogData.blogPosts.filter(post => post.tags.includes(tag));
+  return getBlogPostsByTag(tag);
 }
 
 // Get blogs by author
 export function getBlogsByAuthor(authorId: string): BlogPost[] {
-  return blogData.blogPosts.filter(post => post.author.id === authorId);
+  return getAllBlogs().filter((post) => post.author.id === authorId);
 }
 
 // Get related blogs for a specific blog post
 export function getRelatedBlogs(postId: string): BlogPost[] {
-  const post = getBlogById(postId);
-  if (!post) return [];
-  
-  return post.relatedArticles
-    .map(id => getBlogById(id))
-    .filter((post): post is BlogPost => !!post);
+  return getRelatedBlogPosts(postId);
 }
+
+// Get featured blogs
+export function getFeaturedBlogs(): BlogPost[] {
+  return getFeaturedBlogPosts();
+}
+
+// Get all tags
+export { getAllTags };
 
 // Sort blogs by date (newest first)
 export function sortBlogsByDate(blogs: BlogPost[]): BlogPost[] {
@@ -85,6 +92,6 @@ export function formatDate(dateString: string): string {
   return date.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   });
 }

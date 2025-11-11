@@ -1,18 +1,15 @@
-'use client'
+import React from 'react';
+import Link from 'next/link';
+import { Header } from '../../_components/header';
+import { getBlogBySlug, getRelatedBlogs } from '../../_hooks/blog';
+import MDXRenderer from '../../_components/mdx-renderer';
+import { YouTubeEmbed } from '../../_components/mdx-renderer';
+import Image from 'next/image';
 
-import React from 'react'
-import Link from 'next/link'
-import { Header } from '../../_components/header'
-import { useParams } from 'next/navigation'
-import { getBlogBySlug, getRelatedBlogs } from '../../_hooks/blog'
-import MarkdownRenderer from '../../_components/markdowmRender'
-import Image from 'next/image'
-
-export default function BlogPostPage() {
-  const params = useParams()
-  const postSlug = typeof params.slug === 'string' ? params.slug : '1'
-  const post = getBlogBySlug(postSlug)
-  const relatedPosts = getRelatedBlogs(postSlug)
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+  const postSlug = params.slug;
+  const post = getBlogBySlug(postSlug);
+  const relatedPosts = post ? getRelatedBlogs(post.id) : [];
   
   if (!post) {
     return (
@@ -120,8 +117,22 @@ export default function BlogPostPage() {
           )
         }
         
-        {/* Post content - Markdown renderer */}
-        <MarkdownRenderer content={post.content} />
+        {/* YouTube videos (if any) */}
+        {post.youtubeVideos && post.youtubeVideos.length > 0 && (
+          <div className="my-8">
+            {post.youtubeVideos.map((video) => (
+              <YouTubeEmbed
+                key={video.id}
+                videoId={video.id}
+                title={video.title}
+                startTime={video.timestamp}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Post content - MDX renderer */}
+        <MDXRenderer content={post.content} />
         
         {/* Share and like section */}
         <div className="mt-12 flex justify-between items-center border-t border-neutral-200 dark:border-neutral-800 pt-6">
@@ -177,18 +188,17 @@ export default function BlogPostPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedPosts.slice(0, 3).map(relatedPost => (
-                <Link 
+                <Link
                   key={relatedPost.id}
-                  href={`/blog/${relatedPost.id}`}
+                  href={`/blog/${relatedPost.slug}`}
                   className="group"
                 >
-                  <div className="h-40 bg-neutral-200 dark:bg-neutral-800 rounded-lg mb-4 overflow-hidden">
+                  <div className="relative h-40 bg-neutral-200 dark:bg-neutral-800 rounded-lg mb-4 overflow-hidden">
                     <Image
-                      className="size-full object-cover"
+                      className="object-cover"
                       src={relatedPost.coverImage}
                       alt={relatedPost.title}
                       fill
-                      objectFit='cover'
                     />
                   </div>
                   <h3 className="font-medium group-hover:text-teal-500 transition-colors mb-1">
