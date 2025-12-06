@@ -3,6 +3,19 @@ const nextConfig: NextConfig = {
   experimental: {
     ppr: true,
   },
+  async headers() {
+    return [
+      {
+        source: '/resume/:path*',
+        headers: [
+          {
+            key: 'Content-Disposition',
+            value: 'attachment; filename="Arya_Teja_PM_Resume.pdf"',
+          },
+        ],
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

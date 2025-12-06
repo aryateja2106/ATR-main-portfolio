@@ -47,6 +47,13 @@ export function Header() {
             <MenuItem name="Projects" path="#projects" />
             <MenuItem name="Blog" path="#blogs" />
             <MenuItem name="Contact" path="#contact" />
+            <a
+              href="/resume/Arya_Teja_PM_Resume.pdf"
+              download="Arya_Teja_PM_Resume.pdf"
+              className="rounded-lg p-2 leading-none text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200"
+            >
+              Resume
+            </a>
             <MenuItem name="Chat" path="/chat" />
           </nav>
           <Search />

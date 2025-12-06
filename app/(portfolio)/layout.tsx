@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Poppins, Fira_Code } from "next/font/google";
+import { Inter, JetBrains_Mono, Fira_Code } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import BinaryCursor from "./_components/cursor-animation-wrapper";
@@ -8,12 +8,12 @@ import { Footer } from "./_components/footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Arya Teja Rudraraju | AI Engineer & Automation Specialist",
+    default: "Arya Teja Rudraraju | AI Product Manager | Building LeSearch AI",
     template: "%s • Arya Teja Rudraraju",
   },
   description:
-    "AI Engineer specializing in LLMs, generative AI, and automation solutions for business challenges",
-  metadataBase: new URL("https://www.aryateja.com"), // Fixed to match GA configuration
+    "AI Product Manager at Pilvi Systems, actively seeking Associate PM/APM roles. Built LeSearch AI (50+ users), shipped 6 products. Dallas, TX. OPT visa.",
+  metadataBase: new URL("https://www.aryateja.com"),
   applicationName: "Arya Teja Rudraraju's Portfolio",
   authors: [
     {
@@ -23,37 +23,60 @@ export const metadata: Metadata = {
   ],
   category: "Portfolio Website",
   keywords: [
-    "AI Engineer",
-    "Machine Learning",
+    "AI Product Manager",
+    "Product Manager",
+    "APM",
+    "Associate Product Manager",
+    "LeSearch AI",
+    "Pilvi Systems",
     "LLMs",
-    "Generative AI",
-    "NextJS",
-    "Python",
-    "JavaScript",
-    "TypeScript",
-    "AI Marketing",
-    "Automation",
-    "Langchain",
-    "Crew AI",
+    "RAG Systems",
+    "Machine Learning",
+    "Dallas TX",
+    "Open to Work",
+    "MBA",
   ],
   robots: {
     follow: true,
     index: true,
   },
+  // Google Search Console verification
+  // TODO: After setting up Google Search Console, replace with your actual verification code
+  // 1. Go to https://search.google.com/search-console
+  // 2. Add property: https://aryateja.com
+  // 3. Choose "HTML tag" verification method
+  // 4. Copy the content value and paste below
+  verification: {
+    google: "YOUR_GOOGLE_VERIFICATION_CODE", // Replace after GSC setup
+  },
+  alternates: {
+    canonical: "https://aryateja.com",
+  },
   openGraph: {
-    title: "Arya Teja Rudraraju | AI Engineer & Automation Specialist",
+    title: "Arya Teja Rudraraju | AI Product Manager",
     description:
-      "AI Engineer specializing in LLMs, generative AI, and automation solutions for business challenges",
+      "AI Product Manager at Pilvi Systems, actively seeking Associate PM/APM roles. Built LeSearch AI (50+ users), shipped 6 products.",
     siteName: "Arya Teja Rudraraju",
     type: "website",
-    url: "/",
+    url: "https://aryateja.com",
     emails: ["aryateja2106@gmail.com"],
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Arya Teja Rudraraju - AI Product Manager",
+      },
+    ],
+    locale: "en_US",
   },
   twitter: {
-    title: "Arya Teja Rudraraju | AI Engineer & Automation Specialist",
+    title: "Arya Teja Rudraraju | AI Product Manager",
     description:
-      "AI Engineer specializing in LLMs, generative AI, and automation solutions for business challenges",
+      "AI Product Manager at Pilvi Systems, actively seeking Associate PM/APM roles. Built LeSearch AI (50+ users), shipped 6 products.",
     card: "summary_large_image",
+    images: ["/og-image.png"],
+    creator: "@r_aryateja",
   },
 };
 
@@ -71,10 +94,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const poppins = Poppins({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-poppins",
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -85,6 +108,38 @@ const firaCode = Fira_Code({
   display: "block",
 });
 
+// JSON-LD Structured Data for SEO
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Arya Teja Rudraraju",
+  url: "https://aryateja.com",
+  image: "https://aryateja.com/og-image.png",
+  jobTitle: "AI Product Manager",
+  worksFor: {
+    "@type": "Organization",
+    name: "Pilvi Systems",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Duquesne University",
+  },
+  sameAs: [
+    "https://linkedin.com/in/arya-teja-rudraraju",
+    "https://github.com/aryateja2106",
+    "https://x.com/r_aryateja",
+  ],
+  knowsAbout: [
+    "Product Management",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "LLMs",
+    "RAG Systems",
+    "User Research",
+    "Agile/Scrum",
+  ],
+};
+
 export default async function Layout({
   children,
 }: {
@@ -94,6 +149,12 @@ export default async function Layout({
 
   return (
     <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Google Analytics - Moved to top for better loading */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
@@ -113,9 +174,9 @@ export default async function Layout({
 
       <div lang="en" className="dark scroll-smooth">
         <div
-          className={`scroll-smooth bg-neutral-50 dark:bg-neutral-950 font-sans text-neutral-900 dark:text-neutral-300 selection:bg-purple-400 selection:text-white dark:selection:bg-purple-700 dark:selection:text-white ${inter.variable} ${poppins.variable} ${firaCode.variable}`}
+          className={`scroll-smooth bg-neutral-50 dark:bg-neutral-950 font-sans text-neutral-900 dark:text-neutral-300 selection:bg-emerald-400 selection:text-neutral-950 dark:selection:bg-emerald-500 dark:selection:text-neutral-950 ${inter.variable} ${jetbrainsMono.variable} ${firaCode.variable}`}
         >
-          <div className="relative">
+          <div className="relative grain">
             <BinaryCursor />
             <Header />
             <main>{children}</main>

@@ -102,13 +102,13 @@ export function Hero() {
             <span className="flex w-full items-center justify-center text-center text-2xl text-neutral-400 md:min-h-fit md:justify-start md:text-left md:text-3xl">
               <Typewriter
                 words={[
-                  'Aspiring AI Engineer',
-                  'AI Solution Provider',
-                  'From Business to Binary',
-                  'AI Tool Navigator',
-                  'MCP Builder & Expert',
-                  'AI Workflow Optimizer',
-                  'Cutting-Edge Tool Curator'
+                  'AI Product Manager',
+                  'Building LeSearch AI',
+                  'PM Who Codes',
+                  'Open to APM Roles',
+                  'From 0 → 1 Products',
+                  'LLM & RAG Expert',
+                  'Shipped 6 AI Products'
                 ]}
                 loop
               />
@@ -117,33 +117,45 @@ export function Hero() {
           </motion.div>
           
           {/* Value Proposition with animated reveal */}
-          <motion.p 
+          <motion.p
             className="text-neutral-300 text-lg max-w-lg text-center md:text-left backdrop-blur-sm md:backdrop-brightness-100 p-2 md:p-0 rounded-lg border border-neutral-800/40 md:border-0"
             variants={itemVariants}
           >
-           Helping you navigate the AI tool landscape to find the perfect solutions for your unique needs.
+            AI Product Manager who codes. Building LeSearch AI, shipping MVPs at Pilvi Systems, and actively seeking Associate PM/APM roles.
           </motion.p>
           
           {/* Call to Action Buttons with hover effects */}
-          <motion.div 
+          <motion.div
             className="flex flex-col sm:flex-row gap-4 pt-2 w-full sm:w-auto"
             variants={itemVariants}
           >
-            {/* Primary CTA */}
-            <Link 
-              href="/" 
-              className="group relative px-6 py-3 bg-teal-400 text-neutral-900 font-medium rounded-md hover:bg-teal-500 transition-all duration-300 text-center overflow-hidden"
+            {/* Primary CTA - Resume Download */}
+            <a
+              href="/resume/Arya_Teja_PM_Resume.pdf"
+              download="Arya_Teja_PM_Resume.pdf"
+              onClick={() => {
+                if (typeof window !== 'undefined' && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+                  (window as unknown as { gtag: (...args: unknown[]) => void }).gtag('event', 'resume_download', {
+                    event_category: 'engagement',
+                    event_label: 'Resume PDF Download'
+                  });
+                }
+              }}
+              className="group relative px-6 py-3 bg-teal-400 text-neutral-900 font-medium rounded-md hover:bg-teal-500 transition-all duration-300 text-center overflow-hidden inline-flex items-center justify-center gap-2"
             >
-              <span className="relative z-10 group-hover:text-neutral-900">Schedule a Discovery Call</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span className="relative z-10 group-hover:text-neutral-900">Download Resume</span>
               <span className="absolute inset-0 w-0 bg-neutral-900/10 group-hover:w-full transition-all duration-300 ease-in-out" />
-            </Link>
-            
-            {/* Secondary CTA */}
-            <Link 
-              href="/" 
+            </a>
+
+            {/* Secondary CTA - Contact */}
+            <Link
+              href="#contact"
               className="group relative px-6 py-3 border border-teal-400 text-teal-400 font-medium rounded-md hover:bg-neutral-800 transition-all duration-300 text-center"
             >
-              <span className="relative z-10">Access Free AI Resources</span>
+              <span className="relative z-10">Get in Touch</span>
               <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-teal-400 group-hover:w-full transition-all duration-300 ease-in-out" />
             </Link>
           </motion.div>

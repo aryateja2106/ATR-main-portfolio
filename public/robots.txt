@@ -1,0 +1,24 @@
+# robots.txt for aryateja.com
+User-agent: *
+Allow: /
+
+# Allow AI crawlers explicitly
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Block internal/private paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /chat/
+
+# Sitemap location
+Sitemap: https://aryateja.com/sitemap.xml

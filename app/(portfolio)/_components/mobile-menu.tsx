@@ -97,6 +97,14 @@ export function CommandPalette({
 			keywords: ["me", "info", "profile"],
 		},
 		{
+			id: "resume",
+			name: "Resume",
+			icon: File,
+			href: "/resume/Arya_Teja_PM_Resume.pdf",
+			section: "Navigation",
+			keywords: ["cv", "download", "pdf", "curriculum"],
+		},
+		{
 			id: "guestbook",
 			name: "Guestbook",
 			icon: Book,
@@ -344,6 +352,11 @@ export default function MobileMenu() {
 								<Link title="Blog" icon={Note} href="/blog" />
 								<Link title="Projects" icon={Briefcase} href="/projects" />
 								<Link title="About" icon={User} href="/about" />
+								<OutLink
+									title="Resume"
+									icon={File}
+									href="/resume/Arya_Teja_PM_Resume.pdf"
+								/>
 								<Link title="Guestbook" icon={Book} href="/guestbook" />
 								<Link title="Sitemap" icon={TreeStructure} href="/sitemap" />
 								<Link title="AI Assistant" icon={MagnifyingGlass} href="/chat" />
