@@ -12,7 +12,7 @@ import { toast } from 'sonner';
 import { generateUUID } from '@/lib/utils';
 import {
   Console,
- type ConsoleOutput,
+  type ConsoleOutput,
   type ConsoleOutputContent,
 } from '@/components/console';
 
@@ -79,7 +79,7 @@ const loadPyodideScript = async () => {
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js';
     script.async = true;
-    
+
     // Create a promise that resolves when the script is loaded
     return new Promise<void>((resolve, reject) => {
       script.onload = () => resolve();
@@ -159,12 +159,12 @@ export const codeArtifact = new Artifact<'code', Metadata>({
         try {
           // Load Pyodide script if not already loaded
           await loadPyodideScript();
-          
+
           // Now we can use loadPyodide
           if (!window.loadPyodide) {
             throw new Error('Failed to load Pyodide library');
           }
-          
+
           const currentPyodideInstance = await window.loadPyodide({
             indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.23.4/full/',
           });

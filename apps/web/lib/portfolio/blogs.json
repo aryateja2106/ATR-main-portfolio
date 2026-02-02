@@ -1,0 +1,70 @@
+{
+  "blogPosts": [
+    {
+      "id": "1",
+      "slug": "connecting-terminals-to-web-mconnect",
+      "title": "Connecting Terminals to the Web: The mconnect Story",
+      "description": "How I built a mobile-first bridge for AI coding agents using Node PTY and Cloudflare Tunnels.",
+      "excerpt": "Coding agents like Claude and Cursor live in the terminal, but I wanted to control them from my phone. Here is how I built mconnect to solve the 'coffee shop problem'.",
+      "date": "2025-10-15",
+      "formattedDate": "October 15, 2025",
+      "readTime": "6 min read",
+      "category": "Open Source",
+      "tags": ["Node.js", "WebSockets", "Cloudflare", "AI Agents"],
+      "coverImage": "/assets/mconnect.png",
+      "author": {
+        "id": "1",
+        "name": "Arya Teja Rudraraju",
+        "avatar": "/images/avatar-arya.jpg",
+        "bio": "AI Product Manager & Engineering Lead",
+        "twitter": "@r_aryateja"
+      },
+      "relatedArticles": ["2", "3"],
+      "content": "I love AI coding agents. Claude Code and Cursor have completely changed how I build software. But they have one fatal flaw: they are tethered to my laptop. If I step away to grab a coffee or go for a walk, the agent stops, or worse, pauses at a confirmation prompt.\n\nI wanted a way to check on my agents—and actually *control* them—from my phone. Not a VNC session (too laggy). Not SSH (too clunky on mobile). I wanted a mobile-first UI that felt like a native app.\n\n## The Problem: TTY transparency\n\nMost web terminals are just dumb pipes. They send keystrokes and receive text. But AI agents like Claude Code use complex TUI (Text User Interface) libraries like Ink or Bubble Tea. They re-render lines, use colors, and capture specific key combos. \n\nSending raw text wasn't enough. I needed full PTY (Pseudo-Terminal) emulation.\n\n## The Solution: mconnect\n\nI built **LeCoder mconnect** (`npx lecoder-mconnect`) to bridge this gap. It's an open-source tool that sits between your shell and the web.\n\n### How it works\n\n1.  **PTY Management**: It spawns a `node-pty` process that acts as a real terminal.\n2.  **WebSocket Sync**: It pumps xterm.js data over a specialized WebSocket protocol.\n3.  **Cloudflare Tunnel**: It instantly creates a secure, encrypted public URL so I can access it from LTE/5G without opening router ports.\n\n### The 'Aha' Moment\n\nThe real magic happened when I added the QR code feature. You run one command on your Mac, scan the QR code with your phone, and boom—you have full control of your terminal. \n\nI now kick off long-running migrations or test suites, walk to the gym, and approve the agent's next step from the treadmill. It feels like having a superpower.\n\n[Check out the code on GitHub](https://github.com/aryateja2106/lecoder-mconnect)."
+    },
+    {
+      "id": "2",
+      "slug": "building-lesearch-from-papers-to-action",
+      "title": "Building LeSearch: From Papers to Action",
+      "description": "Why we are drowning in PDF research and how I built an AI platform to fix it.",
+      "excerpt": "Research is broken. We read 100 papers to use 1. I built LeSearch AI to turn static PDFs into active knowledge graphs and actionable insights.",
+      "date": "2025-09-01",
+      "formattedDate": "September 1, 2025",
+      "readTime": "8 min read",
+      "category": "Product Engineering",
+      "tags": ["RAG", "Product Management", "Startup", "React"],
+      "coverImage": "/assets/lesearch.png",
+      "author": {
+        "id": "1",
+        "name": "Arya Teja Rudraraju",
+        "avatar": "/images/avatar-arya.jpg",
+        "bio": "AI Product Manager & Engineering Lead",
+        "twitter": "@r_aryateja"
+      },
+      "relatedArticles": ["1", "3"],
+      "content": "Every researcher knows the pain. You find a promising paper title. You download the PDF. You skim the abstract. You realize it's irrelevant. Repeat 50 times.\n\nWhen you finally find the *right* paper, extracting the data into a usable format is a manual nightmare.\n\n## The Hypothesis\n\nI believed that LLMs could fix this funnel. Not just by \"chatting with PDF\"—that's table stakes now—but by understanding the *relationships* between papers. If Paper A cites Paper B, and Paper B refutes Paper A, an AI should be able to surface that tension immediately.\n\n## Building LeSearch AI\n\n### The Beta\nI hacked together the MVP in a weekend using Next.js and Supabase. The goal was simple: Upload a PDF, get a structured summary, and see a graph of related concepts.\n\nI launched it to a small group of grad students and policy analysts. \n\n**What worked:**\n- The **Knowledge Graph** visualization was a hit. People loved seeing how concepts connected visually.\n- **Guided Briefs**: Instead of a generic summary, the AI generated a specific \"Policy Brief\" or \"Technical Memo\" based on user intent.\n\n**What failed:**\n- **Hallucinations**: Early RAG implementations were too confident. I had to implement strict citation grounding—if the AI couldn't highlight the sentence in the PDF, it wasn't allowed to say it.\n\n## The Pivot\n\nAfter 50+ beta users, I realized the real value wasn't in *reading* papers, but in *synthesizing* them. Users didn't want a faster reader; they wanted a research assistant that could say, \"Here are the 3 papers that disagree with your hypothesis.\"\n\nWe are now rebuilding LeSearch with this \"Synthesis Engine\" at the core. It's leaner, faster, and focused entirely on moving from \"Saved PDF\" to \"Actionable Insight.\"\n\n[Try the beta](https://lesearch-app.vercel.app)"
+    },
+    {
+      "id": "3",
+      "slug": "why-i-bet-on-open-source-agents",
+      "title": "Why I Bet on Open Source AI Agents",
+      "description": "The future of AI isn't in closed silos. It's in composable, open protocols like MCP.",
+      "excerpt": "Closed ecosystem agents are a dead end. The real innovation is happening where tools can talk to each other without asking for permission. Here is why I am betting my career on Open Source AI.",
+      "date": "2025-11-10",
+      "formattedDate": "November 10, 2025",
+      "readTime": "5 min read",
+      "category": "Philosophy",
+      "tags": ["Open Source", "AI Strategy", "Future", "Agents"],
+      "coverImage": "/assets/opensource.png",
+      "author": {
+        "id": "1",
+        "name": "Arya Teja Rudraraju",
+        "avatar": "/images/avatar-arya.jpg",
+        "bio": "AI Product Manager & Engineering Lead",
+        "twitter": "@r_aryateja"
+      },
+      "relatedArticles": ["1", "2"],
+      "content": "There are two visions for the future of AI Agents.\n\n**Vision A**: The Walled Garden. Apple Intelligence knows your calendar. Microsoft Copilot knows your Word docs. Google Gemini knows your emails. None of them talk to each other, and none of them talk to the tools *you* actually build.\n\n**Vision B**: The Bazaar. A mesh of specialized agents—a coding agent, a research agent, a scheduling agent—that communicate over standard protocols. They are swappable, inspectable, and most importantly, *yours*.\n\n## The Case for Openness\n\nI am betting on Vision B. Not just because it's philosophically nice, but because it's technically superior.\n\n### 1. The N+1 Problem\nNo single company can build integrations for every SaaS tool in existence. If we rely on OpenAI to build a \"Salesforce Connector,\" we'll wait forever. But if we have an open standard (like **MCP**), the community builds the connector once, and *every* agent can use it.\n\n### 2. Trust Requires Inspection\nWould you let an AI delete production databases if you couldn't see the code it was running? Me neither. For agents to do real work, they need to be transparent. Open source agents allow us to build \"Guardrails\" (like I did with **mconnect**) that strictly define what an AI can and cannot do.\n\n### 3. Composition > Monoliths\nI don't want one giant \"God Model\" that is mediocre at everything. I want a deeply specialized Medical Research agent to talk to a specialized Data Visualization agent. That composition only happens if we agree on open standards.\n\n## Building the Community\n\nThis is why I spend my nights building open source tools. I want to attract the builders who see this future. The ones who aren't waiting for permission to build the next layer of intelligence. \n\nIf that's you, let's build together."
+    }
+  ]
+}

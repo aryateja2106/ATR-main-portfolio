@@ -1,0 +1,29 @@
+# Arya Teja Rudraraju
+
+> AI Product Leader & Agentic Systems Builder. Currently AI Product Manager at Pilvi Systems and Founder of LeSearch AI. Specializing in 0→1 AI product development, LLM reasoning, and Agentic workflows. Based in Dallas, TX.
+
+I bridge the gap between AI research and engineering, building products that solve real problems using cutting-edge Generative AI.
+
+## Key Projects
+
+- **LeSearch AI**: AI-native research workspace. (Active, 50+ users)
+- **Pilvi Systems**: Enterprise AI automation. (Active)
+
+## Core Competencies
+
+- **AI/ML**: Agentic Frameworks, LLMs (GPT-4, Claude 3, Gemini), RAG, Prompt Engineering, Evaluation Chains.
+- **Product**: 0→1 Strategy, Technical PRDs, User Discovery, Analytics (Amplitude).
+- **Engineering**: Next.js, Python, TypeScript, Supabase, Vector Databases.
+
+## Links
+
+- [Home](https://aryateja.com)
+- [Resume](https://aryateja.com/resume)
+- [LinkedIn](https://linkedin.com/in/arya-teja-rudraraju)
+- [GitHub](https://github.com/aryateja2106)
+- [Twitter](https://x.com/r_aryateja)
+
+## Contact
+
+- **Email**: aryateja2106@gmail.com
+- **Status**: Open to AI Product Management roles.

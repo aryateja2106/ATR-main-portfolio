@@ -23,7 +23,8 @@ export const codeDocumentHandler = createDocumentHandler<'code'>({
 
       if (type === 'object') {
         const { object } = delta;
-        const { code } = object;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const { code } = object as any;
 
         if (code) {
           dataStream.writeData({
@@ -55,7 +56,8 @@ export const codeDocumentHandler = createDocumentHandler<'code'>({
 
       if (type === 'object') {
         const { object } = delta;
-        const { code } = object;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const { code } = object as any;
 
         if (code) {
           dataStream.writeData({
