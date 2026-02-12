@@ -1,9 +1,10 @@
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import {
 	customProvider,
 	extractReasoningMiddleware,
 	wrapLanguageModel,
 } from "ai";
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
+
 // import { createOpenRouter } from '@openrouter/ai-sdk-provider';
 
 interface OpenRouterHeaders {
@@ -34,16 +35,16 @@ if (process.env.OPENROUTER_SITE_NAME) {
 // });
 
 const reasoningModel = wrapLanguageModel({
-	model: google("gemini-2.0-flash-thinking-exp" as any) as any,
+	model: google("gemini-2.0-flash-thinking-exp") as any,
 	middleware: extractReasoningMiddleware({ tagName: "think" }),
 });
 
 export const myProvider = customProvider({
 	languageModels: {
-		"chat-model": google("gemini-2.0-flash-exp" as any) as any,
-		"chat-model-reasoning": reasoningModel as any,
-		"title-model": google("gemini-1.5-flash" as any) as any,
-		"artifact-model": google("gemini-2.0-flash-exp" as any) as any,
+		"chat-model": google("gemini-2.0-flash-exp") as any,
+		"chat-model-reasoning": reasoningModel,
+		"title-model": google("gemini-1.5-flash") as any,
+		"artifact-model": google("gemini-2.0-flash-exp") as any,
 		// 'openrouter-gpt-4o': openrouter.chat(
 		//   process.env.OPENROUTER_CHAT_MODEL || 'openai/gpt-4o',
 		// ),
