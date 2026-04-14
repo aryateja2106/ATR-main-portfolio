@@ -1,38 +1,38 @@
-import { Toaster } from 'sonner';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import { ThemeProvider } from '@/components/theme-provider';
+import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 
-import './globals.css';
-import 'react-data-grid/lib/styles.css';
+import "./globals.css";
+import "react-data-grid/lib/styles.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://aryateja.com'),
-  title: 'Arya Teja Rudraraju | AI Product Leader & Agentic Systems Builder',
-  description:
-    'AI Product Manager shipping 0->1 products at Pilvi Systems and building LeSearch AI. Specializing in LLM reasoning, Agentic workflows, and Technical Product Management.',
+	metadataBase: new URL("https://aryateja.com"),
+	title: "Arya Teja Rudraraju | AI Agent Engineer & Systems Builder",
+	description:
+		"AI Agent Engineer building production-ready autonomous systems. Specializing in LLM reasoning, Agentic workflows, and Full-Stack AI.",
 };
 
 export const viewport = {
-  maximumScale: 1, // Disable auto-zoom on mobile Safari
+	maximumScale: 1, // Disable auto-zoom on mobile Safari
 };
 
 const geist = Geist({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-geist',
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-geist",
 });
 
 const geistMono = Geist_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-geist-mono',
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-geist-mono",
 });
 
-const LIGHT_THEME_COLOR = 'hsl(0 0% 100%)';
-const DARK_THEME_COLOR = 'hsl(240deg 10% 3.92%)';
+const LIGHT_THEME_COLOR = "hsl(0 0% 100%)";
+const DARK_THEME_COLOR = "hsl(240deg 10% 3.92%)";
 const THEME_COLOR_SCRIPT = `\
 (function() {
   var html = document.documentElement;
@@ -52,84 +52,85 @@ const THEME_COLOR_SCRIPT = `\
 })();`;
 
 export default async function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html
-      lang="en"
-      // `next-themes` injects an extra classname to the body element to avoid
-      // visual flicker before hydration. Hence the `suppressHydrationWarning`
-      // prop is necessary to avoid the React hydration mismatch warning.
-      // https://github.com/pacocoursey/next-themes?tab=readme-ov-file#with-app
-      suppressHydrationWarning
-      className={`${geist.variable} ${geistMono.variable}`}
-    >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: THEME_COLOR_SCRIPT,
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Arya Teja Rudraraju',
-              jobTitle: 'AI Product Manager',
-              description:
-                'AI Product Manager at Pilvi Systems and Founder of LeSearch AI. Specializing in Agentic Systems and LLM Product Management.',
-              url: 'https://aryateja.com',
-              sameAs: [
-                'https://linkedin.com/in/arya-teja-rudraraju',
-                'https://github.com/aryateja2106',
-                'https://x.com/r_aryateja',
-              ],
-              worksFor: [
-                {
-                  '@type': 'Organization',
-                  name: 'Pilvi Systems',
-                  jobTitle: 'AI Product Manager',
-                },
-                {
-                  '@type': 'Organization',
-                  name: 'LeSearch AI',
-                  jobTitle: 'Founder & Product Lead',
-                },
-              ],
-              alumniOf: {
-                '@type': 'EducationalOrganization',
-                name: 'Duquesne University',
-              },
-              knowsAbout: [
-                'AI Product Management',
-                'AI Agents',
-                'LLM Reasoning',
-                'RAG Systems',
-                'Product Strategy',
-                'Context Engineering',
-                'Model Context Protocol (MCP)',
-              ],
-            }),
-          }}
-        />
-      </head>
-      <body className="antialiased dark scroll-smooth">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Toaster position="top-center" />
-          {children}
-          <Analytics />
-          <SpeedInsights />
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+	return (
+		<html
+			lang="en"
+			// `next-themes` injects an extra classname to the body element to avoid
+			// visual flicker before hydration. Hence the `suppressHydrationWarning`
+			// prop is necessary to avoid the React hydration mismatch warning.
+			// https://github.com/pacocoursey/next-themes?tab=readme-ov-file#with-app
+			suppressHydrationWarning
+			// className={`${geist.variable} ${geistMono.variable}`}
+			className="antialiased"
+		>
+			<head>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: THEME_COLOR_SCRIPT,
+					}}
+				/>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "Person",
+							name: "Arya Teja Rudraraju",
+							jobTitle: "AI Agent Engineer",
+							description:
+								"AI Agent Engineer building production-ready autonomous systems. Specializing in Agentic Systems and LLM Ops.",
+							url: "https://aryateja.com",
+							sameAs: [
+								"https://linkedin.com/in/arya-teja-rudraraju",
+								"https://github.com/aryateja2106",
+								"https://x.com/r_aryateja",
+							],
+							worksFor: [
+								{
+									"@type": "Organization",
+									name: "Pilvi Systems",
+									jobTitle: "AI Agent Engineer",
+								},
+								{
+									"@type": "Organization",
+									name: "LeSearch AI",
+									jobTitle: "Founder & Lead Engineer",
+								},
+							],
+							alumniOf: {
+								"@type": "EducationalOrganization",
+								name: "Duquesne University",
+							},
+							knowsAbout: [
+								"AI Engineering",
+								"AI Agents",
+								"LLM Reasoning",
+								"RAG Systems",
+								"System Architecture",
+								"Context Engineering",
+								"Model Context Protocol (MCP)",
+							],
+						}),
+					}}
+				/>
+			</head>
+			<body className="antialiased dark scroll-smooth grain">
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="dark"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<Toaster position="top-center" />
+					{children}
+					<Analytics />
+					<SpeedInsights />
+				</ThemeProvider>
+			</body>
+		</html>
+	);
 }

@@ -8,4 +8,5 @@ Host: https://aryateja.com
 Sitemap: https://aryateja.com/sitemap.xml
 
 # LLMS
+Allow: /llms.txt
 Disallow: /private/

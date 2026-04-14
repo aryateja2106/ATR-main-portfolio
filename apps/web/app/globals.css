@@ -2,83 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
+@layer base {
+  :root {
+    /* "Refined Intelligence" Palette - Light Mode (Clean, airy) */
+    --background: 0 0% 98%;
+    --foreground: 240 10% 4%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 4%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 4%;
+    
+    --primary: 168 74% 50%; /* Teal-500 #2dd4bf */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 5.9% 10%;
+    
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+    
+    --accent: 168 74% 50%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
 
-    /* Terminal Color Palette */
-    --terminal-green: #00FF88;
-    --terminal-green-dim: #00CC6A;
-    --terminal-cyan: #00D9FF;
-    --terminal-amber: #FFB800;
-    --terminal-red: #FF4757;
-    --terminal-purple: #A855F7;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 168 74% 50%;
 
-    /* Glow effects */
-    --glow-green: 0 0 20px rgba(0, 255, 136, 0.4);
-    --glow-cyan: 0 0 20px rgba(0, 217, 255, 0.4);
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* "Refined Intelligence" Palette - Dark Mode (Deep, atmospheric) */
+    --background: 240 10% 3%; /* Extremely deep blue-black #070708 */
+    --foreground: 0 0% 98%;
+    
+    --card: 240 10% 4%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 168 74% 50%; /* Teal-500 */
+    --primary-foreground: 240 10% 4%;
+    
+    --secondary: 240 4% 10%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 240 4% 10%;
+    --muted-foreground: 240 5% 60%;
+    
+    --accent: 168 74% 50%;
+    --accent-foreground: 240 10% 4%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 4% 12%;
+    --input: 240 4% 12%;
+    --ring: 168 74% 50%;
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 0, 0, 0;
-        --background-end-rgb: 0, 0, 0;
-    }
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
 }
 
 @layer utilities {
-    .text-balance {
-        text-wrap: balance;
-    }
-
-    /* Terminal Text Styles */
-    .font-mono {
-        font-family: var(--font-mono), 'JetBrains Mono', 'Fira Code', monospace;
-    }
-
-    .text-terminal {
-        color: var(--terminal-green);
-        text-shadow: var(--glow-green);
-    }
-
-    .text-terminal-dim {
-        color: var(--terminal-green-dim);
-    }
-
-    /* Terminal Cursor Blink */
-    .cursor-blink::after {
-        content: '▋';
-        animation: blink 1s step-end infinite;
-        color: var(--terminal-green);
-    }
-
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
-
-    /* Subtle Scanline Effect */
-    .scanlines::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            rgba(0, 0, 0, 0.03) 2px,
-            rgba(0, 0, 0, 0.03) 4px
-        );
-        pointer-events: none;
-        z-index: 100;
-    }
-
-    /* Grain/Noise Texture */
+    /* Design Skill: Atmospheric Grain */
     .grain::after {
         content: '';
         position: fixed;
@@ -86,250 +87,21 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        opacity: 0.02; /* Very subtle */
         pointer-events: none;
         z-index: 9999;
+        mix-blend-mode: overlay;
     }
 
-    /* Terminal Prompt */
-    .prompt::before {
-        content: '>';
-        color: var(--terminal-green);
-        margin-right: 0.5rem;
-        font-family: var(--font-mono);
+    /* Design Skill: Refined Glassmorphism */
+    .glass-panel {
+        @apply bg-white/5 backdrop-blur-md border border-white/5 shadow-xl;
     }
-
-    /* Glitch Effect */
-    .glitch {
-        position: relative;
-    }
-
-    .glitch::before,
-    .glitch::after {
-        content: attr(data-text);
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    .glitch::before {
-        animation: glitch-1 2s infinite linear alternate-reverse;
-        clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-        color: var(--terminal-cyan);
-    }
-
-    .glitch::after {
-        animation: glitch-2 2s infinite linear alternate-reverse;
-        clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-        color: var(--terminal-red);
-    }
-
-    @keyframes glitch-1 {
-        0%, 100% { transform: translateX(0); }
-        20% { transform: translateX(-2px); }
-        40% { transform: translateX(2px); }
-        60% { transform: translateX(-1px); }
-        80% { transform: translateX(1px); }
-    }
-
-    @keyframes glitch-2 {
-        0%, 100% { transform: translateX(0); }
-        20% { transform: translateX(2px); }
-        40% { transform: translateX(-2px); }
-        60% { transform: translateX(1px); }
-        80% { transform: translateX(-1px); }
-    }
-
-    /* Terminal Card */
-    .terminal-card {
-        background: linear-gradient(180deg, rgba(10, 10, 10, 0.9) 0%, rgba(5, 5, 5, 0.95) 100%);
-        border: 1px solid rgba(0, 255, 136, 0.15);
-        border-radius: 8px;
-        box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.05),
-            0 4px 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .terminal-card:hover {
-        border-color: rgba(0, 255, 136, 0.3);
-        box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.05),
-            0 4px 30px rgba(0, 255, 136, 0.1);
-    }
-
-    /* Terminal Header Bar */
-    .terminal-header {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        padding: 10px 14px;
-        background: rgba(30, 30, 30, 0.8);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 8px 8px 0 0;
-    }
-
-    .terminal-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-    }
-
-    .terminal-dot-red { background: #ff5f57; }
-    .terminal-dot-yellow { background: #febc2e; }
-    .terminal-dot-green { background: #28c840; }
-}
-
-@layer base {
-    :root {
-        --background: 0 0% 100%;
-        --foreground: 240 10% 3.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 240 10% 3.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 240 10% 3.9%;
-        --primary: 240 5.9% 10%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 240 4.8% 95.9%;
-        --secondary-foreground: 240 5.9% 10%;
-        --muted: 240 4.8% 95.9%;
-        --muted-foreground: 240 3.8% 46.1%;
-        --accent: 240 4.8% 95.9%;
-        --accent-foreground: 240 5.9% 10%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 240 5.9% 90%;
-        --input: 240 5.9% 90%;
-        --ring: 240 10% 3.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
-        --radius: 0.5rem;
-        --sidebar-background: 0 0% 98%;
-        --sidebar-foreground: 240 5.3% 26.1%;
-        --sidebar-primary: 240 5.9% 10%;
-        --sidebar-primary-foreground: 0 0% 98%;
-        --sidebar-accent: 240 4.8% 95.9%;
-        --sidebar-accent-foreground: 240 5.9% 10%;
-        --sidebar-border: 220 13% 91%;
-        --sidebar-ring: 217.2 91.2% 59.8%;
-    }
-    .dark {
-        --background: 240 10% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 240 10% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 240 10% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 240 5.9% 10%;
-        --secondary: 240 3.7% 15.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 240 3.7% 15.9%;
-        --muted-foreground: 240 5% 64.9%;
-        --accent: 240 3.7% 15.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 240 3.7% 15.9%;
-        --input: 240 3.7% 15.9%;
-        --ring: 240 4.9% 83.9%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
-        --sidebar-background: 240 5.9% 10%;
-        --sidebar-foreground: 240 4.8% 95.9%;
-        --sidebar-primary: 224.3 76.3% 48%;
-        --sidebar-primary-foreground: 0 0% 100%;
-        --sidebar-accent: 240 3.7% 15.9%;
-        --sidebar-accent-foreground: 240 4.8% 95.9%;
-        --sidebar-border: 240 3.7% 15.9%;
-        --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Design Skill: Minimal Text Selection */
+    ::selection {
+        @apply bg-teal-500/30 text-teal-200;
     }
 }
 
-@layer base {
-    * {
-        @apply border-border;
-    }
-
-    body {
-        @apply bg-background text-foreground;
-    }
-}
-
-/* Text selection styling */
-::selection {
-    background-color: oklch(0.488 0.243 264.376); /* Primary color in dark mode */
-    color: white;
-  }
-  
-  .dark ::selection {
-    background-color: oklch(0.488 0.243 264.376); /* Primary color in dark mode */
-    color: white;
-  }
-
-.skeleton {
-    * {
-        pointer-events: none !important;
-    }
-
-    *[class^="text-"] {
-        color: transparent;
-        @apply rounded-md bg-foreground/20 select-none animate-pulse;
-    }
-
-    .skeleton-bg {
-        @apply bg-foreground/10;
-    }
-
-    .skeleton-div {
-        @apply bg-foreground/20 animate-pulse;
-    }
-}
-
-.ProseMirror {
-    outline: none;
-}
-
-.cm-editor,
-.cm-gutters {
-    @apply bg-background dark:bg-zinc-800 outline-none selection:bg-zinc-900 !important;
-}
-
-.ͼo.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground,
-.ͼo.cm-selectionBackground,
-.ͼo.cm-content::selection {
-    @apply bg-zinc-200 dark:bg-zinc-900 !important;
-}
-
-.cm-activeLine,
-.cm-activeLineGutter {
-    @apply bg-transparent !important;
-}
-
-.cm-activeLine {
-    @apply rounded-r-sm !important;
-}
-
-.cm-lineNumbers {
-    @apply min-w-7;
-}
-
-.cm-foldGutter {
-    @apply min-w-3;
-}
-
-.cm-lineNumbers .cm-activeLineGutter {
-    @apply rounded-l-sm !important;
-}
-
-.suggestion-highlight {
-    @apply bg-blue-200 hover:bg-blue-300 dark:hover:bg-blue-400/50 dark:text-blue-50 dark:bg-blue-500/40;
-}

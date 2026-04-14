@@ -16,7 +16,7 @@
         "id": "1",
         "name": "Arya Teja Rudraraju",
         "avatar": "/images/avatar-arya.jpg",
-        "bio": "AI Product Manager & Engineering Lead",
+        "bio": "AI Agent Engineer & Founder",
         "twitter": "@r_aryateja"
       },
       "relatedArticles": ["2", "3"],
@@ -38,7 +38,7 @@
         "id": "1",
         "name": "Arya Teja Rudraraju",
         "avatar": "/images/avatar-arya.jpg",
-        "bio": "AI Product Manager & Engineering Lead",
+        "bio": "AI Agent Engineer & Founder",
         "twitter": "@r_aryateja"
       },
       "relatedArticles": ["1", "3"],
@@ -60,11 +60,55 @@
         "id": "1",
         "name": "Arya Teja Rudraraju",
         "avatar": "/images/avatar-arya.jpg",
-        "bio": "AI Product Manager & Engineering Lead",
+        "bio": "AI Agent Engineer & Founder",
         "twitter": "@r_aryateja"
       },
       "relatedArticles": ["1", "2"],
       "content": "There are two visions for the future of AI Agents.\n\n**Vision A**: The Walled Garden. Apple Intelligence knows your calendar. Microsoft Copilot knows your Word docs. Google Gemini knows your emails. None of them talk to each other, and none of them talk to the tools *you* actually build.\n\n**Vision B**: The Bazaar. A mesh of specialized agents—a coding agent, a research agent, a scheduling agent—that communicate over standard protocols. They are swappable, inspectable, and most importantly, *yours*.\n\n## The Case for Openness\n\nI am betting on Vision B. Not just because it's philosophically nice, but because it's technically superior.\n\n### 1. The N+1 Problem\nNo single company can build integrations for every SaaS tool in existence. If we rely on OpenAI to build a \"Salesforce Connector,\" we'll wait forever. But if we have an open standard (like **MCP**), the community builds the connector once, and *every* agent can use it.\n\n### 2. Trust Requires Inspection\nWould you let an AI delete production databases if you couldn't see the code it was running? Me neither. For agents to do real work, they need to be transparent. Open source agents allow us to build \"Guardrails\" (like I did with **mconnect**) that strictly define what an AI can and cannot do.\n\n### 3. Composition > Monoliths\nI don't want one giant \"God Model\" that is mediocre at everything. I want a deeply specialized Medical Research agent to talk to a specialized Data Visualization agent. That composition only happens if we agree on open standards.\n\n## Building the Community\n\nThis is why I spend my nights building open source tools. I want to attract the builders who see this future. The ones who aren't waiting for permission to build the next layer of intelligence. \n\nIf that's you, let's build together."
+    },
+    {
+      "id": "4",
+      "slug": "agentic-engineering-beyond-vibe-coding",
+      "title": "Agentic Engineering: Moving Beyond Vibe Coding",
+      "description": "Why 'Vibe Coding' is a dangerous misnomer and how 'Company as Code' provides the missing structure for autonomous agents.",
+      "excerpt": "We are moving from 'Vibe Coding' to disciplined 'Agentic Engineering'. But to truly scale, we need to treat our organizations as code.",
+      "date": "2026-02-13",
+      "formattedDate": "February 13, 2026",
+      "readTime": "7 min read",
+      "category": "AI Engineering",
+      "tags": ["Agentic Engineering", "Company as Code", "AI Product Management", "Vibe Coding"],
+      "coverImage": "/assets/agentic-engineering.png",
+      "author": {
+        "id": "1",
+        "name": "Arya Teja Rudraraju",
+        "avatar": "/images/avatar-arya.jpg",
+        "bio": "AI Agent Engineer & Founder",
+        "twitter": "@r_aryateja"
+      },
+      "relatedArticles": ["3", "1"],
+      "content": "A year ago, Andrej Karpathy coined **\"Vibe Coding\"** to describe a new way of programming: you prompt, you accept the code, you run it. If it works, great. If not, paste the error back and prompt again. \n\nIt's a visceral, fast, and undeniably fun way to build software. It feels like magic. But as [Addy Osmani points out](https://addyosmani.com/blog/agentic-engineering/), it has become a \"suitcase term\" that conflates two very different activities: **prototyping** and **engineering**.\n\n## The Problem with Vibes\n\n\"Vibe coding\" is perfect for hackathons, personal scripts, and learning. It lowers the barrier to entry and lets you move at the speed of thought. \n\nBut in a professional context, \"vibes\" don't scale. \n\nIf you build a production payment system on vibes, you are building a liability. When (not if) it breaks, you won't know how to fix it because you didn't really write it. As Addy notes, *\"This isn't engineering, it's hoping.\"*\n\n## Enter Agentic Engineering\n\nWe need a professional discipline for this new era. Addy suggests **\"Agentic Engineering\"**, and I think it's the perfect term.\n\nAgentic Engineering is not about blindly trusting the AI. It's about **orchestration**. \n\n- **You** are the architect.\n- **You** write the specs and design docs.\n- **You** review the code with rigor.\n- **The AI Agents** handle the implementation, testing, and refinement.\n\nThe key difference? **Discipline.** You are trading typing time for review time, and implementation effort for high-level system design.\n\n## The Future\n\nWe are moving from \"Vibe Coding\" (chaos) to \"Agentic Engineering\" (structure). The developers who win won't be the ones who prompt the fastest, but the ones who can architect the systems that agents live in."
+    },
+    {
+      "id": "5",
+      "slug": "company-as-code-programmable-organization",
+      "title": "Company as Code: The Missing OS for Agents",
+      "description": "Why we need to treat our organizations like software: versioned, queryable, and agent-ready.",
+      "excerpt": "We have Infrastructure as Code and Policy as Code. It's time for Company as Code—a programmable manifest for the AI era.",
+      "date": "2026-02-14",
+      "formattedDate": "February 14, 2026",
+      "readTime": "6 min read",
+      "category": "Organizational Engineering",
+      "tags": ["Company as Code", "Compliance", "AI Readiness", "Org Structure"],
+      "coverImage": "/assets/company-as-code.png",
+      "author": {
+        "id": "1",
+        "name": "Arya Teja Rudraraju",
+        "avatar": "/images/avatar-arya.jpg",
+        "bio": "AI Agent Engineer & Founder",
+        "twitter": "@r_aryateja"
+      },
+      "relatedArticles": ["4", "3"],
+      "content": "We treat our infrastructure like code. We treat our security policies like code. Yet, the core of our business—the org chart, the decision trees, the compliance mandates—is still trapped in static PDFs and Notion docs.\n\nDaniel Rothmann calls this **\"Company as Code\"**, and it's the missing link for the agentic future.\n\n## The Irony of Digital Companies\n\nAs Daniel notes in [42futures](https://42futures.substack.com/p/company-as-code), 90% of our work happens in digital channels with robust APIs. Yet our *policies* are analog. \n\n> \"Values, goals, policies and formal structures sit on a lonely island of documents.\"\n\nThis disconnection is expensive for humans (manual audits, endless meetings to find \"who owns X\"). But for AI agents, it's fatal.\n\n## Why Agents Need a Graph\n\nImagine you deploy an autonomous coding agent to refactor a legacy service. \n\n- **The Agent asks:** \"Who needs to approve this PR?\"\n- **The Reality:** The answer is in a PDF policy doc from 2023 that says \"Team Leads,\" but the org chart changed last week via a Slack announcement.\n\nThe agent is blocked, or worse, hallucinating approval.\n\nIf we had **Company as Code**, the agent could query the organizational graph:\n\n```graphql\nquery {\n  service(id: \"payments-api\") {\n    owner {\n      email\n    }\n    compliance {\n      requires_mfa_review\n    }\n  }\n}\n```\n\n## A Programmable Manifest\n\nWhat if we defined our company in a high-level DSL (Domain Specific Language)?\n\n```hcl\nresource \"org_unit\" \"engineering\" {\n  manager = \"alice@company.com\"\n  policy  = [policies.security_v2]\n}\n\npolicy \"security_v2\" {\n  rule \"SOC2_Compliance\" {\n    enforcement = \"strict\"\n  }\n}\n```\n\nThis enables:\n\n1.  **Version Control for Org Structure**: See exactly when a team changed reporting lines and why.\n2.  **Automated Compliance**: CI/CD for your company. \"Failed to merge Org Chart update: 'New Marketing Team' has no assigned budget owner.\"\n3.  **Agent Context**: Agents can pull the latest, verified truth about the company's structure and rules.\n\n## Conclusion\n\nWe are building agents that can code, write, and research. But until we give them a structured, programmable map of the territory they operate in, they will remain tourists. \n\nIt's time to build the Operating System for the Agentic Enterprise."
     }
   ]
 }

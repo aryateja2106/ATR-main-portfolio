@@ -1,28 +1,10 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 import { ExploreButton } from "./explore-button";
 import { Typewriter } from "./typewriter";
 
 export function Hero() {
-	const [isMounted, setIsMounted] = useState(false);
-	const [binaryDigits, setBinaryDigits] = useState<
-		Array<{ opacity: number; value: string; transform: string }>
-	>([]);
-
-	// Generate binary digits data on client-side only
-	useEffect(() => {
-		const digits = Array.from({ length: 100 }).map((_, i) => ({
-			opacity: Math.random() * 0.8 + 0.2,
-			value: i % 2 ? "1" : "0",
-			transform: `translateY(${(i % 5) * 20}px) rotate(${i % 2 ? "0deg" : "90deg"})`,
-		}));
-		setBinaryDigits(digits);
-		setIsMounted(true);
-	}, []);
-
 	const containerVariants = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -47,210 +29,159 @@ export function Hero() {
 	};
 
 	return (
-		<div className="w-full px-4 md:max-w-4xl lg:px-0 pb-28 pt-20 m-auto space-y-28 overflow-hidden">
-			<div className="relative flex min-h-[85vh] w-full flex-col items-center md:justify-center py-8 px-4 md:px-0">
-				{/* Background effects */}
-				<div className="absolute -z-50 size-64 top-20 left-0 bg-[conic-gradient(transparent,rgb(0,0,0))] opacity-15 blur-3xl dark:bg-[conic-gradient(transparent,rgb(255,255,255))] md:left-36" />
+		<section className="w-full min-h-[90vh] flex items-center justify-center relative overflow-hidden pt-28 pb-20">
+			{/* Background gradient */}
+			<div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-teal-900/10 via-background to-background" />
 
-				{/* Binary digits background effect (subtle) - Client-side only to prevent hydration mismatch */}
-				{isMounted && (
-					<div className="absolute inset-0 -z-40 overflow-hidden opacity-[0.03]">
-						<div className="absolute left-0 top-0 size-full flex flex-wrap justify-center content-start gap-3 md:gap-5">
-							{binaryDigits.map((digit, i) => (
-								<div
-									key={`binary-${i}-${digit.value}`}
-									className="text-teal-500 font-mono text-xs md:text-sm"
-									style={{
-										transform: digit.transform,
-										opacity: digit.opacity,
-									}}
-								>
-									{digit.value}
-								</div>
-							))}
-						</div>
-					</div>
-				)}
-
-				{/* Main content */}
+			<div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 				<motion.div
-					className="flex w-full max-w-7xl flex-col-reverse md:flex-row items-center gap-8 md:gap-12 md:justify-between"
+					className="flex flex-col items-center text-center gap-8"
 					variants={containerVariants}
 					initial="hidden"
-					animate={isMounted ? "visible" : "hidden"}
+					animate="visible"
 				>
-					{/* Left column: Name, typewriter, value prop, CTAs */}
-					<motion.div
-						className="flex w-full flex-col items-center gap-6 md:w-3/5 md:items-start"
-						variants={itemVariants}
-					>
-						{/* Name with sparkle effect */}
-						<div className="relative">
-							<motion.span
-								className="flex flex-col items-center md:items-start w-min font-bold text-black drop-shadow-2xl dark:text-neutral-50 md:w-max"
-								variants={itemVariants}
-							>
-								<div className="relative inline-block">
-									<span className="relative text-6xl md:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-teal-500 pb-2">
-										Arya Teja
-									</span>
-									<span className="absolute -right-6 -top-4 text-xl animate-pulse text-yellow-300">
-										✨
-									</span>
-								</div>
-								<span className="text-5xl md:text-6xl text-neutral-500 font-light tracking-tight">
-									Rudraraju
-								</span>
-							</motion.span>
-						</div>
-
-						{/* Typewriter with gradient underline */}
-						<motion.div variants={itemVariants} className="relative w-full">
-							<span className="flex w-full items-center justify-center text-center text-xl md:text-2xl text-neutral-300 font-mono md:min-h-fit md:justify-start md:text-left">
-								<span className="text-teal-500 mr-2">{">"}</span>
-								<Typewriter
-									words={[
-										"AI Product Manager Who Builds",
-										"Building LeSearch AI",
-										"Shipping 0→1 Products",
-										"Bridging Research & Engineering",
-									]}
-									loop
-									cursor
-									cursorStyle="_"
-									typeSpeed={70}
-									deleteSpeed={50}
-									delaySpeed={1500}
-								/>
-							</span>
-							<div className="mt-2 h-[1px] w-24 bg-gradient-to-r from-teal-500/50 to-transparent hidden md:block" />
-						</motion.div>
-
-						{/* Value Proposition with animated reveal */}
-						<motion.p
-							className="text-neutral-400 text-lg leading-relaxed max-w-lg text-center md:text-left backdrop-blur-sm md:backdrop-brightness-100 p-4 md:p-0 rounded-xl border border-neutral-800/50 md:border-0 bg-neutral-900/20 md:bg-transparent"
-							variants={itemVariants}
-						>
-							Building the next generation of{" "}
-							<b className="text-neutral-200">AI Agents</b>. Currently shipping
-							enterprise automation at{" "}
-							<b className="text-neutral-200">Pilvi Systems</b> and building{" "}
-							<b className="text-neutral-200">LeSearch AI</b>. Focused on the
-							intersection of{" "}
-							<span className="text-teal-400">LLM Reasoning</span>,{" "}
-							<span className="text-teal-400">Reliability</span>, and{" "}
-							<span className="text-teal-400">User Experience</span>.
-						</motion.p>
-
-						{/* Call to Action Buttons with hover effects */}
-						<motion.div
-							className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto"
-							variants={itemVariants}
-						>
-							{/* Primary CTA - Resume Download */}
-							<a
-								href="/resume/Arya_Teja_PM_Resume.pdf"
-								download="Arya_Teja_PM_Resume.pdf"
-								onClick={() => {
-									if (
-										typeof globalThis.window !== "undefined" &&
-										// biome-ignore lint/suspicious/noExplicitAny: Google Analytics global object is untyped
-										(globalThis.window as any).gtag
-									) {
-										// biome-ignore lint/suspicious/noExplicitAny: Google Analytics global object is untyped
-										(globalThis.window as any).gtag(
-											"event",
-											"resume_download",
-											{
-												event_category: "engagement",
-												event_label: "Resume PDF Download",
-											},
-										);
-									}
-								}}
-								className="group relative px-8 py-3.5 bg-teal-500 text-neutral-950 font-bold rounded-lg hover:bg-teal-400 transition-all duration-300 text-center overflow-hidden inline-flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)]"
-							>
-								<svg
-									className="w-5 h-5 transition-transform group-hover:-translate-y-0.5"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<title>Download Resume</title>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2.5}
-										d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-									/>
-								</svg>
-								<span className="relative z-10">Download Resume</span>
-							</a>
-
-							{/* Secondary CTA - Contact */}
-							<Link
-								href="#contact"
-								className="group relative px-8 py-3.5 border border-teal-500/30 text-teal-400 font-medium rounded-lg hover:bg-teal-500/10 transition-all duration-300 text-center backdrop-blur-sm"
-							>
-								<span className="relative z-10">Get in Touch</span>
-							</Link>
-						</motion.div>
-
-						{/* Unified explore button - visible on both mobile and desktop */}
-						<motion.div className="mt-8" variants={itemVariants}>
-							<ExploreButton />
-						</motion.div>
+					{/* Name */}
+					<motion.div className="relative" variants={itemVariants}>
+						<h1 className="text-6xl md:text-7xl lg:text-8xl tracking-tighter font-bold bg-clip-text text-transparent bg-gradient-to-b from-foreground via-foreground/90 to-foreground/50 pb-2">
+							Arya Teja Rudraraju
+						</h1>
 					</motion.div>
 
-					{/* Animated Hero Image */}
-					<motion.div
-						className="hidden md:block relative z-20"
-						variants={itemVariants}
-						initial="hidden"
-						animate="visible"
-						whileHover={{
-							scale: 1.02,
-							rotate: 1,
-							transition: { duration: 0.4 },
-						}}
-					>
-						<div className="relative group">
-							<div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
-							<Image
-								src="/assets/Robot.png"
-								width={384}
-								height={384}
-								alt="AI Robot Concept"
-								className="relative w-80 lg:w-96 object-cover drop-shadow-[0_0_30px_rgba(45,212,191,0.2)] transition-all duration-500"
-								priority
+					{/* Title + Tagline */}
+					<motion.div variants={itemVariants} className="space-y-3">
+						<p className="text-2xl md:text-3xl font-semibold text-foreground">
+							AI Agent Engineer & Founder
+						</p>
+						<p className="text-lg md:text-xl text-teal-400 font-medium">
+							Building the agent economy from San Francisco
+						</p>
+					</motion.div>
+
+					{/* Typewriter */}
+					<motion.div variants={itemVariants} className="relative w-full max-w-xl">
+						<span className="flex w-full items-center justify-center text-xl md:text-2xl text-muted-foreground font-mono">
+							<span className="text-teal-500 mr-4">/</span>
+							<Typewriter
+								words={[
+									"Founder of CloudAGI & LeSearch AI",
+									"Shipping agents to production",
+									"Rust, TypeScript, Swift, Python",
+									"6 shipped products, 150+ user interviews",
+								]}
+								loop
+								cursor
+								cursorStyle="_"
+								typeSpeed={60}
+								deleteSpeed={40}
+								delaySpeed={2000}
 							/>
-							<div className="absolute -z-50 size-80 bottom-10 right-0 bg-[radial-gradient(circle,rgba(45,212,191,0.15)_0%,transparent_70%)] blur-3xl" />
-						</div>
+						</span>
 					</motion.div>
 
-					{/* Mobile Hero Image */}
-					<div className="flex flex-col items-center md:hidden">
-						<motion.div
-							className="w-full flex justify-center pb-8"
-							variants={itemVariants}
-							initial="hidden"
-							animate="visible"
+					{/* Value Proposition */}
+					<motion.p
+						className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl"
+						variants={itemVariants}
+					>
+						I build{" "}
+						<span className="text-foreground font-medium">AI agents</span> that
+						ship to production. From a{" "}
+						<span className="text-teal-400">13-crate Rust coding agent</span> to
+						an{" "}
+						<span className="text-teal-400">
+							iOS app on the App Store
+						</span>{" "}
+						to{" "}
+						<span className="text-teal-400">
+							reproducing cutting-edge ML research
+						</span>
+						— I turn ideas into working software.
+					</motion.p>
+
+					{/* CTAs */}
+					<motion.div
+						className="flex flex-col sm:flex-row gap-4 pt-4"
+						variants={itemVariants}
+					>
+						{/* Primary: View Projects */}
+						<Link
+							href="#projects"
+							className="group relative px-8 py-4 bg-teal-500 text-neutral-950 font-bold rounded-full hover:bg-teal-400 transition-all duration-300 text-center inline-flex items-center justify-center gap-2 shadow-lg shadow-teal-500/20 hover:shadow-teal-500/40 hover:-translate-y-1"
 						>
-							<div className="relative">
-								<div className="absolute -inset-4 bg-teal-500/20 blur-3xl rounded-full" />
-								<Image
-									src="/assets/Robot.png"
-									width={256}
-									height={256}
-									alt="AI Robot Concept"
-									className="relative w-64 object-cover drop-shadow-[0_0_20px_rgba(45,212,191,0.25)]"
-									priority
+							<span className="relative z-10">View Projects</span>
+							<svg
+								className="w-4 h-4 transition-transform group-hover:translate-y-0.5"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<title>Arrow down</title>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth={2}
+									d="M19 14l-7 7m0 0l-7-7m7 7V3"
 								/>
-							</div>
-						</motion.div>
-					</div>
+							</svg>
+						</Link>
+
+						{/* Secondary: Download Resume */}
+						<a
+							href="/resume.pdf"
+							download="Arya_Teja_Resume_2026.pdf"
+							className="group relative px-8 py-4 border border-border text-foreground font-medium rounded-full hover:bg-secondary transition-all duration-300 text-center inline-flex items-center justify-center gap-2"
+						>
+							<span className="relative z-10">Download Resume</span>
+							<svg
+								className="w-4 h-4 transition-transform group-hover:translate-x-1"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<title>Download icon</title>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth={2}
+									d="M14 5l7 7m0 0l-7 7m7-7H3"
+								/>
+							</svg>
+						</a>
+
+						{/* Tertiary: Launch AryaOS */}
+						<a
+							href="https://os.aryateja.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="group relative px-8 py-4 border border-teal-500/30 text-teal-400 font-medium rounded-full hover:bg-teal-500/10 hover:border-teal-500/50 transition-all duration-300 text-center inline-flex items-center justify-center gap-2"
+						>
+							<span className="relative z-10">Launch AryaOS</span>
+							<svg
+								className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<title>External link</title>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth={2}
+									d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+								/>
+							</svg>
+						</a>
+					</motion.div>
+
+					{/* Explore button */}
+					<motion.div
+						className="mt-8 opacity-50 hover:opacity-100 transition-opacity"
+						variants={itemVariants}
+					>
+						<ExploreButton />
+					</motion.div>
 				</motion.div>
 			</div>
-		</div>
+		</section>
 	);
 }

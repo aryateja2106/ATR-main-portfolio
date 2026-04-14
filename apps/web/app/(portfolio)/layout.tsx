@@ -8,11 +8,12 @@ import { Header } from "./_components/header";
 
 export const metadata: Metadata = {
 	title: {
-		default: "Arya Teja Rudraraju | AI Product Manager | Building LeSearch AI",
+		default:
+			"Arya Teja Rudraraju | AI Agent Engineer & Founder | Building the Agent Economy",
 		template: "%s • Arya Teja Rudraraju",
 	},
 	description:
-		"AI Product Manager at Pilvi Systems, actively seeking Associate PM/APM roles. Built LeSearch AI (50+ users), shipped 6 products. Dallas, TX. OPT visa.",
+		"AI Agent Engineer and Founder building the agent economy from San Francisco. Shipped 6 products across Rust, TypeScript, Swift, and Python. Founder of CloudAGI and LeSearch AI.",
 	metadataBase: new URL("https://www.aryateja.com"),
 	applicationName: "Arya Teja Rudraraju's Portfolio",
 	authors: [
@@ -23,18 +24,16 @@ export const metadata: Metadata = {
 	],
 	category: "Portfolio Website",
 	keywords: [
-		"AI Product Manager",
-		"Product Manager",
-		"APM",
-		"Associate Product Manager",
+		"AI Agent Engineer",
+		"Founder",
+		"CloudAGI",
 		"LeSearch AI",
-		"Pilvi Systems",
-		"LLMs",
-		"RAG Systems",
-		"Machine Learning",
-		"Dallas TX",
-		"Open to Work",
-		"MBA",
+		"Rust",
+		"TypeScript",
+		"Swift",
+		"MCP",
+		"Multi-Agent Systems",
+		"San Francisco",
 	],
 	robots: {
 		follow: true,
@@ -45,9 +44,9 @@ export const metadata: Metadata = {
 		canonical: "./",
 	},
 	openGraph: {
-		title: "Arya Teja Rudraraju | AI Product Manager",
+		title: "Arya Teja Rudraraju | AI Agent Engineer & Founder",
 		description:
-			"AI Product Manager at Pilvi Systems, actively seeking Associate PM/APM roles. Built LeSearch AI (50+ users), shipped 6 products.",
+			"AI Agent Engineer and Founder building the agent economy from San Francisco. Shipped 6 products across Rust, TypeScript, Swift, and Python.",
 		siteName: "Arya Teja Rudraraju",
 		type: "website",
 		url: "https://aryateja.com",
@@ -57,15 +56,15 @@ export const metadata: Metadata = {
 				url: "/og-image.png",
 				width: 1200,
 				height: 630,
-				alt: "Arya Teja Rudraraju - AI Product Manager",
+				alt: "Arya Teja Rudraraju - AI Agent Engineer & Founder",
 			},
 		],
 		locale: "en_US",
 	},
 	twitter: {
-		title: "Arya Teja Rudraraju | AI Product Manager",
+		title: "Arya Teja Rudraraju | AI Agent Engineer & Founder",
 		description:
-			"AI Product Manager at Pilvi Systems, actively seeking Associate PM/APM roles. Built LeSearch AI (50+ users), shipped 6 products.",
+			"Building the agent economy from San Francisco. Founder of CloudAGI and LeSearch AI. Rust, TypeScript, Swift, Python.",
 		card: "summary_large_image",
 		images: ["/og-image.png"],
 		creator: "@r_aryateja",
@@ -107,28 +106,45 @@ const jsonLd = {
 	name: "Arya Teja Rudraraju",
 	url: "https://aryateja.com",
 	image: "https://aryateja.com/og-image.png",
-	jobTitle: "AI Product Manager",
-	worksFor: {
-		"@type": "Organization",
-		name: "Pilvi Systems",
-	},
+	jobTitle: "AI Agent Engineer & Founder",
+	worksFor: [
+		{
+			"@type": "Organization",
+			name: "CloudAGI",
+			url: "https://github.com/aryateja2106/cloudagi",
+		},
+		{
+			"@type": "Organization",
+			name: "LeSearch AI",
+			url: "https://github.com/aryateja2106/lesearch-app",
+		},
+	],
 	alumniOf: {
 		"@type": "CollegeOrUniversity",
 		name: "Duquesne University",
+	},
+	address: {
+		"@type": "PostalAddress",
+		addressLocality: "San Francisco",
+		addressRegion: "CA",
+		addressCountry: "US",
 	},
 	sameAs: [
 		"https://linkedin.com/in/arya-teja-rudraraju",
 		"https://github.com/aryateja2106",
 		"https://x.com/r_aryateja",
+		"https://os.aryateja.com",
 	],
 	knowsAbout: [
-		"Product Management",
-		"Artificial Intelligence",
+		"AI Agent Engineering",
+		"Multi-Agent Systems",
+		"Rust",
+		"TypeScript",
+		"Swift",
+		"Python",
+		"MCP Protocol",
 		"Machine Learning",
 		"LLMs",
-		"RAG Systems",
-		"User Research",
-		"Agile/Scrum",
 	],
 };
 
