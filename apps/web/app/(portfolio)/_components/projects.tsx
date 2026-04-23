@@ -35,6 +35,25 @@ interface Project {
 // Data remains the same, statusVariant keys map to new badge colors
 const projectsData: Project[] = [
 	{
+		id: "serxng",
+		title: "Serxng",
+		status: "Active",
+		statusVariant: "active",
+		description:
+			"A privacy-first AI search engine aggregator. Unifies results from multiple providers into a single, clean API for agents and humans. Deployed on custom infrastructure.",
+		techStack: ["Next.js", "AI", "Search API", "Docker"],
+		// liveLink: "https://serxng.com", // Uncomment when live
+	},
+	{
+		id: "lecoder-ios",
+		title: "LeCoder iOS (Beta)",
+		status: "Showcase",
+		statusVariant: "showcase",
+		description:
+			"Native iOS companion for LeCoder. Monitor and control your AI development agents from your phone. Built with SwiftUI and Cloudflare Tunnels for secure remote access.",
+		techStack: ["SwiftUI", "iOS", "Cloudflare", "WebSockets"],
+	},
+	{
 		id: "lecoder-mconnect",
 		title: "LeCoder MConnect",
 		status: "Active",

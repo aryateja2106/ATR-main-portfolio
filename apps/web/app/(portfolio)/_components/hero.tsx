@@ -110,8 +110,8 @@ export function Hero() {
 								<span className="text-teal-500 mr-2">{">"}</span>
 								<Typewriter
 									words={[
-										"AI Product Manager Who Builds",
-										"Building LeSearch AI",
+										"AI Operator & Founder",
+										"Building AI Native Agencies",
 										"Shipping 0→1 Products",
 										"Bridging Research & Engineering",
 									]}
@@ -131,15 +131,14 @@ export function Hero() {
 							className="text-neutral-400 text-lg leading-relaxed max-w-lg text-center md:text-left backdrop-blur-sm md:backdrop-brightness-100 p-4 md:p-0 rounded-xl border border-neutral-800/50 md:border-0 bg-neutral-900/20 md:bg-transparent"
 							variants={itemVariants}
 						>
-							Building the next generation of{" "}
-							<b className="text-neutral-200">AI Agents</b>. Currently shipping
-							enterprise automation at{" "}
-							<b className="text-neutral-200">Pilvi Systems</b> and building{" "}
-							<b className="text-neutral-200">LeSearch AI</b>. Focused on the
-							intersection of{" "}
-							<span className="text-teal-400">LLM Reasoning</span>,{" "}
-							<span className="text-teal-400">Reliability</span>, and{" "}
-							<span className="text-teal-400">User Experience</span>.
+							Building <b className="text-neutral-200">AI Native Agencies</b>{" "}
+							and <b className="text-neutral-200">Productized Services</b>. I
+							operate at the intersection of{" "}
+							<span className="text-teal-400">AI Agents</span>,{" "}
+							<span className="text-teal-400">Systems Thinking</span>, and{" "}
+							<span className="text-teal-400">Scalable Outcomes</span>. Founder
+							of <b className="text-neutral-200">LeSearch AI</b> and{" "}
+							<b className="text-neutral-200">CloudAGI AI</b>.
 						</motion.p>
 
 						{/* Call to Action Buttons with hover effects */}
