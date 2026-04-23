@@ -120,7 +120,7 @@ async function createNewTable() {
                   createdAt: message.createdAt,
                   attachments: [],
                 } as NewMessageInsert;
-              } else if (message.role === 'assistant') {
+              }if (message.role === 'assistant') {
                 return {
                   id: message.id,
                   chatId: chat.id,
