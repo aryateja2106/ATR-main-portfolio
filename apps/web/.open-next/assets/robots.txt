@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://aryateja.com
+
+# Sitemap
+Sitemap: https://aryateja.com/sitemap.xml
+
+# LLMS
+Disallow: /private/
