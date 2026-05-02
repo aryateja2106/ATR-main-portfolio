@@ -2,6 +2,49 @@ import path from "node:path";
 import type { NextConfig } from "next";
 
 const repoRoot = path.resolve(__dirname, "../..");
+
+// Security headers applied to every response served by this Next.js app.
+//
+// Scope note: these headers DO NOT apply to arya-pi.aryateja.com, which is
+// served via a Cloudflare Tunnel directly to a Raspberry Pi. That host is
+// behind Cloudflare's edge and uses Cloudflare's own security posture.
+// Anything below only affects www.aryateja.com / aryateja.com on Vercel.
+//
+// HSTS deliberately omits `includeSubDomains` so we don't accidentally pin
+// HSTS for arya-pi (it serves HTTPS via Cloudflare anyway, but pinning from
+// the apex on this app's responses is the wrong layer to do that at).
+const securityHeaders = [
+	{
+		key: "Strict-Transport-Security",
+		value: "max-age=63072000",
+	},
+	{
+		key: "X-Content-Type-Options",
+		value: "nosniff",
+	},
+	{
+		key: "X-Frame-Options",
+		value: "DENY",
+	},
+	{
+		key: "Referrer-Policy",
+		value: "strict-origin-when-cross-origin",
+	},
+	{
+		key: "Permissions-Policy",
+		value:
+			"camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(), usb=()",
+	},
+	{
+		key: "Cross-Origin-Opener-Policy",
+		value: "same-origin",
+	},
+	{
+		key: "X-DNS-Prefetch-Control",
+		value: "on",
+	},
+];
+
 const nextConfig: NextConfig = {
 	experimental: {
 		// ppr: true, // Deprecated in Next.js 16
@@ -14,11 +57,28 @@ const nextConfig: NextConfig = {
 	async headers() {
 		return [
 			{
+				source: "/(.*)",
+				headers: securityHeaders,
+			},
+			{
 				source: "/resume/:path*",
 				headers: [
 					{
 						key: "Content-Disposition",
-						value: 'attachment; filename="Arya_Teja_PM_Resume.pdf"',
+						value: 'attachment; filename="Arya_Teja_Rudraraju_Resume.pdf"',
+					},
+				],
+			},
+			{
+				source: "/llms.txt",
+				headers: [
+					{
+						key: "Content-Type",
+						value: "text/plain; charset=utf-8",
+					},
+					{
+						key: "X-Robots-Tag",
+						value: "all",
 					},
 				],
 			},
