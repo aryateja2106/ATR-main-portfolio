@@ -43,6 +43,28 @@ const securityHeaders = [
 		key: "X-DNS-Prefetch-Control",
 		value: "on",
 	},
+	// CSP in Report-Only mode for now. We're collecting violation reports
+	// to size up the eventual enforcing policy without breaking inline
+	// scripts (Next runtime + theme color sync), Vercel Analytics +
+	// Speed Insights, GA, simpleicons CDN, fonts, or self-hosted images.
+	// Flip this to `Content-Security-Policy` once forms + Three.js land
+	// and the violation set is empty across the routes we care about.
+	{
+		key: "Content-Security-Policy-Report-Only",
+		value: [
+			"default-src 'self'",
+			"script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com https://vercel.live https://www.googletagmanager.com https://www.google-analytics.com",
+			"style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+			"font-src 'self' data: https://fonts.gstatic.com",
+			"img-src 'self' data: blob: https://cdn.simpleicons.org https://ui.shadcn.com https://cursor.com https://avatar.vercel.sh https://www.google-analytics.com",
+			"connect-src 'self' https://vitals.vercel-insights.com https://vercel.live https://www.google-analytics.com https://region1.google-analytics.com",
+			"frame-ancestors 'none'",
+			"base-uri 'self'",
+			"form-action 'self'",
+			"object-src 'none'",
+			"upgrade-insecure-requests",
+		].join("; "),
+	},
 ];
 
 const nextConfig: NextConfig = {
