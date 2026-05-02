@@ -2,79 +2,68 @@ import { Analytics } from "@vercel/analytics/react";
 import type { Metadata, Viewport } from "next";
 import { Fira_Code, Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
+import {
+	SITE_AUTHOR,
+	SITE_DESCRIPTION,
+	SITE_KEYWORDS,
+	SITE_LINKS,
+	SITE_NAME,
+	SITE_TAGLINE,
+	SITE_TITLE_DEFAULT,
+	SITE_TITLE_TEMPLATE,
+	SITE_URL,
+} from "@/lib/portfolio/site";
 import BinaryCursor from "./_components/cursor-animation-wrapper";
 import { Footer } from "./_components/footer";
 import { Header } from "./_components/header";
 
 export const metadata: Metadata = {
+	metadataBase: new URL(SITE_URL),
 	title: {
-		default: "Arya Teja Rudraraju | AI Product Manager | Building LeSearch AI",
-		template: "%s • Arya Teja Rudraraju",
+		default: SITE_TITLE_DEFAULT,
+		template: SITE_TITLE_TEMPLATE,
 	},
-	description:
-		"AI Product Manager at Pilvi Systems, actively seeking Associate PM/APM roles. Built LeSearch AI (50+ users), shipped 6 products. Dallas, TX. OPT visa.",
-	metadataBase: new URL("https://www.aryateja.com"),
-	applicationName: "Arya Teja Rudraraju's Portfolio",
+	description: SITE_DESCRIPTION,
+	applicationName: `${SITE_NAME}'s Portfolio`,
 	authors: [
 		{
-			name: "Arya Teja Rudraraju",
-			url: "https://linkedin.com/in/arya-teja-rudraraju",
+			name: SITE_AUTHOR.name,
+			url: SITE_LINKS.linkedin,
 		},
 	],
 	category: "Portfolio Website",
-	keywords: [
-		"AI Product Manager",
-		"Product Manager",
-		"APM",
-		"Associate Product Manager",
-		"LeSearch AI",
-		"Pilvi Systems",
-		"LLMs",
-		"RAG Systems",
-		"Machine Learning",
-		"Dallas TX",
-		"Open to Work",
-		"MBA",
-	],
+	keywords: SITE_KEYWORDS,
 	robots: {
 		follow: true,
 		index: true,
 	},
-
 	alternates: {
 		canonical: "./",
 	},
 	openGraph: {
-		title: "Arya Teja Rudraraju | AI Product Manager",
-		description:
-			"AI Product Manager at Pilvi Systems, actively seeking Associate PM/APM roles. Built LeSearch AI (50+ users), shipped 6 products.",
-		siteName: "Arya Teja Rudraraju",
+		title: SITE_TITLE_DEFAULT,
+		description: SITE_TAGLINE,
+		siteName: SITE_NAME,
 		type: "website",
-		url: "https://aryateja.com",
-		emails: ["aryateja2106@gmail.com"],
-		images: [
-			{
-				url: "/og-image.png",
-				width: 1200,
-				height: 630,
-				alt: "Arya Teja Rudraraju - AI Product Manager",
-			},
-		],
+		url: SITE_URL,
+		emails: [SITE_AUTHOR.email],
+		// Default OG image is provided by app/opengraph-image.tsx (dynamic).
+		// Per-route overrides live alongside their pages in (portfolio)/blog/[slug]/
+		// and (portfolio)/projects/[slug]/.
 		locale: "en_US",
 	},
 	twitter: {
-		title: "Arya Teja Rudraraju | AI Product Manager",
-		description:
-			"AI Product Manager at Pilvi Systems, actively seeking Associate PM/APM roles. Built LeSearch AI (50+ users), shipped 6 products.",
+		title: SITE_TITLE_DEFAULT,
+		description: SITE_TAGLINE,
 		card: "summary_large_image",
-		images: ["/og-image.png"],
-		creator: "@r_aryateja",
+		// Twitter card image is provided by app/twitter-image.tsx (dynamic).
+		creator: SITE_AUTHOR.twitter,
 	},
 };
 
 export const viewport: Viewport = {
-	themeColor: "#060606", // Only using dark theme
-	colorScheme: "dark", // Only using dark theme
+	themeColor: "#060606",
+	colorScheme: "dark",
 	width: "device-width",
 	initialScale: 1,
 };
@@ -100,38 +89,6 @@ const firaCode = Fira_Code({
 	display: "block",
 });
 
-// JSON-LD Structured Data for SEO
-const jsonLd = {
-	"@context": "https://schema.org",
-	"@type": "Person",
-	name: "Arya Teja Rudraraju",
-	url: "https://aryateja.com",
-	image: "https://aryateja.com/og-image.png",
-	jobTitle: "AI Product Manager",
-	worksFor: {
-		"@type": "Organization",
-		name: "Pilvi Systems",
-	},
-	alumniOf: {
-		"@type": "CollegeOrUniversity",
-		name: "Duquesne University",
-	},
-	sameAs: [
-		"https://linkedin.com/in/arya-teja-rudraraju",
-		"https://github.com/aryateja2106",
-		"https://x.com/r_aryateja",
-	],
-	knowsAbout: [
-		"Product Management",
-		"Artificial Intelligence",
-		"Machine Learning",
-		"LLMs",
-		"RAG Systems",
-		"User Research",
-		"Agile/Scrum",
-	],
-};
-
 export default async function Layout({
 	children,
 }: {
@@ -141,14 +98,7 @@ export default async function Layout({
 
 	return (
 		<>
-			{/* JSON-LD Structured Data */}
-			<script
-				type="application/ld+json"
-				// biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data is safe here
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-			/>
-
-			{/* Google Analytics - Moved to top for better loading */}
+			{/* Google Analytics */}
 			<Script
 				src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
 				strategy="afterInteractive"

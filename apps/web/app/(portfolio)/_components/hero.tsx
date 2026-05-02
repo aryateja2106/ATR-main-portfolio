@@ -58,6 +58,7 @@ export function Hero() {
 						<div className="absolute left-0 top-0 size-full flex flex-wrap justify-center content-start gap-3 md:gap-5">
 							{binaryDigits.map((digit, i) => (
 								<div
+									// biome-ignore lint/suspicious/noArrayIndexKey: decorative digits, no semantic identity
 									key={`binary-${i}-${digit.value}`}
 									className="text-teal-500 font-mono text-xs md:text-sm"
 									style={{
@@ -110,10 +111,10 @@ export function Hero() {
 								<span className="text-teal-500 mr-2">{">"}</span>
 								<Typewriter
 									words={[
-										"AI Product Manager Who Builds",
-										"Building LeSearch AI",
-										"Shipping 0→1 Products",
-										"Bridging Research & Engineering",
+										"Agentic Engineer",
+										"Founder, LeSearch AI + CloudAGI",
+										"Building LeCoder MConnect",
+										"Shipping in public from SF",
 									]}
 									loop
 									cursor
@@ -131,15 +132,14 @@ export function Hero() {
 							className="text-neutral-400 text-lg leading-relaxed max-w-lg text-center md:text-left backdrop-blur-sm md:backdrop-brightness-100 p-4 md:p-0 rounded-xl border border-neutral-800/50 md:border-0 bg-neutral-900/20 md:bg-transparent"
 							variants={itemVariants}
 						>
-							Building the next generation of{" "}
-							<b className="text-neutral-200">AI Agents</b>. Currently shipping
-							enterprise automation at{" "}
-							<b className="text-neutral-200">Pilvi Systems</b> and building{" "}
-							<b className="text-neutral-200">LeSearch AI</b>. Focused on the
-							intersection of{" "}
-							<span className="text-teal-400">LLM Reasoning</span>,{" "}
-							<span className="text-teal-400">Reliability</span>, and{" "}
-							<span className="text-teal-400">User Experience</span>.
+							Founder of <b className="text-neutral-200">LeSearch AI</b> and{" "}
+							<b className="text-neutral-200">CloudAGI</b>. Building{" "}
+							<b className="text-neutral-200">LeCoder MConnect</b>, an
+							open-source mobile control layer for Claude Code, Cursor, and
+							OpenCode. Working from{" "}
+							<span className="text-teal-400">San Francisco</span> on{" "}
+							<span className="text-teal-400">mobile agent orchestration</span>{" "}
+							and the <span className="text-teal-400">Software Factory</span>.
 						</motion.p>
 
 						{/* Call to Action Buttons with hover effects */}
@@ -149,8 +149,8 @@ export function Hero() {
 						>
 							{/* Primary CTA - Resume Download */}
 							<a
-								href="/resume/Arya_Teja_PM_Resume.pdf"
-								download="Arya_Teja_PM_Resume.pdf"
+								href="/resume/Arya_Teja_Rudraraju_Resume.pdf"
+								download="Arya_Teja_Rudraraju_Resume.pdf"
 								onClick={() => {
 									if (
 										typeof globalThis.window !== "undefined" &&

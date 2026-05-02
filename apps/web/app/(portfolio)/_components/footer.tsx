@@ -27,21 +27,49 @@ export const Footer = () => {
 					<div>
 						<h3 className="text-2xl font-bold mb-4">Arya Teja .</h3>
 						<p className="text-gray-400 mb-6 font-light leading-relaxed">
+							Agentic Engineer in{" "}
+							<span className="text-teal-400 font-medium">San Francisco</span>.
+							Founder of{" "}
+							<span className="text-teal-400 font-medium">LeSearch AI</span> and{" "}
+							<span className="text-teal-400 font-medium">CloudAGI</span>.
 							Building{" "}
-							<span className="text-teal-400 font-medium">mconnect</span>. An
-							open source initiative from{" "}
-							<span className="text-teal-400 font-medium">LeSearch AI</span>{" "}
-							that connects terminals to the web.
+							<span className="text-teal-400 font-medium">
+								LeCoder MConnect
+							</span>
+							, an open-source mobile control layer for AI coding agents.
 							<br />
 							<span className="text-sm text-gray-500 mt-2 block">
-								Dev since Dec 2025.
+								Shipping in public.
 							</span>
 						</p>
 					</div>
 
 					{/* Middle column - Quick Links */}
 					<div>
-						<h4 className="text-lg font-semibold mb-6">Quick Links</h4>
+						<h4 className="text-lg font-semibold mb-6">Knowledge base</h4>
+						<nav className="flex flex-col space-y-3">
+							<Link
+								href="/about"
+								className="text-gray-400 hover:text-teal-400 transition-colors"
+							>
+								Long-form bio (/about)
+							</Link>
+							<Link
+								href="/faq"
+								className="text-gray-400 hover:text-teal-400 transition-colors"
+							>
+								FAQ (/faq)
+							</Link>
+							<Link
+								href="/now"
+								className="text-gray-400 hover:text-teal-400 transition-colors"
+							>
+								Now (/now)
+							</Link>
+						</nav>
+						<h4 className="text-lg font-semibold mb-6 mt-10 md:mt-0">
+							Explore
+						</h4>
 						<nav className="flex flex-col space-y-3">
 							<Link
 								href="/"
@@ -50,16 +78,16 @@ export const Footer = () => {
 								Home
 							</Link>
 							<Link
-								href="/about"
-								className="text-gray-400 hover:text-teal-400 transition-colors"
-							>
-								About
-							</Link>
-							<Link
 								href="/projects"
 								className="text-gray-400 hover:text-teal-400 transition-colors"
 							>
 								Projects
+							</Link>
+							<Link
+								href="/github-stars"
+								className="text-gray-400 hover:text-teal-400 transition-colors"
+							>
+								GitHub stars
 							</Link>
 							<Link
 								href="/blog"
@@ -82,8 +110,9 @@ export const Footer = () => {
 							<h4 className="text-lg font-semibold mb-6">Get in Touch</h4>
 							<div className="bg-neutral-900/60 backdrop-blur-sm border border-neutral-800 rounded-lg p-4 hover:border-neutral-700 transition-colors">
 								<p className="text-sm text-neutral-300 mb-4">
-									AI Engineer & Marketing Specialist with a passion for creating
-									intelligent solutions that deliver measurable business impact.
+									Open to AI Engineer, Forward Deployed Engineer, and Product
+									Engineer roles at AI-first companies. Especially excited about
+									teams shipping agentic workflows.
 								</p>
 
 								<div className="grid grid-cols-2 gap-3">
@@ -170,7 +199,7 @@ export const Footer = () => {
 
 				{/* Bottom bar with copyright and links */}
 				<div className="pt-8 border-t border-neutral-800 flex flex-col md:flex-row justify-between items-center text-sm text-neutral-500">
-					<p>© 2025 Arya Teja Rudraraju | Portfolio. All rights reserved.</p>
+					<p>© 2026 Arya Teja Rudraraju. Shipping in public.</p>
 					<div className="flex space-x-6 mt-4 md:mt-0">
 						<Link
 							href="/privacy"

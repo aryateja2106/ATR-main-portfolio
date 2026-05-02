@@ -1,11 +1,37 @@
 User-agent: *
 Allow: /
 
-# Host
-Host: https://aryateja.com
+# Canonical host
+Host: https://www.aryateja.com
 
 # Sitemap
-Sitemap: https://aryateja.com/sitemap.xml
+Sitemap: https://www.aryateja.com/sitemap.xml
 
-# LLMS
+# Private directories
 Disallow: /private/
+Disallow: /api/
+
+# Welcome AI/answer engine crawlers — see /llms.txt for an authoritative summary.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /

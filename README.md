@@ -1,196 +1,100 @@
-# 🤖 AI Chatbot with Portfolio
+# aryateja.com
 
-<div align="center">
-  <img src="app/(portfolio)/portfolio-preview.png" alt="Portfolio Preview" width="800">
-</div>
+Personal website + digital knowledge base for **Arya Teja Rudraraju** — AI Product Manager at Pilvi Systems and founder of LeSearch AI. Live at [https://www.aryateja.com](https://www.aryateja.com).
 
-<p align="center">
-  <b>A powerful AI chatbot with multiple models, reasoning capabilities, and artifact generation</b>
-</p>
+The repository is a Turbo monorepo. The current production app lives at [`apps/web`](apps/web) and is built with Next.js 16 + React 19 + Tailwind, with an auth-gated AI chat playground built on the Vercel AI SDK.
 
-<p align="center">
-  <a href="#-features">Features</a> •
-  <a href="#-installation">Installation</a> •
-  <a href="#-environment-setup">Environment Setup</a> •
-  <a href="#-usage">Usage</a> •
-  <a href="#-development">Development</a> •
-  <a href="#-documentation">Documentation</a>
-</p>
+## Architecture
 
-## ✨ Features
+The site has two surfaces:
 
-- **Multiple AI Models**: Support for various Azure OpenAI models with different capabilities
-- **Reasoning Visualization**: See how the AI thinks through complex problems
-- **Artifact Generation**: Create code, documents, images, and more
-- **Tool Integration**: Weather information, document creation, and content suggestions
-- **Portfolio Integration**: Showcase your work alongside the AI assistant
+- **Public knowledge-base surface** (`apps/web/app/(portfolio)/...`): home, blog, about, FAQ, projects, /now, /uses, /reading, etc. Server-rendered, fully indexable, optimized for SEO and AEO.
+- **Auth-gated playground** (`apps/web/app/(chat)/...` and `apps/web/app/(auth)/...`): `/chat`, document storage, file upload, chat history. Requires sign-in and is intentionally never indexed.
 
-## 📸 Screenshots
+`apps/web/proxy.ts` (Next.js 16's renamed-from-`middleware.ts` edge handler, wrapping NextAuth `authConfig`) gates the playground.
 
-### Chat Dashboard
-<div align="center">
-  <img src="./app/(chat)/chat-dashboard-preview.png" alt="Chat Dashboard" width="800">
-  <p><i>Main chat interface with history sidebar, model selector, and input suggestions</i></p>
-</div>
+## Stack
 
-### Reasoning Capabilities
-<div align="center">
-  <img src="./app/(chat)/chat-reasoning.png" alt="Reasoning UI" width="800">
-  <p><i>See how the model thinks before responding to complex questions</i></p>
-</div>
+- Next.js 16 (App Router, Turbopack)
+- React 19
+- TypeScript, Biome, ESLint
+- Tailwind CSS
+- Drizzle ORM + Vercel Postgres (chat persistence only)
+- Vercel Blob (uploaded artifacts)
+- AI SDK (xAI Grok, Google Gemini, OpenRouter) — chat-only
+- next-auth v5
+- Bun as the package manager
+- Vercel for hosting
 
-### Code Generation
-<div align="center">
-  <img src="./app/(chat)/chat-artifacts.png" alt="Code Artifacts" width="800">
-  <p><i>Generate runnable code with syntax highlighting</i></p>
-</div>
+## Local development
 
-### Document Creation
-<div align="center">
-  <img src="./app/(chat)/chat-markdown.png" alt="Markdown Documents" width="800">
-  <p><i>Create and edit documents in markdown format</i></p>
-</div>
-
-## 🚀 Installation
-
-For detailed guide : [Installation Guide](docs/Installation.md)
-
-## Clone the Repository
+Prereqs: [Bun](https://bun.sh) ≥ 1.1.20.
 
 ```bash
-git clone https://github.com/AryaTejaRudraraju/portfoliov1.git
-cd portfoliov1
+git clone https://github.com/aryateja2106/ATR-main-portfolio.git
+cd ATR-main-portfolio
+bun install
+cp apps/web/.env.example apps/web/.env.local
+# Fill in keys you actually need. The public portfolio surface needs none.
+bun run dev
 ```
 
-## Install Dependencies
+The dev server boots at [http://localhost:3000](http://localhost:3000).
 
-This project uses React 19 (RC) and Next.js 15 (Canary). Due to potential dependency conflicts, use one of the following installation methods:
+### Environment variables
+
+The public portfolio renders without any env vars. Chat features require:
+
+- `AUTH_SECRET` — generate with `openssl rand -base64 32`
+- `XAI_API_KEY` — [xAI console](https://console.x.ai/)
+- `GOOGLE_AI_API_KEY` — [Google AI Studio](https://aistudio.google.com/)
+- `OPENROUTER_API_KEY` — [OpenRouter](https://openrouter.ai)
+- `BLOB_READ_WRITE_TOKEN` — Vercel Blob
+- `POSTGRES_URL` — Vercel Postgres (chat persistence)
+
+See [`apps/web/.env.example`](apps/web/.env.example) for the full list.
+
+## SEO and AEO
+
+This site is also a knowledge base optimized for search engines and answer engines. The runbook for keeping that working lives in [`docs/SEO-AEO.md`](docs/SEO-AEO.md). Editing patterns for content (projects, FAQ, /now updates) live in [`docs/CONTENT.md`](docs/CONTENT.md).
+
+Canonical hostname is `https://www.aryateja.com`. The apex domain 301s to www at the Vercel edge (see [`vercel.json`](vercel.json)).
+
+## Scripts
+
+Run from the repo root via Turborepo:
 
 ```bash
-# Using pnpm (recommended)
-pnpm install --force
-
-# OR using npm
-npm install --legacy-peer-deps
+bun run dev          # next dev --turbo
+bun run build        # next build
+bun run lint         # biome lint --write --unsafe
+bun run format       # biome format --write
+bun run check-types  # tsc --noEmit
 ```
 
-## 🔑 Environment Setup
-
-1. Create a `.env.local` file in the project root with the following variables:
-
-```
-# Authentication
-AUTH_SECRET=<your-auth-secret>
-AUTH_URL=http://localhost:3000
-AUTH_TRUST_HOST=true
-
-# Database (Supabase PostgreSQL)
-POSTGRES_URL="postgresql://postgres.username:password@hostname:port/postgres"
-
-# Azure OpenAI Configuration
-AZURE_OPENAI_API_KEY=<your-api-key>
-AZURE_OPENAI_API_VERSION=2025-01-01-preview
-AZURE_RESOURCE_NAME=<your-resource-name>
-
-# Model Deployments
-AZURE_OPENAI_CHAT_DEPLOYMENT=gpt-4o
-AZURE_OPENAI_REASONING_DEPLOYMENT=o4-mini
-AZURE_OPENAI_TITLE_DEPLOYMENT=gpt-4o-mini
-AZURE_OPENAI_ARTIFACT_DEPLOYMENT=gpt-4o
-
-# Image Generation
-AZURE_IMAGE_API_KEY=<your-image-api-key>
-AZURE_IMAGE_API_VERSION=2024-04-01-preview
-AZURE_IMAGE_RESOURCE_NAME=<your-image-resource-name>
-```
-
-## 💾 Database Setup
-
-After setting up your database connection, run the migration command to create the required schema:
+Workspace-scoped DB scripts live in `apps/web` and require `POSTGRES_URL`:
 
 ```bash
-# Using pnpm
-pnpm db:migrate
-
-# OR using npm
-npm run db:migrate
+cd apps/web
+bun run db:generate   # drizzle-kit generate
+bun run db:migrate    # apply migrations
+bun run db:studio     # local studio
 ```
 
-## 🧪 Development
+## Deployment
 
-Start the development server:
+Deployed continuously on Vercel from `main`. The build runs `tsx lib/db/migrate && next build`; if `POSTGRES_URL` is missing the migration step gracefully no-ops.
 
-```bash
-# Using pnpm
-pnpm dev
+## Documentation
 
-# OR using npm
-npm run dev
-```
+Engineering docs live in [`docs/`](docs/):
 
-> ⚠️ Note: Development mode uses Turbo and may be slower due to hot reloading.
+- [`docs/Architecture.md`](docs/Architecture.md)
+- [`docs/Database Schema.md`](docs/Database%20Schema.md)
+- [`docs/Deployment Guide.md`](docs/Deployment%20Guide.md)
+- [`docs/Folder Structure.md`](docs/Folder%20Structure.md)
+- [`docs/Security.md`](docs/Security.md)
 
-## 🏗️ Production
+## License
 
-Build and start the production server:
-
-```bash
-# Build the application
-npm run build
-
-# Start the production server
-npm run start
-```
-
-## 📚 Documentation
-
-Comprehensive documentation is available in the `docs` folder:
-
-- [Installation Guide](docs/Installation.md)
-- [Product Requirements Document](docs/Product-Requirements-Document.md)
-- [Architecture Documentation](docs/Architecture.md)
-- [Security Documentation](docs/Security.md)
-- [Module Documentation](docs/Module%20Documentation.md)
-- [Prompt Library](docs/Prompt%20Library.md)
-- [Folder Structure](docs/Folder%20Structure.md)
-- [Deployment Guide](docs/Deployment%20Guide.md)
-- [Database Schema](docs/Database%20Schema.md)
-
-## 🔧 Troubleshooting
-
-### Common Issues
-
-- **Dependency Conflicts**: Use `--force` or `--legacy-peer-deps` flags during installation
-- **Database Connection Issues**: Verify your connection string and network access
-- **Migration Failures**: Check database permissions and try running `db:generate` before `db:migrate`
-- **Azure OpenAI Errors**: Confirm API keys and deployment names match your Azure resources
-
-## 🛡️ Security
-
-This application implements several security measures:
-
-- JWT-based authentication with Auth.js
-- Secure session management
-- Input validation and sanitization
-- API key protection
-
-For more details, see the [Security Documentation](docs/Security.md).
-
-
-## 🔄 Continuous Integration
-
-The project includes configuration for:
-
-- Linting: `pnpm lint`
-- Formatting: `pnpm format`
-- Database checks: `pnpm db:check`
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
-<p align="center">
-  Made with ❤️ using Next.js, React, and Azure OpenAI
-</p>
+MIT — see [LICENSE](LICENSE).

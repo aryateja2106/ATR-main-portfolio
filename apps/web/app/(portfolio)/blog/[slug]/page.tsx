@@ -1,238 +1,162 @@
-'use client';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import {
+	SITE_AUTHOR,
+	SITE_LINKS,
+	SITE_NAME,
+	SITE_URL,
+} from "@/lib/portfolio/site";
+import { getAllBlogs, getBlogBySlug, getRelatedBlogs } from "../../_hooks/blog";
+import { BlogPostClient } from "./blog-post-client";
 
-import React from 'react';
-import Link from 'next/link';
-import { Header } from '../../_components/header';
-import { useParams } from 'next/navigation';
-import { getBlogBySlug, getRelatedBlogs } from '../../_hooks/blog';
-import MarkdownRenderer from '../../_components/markdowmRender';
-import Image from 'next/image';
+type RouteParams = { slug: string };
 
-export default function BlogPostPage() {
-  const params = useParams();
-  const postSlug = typeof params.slug === 'string' ? params.slug : '1';
-  const post = getBlogBySlug(postSlug);
-  const relatedPosts = getRelatedBlogs(postSlug);
+export const dynamicParams = false;
 
-  if (!post) {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-between">
-        <Header />
-        <div className="w-full px-4 max-w-4xl mx-auto pt-32 pb-20 text-center">
-          <h1 className="text-3xl font-bold mb-4">Blog post not found</h1>
-          <p className="mb-8">
-            The blog post you&apos;re looking for doesn&apos;t exist or has been
-            removed.
-          </p>
-          <Link
-            href="/blog"
-            className="inline-flex items-center justify-center rounded-lg bg-teal-500 px-6 py-3 text-white hover:bg-teal-600 transition-colors"
-          >
-            Back to all blogs
-          </Link>
-        </div>
-      </main>
-    );
-  }
+export function generateStaticParams(): RouteParams[] {
+	return getAllBlogs().map((post) => ({ slug: post.slug }));
+}
 
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <Header />
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<RouteParams>;
+}): Promise<Metadata> {
+	const { slug } = await params;
+	const post = getBlogBySlug(slug);
 
-      <article className="w-full px-4 max-w-4xl mx-auto pt-32 pb-20">
-        {/* Back button */}
-        <Link
-          href="/blog"
-          className="inline-flex items-center text-neutral-600 dark:text-neutral-400 hover:text-teal-500 dark:hover:text-teal-500 mb-8"
-        >
-          <svg
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-4 mr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          Back to all blogs
-        </Link>
+	if (!post) {
+		return {
+			title: "Post not found",
+			description: "The blog post you are looking for does not exist.",
+			robots: { index: false, follow: false },
+		};
+	}
 
-        {/* Post header */}
-        <div className="mb-8">
-          <div className="inline-block bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 rounded-full px-3 py-1 text-sm mb-4">
-            {post.category}
-          </div>
+	const url = `${SITE_URL}/blog/${post.slug}`;
+	const description = post.description || post.excerpt;
 
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{post.title}</h1>
+	return {
+		title: post.title,
+		description,
+		authors: [{ name: SITE_AUTHOR.name, url: SITE_LINKS.linkedin }],
+		keywords: post.tags,
+		alternates: {
+			canonical: `/blog/${post.slug}`,
+		},
+		openGraph: {
+			type: "article",
+			title: post.title,
+			description,
+			url,
+			siteName: SITE_NAME,
+			publishedTime: new Date(post.date).toISOString(),
+			modifiedTime: new Date(post.date).toISOString(),
+			authors: [SITE_AUTHOR.name],
+			tags: post.tags,
+			// Per-post OG image is supplied by ./opengraph-image.tsx automatically.
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: post.title,
+			description,
+			creator: SITE_AUTHOR.twitter,
+		},
+	};
+}
 
-          <div className="flex items-center text-sm text-neutral-500 dark:text-neutral-400 mb-6">
-            <span>{post.formattedDate}</span>
-            <span className="mx-2">•</span>
-            <span>{post.readTime}</span>
-          </div>
+export default async function BlogPostPage({
+	params,
+}: {
+	params: Promise<RouteParams>;
+}) {
+	const { slug } = await params;
+	const post = getBlogBySlug(slug);
 
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {post.tags.map((tag) => (
-              <Link
-                href={`/blogs/tag/${tag}`}
-                key={tag}
-                className="text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-2 py-1 rounded-md hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 transition-colors"
-              >
-                #{tag}
-              </Link>
-            ))}
-          </div>
+	if (!post) {
+		notFound();
+	}
 
-          {/* Author info */}
-          <div className="flex items-center py-6 border-y border-neutral-200 dark:border-neutral-800">
-            <div className="size-12 relative mr-4 overflow-hidden rounded-full">
-              {/* Replace with actual author image */}
-              <div className="size-full flex items-center justify-center text-xs text-neutral-500">
-                Avatar
-              </div>
-            </div>
-            <div>
-              <div className="font-medium">{post.author.name}</div>
-              <div className="text-sm text-neutral-500 dark:text-neutral-400">
-                {post.author.bio}
-              </div>
-            </div>
-          </div>
-        </div>
+	const relatedPosts = getRelatedBlogs(post.id);
 
-        {/* Post cover image */}
-        {post.coverImage ? (
-          <div className="relative w-full h-64 md:h-96 bg-neutral-800 overflow-hidden">
-            <Image
-              src={post.coverImage}
-              alt={post.title}
-              fill
-              objectFit="cover"
-              className="opacity-70"
-            />
-          </div>
-        ) : (
-          <div className="w-full h-64 md:h-96 bg-neutral-100 dark:bg-neutral-800 rounded-lg mb-8 overflow-hidden">
-            <div className="size-full flex items-center justify-center text-neutral-400">
-              No Cover Image
-            </div>
-          </div>
-        )}
+	const url = `${SITE_URL}/blog/${post.slug}`;
+	// Prefer a real remote cover URL; skip /assets/* placeholders; otherwise use route OG image for valid absolute image in structured data.
+	const cover = post.coverImage;
+	let structuredDataImage = `${SITE_URL}/blog/${post.slug}/opengraph-image`;
+	if (cover?.startsWith("http")) {
+		structuredDataImage = cover;
+	} else if (cover && !cover.startsWith("/assets/") && cover.startsWith("/")) {
+		structuredDataImage = `${SITE_URL}${cover}`;
+	}
 
-        {/* Post content - Markdown renderer */}
-        <MarkdownRenderer content={post.content} />
+	const articleJsonLd = {
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		mainEntityOfPage: {
+			"@type": "WebPage",
+			"@id": url,
+		},
+		headline: post.title,
+		description: post.description || post.excerpt,
+		image: [structuredDataImage],
+		datePublished: new Date(post.date).toISOString(),
+		dateModified: new Date(post.date).toISOString(),
+		author: {
+			"@type": "Person",
+			name: SITE_AUTHOR.name,
+			url: SITE_URL,
+			sameAs: [SITE_LINKS.linkedin, SITE_LINKS.github, SITE_LINKS.twitter],
+		},
+		publisher: {
+			"@type": "Person",
+			name: SITE_AUTHOR.name,
+			url: SITE_URL,
+		},
+		keywords: post.tags.join(", "),
+		articleSection: post.category,
+		url,
+	};
 
-        {/* Share and like section */}
-        <div className="mt-12 flex justify-between items-center border-t border-neutral-200 dark:border-neutral-800 pt-6">
-          <div className="flex space-x-4">
-            <button
-              type="button"
-              className="flex items-center text-neutral-600 dark:text-neutral-400 hover:text-teal-500 dark:hover:text-teal-500"
-            >
-              <svg
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-5 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                />
-              </svg>
-              Like
-            </button>
-            <button
-              type="button"
-              className="flex items-center text-neutral-600 dark:text-neutral-400 hover:text-teal-500 dark:hover:text-teal-500"
-            >
-              <svg
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-5 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
-                />
-              </svg>
-              Share
-            </button>
-          </div>
-          <button
-            type="button"
-            className="flex items-center text-neutral-600 dark:text-neutral-400 hover:text-teal-500 dark:hover:text-teal-500"
-          >
-            <svg
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              className="size-5 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-              />
-            </svg>
-            Bookmark
-          </button>
-        </div>
-      </article>
+	const breadcrumbJsonLd = {
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		itemListElement: [
+			{
+				"@type": "ListItem",
+				position: 1,
+				name: "Home",
+				item: SITE_URL,
+			},
+			{
+				"@type": "ListItem",
+				position: 2,
+				name: "Blog",
+				item: `${SITE_URL}/blog`,
+			},
+			{
+				"@type": "ListItem",
+				position: 3,
+				name: post.title,
+				item: url,
+			},
+		],
+	};
 
-      {/* Related posts section */}
-      {relatedPosts.length > 0 && (
-        <div className="w-full bg-neutral-50 dark:bg-neutral-900 py-16">
-          <div className="w-full px-4 max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8">Related Articles</h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {relatedPosts.slice(0, 3).map((relatedPost) => (
-                <Link
-                  key={relatedPost.id}
-                  href={`/blog/${relatedPost.id}`}
-                  className="group"
-                >
-                  <div className="h-40 bg-neutral-200 dark:bg-neutral-800 rounded-lg mb-4 overflow-hidden">
-                    <Image
-                      className="size-full object-cover"
-                      src={relatedPost.coverImage}
-                      alt={relatedPost.title}
-                      fill
-                      objectFit="cover"
-                    />
-                  </div>
-                  <h3 className="font-medium group-hover:text-teal-500 transition-colors mb-1">
-                    {relatedPost.title}
-                  </h3>
-                  <div className="text-sm text-neutral-500 dark:text-neutral-400">
-                    {relatedPost.formattedDate}
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-    </main>
-  );
+	return (
+		<>
+			<script
+				id={`article-jsonld-${post.slug}`}
+				type="application/ld+json"
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD must be inline server-rendered for crawlers/AEO.
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+			/>
+			<script
+				id={`breadcrumb-jsonld-${post.slug}`}
+				type="application/ld+json"
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD must be inline server-rendered for crawlers/AEO.
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+			/>
+			<BlogPostClient post={post} relatedPosts={relatedPosts} />
+		</>
+	);
 }

@@ -1,4 +1,17 @@
 {
   "installCommand": "bun install",
-  "buildCommand": "bun run build"
+  "buildCommand": "bun run build",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "aryateja.com"
+        }
+      ],
+      "destination": "https://www.aryateja.com/$1",
+      "permanent": true
+    }
+  ]
 }
