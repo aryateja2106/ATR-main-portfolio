@@ -62,7 +62,7 @@ const groups: UsesGroup[] = [
 			{
 				name: "mconnect",
 				description:
-					"My own tool for driving Claude Code and Cursor from the phone — mobile-first AI dev workflows.",
+					"My own tool for driving Claude Code and Cursor from the phone: mobile-first AI dev workflows.",
 				href: "/projects/lecoder-mconnect",
 			},
 		],
@@ -240,7 +240,7 @@ export default function UsesPage() {
 											{item.name}
 										</span>
 									)}{" "}
-									<span className="text-neutral-400">— {item.description}</span>
+									<span className="text-neutral-400">: {item.description}</span>
 								</li>
 							))}
 						</ul>

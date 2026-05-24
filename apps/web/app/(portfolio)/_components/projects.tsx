@@ -1,12 +1,12 @@
 "use client";
 
+// Fix import from framer-motion instead of motion/react
 import {
 	AnimatePresence,
 	motion,
 	useAnimation,
 	type Variants,
 } from "framer-motion";
-import Link from "next/link";
 import {
 	type FC,
 	forwardRef,
@@ -16,11 +16,87 @@ import {
 	useRef,
 	useState,
 } from "react";
-import {
-	type Project,
-	projects as projectsData,
-} from "@/lib/portfolio/projects";
+// Assume cn utility is available
 import { cn } from "../../../lib/utils";
+
+// --- Project Data ---
+interface Project {
+	id: string;
+	title: string;
+	status: "Active" | "Passive" | "Forked" | "Showcase";
+	// statusVariant maps to the badge color variants
+	statusVariant: "active" | "passive" | "forked" | "showcase";
+	description: string;
+	techStack: string[];
+	githubLink?: string;
+	liveLink?: string;
+}
+
+// Data remains the same, statusVariant keys map to new badge colors
+const projectsData: Project[] = [
+	{
+		id: "lecoder-mconnect",
+		title: "LeCoder MConnect",
+		status: "Active",
+		statusVariant: "active", // Teal
+		description:
+			"Mobile-first bridge for AI coding agents enabling 100% remote dev workflows. Control Claude Code/Cursor from your phone via Node PTY and Cloudflare Tunnels.",
+		techStack: ["Node.js", "WebSockets", "Cloudflare", "React"],
+		githubLink: "https://github.com/aryateja2106/lecoder-mconnect",
+		liveLink: "https://lecoder.lesearch.ai",
+	},
+	{
+		id: "nvidia-dynamo",
+		title: "NVIDIA Dynamo Fork",
+		status: "Forked",
+		statusVariant: "forked", // Sky Blue
+		description:
+			"Forked NVIDIA Dynamo to allow datacenter-scale distributed inference. Experimented with multi-GPU/node topologies and Kubernetes for enterprise-grade LLM serving.",
+		techStack: ["Python", "Distributed Systems", "TensorRT-LLM", "Kubernetes"],
+		githubLink: "https://github.com/aryateja2106/Nvidia-dynamo",
+	},
+	{
+		id: "local-sql-agent",
+		title: "Local SQL Agent",
+		status: "Active",
+		statusVariant: "active", // Teal
+		description:
+			"Privacy-first SQL agent with 2-layer safety guardrails (read-only enforcement). introspects Postgres schemas to let anyone query DBs using natural language.",
+		techStack: ["Python", "LangChain", "Postgres", "Local LLMs", "Ollama"],
+		githubLink: "https://github.com/aryateja2106/local-sql-agent",
+	},
+	{
+		id: "lesearch-ai",
+		title: "LeSearch AI",
+		status: "Active",
+		statusVariant: "active", // Teal
+		description:
+			'AI research agent validated by 30+ user interviews. Features RAG for synthesis and discovery, pivoting from "Chat with PDF" to true research assistance.',
+		techStack: ["Next.js", "Supabase", "FastAPI", "RAG", "VectorDB"],
+		githubLink: "https://github.com/aryateja2106/lesearch-app",
+		liveLink: "https://lesearch-app.vercel.app/",
+	},
+	{
+		id: "chatterbox-tts",
+		title: "ChatterBox-TTS",
+		status: "Showcase",
+		statusVariant: "showcase", // Teal
+		description:
+			"A Text-to-Speech application demonstrating audio synthesis capabilities.",
+		techStack: ["Python", "TTS", "AI/ML"],
+		githubLink: "https://github.com/aryateja2106/ChatterBox-TTS",
+	},
+	{
+		id: "browser-use-byok",
+		title: "Browser-use BYOK",
+		status: "Forked",
+		statusVariant: "forked", // Sky Blue
+		description:
+			'Local browser agent experiments allowing "Bring Your Own Key" configuration for flexible agent deployment.',
+		techStack: ["Python", "Browser Automation", "AI Agents"],
+		githubLink: "https://github.com/aryateja2106/Browser-use-BYOK-local",
+	},
+];
 
 // --- Animations for Project Cards ---
 const containerVariants: Variants = {
@@ -453,14 +529,8 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
 				<Card className="min-h-[300px] h-full hover:border-neutral-600/80 transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-teal-500/10">
 					<CardHeader className="pb-3 md:pb-4">
 						<div className="flex justify-between items-start gap-2">
-							<CardTitle className="mb-1">
-								<Link
-									href={`/projects/${project.slug}`}
-									className="hover:text-teal-400 transition-colors"
-								>
-									{project.title}
-								</Link>
-							</CardTitle>
+							<CardTitle className="mb-1">{project.title}</CardTitle>
+							{/* Use the mapped color badge variant */}
 							<Badge
 								variant={statusBadgeVariant}
 								className="whitespace-nowrap mt-0.5 shrink-0"
@@ -470,21 +540,16 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
 						</div>
 					</CardHeader>
 
+					{/* Use flex-col and grow to manage space */}
 					<CardContent className="flex flex-col">
+						{/* Description Section: Fixed height for alignment */}
+						{/* Adjusted height slightly, ensure line-clamp works */}
 						<div className="h-[72px] mb-4 overflow-hidden">
+							{" "}
+							{/* Approx 3 lines height */}
 							<p className="text-sm text-neutral-400 line-clamp-3">
-								{project.shortDescription}
+								{project.description}
 							</p>
-						</div>
-
-						<div className="mb-4">
-							<Link
-								href={`/projects/${project.slug}`}
-								className="text-xs text-teal-400 hover:underline inline-flex items-center"
-							>
-								Read the deep dive
-								<ArrowRightIcon className="size-3 ml-1" />
-							</Link>
 						</div>
 
 						{/* Links Section: Fixed height for alignment */}
@@ -577,12 +642,12 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
 export const Projects: FC = () => {
 	const initialProjectCount = 6;
 	const displayedProjects = projectsData.slice(0, initialProjectCount);
-	const _hasMoreProjects = projectsData.length > initialProjectCount;
+	const hasMoreProjects = projectsData.length > initialProjectCount;
 
 	return (
 		<section
 			id="projects"
-			className="py-16 md:py-24 bg-neutral-950 text-neutral-200"
+			className="scroll-mt-28 py-16 md:py-24 bg-neutral-950 text-neutral-200"
 		>
 			<div className="container mx-auto px-4 md:px-6">
 				<motion.div
@@ -617,26 +682,28 @@ export const Projects: FC = () => {
 
 				{/* "View More" Button */}
 				<motion.div
-					className="mt-12 text-center flex flex-col items-center gap-3"
+					className="mt-12 text-center"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ delay: 0.6, duration: 0.5 }}
 				>
-					<Link
-						href="/projects"
-						className="inline-flex items-center justify-center rounded-md bg-teal-500/10 text-teal-400 border border-teal-400/30 px-8 h-11 text-base font-medium hover:bg-teal-500/20 transition-colors"
-					>
-						See all project deep-dives
-						<ArrowRightIcon className="inline-block size-4 ml-2" />
-					</Link>
-					<a
-						href="https://github.com/aryateja2106"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="text-sm text-neutral-400 hover:text-neutral-100 transition-colors"
-					>
-						Or browse the full archive on GitHub →
-					</a>
+					{hasMoreProjects && (
+						<Button
+							variant="outline"
+							size="lg"
+							asChild
+							href="https://github.com/aryateja2106"
+						>
+							<span>
+								{" "}
+								Explore More on GitHub{" "}
+								<ArrowRightIcon className="inline-block size-4 ml-2" />{" "}
+							</span>
+						</Button>
+					)}
+					{!hasMoreProjects && projectsData.length > 0 && (
+						<p className="text-neutral-400">More projects coming soon!</p>
+					)}
 				</motion.div>
 			</div>
 		</section>

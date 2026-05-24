@@ -1,7 +1,6 @@
 import type { Icon as PhosphorIcon } from "@phosphor-icons/react";
 import {
 	ArrowUpRight,
-	Book,
 	Briefcase,
 	EnvelopeSimple,
 	File,
@@ -11,10 +10,7 @@ import {
 	List,
 	MagnifyingGlass,
 	Note,
-	Question,
-	RssSimple,
-	Star,
-	TreeStructure,
+	TerminalWindow,
 	User,
 	X,
 } from "@phosphor-icons/react/dist/ssr";
@@ -68,6 +64,14 @@ export function CommandPalette({
 			keywords: ["homepage", "main"],
 		},
 		{
+			id: "terminal",
+			name: "Terminal Demo",
+			icon: TerminalWindow,
+			href: "/#terminal",
+			section: "Navigation",
+			keywords: ["terminal", "agents", "orchestration", "vm", "cli"],
+		},
+		{
 			id: "blog",
 			name: "Go to Blog",
 			icon: Note,
@@ -79,58 +83,26 @@ export function CommandPalette({
 			id: "projects",
 			name: "Go to Projects",
 			icon: Briefcase,
-			href: "/projects",
+			href: "/#projects",
 			section: "Navigation",
 			keywords: ["work", "portfolio"],
-		},
-		{
-			id: "github-stars",
-			name: "GitHub Stars",
-			icon: Star,
-			href: "/github-stars",
-			section: "Navigation",
-			keywords: ["stars", "bookmarks", "repos", "open source", "oss"],
 		},
 		{
 			id: "about",
 			name: "About",
 			icon: User,
-			href: "/about",
+			href: "/#about",
 			section: "Navigation",
 			keywords: ["me", "info", "profile"],
-		},
-		{
-			id: "faq",
-			name: "FAQ",
-			icon: Question,
-			href: "/faq",
-			section: "Navigation",
-			keywords: ["questions", "answers", "aeo"],
 		},
 		{
 			id: "resume",
 			name: "Download Resume",
 			icon: File,
-			href: "/resume/Arya_Teja_Rudraraju_Resume.pdf",
+			href: "/resume/Arya_Teja_PM_Resume.pdf",
 			external: true,
 			section: "Navigation",
 			keywords: ["cv", "download", "pdf", "curriculum"],
-		},
-		{
-			id: "guestbook",
-			name: "Guestbook",
-			icon: Book,
-			href: "/guestbook",
-			section: "Navigation",
-			keywords: ["sign", "comment"],
-		},
-		{
-			id: "sitemap",
-			name: "Sitemap",
-			icon: TreeStructure,
-			href: "/sitemap",
-			section: "Navigation",
-			keywords: ["map", "structure"],
 		},
 		{
 			id: "contact",
@@ -158,14 +130,6 @@ export function CommandPalette({
 			external: true,
 			section: "Links",
 			keywords: ["professional", "network", "profile"],
-		},
-		{
-			id: "rss",
-			name: "RSS Feed",
-			icon: RssSimple,
-			href: "/blog/feed",
-			section: "Links",
-			keywords: ["subscribe", "feed"],
 		},
 	];
 
@@ -379,36 +343,25 @@ export default function MobileMenu() {
 							</Dialog.Close>
 							<div className="flex flex-1 flex-col overflow-y-scroll rounded-l-[2rem] bg-neutral-100 py-10 text-xl dark:bg-neutral-950">
 								<Link title="Home" icon={House} href="/" />
+								<Link
+									title="Terminal Demo"
+									icon={TerminalWindow}
+									href="/#terminal"
+								/>
 								<Link title="Blog" icon={Note} href="/blog" />
-								<Link title="Projects" icon={Briefcase} href="/projects" />
-								<Link title="GitHub stars" icon={Star} href="/github-stars" />
-								<Link title="About" icon={User} href="/about" />
-								<Link title="FAQ" icon={Question} href="/faq" />
+								<Link title="Projects" icon={Briefcase} href="/#projects" />
+								<Link title="About" icon={User} href="/#about" />
 								<OutLink
 									title="Resume"
 									icon={File}
-									href="/resume/Arya_Teja_Rudraraju_Resume.pdf"
+									href="/resume/Arya_Teja_PM_Resume.pdf"
 								/>
-								<Link title="Guestbook" icon={Book} href="/guestbook" />
-								<Link title="Sitemap" icon={TreeStructure} href="/sitemap" />
 								<Search />
-								<OutLink
-									title="License"
-									icon={File}
-									rel="license"
-									href="https://github.com/mateusfg7/mateusf.com/blob/main/LICENSE/?ref=https://mateusf.com"
-								/>
 								<OutLink
 									title="Github"
 									icon={GithubLogo}
 									rel="external"
-									href="https://github.com/mateusfg7/mateusf.com/?ref=https://mateusf.com"
-								/>
-								<OutLink
-									title="RSS"
-									icon={RssSimple}
-									rel="noreferrer"
-									href="/blog/feed"
+									href="https://github.com/aryateja2106"
 								/>
 							</div>
 						</div>

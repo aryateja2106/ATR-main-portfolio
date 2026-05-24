@@ -1,12 +1,14 @@
 "use client";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
+import { ContactForm } from "@/components/forms/ContactForm";
+import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 export const Footer = () => {
 	return (
 		<footer
 			id="contact"
-			className="relative mt-32 pb-6 overflow-hidden bg-neutral-950"
+			className="relative mt-32 scroll-mt-28 pb-6 overflow-hidden bg-neutral-950"
 		>
 			{/* Background with stars and cosmic element */}
 			<div className="absolute inset-0 -z-10 overflow-hidden">
@@ -27,49 +29,22 @@ export const Footer = () => {
 					<div>
 						<h3 className="text-2xl font-bold mb-4">Arya Teja .</h3>
 						<p className="text-gray-400 mb-6 font-light leading-relaxed">
-							Agentic Engineer in{" "}
-							<span className="text-teal-400 font-medium">San Francisco</span>.
-							Founder of{" "}
-							<span className="text-teal-400 font-medium">LeSearch AI</span> and{" "}
-							<span className="text-teal-400 font-medium">CloudAGI</span>.
 							Building{" "}
-							<span className="text-teal-400 font-medium">
-								LeCoder MConnect
-							</span>
-							, an open-source mobile control layer for AI coding agents.
+							<span className="text-teal-400 font-medium">mconnect</span>. An
+							open source initiative from{" "}
+							<span className="text-teal-400 font-medium">LeSearch AI</span>{" "}
+							that turns remote terminals into a browser-native agent surface.
 							<br />
-							<span className="text-sm text-gray-500 mt-2 block">
-								Shipping in public.
+							<span className="text-sm text-gray-500 mt-2 block mb-6">
+								Dev since Dec 2025.
 							</span>
 						</p>
+						<NewsletterForm signupSource="footer" />
 					</div>
 
 					{/* Middle column - Quick Links */}
 					<div>
-						<h4 className="text-lg font-semibold mb-6">Knowledge base</h4>
-						<nav className="flex flex-col space-y-3">
-							<Link
-								href="/about"
-								className="text-gray-400 hover:text-teal-400 transition-colors"
-							>
-								Long-form bio (/about)
-							</Link>
-							<Link
-								href="/faq"
-								className="text-gray-400 hover:text-teal-400 transition-colors"
-							>
-								FAQ (/faq)
-							</Link>
-							<Link
-								href="/now"
-								className="text-gray-400 hover:text-teal-400 transition-colors"
-							>
-								Now (/now)
-							</Link>
-						</nav>
-						<h4 className="text-lg font-semibold mb-6 mt-10 md:mt-0">
-							Explore
-						</h4>
+						<h4 className="text-lg font-semibold mb-6">Quick Links</h4>
 						<nav className="flex flex-col space-y-3">
 							<Link
 								href="/"
@@ -78,28 +53,28 @@ export const Footer = () => {
 								Home
 							</Link>
 							<Link
-								href="/projects"
+								href="/#terminal"
+								className="text-gray-400 hover:text-teal-400 transition-colors"
+							>
+								Terminal Demo
+							</Link>
+							<Link
+								href="/#about"
+								className="text-gray-400 hover:text-teal-400 transition-colors"
+							>
+								About
+							</Link>
+							<Link
+								href="/#projects"
 								className="text-gray-400 hover:text-teal-400 transition-colors"
 							>
 								Projects
-							</Link>
-							<Link
-								href="/github-stars"
-								className="text-gray-400 hover:text-teal-400 transition-colors"
-							>
-								GitHub stars
 							</Link>
 							<Link
 								href="/blog"
 								className="text-gray-400 hover:text-teal-400 transition-colors"
 							>
 								Blog
-							</Link>
-							<Link
-								href="/contact"
-								className="text-gray-400 hover:text-teal-400 transition-colors"
-							>
-								Contact
 							</Link>
 						</nav>
 					</div>
@@ -108,58 +83,7 @@ export const Footer = () => {
 					<div className="space-y-8">
 						<div>
 							<h4 className="text-lg font-semibold mb-6">Get in Touch</h4>
-							<div className="bg-neutral-900/60 backdrop-blur-sm border border-neutral-800 rounded-lg p-4 hover:border-neutral-700 transition-colors">
-								<p className="text-sm text-neutral-300 mb-4">
-									Open to AI Engineer, Forward Deployed Engineer, and Product
-									Engineer roles at AI-first companies. Especially excited about
-									teams shipping agentic workflows.
-								</p>
-
-								<div className="grid grid-cols-2 gap-3">
-									<Link
-										href="mailto:aryateja2106@gmail.com"
-										className="flex items-center justify-center gap-2 py-2 px-3 bg-neutral-800/80 hover:bg-neutral-700 border border-neutral-700 rounded-md text-sm text-neutral-300 hover:text-white transition-colors"
-									>
-										<svg
-											aria-hidden="true"
-											className="size-4"
-											fill="none"
-											stroke="currentColor"
-											viewBox="0 0 24 24"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												strokeWidth={2}
-												d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-											/>
-										</svg>
-										Email Me
-									</Link>
-									<Link
-										href="/contact"
-										className="flex items-center justify-center gap-2 py-2 px-3 bg-neutral-800/80 hover:bg-neutral-700 border border-neutral-700 rounded-md text-sm text-neutral-300 hover:text-white transition-colors"
-									>
-										<svg
-											aria-hidden="true"
-											className="size-4"
-											fill="none"
-											stroke="currentColor"
-											viewBox="0 0 24 24"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												strokeWidth={2}
-												d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-											/>
-										</svg>
-										Schedule Call
-									</Link>
-								</div>
-							</div>
+							<ContactForm />
 						</div>
 
 						<div>
@@ -199,7 +123,7 @@ export const Footer = () => {
 
 				{/* Bottom bar with copyright and links */}
 				<div className="pt-8 border-t border-neutral-800 flex flex-col md:flex-row justify-between items-center text-sm text-neutral-500">
-					<p>© 2026 Arya Teja Rudraraju. Shipping in public.</p>
+					<p>© 2025 Arya Teja Rudraraju | Portfolio. All rights reserved.</p>
 					<div className="flex space-x-6 mt-4 md:mt-0">
 						<Link
 							href="/privacy"

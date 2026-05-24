@@ -11,11 +11,13 @@ const MenuItem: React.FC<{ name: string; path: string }> = ({ name, path }) => {
 	const pathname = usePathname();
 	const activeSection = useActiveSection();
 	const isHome = path === "/";
+	const sectionPath = path.startsWith("/#") ? path.slice(1) : path;
 
 	// Update the active check to include both pathname and sections
 	const isActive = isHome
 		? path === pathname && activeSection === "/"
-		: (pathname === "/" && activeSection === path) || pathname.startsWith(path);
+		: (pathname === "/" && activeSection === sectionPath) ||
+			pathname.startsWith(path);
 
 	return (
 		<Link
@@ -41,15 +43,14 @@ export function Header() {
 				<div className="hidden w-full items-center gap-8 md:flex md:w-auto">
 					<nav className="flex-wrap items-center justify-center gap-5">
 						<MenuItem name="Home" path="/" />
-						<MenuItem name="About" path="#about" />
-						<MenuItem name="FAQ" path="/faq" />
-						<MenuItem name="Projects" path="#projects" />
-						<MenuItem name="Stars" path="/github-stars" />
-						<MenuItem name="Blog" path="#blogs" />
-						<MenuItem name="Contact" path="#contact" />
+						<MenuItem name="Terminal" path="/#terminal" />
+						<MenuItem name="About" path="/#about" />
+						<MenuItem name="Projects" path="/#projects" />
+						<MenuItem name="Blog" path="/#blogs" />
+						<MenuItem name="Contact" path="/#contact" />
 						<a
-							href="/resume/Arya_Teja_Rudraraju_Resume.pdf"
-							download="Arya_Teja_Rudraraju_Resume.pdf"
+							href="/resume/Arya_Teja_PM_Resume.pdf"
+							download="Arya_Teja_PM_Resume.pdf"
 							className="rounded-lg p-2 leading-none text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200"
 						>
 							Resume

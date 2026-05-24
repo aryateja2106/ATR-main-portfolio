@@ -7,11 +7,11 @@ import {
 	DEFAULT_TWITTER_IMAGES,
 } from "@/lib/portfolio/social-image";
 
-// `Header` and outer `<main>` come from (portfolio)/layout.tsx — pages here render only their own content.
+// `Header` and outer `<main>` come from (portfolio)/layout.tsx - pages here render only their own content.
 
 const PAGE_TITLE = "Projects";
 const PAGE_DESCRIPTION =
-	"Open-source AI projects and product experiments by Arya Teja Rudraraju — including LeSearch AI, mconnect, Local SQL Agent, NVIDIA Dynamo experiments, and more.";
+	"Open-source AI projects and product experiments by Arya Teja Rudraraju: including LeSearch AI, mconnect, Local SQL Agent, NVIDIA Dynamo experiments, and more.";
 
 export const metadata: Metadata = {
 	title: PAGE_TITLE,
@@ -56,7 +56,7 @@ export default function ProjectsIndexPage() {
 	const itemListJsonLd = {
 		"@context": "https://schema.org",
 		"@type": "ItemList",
-		name: `${SITE_AUTHOR.name} — Projects`,
+		name: `${SITE_AUTHOR.name} : Projects`,
 		itemListElement: all.map((project, idx) => ({
 			"@type": "ListItem",
 			position: idx + 1,
@@ -87,7 +87,7 @@ export default function ProjectsIndexPage() {
 						</h1>
 						<p className="text-lg text-neutral-500 dark:text-neutral-400 max-w-3xl">
 							A growing portfolio of AI products, open-source tools, and
-							experiments — focused on agentic systems, LLM reasoning, and
+							experiments, focused on agentic systems, LLM reasoning, and
 							developer ergonomics. Each card links to a deep-dive with the
 							problem, approach, and outcomes.
 						</p>

@@ -2,6 +2,17 @@
 
 This document outlines the design system, component patterns, and coding conventions used throughout the portfolio website. It serves as a reference for maintaining consistency during future development.
 
+For the current Agentic Engineer rebuild, treat [`../DESIGN.md`](../DESIGN.md) as the high-level visual direction and `apps/web/app/globals.css` as the implementation source for design tokens. Older examples below may reflect the pre-rebuild portfolio and should not override the locked identity or voice rules in `apps/web/lib/portfolio/brand.ts`.
+
+## Current Brand Direction
+
+- Control-room, terminal-native, source-visible.
+- Real artifacts over abstract decoration: repo screenshots, terminal output, diagrams, receipts, and build logs.
+- Technical but readable. Dense layouts are fine when hierarchy is clear.
+- No em-dashes in user-facing copy or MDX.
+- No "AI PM", "aspiring", or Dallas positioning.
+- Avoid generic SaaS patterns: purple-blue gradients, nested cards, gray text on saturated backgrounds, rounded-square icon tiles above every heading, and bounce easing.
+
 ## Table of Contents
 
 - [Colors](#colors)

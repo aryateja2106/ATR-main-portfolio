@@ -58,7 +58,7 @@ export function Hero() {
 						<div className="absolute left-0 top-0 size-full flex flex-wrap justify-center content-start gap-3 md:gap-5">
 							{binaryDigits.map((digit, i) => (
 								<div
-									// biome-ignore lint/suspicious/noArrayIndexKey: decorative digits, no semantic identity
+									// biome-ignore lint/suspicious/noArrayIndexKey: indices are stable for background digits
 									key={`binary-${i}-${digit.value}`}
 									className="text-teal-500 font-mono text-xs md:text-sm"
 									style={{
@@ -111,10 +111,10 @@ export function Hero() {
 								<span className="text-teal-500 mr-2">{">"}</span>
 								<Typewriter
 									words={[
-										"Agentic Engineer",
-										"Founder, LeSearch AI + CloudAGI",
-										"Building LeCoder MConnect",
-										"Shipping in public from SF",
+										"Building LeSearch AI",
+										"Terminal-native agent systems",
+										"Remote VM orchestration",
+										"Shipping 0→1 AI products",
 									]}
 									loop
 									cursor
@@ -132,14 +132,15 @@ export function Hero() {
 							className="text-neutral-400 text-lg leading-relaxed max-w-lg text-center md:text-left backdrop-blur-sm md:backdrop-brightness-100 p-4 md:p-0 rounded-xl border border-neutral-800/50 md:border-0 bg-neutral-900/20 md:bg-transparent"
 							variants={itemVariants}
 						>
-							Founder of <b className="text-neutral-200">LeSearch AI</b> and{" "}
-							<b className="text-neutral-200">CloudAGI</b>. Building{" "}
-							<b className="text-neutral-200">LeCoder MConnect</b>, an
-							open-source mobile control layer for Claude Code, Cursor, and
-							OpenCode. Working from{" "}
-							<span className="text-teal-400">San Francisco</span> on{" "}
-							<span className="text-teal-400">mobile agent orchestration</span>{" "}
-							and the <span className="text-teal-400">Software Factory</span>.
+							Building the next generation of{" "}
+							<b className="text-neutral-200">AI Agents</b>. Currently shipping
+							enterprise automation at{" "}
+							<b className="text-neutral-200">Pilvi Systems</b> and building{" "}
+							<b className="text-neutral-200">LeSearch AI</b>. Focused on
+							terminal-first workflows at the intersection of{" "}
+							<span className="text-teal-400">LLM Reasoning</span>,{" "}
+							<span className="text-teal-400">Reliability</span>, and{" "}
+							<span className="text-teal-400">User Experience</span>.
 						</motion.p>
 
 						{/* Call to Action Buttons with hover effects */}
@@ -149,8 +150,8 @@ export function Hero() {
 						>
 							{/* Primary CTA - Resume Download */}
 							<a
-								href="/resume/Arya_Teja_Rudraraju_Resume.pdf"
-								download="Arya_Teja_Rudraraju_Resume.pdf"
+								href="/resume/Arya_Teja_PM_Resume.pdf"
+								download="Arya_Teja_PM_Resume.pdf"
 								onClick={() => {
 									if (
 										typeof globalThis.window !== "undefined" &&
@@ -187,12 +188,12 @@ export function Hero() {
 								<span className="relative z-10">Download Resume</span>
 							</a>
 
-							{/* Secondary CTA - Contact */}
+							{/* Secondary CTA - Terminal demo */}
 							<Link
-								href="#contact"
+								href="#terminal"
 								className="group relative px-8 py-3.5 border border-teal-500/30 text-teal-400 font-medium rounded-lg hover:bg-teal-500/10 transition-all duration-300 text-center backdrop-blur-sm"
 							>
-								<span className="relative z-10">Get in Touch</span>
+								<span className="relative z-10">Try Terminal Demo</span>
 							</Link>
 						</motion.div>
 

@@ -10,7 +10,7 @@ const LAST_UPDATED = "2026-05-01";
 const LAST_UPDATED_LABEL = "May 1, 2026";
 
 export const metadata: Metadata = {
-	title: "/reading — what's on my desk",
+	title: "/reading : what's on my desk",
 	description:
 		"Books, papers, and essays Arya Teja Rudraraju is reading right now and notable past reads on AI product management, agentic systems, and engineering.",
 	alternates: { canonical: "/reading" },
@@ -126,7 +126,7 @@ export default function ReadingPage() {
 									item.title
 								)}{" "}
 								<span className="text-neutral-500 font-normal">
-									— {item.author}
+									by {item.author}
 								</span>
 							</div>
 							{item.note ? (
@@ -161,7 +161,7 @@ export default function ReadingPage() {
 									item.title
 								)}{" "}
 								<span className="text-neutral-500 font-normal">
-									— {item.author}
+									by {item.author}
 								</span>
 							</div>
 							{item.note ? (

@@ -144,7 +144,7 @@ export default function FaqPage() {
 						</h1>
 						<p className="text-lg text-neutral-500 dark:text-neutral-400">
 							Quick answers about who I am, what I&apos;m building, and how to
-							get in touch — written for both humans and AI search engines.
+							get in touch, written for both humans and AI search engines.
 						</p>
 					</header>
 

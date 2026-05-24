@@ -7,14 +7,14 @@ import {
 } from "@/lib/portfolio/social-image";
 
 export const metadata: Metadata = {
-	title: "/github-stars — bookmarked OSS",
+	title: "/github-stars : bookmarked OSS",
 	description:
-		"A searchable compilation of repositories Arya Teja Rudraraju has starred on GitHub — tools, frameworks, and reference implementations worth bookmarking.",
+		"A searchable compilation of repositories Arya Teja Rudraraju has starred on GitHub: tools, frameworks, and reference implementations worth bookmarking.",
 	alternates: { canonical: "/github-stars" },
 	openGraph: {
 		title: `GitHub Stars • ${SITE_NAME}`,
 		description:
-			"Repos I've starred — interesting tooling and open source worth following.",
+			"Repos I've starred: interesting tooling and open source worth following.",
 		url: `${SITE_URL}/github-stars`,
 		type: "website",
 		images: DEFAULT_OG_IMAGES,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: `GitHub Stars • ${SITE_NAME}`,
 		description:
-			"Repos I've starred — interesting tooling and open source worth following.",
+			"Repos I've starred: interesting tooling and open source worth following.",
 		images: DEFAULT_TWITTER_IMAGES,
 	},
 };
@@ -36,7 +36,7 @@ export default function GitHubStarsPage() {
 					GitHub stars
 				</h1>
 				<p className="mt-3 max-w-2xl text-sm leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-base">
-					A living compilation of repositories I&apos;ve starred — useful OSS,
+					A living compilation of repositories I&apos;ve starred: useful OSS,
 					developer tools, and projects I bookmark for product and engineering
 					work. Everything below is searchable, filterable, and exportable.
 				</p>
@@ -64,14 +64,14 @@ export default function GitHubStarsPage() {
 						href="/about"
 						className="text-teal-600 underline-offset-4 hover:underline dark:text-teal-400"
 					>
-						/about — long-form bio
+						/about : long-form bio
 					</Link>
 					<span className="hidden sm:inline">·</span>
 					<Link
 						href="/faq"
 						className="text-teal-600 underline-offset-4 hover:underline dark:text-teal-400"
 					>
-						/faq — pre-answered Q&amp;A
+						/faq : pre-answered Q&amp;A
 					</Link>
 				</p>
 			</div>

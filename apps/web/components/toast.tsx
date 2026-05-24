@@ -1,44 +1,39 @@
-'use client';
+"use client";
 
-import React, { type ReactNode } from 'react';
-import { toast as sonnerToast } from 'sonner';
-import { CheckCircleFillIcon, WarningIcon } from './icons';
+import { AlertCircle, CheckCircle2 } from "lucide-react";
+import type { ReactNode } from "react";
+import { toast as sonnerToast } from "sonner";
 
-const iconsByType: Record<'success' | 'error', ReactNode> = {
-  success: <CheckCircleFillIcon />,
-  error: <WarningIcon />,
+const iconsByType: Record<"success" | "error", ReactNode> = {
+	success: <CheckCircle2 className="size-4 text-emerald-500 shrink-0" />,
+	error: <AlertCircle className="size-4 text-red-500 shrink-0" />,
 };
 
-export function toast(props: Omit<ToastProps, 'id'>) {
-  return sonnerToast.custom((id) => (
-    <Toast id={id} type={props.type} description={props.description} />
-  ));
+interface ToastProps {
+	id: string | number;
+	type: "success" | "error";
+	description: string;
 }
 
 function Toast(props: ToastProps) {
-  const { id, type, description } = props;
+	const { id, type, description } = props;
 
-  return (
-    <div className="flex w-full toast-mobile:w-[356px] justify-center">
-      <div
-        data-testid="toast"
-        key={id}
-        className="bg-zinc-100 p-3 rounded-lg w-full toast-mobile:w-fit flex flex-row gap-2 items-center"
-      >
-        <div
-          data-type={type}
-          className="data-[type=error]:text-red-600 data-[type=success]:text-green-600"
-        >
-          {iconsByType[type]}
-        </div>
-        <div className="text-zinc-950 text-sm">{description}</div>
-      </div>
-    </div>
-  );
+	return (
+		<div className="flex w-full justify-center">
+			<div
+				data-testid="toast"
+				key={id}
+				className="bg-neutral-900 border border-neutral-800 p-3 rounded-lg w-full flex flex-row gap-3 items-center shadow-lg"
+			>
+				<div className="flex shrink-0">{iconsByType[type]}</div>
+				<div className="text-neutral-200 text-sm">{description}</div>
+			</div>
+		</div>
+	);
 }
 
-interface ToastProps {
-  id: string | number;
-  type: 'success' | 'error';
-  description: string;
+export function toast(props: Omit<ToastProps, "id">) {
+	return sonnerToast.custom((id) => (
+		<Toast id={id} type={props.type} description={props.description} />
+	));
 }

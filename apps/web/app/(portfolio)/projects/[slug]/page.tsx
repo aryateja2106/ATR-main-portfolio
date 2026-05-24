@@ -109,7 +109,7 @@ export default async function ProjectDeepDive({
 
 	return (
 		<>
-			{/* Inline JSON-LD — `next/script` + beforeInteractive is root-layout-only; nesting it breaks Turbopack SSR chunks. */}
+			{/* Inline JSON-LD - `next/script` + beforeInteractive is root-layout-only; nesting it breaks Turbopack SSR chunks. */}
 			<script
 				id={`software-jsonld-${project.slug}`}
 				type="application/ld+json"
