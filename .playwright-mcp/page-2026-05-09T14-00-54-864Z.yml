@@ -1,0 +1,85 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]: Arya brand lab
+    - generic [ref=e5]: Pick a visual territory
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - paragraph [ref=e8]: Agentic Engineer | visual workflow
+      - heading "Choose the design language before we touch the site." [level=1] [ref=e9]
+      - paragraph [ref=e10]: These are clickable HTML samples for Arya's personal brand. Each one shows a website hero, a social square, and a short-form video card so the choice is practical across aryateja.com, LinkedIn, X, and YouTube.
+    - complementary [ref=e11]:
+      - paragraph [ref=e12]: How to choose
+      - paragraph [ref=e13]: Open every sample. Pick the one you would be proud to post every day for 90 days. Then choose one secondary sample we can borrow from for social templates.
+  - region "Brand samples" [ref=e14]:
+    - link "01 Control Room Terminal-native, live systems, agent orchestration, remote machine energy." [ref=e15] [cursor=pointer]:
+      - /url: ./sample-01-control-room.html
+      - generic [ref=e16]:
+        - paragraph [ref=e17]: "01"
+        - heading "Control Room" [level=2] [ref=e18]
+      - paragraph [ref=e19]: Terminal-native, live systems, agent orchestration, remote machine energy.
+    - link "02 Field Notes Editorial, humane, founder learning log, open-source reading desk." [ref=e24] [cursor=pointer]:
+      - /url: ./sample-02-field-notes.html
+      - generic [ref=e25]:
+        - paragraph [ref=e26]: "02"
+        - heading "Field Notes" [level=2] [ref=e27]
+      - paragraph [ref=e28]: Editorial, humane, founder learning log, open-source reading desk.
+    - link "03 Signal Grid Precise, networked, technical, built for diagrams and credibility." [ref=e33] [cursor=pointer]:
+      - /url: ./sample-03-signal-grid.html
+      - generic [ref=e34]:
+        - paragraph [ref=e35]: "03"
+        - heading "Signal Grid" [level=2] [ref=e36]
+      - paragraph [ref=e37]: Precise, networked, technical, built for diagrams and credibility.
+    - link "04 Raw OSS Loud, open-source, zine-like, honest about bugs and shipped artifacts." [ref=e42] [cursor=pointer]:
+      - /url: ./sample-04-raw-oss.html
+      - generic [ref=e43]:
+        - paragraph [ref=e44]: "04"
+        - heading "Raw OSS" [level=2] [ref=e45]
+      - paragraph [ref=e46]: Loud, open-source, zine-like, honest about bugs and shipped artifacts.
+    - link "05 Cinematic Console Moody and premium, ideal for launch stories, demos, and high-signal videos." [ref=e51] [cursor=pointer]:
+      - /url: ./sample-05-cinematic-console.html
+      - generic [ref=e52]:
+        - paragraph [ref=e53]: "05"
+        - heading "Cinematic Console" [level=2] [ref=e54]
+      - paragraph [ref=e55]: Moody and premium, ideal for launch stories, demos, and high-signal videos.
+    - link "06 Paper Protocol Warm, technical, bookish, built for authority without the usual dark terminal look." [ref=e60] [cursor=pointer]:
+      - /url: ./sample-06-paper-protocol.html
+      - generic [ref=e61]:
+        - paragraph [ref=e62]: "06"
+        - heading "Paper Protocol" [level=2] [ref=e63]
+      - paragraph [ref=e64]: Warm, technical, bookish, built for authority without the usual dark terminal look.
+    - link "07 Hardware Manual Industrial, tactile, manual-like. Good for remote machines, devices, and control surfaces." [ref=e69] [cursor=pointer]:
+      - /url: ./sample-07-hardware-manual.html
+      - generic [ref=e70]:
+        - paragraph [ref=e71]: "07"
+        - heading "Hardware Manual" [level=2] [ref=e72]
+      - paragraph [ref=e73]: Industrial, tactile, manual-like. Good for remote machines, devices, and control surfaces.
+    - link "08 Personal OS Bright, product-minded, approachable. Feels like personal software for serious builders." [ref=e78] [cursor=pointer]:
+      - /url: ./sample-08-personal-os.html
+      - generic [ref=e79]:
+        - paragraph [ref=e80]: "08"
+        - heading "Personal OS" [level=2] [ref=e81]
+      - paragraph [ref=e82]: Bright, product-minded, approachable. Feels like personal software for serious builders.
+    - link "09 Security Briefing Serious, trust-first, built for agent safety, secrets, browser risk, and remote access." [ref=e87] [cursor=pointer]:
+      - /url: ./sample-09-security-briefing.html
+      - generic [ref=e88]:
+        - paragraph [ref=e89]: "09"
+        - heading "Security Briefing" [level=2] [ref=e90]
+      - paragraph [ref=e91]: Serious, trust-first, built for agent safety, secrets, browser risk, and remote access.
+    - link "10 Blueprint Atelier Blueprint-grid, structured, spatial. Strong for architecture diagrams and system maps." [ref=e96] [cursor=pointer]:
+      - /url: ./sample-10-blueprint-atelier.html
+      - generic [ref=e97]:
+        - paragraph [ref=e98]: "10"
+        - heading "Blueprint Atelier" [level=2] [ref=e99]
+      - paragraph [ref=e100]: Blueprint-grid, structured, spatial. Strong for architecture diagrams and system maps.
+    - link "11 Indie Command Playful founder energy, but still technical. A warmer counterweight to serious infra." [ref=e105] [cursor=pointer]:
+      - /url: ./sample-11-indie-command.html
+      - generic [ref=e106]:
+        - paragraph [ref=e107]: "11"
+        - heading "Indie Command" [level=2] [ref=e108]
+      - paragraph [ref=e109]: Playful founder energy, but still technical. A warmer counterweight to serious infra.
+    - link "12 Systems Magazine Editorial and premium, but sharper. Good for essays, talks, and high-signal writing." [ref=e114] [cursor=pointer]:
+      - /url: ./sample-12-systems-magazine.html
+      - generic [ref=e115]:
+        - paragraph [ref=e116]: "12"
+        - heading "Systems Magazine" [level=2] [ref=e117]
+      - paragraph [ref=e118]: Editorial and premium, but sharper. Good for essays, talks, and high-signal writing.

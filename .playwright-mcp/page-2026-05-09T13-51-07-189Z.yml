@@ -1,0 +1,40 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - link "Back to lab" [ref=e4] [cursor=pointer]:
+      - /url: ./index.html
+    - generic [ref=e5]: 01 | Control Room
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - paragraph [ref=e8]: Terminal-native agent orchestration
+      - heading "Build agents you can actually inspect." [level=1] [ref=e9]
+      - paragraph [ref=e10]: A dark systems interface for LeCoder MConnect, remote terminals, multi-agent handoffs, and transparent build logs. This is the most direct match for mobile control and agent ops.
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - strong [ref=e13]: Best for
+          - text: Technical authority, demos, repo walkthroughs.
+        - generic [ref=e14]:
+          - strong [ref=e15]: Risk
+          - text: Can become too familiar if everything is green on black.
+        - generic [ref=e16]:
+          - strong [ref=e17]: Borrow
+          - text: Use amber receipts and cyan network lines for variety.
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e24]: aryateja.com
+        - generic [ref=e25]:
+          - paragraph [ref=e26]: live session | 03 agents
+          - heading "Remote machines from your phone." [level=2] [ref=e27]
+          - generic [ref=e28]:
+            - generic [ref=e29]: SSH
+            - generic [ref=e30]: VNC
+            - generic [ref=e31]: Codex
+            - generic [ref=e32]: Claude Code
+            - generic [ref=e33]: Tunnels
+            - generic [ref=e34]: Receipts
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: LinkedIn carousel | 01/05
+        - generic [ref=e37]: "01"
+        - heading "Your phone is a control surface now." [level=2] [ref=e38]
+      - generic [ref=e39]:
+        - paragraph [ref=e40]: Shorts hook
+        - heading "I stopped treating remote dev as a laptop problem." [level=2] [ref=e41]

@@ -1,0 +1,64 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - link "Back to variants" [ref=e4] [cursor=pointer]:
+      - /url: ./luxury-index.html
+    - generic [ref=e5]: Gallery Systems
+  - generic [ref=e6]:
+    - article [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: Arya Teja Rudraraju
+        - generic [ref=e10]: Systems, projects, notes
+      - paragraph [ref=e11]: Minimal gallery for technical work
+      - heading "A clean surface for serious builds." [level=1] [ref=e12]
+      - paragraph [ref=e13]: This variant is the most modern and spacious. It puts projects, diagrams, screenshots, and social assets into a gallery-like system with very little decoration.
+      - generic [ref=e14]:
+        - link "View systems" [ref=e15] [cursor=pointer]:
+          - /url: "#"
+        - link "Read essays" [ref=e16] [cursor=pointer]:
+          - /url: "#"
+        - link "Open media kit" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - strong [ref=e20]: LeCoder
+          - text: Mobile control layer for coding agents and remote machines.
+        - generic [ref=e21]:
+          - strong [ref=e22]: CloudAGI
+          - text: Agent workflows, receipts, and orchestration experiments.
+        - generic [ref=e23]:
+          - strong [ref=e24]: Notes
+          - text: Daily source-backed posts across LinkedIn, X, and YouTube.
+    - complementary [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - paragraph [ref=e28]: Visual post
+          - heading "Show the system. Then explain the decision." [level=2] [ref=e29]
+          - paragraph [ref=e30]: diagram ready
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Thumbnail
+          - heading "What changed when the phone became the remote." [level=2] [ref=e33]
+          - paragraph [ref=e34]: clean demo frame
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: Brand kit
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45]: Display
+            - strong [ref=e46]: Modern gallery sans
+          - generic [ref=e47]:
+            - generic [ref=e48]: Body
+            - generic [ref=e49]: Minimal, crisp, visual-first.
+          - generic [ref=e50]:
+            - generic [ref=e51]: UI
+            - generic [ref=e52]: Large tiles, quiet captions, gallery index.
+      - generic [ref=e53]:
+        - paragraph [ref=e54]: Publishing system
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - generic [ref=e57]: Project
+            - heading "LeCoder MConnect as a mobile control surface" [level=3] [ref=e58]
+          - generic [ref=e59]:
+            - generic [ref=e60]: Diagram
+            - heading "Phone to tunnel to terminal to agent" [level=3] [ref=e61]
+          - generic [ref=e62]:
+            - generic [ref=e63]: Media
+            - heading "Three social templates for one daily build note" [level=3] [ref=e64]

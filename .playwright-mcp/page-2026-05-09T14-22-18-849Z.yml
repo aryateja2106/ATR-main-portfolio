@@ -1,0 +1,64 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - link "Back to variants" [ref=e4] [cursor=pointer]:
+      - /url: ./luxury-index.html
+    - generic [ref=e5]: Noir Editorial
+  - generic [ref=e6]:
+    - article [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: Arya Teja Rudraraju
+        - generic [ref=e10]: Agentic Engineer
+      - paragraph [ref=e11]: Founder, LeSearch AI + CloudAGI
+      - heading "A more deliberate interface for agents." [level=1] [ref=e12]
+      - paragraph [ref=e13]: I build and document agentic tools that touch real machines, browsers, terminals, and open-source systems. The work is calm, inspectable, and public.
+      - generic [ref=e14]:
+        - link "Read the work" [ref=e15] [cursor=pointer]:
+          - /url: "#"
+        - link "Watch demos" [ref=e16] [cursor=pointer]:
+          - /url: "#"
+        - link "Study projects" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - strong [ref=e20]: "01"
+          - text: Remote agent control and mobile approval loops.
+        - generic [ref=e21]:
+          - strong [ref=e22]: "02"
+          - text: Open-source breakdowns with source links and risks.
+        - generic [ref=e23]:
+          - strong [ref=e24]: "03"
+          - text: Security notes for browser, tunnel, and terminal access.
+    - complementary [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - paragraph [ref=e28]: LinkedIn
+          - heading "The terminal is becoming a place you can direct." [level=2] [ref=e29]
+          - paragraph [ref=e30]: LeCoder MConnect
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: YouTube Short
+          - heading "A phone, a tunnel, and an agent waiting for approval." [level=2] [ref=e33]
+          - paragraph [ref=e34]: 60 sec demo
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: Brand kit
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45]: Display
+            - strong [ref=e46]: High contrast serif
+          - generic [ref=e47]:
+            - generic [ref=e48]: Body
+            - generic [ref=e49]: Quiet premium prose with technical proof.
+          - generic [ref=e50]:
+            - generic [ref=e51]: UI
+            - generic [ref=e52]: Thin rules, compact labels, strong whitespace.
+      - generic [ref=e53]:
+        - paragraph [ref=e54]: Publishing system
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - generic [ref=e57]: Essay
+            - heading "Why remote agents need interface design" [level=3] [ref=e58]
+          - generic [ref=e59]:
+            - generic [ref=e60]: Launch
+            - heading "Building a mobile control layer for coding agents" [level=3] [ref=e61]
+          - generic [ref=e62]:
+            - generic [ref=e63]: Brief
+            - heading "What I learned from a week of open-source audits" [level=3] [ref=e64]

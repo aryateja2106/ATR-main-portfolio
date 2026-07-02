@@ -1,0 +1,64 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - link "Back to systems" [ref=e4] [cursor=pointer]:
+      - /url: ./mono-index.html
+    - generic [ref=e5]: System 01 | Pure Mono
+  - generic [ref=e6]:
+    - article [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: Arya Teja Rudraraju
+        - generic [ref=e10]: Agentic Engineer
+      - paragraph [ref=e11]: Founder, LeSearch AI + CloudAGI | Building LeCoder MConnect
+      - heading "Personal software for agentic builders." [level=1] [ref=e12]
+      - paragraph [ref=e13]: "I build tools that make agents inspectable, remote, and useful on real machines. This site is the public record: projects, notes, diagrams, and daily learning."
+      - generic [ref=e14]:
+        - link "Read field notes" [ref=e15] [cursor=pointer]:
+          - /url: "#"
+        - link "View projects" [ref=e16] [cursor=pointer]:
+          - /url: "#"
+        - link "Follow the build" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - strong [ref=e20]: "01"
+          - text: Remote machine control from mobile.
+        - generic [ref=e21]:
+          - strong [ref=e22]: "02"
+          - text: Open-source agent workflow breakdowns.
+        - generic [ref=e23]:
+          - strong [ref=e24]: "03"
+          - text: Security notes for real browser and terminal access.
+    - complementary [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - paragraph [ref=e28]: LinkedIn post
+          - heading "Agents need interfaces, not just prompts." [level=2] [ref=e29]
+          - paragraph [ref=e30]: 01 / 05
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: YouTube Short
+          - heading "I turned my phone into a terminal remote." [level=2] [ref=e33]
+          - paragraph [ref=e34]: 60 sec demo
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: Brand kit
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e44]: Display
+            - strong [ref=e45]: Modern sans
+          - generic [ref=e46]:
+            - generic [ref=e47]: Body
+            - generic [ref=e48]: A clean reading voice for technical notes.
+          - generic [ref=e49]:
+            - generic [ref=e50]: Code
+            - generic [ref=e51]: mono labels, receipts, commands
+      - generic [ref=e52]:
+        - paragraph [ref=e53]: Content system
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - generic [ref=e56]: /001
+            - heading "What I learned building a mobile control layer for agents" [level=3] [ref=e57]
+          - generic [ref=e58]:
+            - generic [ref=e59]: /002
+            - heading "How to evaluate an open-source AI repo before using it" [level=3] [ref=e60]
+          - generic [ref=e61]:
+            - generic [ref=e62]: /003
+            - heading "Browser automation is powerful, and that is the risk" [level=3] [ref=e63]

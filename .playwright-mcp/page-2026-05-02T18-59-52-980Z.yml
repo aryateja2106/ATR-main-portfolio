@@ -1,0 +1,146 @@
+- generic [active] [ref=e1]:
+  - region "Notifications alt+T"
+  - generic [ref=e4]:
+    - banner [ref=e5]:
+      - generic [ref=e6]:
+        - link "ATR" [ref=e7] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e8]:
+          - navigation [ref=e9]:
+            - link "Home" [ref=e10] [cursor=pointer]:
+              - /url: /
+            - link "About" [ref=e11] [cursor=pointer]:
+              - /url: "#about"
+            - link "FAQ" [ref=e12] [cursor=pointer]:
+              - /url: /faq
+            - link "Projects" [ref=e13] [cursor=pointer]:
+              - /url: "#projects"
+            - link "Stars" [ref=e14] [cursor=pointer]:
+              - /url: /github-stars
+            - link "Blog" [ref=e15] [cursor=pointer]:
+              - /url: "#blogs"
+            - link "Contact" [ref=e16] [cursor=pointer]:
+              - /url: "#contact"
+            - link "Resume" [ref=e17] [cursor=pointer]:
+              - /url: /resume/Arya_Teja_Rudraraju_Resume.pdf
+          - button "Search... Ctrl K" [ref=e18]:
+            - generic [ref=e19]:
+              - img [ref=e20]
+              - generic [ref=e22]: Search...
+            - generic [ref=e23]: Ctrl K
+    - main [ref=e24]:
+      - article [ref=e26]:
+        - generic [ref=e27]:
+          - paragraph [ref=e28]: FAQ
+          - heading "Frequently asked questions" [level=1] [ref=e29]
+          - paragraph [ref=e30]: Quick answers about who I am, what I'm building, and how to get in touch — written for both humans and AI search engines.
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - term [ref=e33]: Who is Arya Teja Rudraraju?
+            - definition [ref=e34]: Arya Teja Rudraraju is an Agentic Engineer based in San Francisco. He is the founder of LeSearch AI and CloudAGI, and is building LeCoder MConnect, an open-source mobile control layer for AI coding agents like Claude Code, Cursor, and OpenCode.
+          - generic [ref=e35]:
+            - term [ref=e36]: What is LeCoder MConnect?
+            - definition [ref=e37]: "LeCoder MConnect (mconnect) is an open-source mobile bridge for AI coding agents. It uses node-pty for a real PTY, xterm.js over a tuned WebSocket protocol, and Cloudflare Tunnel for zero-config public access. A QR-code pairing flow lets you drive Claude Code, Cursor, or OpenCode from a phone with full TUI fidelity. Install with `npx lecoder-mconnect`. Live at https://lecoder.lesearch.ai."
+          - generic [ref=e38]:
+            - term [ref=e39]: What is LeSearch AI?
+            - definition [ref=e40]: LeSearch AI is an AI-native research workspace with hard citation grounding (the model cannot claim a fact it cannot highlight in the source). Validated with 30+ structured user interviews and 50+ beta users, it pivoted from a Chat-with-PDF tool to a synthesis engine for analysts, grad students, and policy researchers. Arya co-founded it and leads product.
+          - generic [ref=e41]:
+            - term [ref=e42]: What is CloudAGI?
+            - definition [ref=e43]: CloudAGI is a custom agentic workflows platform for small businesses. It uses a plugin-first, credit-metered architecture on TypeScript and Bun. Customers describe an outcome (lead enrichment, document triage, market scan) and CloudAGI assembles a typed plugin chain to deliver it. Live at https://cloudagi.vercel.app.
+          - generic [ref=e44]:
+            - term [ref=e45]: Is Arya open to work?
+            - definition [ref=e46]: Yes. Arya is open to AI Engineer, Forward Deployed Engineer, and Product Engineer roles at AI-first companies shipping real agentic workflows. Email aryateja2106@gmail.com to start a conversation.
+          - generic [ref=e47]:
+            - term [ref=e48]: How can I contact Arya?
+            - definition [ref=e49]: "Email is the fastest path: aryateja2106@gmail.com. Arya is also reachable on LinkedIn (linkedin.com/in/arya-teja-rudraraju), Twitter/X (@r_aryateja), and GitHub (aryateja2106)."
+          - generic [ref=e50]:
+            - term [ref=e51]: Where is Arya based?
+            - definition [ref=e52]: San Francisco, California, USA.
+          - generic [ref=e53]:
+            - term [ref=e54]: What is Arya's background?
+            - definition [ref=e55]: Arya spent four years in marketing leadership running growth campaigns before pivoting into AI engineering. The same instincts (discovery, briefing, activation analysis) translate directly to building agentic products. He holds an MBA from Duquesne University.
+          - generic [ref=e56]:
+            - term [ref=e57]: What open-source projects has Arya built?
+            - definition [ref=e58]: The headline projects are LeCoder MConnect (mobile bridge for AI coding agents), Karna (a from-scratch coding agent in Rust), Claude Agent Monitor (production observability for Claude Code agents), and Local SQL Agent (privacy-first natural-language SQL with read-only guardrails). Full archive at /projects.
+          - generic [ref=e59]:
+            - term [ref=e60]: What is the Software Factory?
+            - definition [ref=e61]: The Software Factory is an early-stage system where users describe an app, an agent builds it, and it deploys to the user's own always-on hardware (Mac mini, Raspberry Pi). It is exposed securely via Cloudflare Tunnel. Web apps install on the homescreen as PWAs. The user's machine stays the source of truth.
+          - generic [ref=e62]:
+            - term [ref=e63]: Does Arya write?
+            - definition [ref=e64]: Yes. Long-form posts on /blog cover mobile agent orchestration, the LeSearch product story, and the marketing-to-engineering pivot. New posts ship roughly monthly.
+        - complementary [ref=e65]:
+          - heading "Didn't see your question?" [level=2] [ref=e66]
+          - paragraph [ref=e67]: The /about page goes deeper, /now covers what is shipping right now, and /projects has full deep-dives.
+          - generic [ref=e68]:
+            - link "/about →" [ref=e69] [cursor=pointer]:
+              - /url: /about
+            - link "/now →" [ref=e70] [cursor=pointer]:
+              - /url: /now
+            - link "/projects →" [ref=e71] [cursor=pointer]:
+              - /url: /projects
+            - link "Email me →" [ref=e72] [cursor=pointer]:
+              - /url: mailto:aryateja2106@gmail.com
+    - contentinfo [ref=e73]:
+      - generic [ref=e80]:
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - heading "Arya Teja ." [level=3] [ref=e83]
+            - paragraph [ref=e84]:
+              - text: Agentic Engineer in San Francisco. Founder of LeSearch AI and CloudAGI. Building LeCoder MConnect, an open-source mobile control layer for AI coding agents.
+              - generic [ref=e85]: Shipping in public.
+          - generic [ref=e86]:
+            - heading "Knowledge base" [level=4] [ref=e87]
+            - navigation [ref=e88]:
+              - link "Long-form bio (/about)" [ref=e89] [cursor=pointer]:
+                - /url: /about
+              - link "FAQ (/faq)" [ref=e90] [cursor=pointer]:
+                - /url: /faq
+              - link "Now (/now)" [ref=e91] [cursor=pointer]:
+                - /url: /now
+            - heading "Explore" [level=4] [ref=e92]
+            - navigation [ref=e93]:
+              - link "Home" [ref=e94] [cursor=pointer]:
+                - /url: /
+              - link "Projects" [ref=e95] [cursor=pointer]:
+                - /url: /projects
+              - link "GitHub stars" [ref=e96] [cursor=pointer]:
+                - /url: /github-stars
+              - link "Blog" [ref=e97] [cursor=pointer]:
+                - /url: /blog
+              - link "Contact" [ref=e98] [cursor=pointer]:
+                - /url: /contact
+          - generic [ref=e99]:
+            - generic [ref=e100]:
+              - heading "Get in Touch" [level=4] [ref=e101]
+              - generic [ref=e102]:
+                - paragraph [ref=e103]: Open to AI Engineer, Forward Deployed Engineer, and Product Engineer roles at AI-first companies. Especially excited about teams shipping agentic workflows.
+                - generic [ref=e104]:
+                  - link "Email Me" [ref=e105] [cursor=pointer]:
+                    - /url: mailto:aryateja2106@gmail.com
+                    - img [ref=e106]
+                    - text: Email Me
+                  - link "Schedule Call" [ref=e108] [cursor=pointer]:
+                    - /url: /contact
+                    - img [ref=e109]
+                    - text: Schedule Call
+            - generic [ref=e111]:
+              - heading "Connect" [level=4] [ref=e112]
+              - generic [ref=e113]:
+                - link "GitHub" [ref=e114] [cursor=pointer]:
+                  - /url: https://github.com/aryateja2106
+                  - img [ref=e115]
+                - link "LinkedIn" [ref=e118] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/arya-teja-rudraraju
+                  - img [ref=e119]
+                - link "Twitter" [ref=e123] [cursor=pointer]:
+                  - /url: https://x.com/r_aryateja
+                  - img [ref=e124]
+        - generic [ref=e126]:
+          - paragraph [ref=e127]: © 2026 Arya Teja Rudraraju. Shipping in public.
+          - generic [ref=e128]:
+            - link "Privacy Policy" [ref=e129] [cursor=pointer]:
+              - /url: /privacy
+            - link "Terms of Service" [ref=e130] [cursor=pointer]:
+              - /url: /terms
+  - button "Open Next.js Dev Tools" [ref=e136] [cursor=pointer]:
+    - img [ref=e137]

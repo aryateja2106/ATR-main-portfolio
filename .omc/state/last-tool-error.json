@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"cat /Users/aryateja/Desktop/Work/personal-website/apps/web/components/code-block.tsx 2>/dev/null | head -30; echo \\\"---message.tsx---\\\"; head -30 /Users/aryateja/Desktop/Work/personal-webs...",
+  "error": "Exit code 1\n\"use client\";\n\ninterface CodeBlockProps {\n\t// biome-ignore lint/suspicious/noExplicitAny: react-markdown passes raw AST node typed as any\n\tnode: any;\n\tinline: boolean;\n\tclassName: string;\n\t// biome-ignore lint/suspicious/noExplicitAny: react-markdown children union is too broad to narrow here\n\tchildren: any;\n}\n\nexport function CodeBlock({\n\tnode,\n\tinline,\n\tclassName,\n\tchildren,\n\t...props\n}: CodeBlockProps) {\n\tif (!inline) {\n\t\treturn (\n\t\t\t<div className=\"not-prose flex flex-col\">\n\t\t\t\t<...",
+  "timestamp": "2026-05-02T19:15:09.900Z",
+  "retry_count": 2
+}

@@ -1,0 +1,33 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - link "Back to lab" [ref=e4] [cursor=pointer]:
+      - /url: ./index.html
+    - generic [ref=e5]: 12 | Systems Magazine
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - paragraph [ref=e8]: Premium editorial for technical ideas
+      - heading "The systems behind the screen." [level=1] [ref=e9]
+      - paragraph [ref=e10]: A cleaner editorial direction for essays, public talks, high-quality explainers, and a personal brand that wants to feel serious without being sterile.
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - strong [ref=e13]: Best for
+          - text: Personal homepage, essays, talks, credibility.
+        - generic [ref=e14]:
+          - strong [ref=e15]: Risk
+          - text: Needs custom artifacts so it does not feel like a magazine shell.
+        - generic [ref=e16]:
+          - strong [ref=e17]: Borrow
+          - text: Use for keynote-style carousel covers.
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e24]: systems essay
+        - generic [ref=e25]:
+          - paragraph [ref=e26]: feature
+          - heading "Agents are becoming interfaces to machines." [level=2] [ref=e27]
+          - paragraph [ref=e28]: A long-form argument with diagrams, screenshots, and source links.
+      - generic [ref=e29]:
+        - paragraph [ref=e30]: Essay cover
+        - heading "The remote machine is the new creative surface." [level=2] [ref=e31]
+      - generic [ref=e32]:
+        - paragraph [ref=e33]: Video title
+        - heading "A technical idea, explained visually." [level=2] [ref=e34]

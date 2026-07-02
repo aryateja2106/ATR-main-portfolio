@@ -1,0 +1,64 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - link "Back to systems" [ref=e4] [cursor=pointer]:
+      - /url: ./mono-index.html
+    - generic [ref=e5]: System 03 | Technical Mono
+  - generic [ref=e6]:
+    - article [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: arya@agentic.engineer
+        - generic [ref=e10]: sf | remote machines | agents
+      - paragraph [ref=e11]: Build log 2026
+      - heading "Remote agents need visible state." [level=1] [ref=e12]
+      - paragraph [ref=e13]: I build inspectable control surfaces for coding agents, terminals, browsers, and remote machines. Every claim should have a source, a screenshot, or a log.
+      - generic [ref=e14]:
+        - link "Open build log" [ref=e15] [cursor=pointer]:
+          - /url: "#"
+        - link "Trace projects" [ref=e16] [cursor=pointer]:
+          - /url: "#"
+        - link "Read security notes" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - strong [ref=e20]: $ ssh
+          - text: Remote sessions, tunnels, and mobile approvals.
+        - generic [ref=e21]:
+          - strong [ref=e22]: $ repo
+          - text: Source-first breakdowns of open-source tools.
+        - generic [ref=e23]:
+          - strong [ref=e24]: $ risk
+          - text: Permissions, secrets, browser profiles, and blast radius.
+    - complementary [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - paragraph [ref=e28]: X card
+          - heading "Most agent bugs are state bugs." [level=2] [ref=e29]
+          - paragraph [ref=e30]: trace before trust
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Terminal demo
+          - heading "I approved a coding agent from my phone." [level=2] [ref=e33]
+          - paragraph [ref=e34]: screen recording
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: Brand kit
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e44]: Display
+            - strong [ref=e45]: monospace scale
+          - generic [ref=e46]:
+            - generic [ref=e47]: Body
+            - generic [ref=e48]: Short, direct, state-aware writing.
+          - generic [ref=e49]:
+            - generic [ref=e50]: UI
+            - generic [ref=e51]: tables, logs, traces, receipts
+      - generic [ref=e52]:
+        - paragraph [ref=e53]: Content system
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - generic [ref=e56]: trace/01
+            - heading "What happened when the agent paused at approval" [level=3] [ref=e57]
+          - generic [ref=e58]:
+            - generic [ref=e59]: trace/02
+            - heading "How I think about browser automation risk" [level=3] [ref=e60]
+          - generic [ref=e61]:
+            - generic [ref=e62]: trace/03
+            - heading "The minimum useful handoff between agents" [level=3] [ref=e63]

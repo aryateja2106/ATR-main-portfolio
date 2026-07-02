@@ -1,0 +1,43 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]: Arya brand lab
+    - generic [ref=e5]: Pick a visual territory
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - paragraph [ref=e8]: Agentic Engineer | visual workflow
+      - heading "Choose the design language before we touch the site." [level=1] [ref=e9]
+      - paragraph [ref=e10]: These are clickable HTML samples for Arya's personal brand. Each one shows a website hero, a social square, and a short-form video card so the choice is practical across aryateja.com, LinkedIn, X, and YouTube.
+    - complementary [ref=e11]:
+      - paragraph [ref=e12]: How to choose
+      - paragraph [ref=e13]: Open every sample. Pick the one you would be proud to post every day for 90 days. Then choose one secondary sample we can borrow from for social templates.
+  - region "Brand samples" [ref=e14]:
+    - link "01 Control Room Terminal-native, live systems, agent orchestration, remote machine energy." [ref=e15] [cursor=pointer]:
+      - /url: ./sample-01-control-room.html
+      - generic [ref=e16]:
+        - paragraph [ref=e17]: "01"
+        - heading "Control Room" [level=2] [ref=e18]
+      - paragraph [ref=e19]: Terminal-native, live systems, agent orchestration, remote machine energy.
+    - link "02 Field Notes Editorial, humane, founder learning log, open-source reading desk." [ref=e24] [cursor=pointer]:
+      - /url: ./sample-02-field-notes.html
+      - generic [ref=e25]:
+        - paragraph [ref=e26]: "02"
+        - heading "Field Notes" [level=2] [ref=e27]
+      - paragraph [ref=e28]: Editorial, humane, founder learning log, open-source reading desk.
+    - link "03 Signal Grid Precise, networked, technical, built for diagrams and credibility." [ref=e33] [cursor=pointer]:
+      - /url: ./sample-03-signal-grid.html
+      - generic [ref=e34]:
+        - paragraph [ref=e35]: "03"
+        - heading "Signal Grid" [level=2] [ref=e36]
+      - paragraph [ref=e37]: Precise, networked, technical, built for diagrams and credibility.
+    - link "04 Raw OSS Loud, open-source, zine-like, honest about bugs and shipped artifacts." [ref=e42] [cursor=pointer]:
+      - /url: ./sample-04-raw-oss.html
+      - generic [ref=e43]:
+        - paragraph [ref=e44]: "04"
+        - heading "Raw OSS" [level=2] [ref=e45]
+      - paragraph [ref=e46]: Loud, open-source, zine-like, honest about bugs and shipped artifacts.
+    - link "05 Cinematic Console Moody and premium, ideal for launch stories, demos, and high-signal videos." [ref=e51] [cursor=pointer]:
+      - /url: ./sample-05-cinematic-console.html
+      - generic [ref=e52]:
+        - paragraph [ref=e53]: "05"
+        - heading "Cinematic Console" [level=2] [ref=e54]
+      - paragraph [ref=e55]: Moody and premium, ideal for launch stories, demos, and high-signal videos.

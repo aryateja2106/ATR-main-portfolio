@@ -1,0 +1,64 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - link "Back to variants" [ref=e4] [cursor=pointer]:
+      - /url: ./luxury-index.html
+    - generic [ref=e5]: Archive Founder
+  - generic [ref=e6]:
+    - article [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: Public archive
+        - generic [ref=e10]: Builds, sources, notes
+      - paragraph [ref=e11]: A founder record, not a portfolio
+      - heading "A working archive of agentic systems." [level=1] [ref=e12]
+      - paragraph [ref=e13]: This variant makes the brand feel like a curated archive. It is strongest if the site becomes a home for serious case studies, essays, project records, and proof points.
+      - generic [ref=e14]:
+        - link "Enter archive" [ref=e15] [cursor=pointer]:
+          - /url: "#"
+        - link "Current work" [ref=e16] [cursor=pointer]:
+          - /url: "#"
+        - link "Source index" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - strong [ref=e20]: Case
+          - text: Each project has a problem, system, proof, and next step.
+        - generic [ref=e21]:
+          - strong [ref=e22]: Note
+          - text: Daily content becomes an indexed learning trail.
+        - generic [ref=e23]:
+          - strong [ref=e24]: Source
+          - text: Every claim points back to a repo, doc, log, or demo.
+    - complementary [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - paragraph [ref=e28]: Archive card
+          - heading "What I learned after cloning the repo." [level=2] [ref=e29]
+          - paragraph [ref=e30]: source note 017
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Video record
+          - heading "The build log behind my mobile agent workflow." [level=2] [ref=e33]
+          - paragraph [ref=e34]: field recording
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: Brand kit
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45]: Display
+            - strong [ref=e46]: Archive serif
+          - generic [ref=e47]:
+            - generic [ref=e48]: Body
+            - generic [ref=e49]: Record-like, source-aware, steady.
+          - generic [ref=e50]:
+            - generic [ref=e51]: UI
+            - generic [ref=e52]: Index, table, timeline, and source list patterns.
+      - generic [ref=e53]:
+        - paragraph [ref=e54]: Publishing system
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - generic [ref=e57]: "017"
+            - heading "Browser Harness and the risk of real profile access" [level=3] [ref=e58]
+          - generic [ref=e59]:
+            - generic [ref=e60]: "018"
+            - heading "What Open Design gets right about reusable creative systems" [level=3] [ref=e61]
+          - generic [ref=e62]:
+            - generic [ref=e63]: "019"
+            - heading "Why I want agents to leave better receipts" [level=3] [ref=e64]
