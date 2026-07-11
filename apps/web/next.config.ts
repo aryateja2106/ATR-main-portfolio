@@ -14,6 +14,13 @@ const nextConfig: NextConfig = {
 	async headers() {
 		return [
 			{
+				source: "/:path*",
+				headers: [
+					{ key: "Origin-Agent-Cluster", value: "?1" },
+					{ key: "Permissions-Policy", value: "tools=(self)" },
+				],
+			},
+			{
 				source: "/resume/:path*",
 				headers: [
 					{

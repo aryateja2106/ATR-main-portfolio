@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import type { ReactNode } from "react";
+import blogData from "@/lib/portfolio/blogs.json";
+import { WebMcpProvider } from "./_components/WebMcpProvider";
 
 export const metadata: Metadata = {
 	title: {
@@ -115,9 +117,19 @@ const jsonLd = {
 
 export default function Layout({ children }: { children: ReactNode }) {
 	const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-8ELMHNMBW2";
+	const articles = blogData.blogPosts.map(
+		({ slug, title, description, category, tags }) => ({
+			slug,
+			title,
+			description,
+			category,
+			tags,
+		}),
+	);
 
 	return (
 		<>
+			<WebMcpProvider articles={articles} />
 			<script
 				type="application/ld+json"
 				// biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data is safe here

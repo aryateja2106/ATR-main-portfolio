@@ -160,6 +160,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 							alt={post.title}
 							fill
 							sizes="(max-width: 768px) 100vw, 896px"
+							loading="eager"
 							className="object-cover"
 						/>
 					</div>
@@ -174,6 +175,51 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
 			<div className="bg-[#f2ecdf] text-[#37322c]">
 				<article className="mx-auto w-full max-w-3xl px-5 py-16 md:px-8 md:py-24">
+					{post.guide && (
+						<section
+							className="mb-16 border-y border-[#c7baa5] py-8"
+							aria-labelledby="guide-brief"
+						>
+							<p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#6f665b]">
+								Implementation brief
+							</p>
+							<h2
+								id="guide-brief"
+								className="scroll-mt-28 mt-3 font-serif text-3xl leading-tight text-[#171512]"
+							>
+								{post.guide.purpose}
+							</h2>
+
+							<div className="mt-8 grid gap-8 md:grid-cols-2">
+								<div>
+									<h3 className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#6f665b]">
+										Who this is for
+									</h3>
+									<ul className="mt-3 space-y-2 text-sm leading-6">
+										{post.guide.audience.map((item) => (
+											<li key={item}>• {item}</li>
+										))}
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#6f665b]">
+										What you will finish with
+									</h3>
+									<ul className="mt-3 space-y-2 text-sm leading-6">
+										{post.guide.outcomes.map((item) => (
+											<li key={item}>• {item}</li>
+										))}
+									</ul>
+								</div>
+							</div>
+
+							<div className="mt-8 border-t border-[#c7baa5] pt-5 font-mono text-[10px] uppercase leading-5 tracking-[0.14em] text-[#6f665b]">
+								Prerequisites: {post.guide.prerequisites.join(" · ")}
+								<br />
+								Commands and claims verified: {post.guide.verifiedAt}
+							</div>
+						</section>
+					)}
 					<MarkdownRenderer
 						content={post.content}
 						className="prose-headings:font-serif prose-headings:text-[#171512] prose-p:text-[#37322c] prose-strong:text-[#171512] prose-li:text-[#37322c]"

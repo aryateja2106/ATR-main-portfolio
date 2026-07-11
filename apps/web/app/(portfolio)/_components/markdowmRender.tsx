@@ -19,6 +19,14 @@ interface CodeComponentProps {
 	[key: string]: unknown;
 }
 
+function headingId(children: React.ReactNode) {
+	return String(children)
+		.toLowerCase()
+		.replace(/[^a-z0-9\s-]/g, "")
+		.trim()
+		.replace(/\s+/g, "-");
+}
+
 function CopyCodeButton({ code }: { code: string }) {
 	const [copied, setCopied] = useState(false);
 
@@ -120,14 +128,20 @@ export default function MarkdownRenderer({
 					},
 					h2({ children }) {
 						return (
-							<h2 className="mt-16 mb-5 font-serif text-[clamp(32px,5vw,48px)] leading-tight text-[#171512]">
+							<h2
+								id={headingId(children)}
+								className="scroll-mt-28 mt-16 mb-5 font-serif text-[clamp(32px,5vw,48px)] leading-tight text-[#171512]"
+							>
 								{children}
 							</h2>
 						);
 					},
 					h3({ children }) {
 						return (
-							<h3 className="mt-10 mb-4 font-serif text-2xl text-[#171512]">
+							<h3
+								id={headingId(children)}
+								className="scroll-mt-28 mt-10 mb-4 font-serif text-2xl text-[#171512]"
+							>
 								{children}
 							</h3>
 						);
@@ -151,6 +165,32 @@ export default function MarkdownRenderer({
 								{children}
 							</blockquote>
 						);
+					},
+					table({ children }) {
+						return (
+							<div className="not-prose my-8 overflow-x-auto border border-[#c7baa5]">
+								<table className="w-full min-w-[620px] border-collapse text-left text-sm">
+									{children}
+								</table>
+							</div>
+						);
+					},
+					th({ children }) {
+						return (
+							<th className="border-b border-[#c7baa5] bg-[#ded4c3] px-4 py-3 font-mono text-[10px] uppercase tracking-[0.14em] text-[#51493f]">
+								{children}
+							</th>
+						);
+					},
+					td({ children }) {
+						return (
+							<td className="border-b border-[#d8cdbd] px-4 py-3 align-top leading-6 last:border-b-0">
+								{children}
+							</td>
+						);
+					},
+					hr() {
+						return <hr className="my-14 border-[#c7baa5]" />;
 					},
 					a({ children, href }) {
 						const external = href?.startsWith("http");
