@@ -1,18 +1,18 @@
-import { Toaster } from 'sonner';
+import { ThemeProvider } from '@/components/theme-provider';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import { ThemeProvider } from '@/components/theme-provider';
+import { Fraunces, Geist, Geist_Mono, JetBrains_Mono } from 'next/font/google';
+import { Toaster } from 'sonner';
 
 import './globals.css';
 import 'react-data-grid/lib/styles.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aryateja.com'),
-  title: 'Arya Teja Rudraraju | AI Product Leader & Agentic Systems Builder',
+  title: 'Arya Teja Rudraraju | AI Agent Systems & Consulting',
   description:
-    'AI Product Manager shipping 0->1 products at Pilvi Systems and building LeSearch AI. Specializing in LLM reasoning, Agentic workflows, and Technical Product Management.',
+    'Practical AI agent systems, secure local-first workflows, open-source tools, and business-first implementation.',
 };
 
 export const viewport = {
@@ -29,6 +29,19 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-geist-mono',
+});
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-fraunces',
+  weight: ['400', '500', '600', '700'],
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains-mono',
 });
 
 const LIGHT_THEME_COLOR = 'hsl(0 0% 100%)';
@@ -64,56 +77,13 @@ export default async function RootLayout({
       // prop is necessary to avoid the React hydration mismatch warning.
       // https://github.com/pacocoursey/next-themes?tab=readme-ov-file#with-app
       suppressHydrationWarning
-      className={`${geist.variable} ${geistMono.variable}`}
+      className={`${geist.variable} ${geistMono.variable} ${fraunces.variable} ${jetbrains.variable}`}
     >
       <head>
         <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: Static theme-color bootstrap script avoids hydration flicker.
           dangerouslySetInnerHTML={{
             __html: THEME_COLOR_SCRIPT,
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Arya Teja Rudraraju',
-              jobTitle: 'AI Product Manager',
-              description:
-                'AI Product Manager at Pilvi Systems and Founder of LeSearch AI. Specializing in Agentic Systems and LLM Product Management.',
-              url: 'https://aryateja.com',
-              sameAs: [
-                'https://linkedin.com/in/arya-teja-rudraraju',
-                'https://github.com/aryateja2106',
-                'https://x.com/r_aryateja',
-              ],
-              worksFor: [
-                {
-                  '@type': 'Organization',
-                  name: 'Pilvi Systems',
-                  jobTitle: 'AI Product Manager',
-                },
-                {
-                  '@type': 'Organization',
-                  name: 'LeSearch AI',
-                  jobTitle: 'Founder & Product Lead',
-                },
-              ],
-              alumniOf: {
-                '@type': 'EducationalOrganization',
-                name: 'Duquesne University',
-              },
-              knowsAbout: [
-                'AI Product Management',
-                'AI Agents',
-                'LLM Reasoning',
-                'RAG Systems',
-                'Product Strategy',
-                'Context Engineering',
-                'Model Context Protocol (MCP)',
-              ],
-            }),
           }}
         />
       </head>

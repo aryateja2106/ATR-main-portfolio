@@ -34,7 +34,6 @@ export function BlogList({ initialBlogs, allCategories }: BlogListProps) {
 
   return (
     <div className="w-full">
-      {/* Category filter */}
       <div
         className="flex flex-wrap gap-3 mb-10"
         role="tablist"
@@ -45,10 +44,10 @@ export function BlogList({ initialBlogs, allCategories }: BlogListProps) {
           role="tab"
           aria-controls="blog-posts"
           id="tab-all"
-          className={`rounded-full px-4 py-1 text-sm ${
+          className={`rounded-sm border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
             activeCategory === 'all'
-              ? 'bg-teal-500 text-white'
-              : 'bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-teal-500 hover:text-white transition-colors'
+              ? 'border-[#f7f2e8] bg-[#f7f2e8] text-[#12110f]'
+              : 'border-[#f7f2e8]/15 text-[#b9b0a2] hover:border-[#f7f2e8]/50 hover:text-[#f7f2e8]'
           }`}
           onClick={() => handleCategoryFilter('all')}
         >
@@ -62,10 +61,10 @@ export function BlogList({ initialBlogs, allCategories }: BlogListProps) {
             role="tab"
             aria-controls="blog-posts"
             id={`tab-${category.toLowerCase().replace(/\s+/g, '-')}`}
-            className={`rounded-full px-4 py-1 text-sm ${
+            className={`rounded-sm border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
               activeCategory === category
-                ? 'bg-teal-500 text-white'
-                : 'bg-neutral-200 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-teal-500 hover:text-white transition-colors'
+                ? 'border-[#f7f2e8] bg-[#f7f2e8] text-[#12110f]'
+                : 'border-[#f7f2e8]/15 text-[#b9b0a2] hover:border-[#f7f2e8]/50 hover:text-[#f7f2e8]'
             }`}
             onClick={() => handleCategoryFilter(category)}
           >
@@ -77,13 +76,13 @@ export function BlogList({ initialBlogs, allCategories }: BlogListProps) {
       {/* Empty state */}
       {blogs.length === 0 && (
         <div className="text-center py-20">
-          <p className="text-neutral-500 dark:text-neutral-400 mb-4">
+          <p className="text-[#b9b0a2] mb-4">
             No blog posts found in this category.
           </p>
           <button
             type="button"
             onClick={() => handleCategoryFilter('all')}
-            className="px-4 py-2 bg-teal-500 text-white rounded hover:bg-teal-600 transition-colors"
+            className="rounded-sm bg-[#f7f2e8] px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-[#12110f] transition-colors hover:bg-white"
           >
             View All Posts
           </button>
@@ -101,7 +100,7 @@ export function BlogList({ initialBlogs, allCategories }: BlogListProps) {
             <Link
               href={`/blog/${post.slug}`}
               key={post.id}
-              className="group flex flex-col rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:border-teal-500 dark:hover:border-teal-500 transition-all hover:shadow-md"
+              className="group flex flex-col overflow-hidden border border-[#f7f2e8]/15 bg-[#1c1a17] transition-colors hover:border-[#f7f2e8]/45"
             >
               <div className="relative h-48 w-full overflow-hidden">
                 {post.coverImage ? (
@@ -110,24 +109,26 @@ export function BlogList({ initialBlogs, allCategories }: BlogListProps) {
                       src={post.coverImage}
                       alt={`Cover image for ${post.title}`}
                       fill
-                      className="object-cover size-full transition-transform group-hover:scale-105"
+                      className="object-cover size-full saturate-0 transition-transform group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 384px"
                       priority={Number.parseInt(post.id) <= 4}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/70 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#12110f]/80 to-transparent" />
                   </div>
                 ) : (
-                  <div className="absolute inset-0 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
-                    <div className="text-neutral-400">Image Placeholder</div>
+                  <div className="absolute inset-0 bg-[#12110f] flex items-center justify-center">
+                    <div className="font-mono text-xs uppercase tracking-[0.18em] text-[#b9b0a2]">
+                      Source note
+                    </div>
                   </div>
                 )}
-                <div className="absolute top-4 left-4 bg-neutral-900/70 text-white text-xs px-2 py-1 rounded-full">
+                <div className="absolute top-4 left-4 border border-[#f7f2e8]/20 bg-[#12110f]/75 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[#f7f2e8]">
                   {post.category}
                 </div>
               </div>
 
               <div className="p-5 grow flex flex-col">
-                <div className="flex items-center text-sm text-neutral-500 dark:text-neutral-400 mb-2">
+                <div className="mb-3 flex items-center font-mono text-[11px] uppercase tracking-[0.14em] text-[#b9b0a2]">
                   <span>{post.formattedDate}</span>
                   <span className="mx-2" aria-hidden="true">
                     •
@@ -135,15 +136,15 @@ export function BlogList({ initialBlogs, allCategories }: BlogListProps) {
                   <span>{post.readTime}</span>
                 </div>
 
-                <h2 className="text-xl font-bold mb-2 group-hover:text-teal-500 transition-colors">
+                <h2 className="mb-3 font-serif text-2xl leading-tight text-[#f7f2e8] transition-colors group-hover:text-white">
                   {post.title}
                 </h2>
 
-                <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-4 line-clamp-2">
+                <p className="text-sm leading-6 text-[#d8d0c3]/80 mb-4 line-clamp-2">
                   {post.excerpt}
                 </p>
 
-                <div className="mt-auto flex items-center text-teal-500 text-sm font-medium">
+                <div className="mt-auto flex items-center font-mono text-xs uppercase tracking-[0.18em] text-[#f7f2e8]">
                   Read article
                   <svg
                     className="ml-1 size-4 group-hover:translate-x-1 transition-transform"

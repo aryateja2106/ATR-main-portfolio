@@ -20,6 +20,10 @@ const nextConfig: NextConfig = {
 						key: "Content-Disposition",
 						value: 'attachment; filename="Arya_Teja_PM_Resume.pdf"',
 					},
+					{
+						key: "X-Robots-Tag",
+						value: "noindex, nofollow",
+					},
 				],
 			},
 		];
