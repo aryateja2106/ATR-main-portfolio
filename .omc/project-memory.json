@@ -18,8 +18,8 @@
     "runtime": null
   },
   "build": {
-    "buildCommand": "npm run build",
-    "testCommand": null,
+    "buildCommand": "python3 - <<'EOF'\nimport re\np='/Users/aryateja/Projects/ATR-main-portfolio/content-drafts/RUNBOOK.md'\ns=open(p).read()\ns=s.replace(' — ',': ').replace('—','-')\nopen(p,'w').write(s)\nprint('em-dashes remaining:', s.count('—'))\nEOF\nsed -i '' 's/`pnpm build` (or check the dev server)/`bun run build` from the repo root (or check the dev server)/' /Users/aryateja/Projects/ATR-main-portfolio/content-drafts/RUNBOOK.md && grep -n \"bun run\" /Users/aryateja/Projects/ATR-main-portfolio/content-drafts/RUNBOOK.md",
+    "testCommand": "cd /private/tmp/claude-501/-Users-aryateja-Projects/da5b9357-17bc-40af-9bdc-729b7f3a7da0/scratchpad/leguard && bun test 2>&1 | tail -15",
     "lintCommand": "npm run lint",
     "devCommand": "npm run dev",
     "scripts": {
@@ -356,6 +356,12 @@
       "path": "vercel.json",
       "accessCount": 1,
       "lastAccessed": 1777748495347,
+      "type": "file"
+    },
+    {
+      "path": "content-drafts/RUNBOOK.md",
+      "accessCount": 1,
+      "lastAccessed": 1783757582889,
       "type": "file"
     }
   ],
