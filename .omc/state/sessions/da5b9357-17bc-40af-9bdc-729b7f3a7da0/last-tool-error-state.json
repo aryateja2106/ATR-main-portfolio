@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"cd /Users/aryateja/Projects/terax-ai-agentfirst && grep -n \\\"capture-pane\\\\|pipe-pane\\\\|send-keys\\\\|resize-window\\\\|split-window\\\\|MUX\\\\|rmux\\\\b\\\" packages/rmux-bridge/src/server.ts | head...",
+  "error": "Exit code 1\n8:// else the whole session. tmux/rmux accept a pane id directly as a -t target.\n56:// Multiplexer binary: rmux on macOS, tmux on Linux (rmux is a tmux-compatible fork,\n57:// so every command below is identical). Override with MUX=<binary>.\n58:const MUX = process.env.MUX ?? (process.platform === \"linux\" ? \"tmux\" : \"rmux\");\n61:  const proc = Bun.spawn([MUX, ...args], {\n71:    console.error(`[rmux] ${args.join(\" \")} failed: ${stderr.trim() || \"(no stderr)\"}`);\n151:// rmux/tmux `send-ke...",
+  "timestamp": "2026-07-11T14:38:47.578Z",
+  "retry_count": 1
+}
