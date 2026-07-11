@@ -185,6 +185,12 @@
       "type": "file"
     },
     {
+      "path": "content-drafts/RUNBOOK.md",
+      "accessCount": 3,
+      "lastAccessed": 1783757802314,
+      "type": "file"
+    },
+    {
       "path": "apps/web/app/sitemap.ts",
       "accessCount": 2,
       "lastAccessed": 1777744718721,
@@ -359,9 +365,27 @@
       "type": "file"
     },
     {
-      "path": "content-drafts/RUNBOOK.md",
+      "path": "content-drafts/2026-07-11/skillopt.json",
       "accessCount": 1,
-      "lastAccessed": 1783757582889,
+      "lastAccessed": 1783757882022,
+      "type": "file"
+    },
+    {
+      "path": "content-drafts/2026-07-11/agent-sessions.json",
+      "accessCount": 1,
+      "lastAccessed": 1783757958835,
+      "type": "file"
+    },
+    {
+      "path": "content-drafts/2026-07-11/retrace.json",
+      "accessCount": 1,
+      "lastAccessed": 1783757969889,
+      "type": "file"
+    },
+    {
+      "path": "content-drafts/2026-07-11/local-models.json",
+      "accessCount": 1,
+      "lastAccessed": 1783757984240,
       "type": "file"
     }
   ],
