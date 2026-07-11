@@ -1,4 +1,5 @@
-import { footer } from './content';
+import { BrandMark } from "./BrandMark";
+import { footer } from "./content";
 
 export function Footer() {
 	return (
@@ -7,8 +8,8 @@ export function Footer() {
 			className="border-t border-[#f7f2e8]/15 bg-[#12110f] py-12 text-[#f7f2e8]"
 		>
 			<div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 px-4">
-				<div className="font-mono text-[#f7f2e8] flex items-center gap-2 text-xs uppercase tracking-[0.2em]">
-					<span className="inline-block size-2 bg-[#b9b0a2]" />
+				<div className="font-mono text-[#f7f2e8] flex items-center gap-3 text-xs uppercase tracking-[0.2em]">
+					<BrandMark />
 					{footer.brand}
 				</div>
 				<nav className="flex flex-wrap items-center justify-center gap-4">

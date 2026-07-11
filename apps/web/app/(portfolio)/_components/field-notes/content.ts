@@ -3,13 +3,13 @@
 
 export const nav = [
 	{ label: "Work", href: "/#work" },
-	{ label: "Notes", href: "/#writing" },
+	{ label: "Writing", href: "/blog" },
 	{ label: "Field", href: "/#about" },
 	{ label: "Contact", href: "/#contact" },
 ];
 
 export const hero = {
-	kicker: "Founder · agent systems · working from India",
+	kicker: "Founder · multi-agent systems · local-first control",
 	headline: ["Arya Teja Rudraraju", "Agent systems", "that earn trust."],
 	lede: "I help founders and teams turn practical AI agent ideas into secure, useful systems. This site shows the work, the people around it, and the lessons I can stand behind.",
 	cta: {
@@ -28,8 +28,9 @@ export const hero = {
 		},
 		{
 			label: "Product",
-			value: "lesearch.ai",
-			detail: "AI-agent OS and research workspace, built from real workflows.",
+			value: "LeSearch AI",
+			detail:
+				"Native Apple mission control for remote coding agents, with iPhone and Watch approval flows in progress.",
 		},
 		{
 			label: "Open source",
@@ -111,9 +112,9 @@ export const agents = {
 	items: [
 		{
 			mark: "01 / PRODUCT",
-			name: "lesearch.ai",
-			desc: "A product and AI-agent OS for serious research workflows, source grounding, and repeatable synthesis.",
-			cta: "Open record",
+			name: "LeSearch AI",
+			desc: "Building a native Apple control surface for agents running across machines, with mobile monitoring and deliberate approval boundaries.",
+			cta: "Follow the build",
 			href: "https://lesearch.ai",
 		},
 		{
