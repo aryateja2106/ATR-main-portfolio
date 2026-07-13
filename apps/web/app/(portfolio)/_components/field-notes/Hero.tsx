@@ -59,13 +59,13 @@ export function Hero() {
 					<motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
 						<a
 							href={hero.cta.href}
-							className="inline-flex rounded-sm bg-[#f7f2e8] px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#12110f] transition-colors hover:bg-white"
+							className="inline-flex rounded-sm bg-[#f7f2e8] px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#12110f] transition-colors hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441] focus-visible:ring-offset-2 focus-visible:ring-offset-[#12110f]"
 						>
 							{hero.cta.label}
 						</a>
 						<a
 							href={hero.secondaryCta.href}
-							className="inline-flex rounded-sm border border-[#f7f2e8]/25 px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#f7f2e8] transition-colors hover:border-[#f7f2e8]/60"
+							className="inline-flex rounded-sm border border-[#f7f2e8]/25 px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#f7f2e8] transition-colors hover:border-[#f7f2e8]/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441] focus-visible:ring-offset-2 focus-visible:ring-offset-[#12110f]"
 						>
 							{hero.secondaryCta.label}
 						</a>

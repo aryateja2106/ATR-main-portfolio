@@ -1,5 +1,6 @@
 export { Agents } from "./Agents";
 export { BrandMark } from "./BrandMark";
+export { Contact } from "./Contact";
 export * from "./content";
 export { Footer } from "./Footer";
 export { Hero } from "./Hero";
