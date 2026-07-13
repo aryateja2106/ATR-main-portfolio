@@ -16,6 +16,9 @@ build
 # agent skill eval artifacts (regenerated locally)
 .sklab/
 
+# OMC session/runtime state is machine-generated
+.omc/state/
+
 # misc
 .DS_Store
 *.pem
