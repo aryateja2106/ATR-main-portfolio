@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-13T05:54:18.928Z",
+  "updatedAt": "2026-07-13T05:58:36.257Z",
   "missions": [
     {
       "id": "session:da5b9357-17bc-40af-9bdc-729b7f3a7da0:none",
@@ -7,15 +7,15 @@
       "name": "none",
       "objective": "Session mission",
       "createdAt": "2026-07-13T05:54:18.928Z",
-      "updatedAt": "2026-07-13T05:54:18.928Z",
-      "status": "running",
+      "updatedAt": "2026-07-13T05:58:36.257Z",
+      "status": "done",
       "workerCount": 1,
       "taskCounts": {
         "total": 1,
         "pending": 0,
         "blocked": 0,
-        "inProgress": 1,
-        "completed": 0,
+        "inProgress": 0,
+        "completed": 1,
         "failed": 0
       },
       "agents": [
@@ -23,11 +23,11 @@
           "name": "workflow-subagent:a9e7cc6",
           "role": "workflow-subagent",
           "ownership": "a9e7cc64913a2bdbf",
-          "status": "running",
+          "status": "done",
           "currentStep": null,
-          "latestUpdate": null,
+          "latestUpdate": "completed",
           "completedSummary": null,
-          "updatedAt": "2026-07-13T05:54:18.928Z"
+          "updatedAt": "2026-07-13T05:58:36.257Z"
         }
       ],
       "timeline": [
@@ -38,6 +38,22 @@
           "agent": "workflow-subagent:a9e7cc6",
           "detail": "started workflow-subagent:a9e7cc6",
           "sourceKey": "session-start:a9e7cc64913a2bdbf"
+        },
+        {
+          "id": "session-stop:a9e7cc64913a2bdbf:2026-07-13T05:57:27.170Z",
+          "at": "2026-07-13T05:57:27.170Z",
+          "kind": "completion",
+          "agent": "workflow-subagent:a9e7cc6",
+          "detail": "completed",
+          "sourceKey": "session-stop:a9e7cc64913a2bdbf"
+        },
+        {
+          "id": "session-stop:a115665ac2dde81f7:2026-07-13T05:58:36.257Z",
+          "at": "2026-07-13T05:58:36.257Z",
+          "kind": "completion",
+          "agent": "workflow-subagent:a9e7cc6",
+          "detail": "completed",
+          "sourceKey": "session-stop:a115665ac2dde81f7"
         }
       ]
     }
