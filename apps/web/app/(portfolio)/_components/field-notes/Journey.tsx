@@ -34,7 +34,7 @@ function PhotoCard({
 					alt={alt}
 					fill
 					sizes="(max-width: 768px) 100vw, 33vw"
-					className="object-cover saturate-0 transition duration-500 group-hover:saturate-50"
+					className="object-cover saturate-0 transition duration-500 group-hover:saturate-50 motion-reduce:transition-none"
 				/>
 				<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#12110f]/80 via-transparent to-black/30" />
 				<span className="absolute bottom-3 left-3 right-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#f7f2e8]">

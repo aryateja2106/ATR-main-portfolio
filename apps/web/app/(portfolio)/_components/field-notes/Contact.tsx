@@ -178,7 +178,7 @@ export function Contact() {
 							href="https://calendly.com/aryateja/30min"
 							target="_blank"
 							rel="noreferrer"
-							className="mt-5 inline-flex rounded-sm border border-[#f7f2e8]/25 px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#f7f2e8] transition-colors hover:border-[#f7f2e8]/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441] focus-visible:ring-offset-2 focus-visible:ring-offset-[#12110f]"
+							className="mt-5 inline-flex min-h-11 items-center rounded-sm border border-[#f7f2e8]/25 px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#f7f2e8] transition-colors hover:border-[#f7f2e8]/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441] focus-visible:ring-offset-2 focus-visible:ring-offset-[#12110f]"
 						>
 							Book a 30-minute call
 						</a>
@@ -301,7 +301,7 @@ export function Contact() {
 						<button
 							type="submit"
 							disabled={isSubmitDisabled}
-							className="inline-flex min-w-48 justify-center rounded-sm bg-[#f7f2e8] px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#12110f] transition-colors hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441] focus-visible:ring-offset-2 focus-visible:ring-offset-[#12110f] disabled:cursor-wait disabled:opacity-60"
+							className="inline-flex min-h-11 min-w-48 items-center justify-center rounded-sm bg-[#f7f2e8] px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#12110f] transition-colors hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441] focus-visible:ring-offset-2 focus-visible:ring-offset-[#12110f] disabled:cursor-wait disabled:opacity-60"
 						>
 							{isPending ? "Sending..." : "Send inquiry"}
 						</button>

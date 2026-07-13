@@ -115,7 +115,7 @@ export default function PrivacyPage() {
 				<div className="mt-16 flex flex-wrap gap-3">
 					<a
 						href="/#contact"
-						className="inline-flex rounded-sm bg-[#f7f2e8] px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#12110f] transition-colors hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441] focus-visible:ring-offset-2 focus-visible:ring-offset-[#12110f]"
+						className="inline-flex min-h-11 items-center rounded-sm bg-[#f7f2e8] px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#12110f] transition-colors hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441] focus-visible:ring-offset-2 focus-visible:ring-offset-[#12110f]"
 					>
 						Send an inquiry
 					</a>
@@ -123,7 +123,7 @@ export default function PrivacyPage() {
 						href="https://calendly.com/aryateja/30min"
 						target="_blank"
 						rel="noreferrer"
-						className="inline-flex rounded-sm border border-[#f7f2e8]/25 px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#f7f2e8] transition-colors hover:border-[#f7f2e8]/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441] focus-visible:ring-offset-2 focus-visible:ring-offset-[#12110f]"
+						className="inline-flex min-h-11 items-center rounded-sm border border-[#f7f2e8]/25 px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#f7f2e8] transition-colors hover:border-[#f7f2e8]/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441] focus-visible:ring-offset-2 focus-visible:ring-offset-[#12110f]"
 					>
 						Book a 30-minute call
 					</a>
