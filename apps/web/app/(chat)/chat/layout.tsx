@@ -1,10 +1,18 @@
-import { cookies } from 'next/headers';
 // eslint-disable-next-line import/no-unresolved
 import { AppSidebar } from '@/components/app-sidebar';
 // eslint-disable-next-line import/no-unresolved
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
-import { auth } from '../../(auth)/auth';
+import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
 import Script from 'next/script';
+import { auth } from '../../(auth)/auth';
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export const experimental_ppr = true;
 

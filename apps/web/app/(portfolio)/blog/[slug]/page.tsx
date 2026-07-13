@@ -1,238 +1,265 @@
-'use client';
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { BrandMark, SiteNav } from "../../_components/field-notes";
+import MarkdownRenderer from "../../_components/markdowmRender";
+import { getAllBlogs, getBlogBySlug, getRelatedBlogs } from "../../_hooks/blog";
 
-import React from 'react';
-import Link from 'next/link';
-import { Header } from '../../_components/header';
-import { useParams } from 'next/navigation';
-import { getBlogBySlug, getRelatedBlogs } from '../../_hooks/blog';
-import MarkdownRenderer from '../../_components/markdowmRender';
-import Image from 'next/image';
+const siteUrl = "https://aryateja.com";
 
-export default function BlogPostPage() {
-  const params = useParams();
-  const postSlug = typeof params.slug === 'string' ? params.slug : '1';
-  const post = getBlogBySlug(postSlug);
-  const relatedPosts = getRelatedBlogs(postSlug);
+type BlogPostPageProps = {
+	params: Promise<{ slug: string }>;
+};
 
-  if (!post) {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-between">
-        <Header />
-        <div className="w-full px-4 max-w-4xl mx-auto pt-32 pb-20 text-center">
-          <h1 className="text-3xl font-bold mb-4">Blog post not found</h1>
-          <p className="mb-8">
-            The blog post you&apos;re looking for doesn&apos;t exist or has been
-            removed.
-          </p>
-          <Link
-            href="/blog"
-            className="inline-flex items-center justify-center rounded-lg bg-teal-500 px-6 py-3 text-white hover:bg-teal-600 transition-colors"
-          >
-            Back to all blogs
-          </Link>
-        </div>
-      </main>
-    );
-  }
+export function generateStaticParams() {
+	return getAllBlogs().map((post) => ({ slug: post.slug }));
+}
 
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <Header />
+export async function generateMetadata({
+	params,
+}: BlogPostPageProps): Promise<Metadata> {
+	const { slug } = await params;
+	const post = getBlogBySlug(slug);
 
-      <article className="w-full px-4 max-w-4xl mx-auto pt-32 pb-20">
-        {/* Back button */}
-        <Link
-          href="/blog"
-          className="inline-flex items-center text-neutral-600 dark:text-neutral-400 hover:text-teal-500 dark:hover:text-teal-500 mb-8"
-        >
-          <svg
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-4 mr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          Back to all blogs
-        </Link>
+	if (!post) {
+		return { title: "Writing" };
+	}
 
-        {/* Post header */}
-        <div className="mb-8">
-          <div className="inline-block bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 rounded-full px-3 py-1 text-sm mb-4">
-            {post.category}
-          </div>
+	const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
+	const imageUrl = new URL(post.coverImage, siteUrl).toString();
 
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{post.title}</h1>
+	return {
+		title: post.title,
+		description: post.description,
+		alternates: { canonical: canonicalUrl },
+		openGraph: {
+			type: "article",
+			url: canonicalUrl,
+			title: post.title,
+			description: post.description,
+			publishedTime: post.date,
+			authors: ["Arya Teja Rudraraju"],
+			tags: post.tags,
+			images: [{ url: imageUrl, alt: post.title }],
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: post.title,
+			description: post.description,
+			images: [imageUrl],
+		},
+	};
+}
 
-          <div className="flex items-center text-sm text-neutral-500 dark:text-neutral-400 mb-6">
-            <span>{post.formattedDate}</span>
-            <span className="mx-2">•</span>
-            <span>{post.readTime}</span>
-          </div>
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+	const { slug } = await params;
+	const post = getBlogBySlug(slug);
 
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {post.tags.map((tag) => (
-              <Link
-                href={`/blogs/tag/${tag}`}
-                key={tag}
-                className="text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 px-2 py-1 rounded-md hover:bg-teal-100 dark:hover:bg-teal-900 hover:text-teal-700 dark:hover:text-teal-300 transition-colors"
-              >
-                #{tag}
-              </Link>
-            ))}
-          </div>
+	if (!post) {
+		notFound();
+	}
 
-          {/* Author info */}
-          <div className="flex items-center py-6 border-y border-neutral-200 dark:border-neutral-800">
-            <div className="size-12 relative mr-4 overflow-hidden rounded-full">
-              {/* Replace with actual author image */}
-              <div className="size-full flex items-center justify-center text-xs text-neutral-500">
-                Avatar
-              </div>
-            </div>
-            <div>
-              <div className="font-medium">{post.author.name}</div>
-              <div className="text-sm text-neutral-500 dark:text-neutral-400">
-                {post.author.bio}
-              </div>
-            </div>
-          </div>
-        </div>
+	const relatedPosts = getRelatedBlogs(post.id);
+	const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
+	const jsonLd = {
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		headline: post.title,
+		description: post.description,
+		image: new URL(post.coverImage, siteUrl).toString(),
+		datePublished: post.date,
+		dateModified: post.date,
+		mainEntityOfPage: canonicalUrl,
+		author: {
+			"@type": "Person",
+			"@id": `${siteUrl}/#person`,
+			name: "Arya Teja Rudraraju",
+			url: siteUrl,
+			sameAs: [
+				"https://linkedin.com/in/arya-teja-rudraraju",
+				"https://github.com/aryateja2106",
+				"https://x.com/r_aryateja",
+			],
+		},
+	};
 
-        {/* Post cover image */}
-        {post.coverImage ? (
-          <div className="relative w-full h-64 md:h-96 bg-neutral-800 overflow-hidden">
-            <Image
-              src={post.coverImage}
-              alt={post.title}
-              fill
-              objectFit="cover"
-              className="opacity-70"
-            />
-          </div>
-        ) : (
-          <div className="w-full h-64 md:h-96 bg-neutral-100 dark:bg-neutral-800 rounded-lg mb-8 overflow-hidden">
-            <div className="size-full flex items-center justify-center text-neutral-400">
-              No Cover Image
-            </div>
-          </div>
-        )}
+	return (
+		<main className="min-h-screen bg-[#12110f] text-[#f7f2e8]">
+			<SiteNav />
+			<script
+				type="application/ld+json"
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: Static JSON-LD generated from local blog data.
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
 
-        {/* Post content - Markdown renderer */}
-        <MarkdownRenderer content={post.content} />
+			<article className="mx-auto w-full max-w-5xl px-5 pt-36 pb-16 md:px-8">
+				<Link
+					href="/blog"
+					className="mb-10 inline-flex items-center font-mono text-xs uppercase tracking-[0.2em] text-[#b9b0a2] transition-colors hover:text-[#f7f2e8]"
+				>
+					<svg
+						aria-hidden="true"
+						xmlns="http://www.w3.org/2000/svg"
+						className="size-4 mr-2"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth={2}
+							d="M15 19l-7-7 7-7"
+						/>
+					</svg>
+					Back to notes
+				</Link>
 
-        {/* Share and like section */}
-        <div className="mt-12 flex justify-between items-center border-t border-neutral-200 dark:border-neutral-800 pt-6">
-          <div className="flex space-x-4">
-            <button
-              type="button"
-              className="flex items-center text-neutral-600 dark:text-neutral-400 hover:text-teal-500 dark:hover:text-teal-500"
-            >
-              <svg
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-5 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                />
-              </svg>
-              Like
-            </button>
-            <button
-              type="button"
-              className="flex items-center text-neutral-600 dark:text-neutral-400 hover:text-teal-500 dark:hover:text-teal-500"
-            >
-              <svg
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-5 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
-                />
-              </svg>
-              Share
-            </button>
-          </div>
-          <button
-            type="button"
-            className="flex items-center text-neutral-600 dark:text-neutral-400 hover:text-teal-500 dark:hover:text-teal-500"
-          >
-            <svg
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              className="size-5 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-              />
-            </svg>
-            Bookmark
-          </button>
-        </div>
-      </article>
+				<div className="mb-8">
+					<div className="mb-5 inline-block border border-[#f7f2e8]/15 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[#b9b0a2]">
+						{post.category}
+					</div>
 
-      {/* Related posts section */}
-      {relatedPosts.length > 0 && (
-        <div className="w-full bg-neutral-50 dark:bg-neutral-900 py-16">
-          <div className="w-full px-4 max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8">Related Articles</h2>
+					<h1 className="max-w-4xl font-serif text-[clamp(42px,8vw,80px)] leading-[0.98]">
+						{post.title}
+					</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {relatedPosts.slice(0, 3).map((relatedPost) => (
-                <Link
-                  key={relatedPost.id}
-                  href={`/blog/${relatedPost.id}`}
-                  className="group"
-                >
-                  <div className="h-40 bg-neutral-200 dark:bg-neutral-800 rounded-lg mb-4 overflow-hidden">
-                    <Image
-                      className="size-full object-cover"
-                      src={relatedPost.coverImage}
-                      alt={relatedPost.title}
-                      fill
-                      objectFit="cover"
-                    />
-                  </div>
-                  <h3 className="font-medium group-hover:text-teal-500 transition-colors mb-1">
-                    {relatedPost.title}
-                  </h3>
-                  <div className="text-sm text-neutral-500 dark:text-neutral-400">
-                    {relatedPost.formattedDate}
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-    </main>
-  );
+					<div className="mt-6 mb-8 flex items-center font-mono text-[11px] uppercase tracking-[0.16em] text-[#b9b0a2]">
+						<span>{post.formattedDate}</span>
+						<span className="mx-2">•</span>
+						<span>{post.readTime}</span>
+					</div>
+
+					<div className="flex flex-wrap gap-2 mb-6">
+						{post.tags.map((tag) => (
+							<span
+								key={tag}
+								className="border border-[#f7f2e8]/15 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-[#b9b0a2] transition-colors hover:border-[#f7f2e8]/45 hover:text-[#f7f2e8]"
+							>
+								#{tag}
+							</span>
+						))}
+					</div>
+
+					<div className="flex items-center py-6 border-y border-[#f7f2e8]/15">
+						<div className="relative mr-4 size-12 overflow-hidden border border-[#f7f2e8]/15 bg-black">
+							<BrandMark className="size-full" />
+						</div>
+						<div>
+							<div className="font-medium">{post.author.name}</div>
+							<div className="text-sm text-[#b9b0a2]">{post.author.bio}</div>
+						</div>
+					</div>
+				</div>
+
+				{post.coverImage ? (
+					<div className="relative h-64 w-full overflow-hidden border border-[#f7f2e8]/15 bg-[#1c1a17] md:h-[34rem]">
+						<Image
+							src={post.coverImage}
+							alt={post.title}
+							fill
+							sizes="(max-width: 768px) 100vw, 896px"
+							loading="eager"
+							className="object-cover"
+						/>
+					</div>
+				) : (
+					<div className="h-64 w-full overflow-hidden border border-[#f7f2e8]/15 bg-[#1c1a17] md:h-[34rem]">
+						<div className="size-full flex items-center justify-center font-mono text-xs uppercase tracking-[0.18em] text-[#b9b0a2]">
+							Source note
+						</div>
+					</div>
+				)}
+			</article>
+
+			<div className="bg-[#f2ecdf] text-[#37322c]">
+				<article className="mx-auto w-full max-w-3xl px-5 py-16 md:px-8 md:py-24">
+					{post.guide && (
+						<section
+							className="mb-16 border-y border-[#c7baa5] py-8"
+							aria-labelledby="guide-brief"
+						>
+							<p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#6f665b]">
+								Implementation brief
+							</p>
+							<h2
+								id="guide-brief"
+								className="scroll-mt-28 mt-3 font-serif text-3xl leading-tight text-[#171512]"
+							>
+								{post.guide.purpose}
+							</h2>
+
+							<div className="mt-8 grid gap-8 md:grid-cols-2">
+								<div>
+									<h3 className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#6f665b]">
+										Who this is for
+									</h3>
+									<ul className="mt-3 space-y-2 text-sm leading-6">
+										{post.guide.audience.map((item) => (
+											<li key={item}>• {item}</li>
+										))}
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#6f665b]">
+										What you will finish with
+									</h3>
+									<ul className="mt-3 space-y-2 text-sm leading-6">
+										{post.guide.outcomes.map((item) => (
+											<li key={item}>• {item}</li>
+										))}
+									</ul>
+								</div>
+							</div>
+
+							<div className="mt-8 border-t border-[#c7baa5] pt-5 font-mono text-[10px] uppercase leading-5 tracking-[0.14em] text-[#6f665b]">
+								Prerequisites: {post.guide.prerequisites.join(" · ")}
+								<br />
+								Commands and claims verified: {post.guide.verifiedAt}
+							</div>
+						</section>
+					)}
+					<MarkdownRenderer
+						content={post.content}
+						className="prose-headings:font-serif prose-headings:text-[#171512] prose-p:text-[#37322c] prose-strong:text-[#171512] prose-li:text-[#37322c]"
+					/>
+				</article>
+			</div>
+
+			{relatedPosts.length > 0 && (
+				<div className="w-full border-t border-[#f7f2e8]/15 bg-[#1c1a17] py-16">
+					<div className="w-full px-4 max-w-4xl mx-auto">
+						<h2 className="font-serif text-3xl mb-8">Related notes</h2>
+
+						<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+							{relatedPosts.slice(0, 3).map((relatedPost) => (
+								<Link
+									key={relatedPost.id}
+									href={`/blog/${relatedPost.slug}`}
+									className="group"
+								>
+									<div className="relative h-40 bg-[#12110f] border border-[#f7f2e8]/15 mb-4 overflow-hidden">
+										<Image
+											className="object-cover saturate-0"
+											src={relatedPost.coverImage}
+											alt={relatedPost.title}
+											fill
+											sizes="(max-width: 768px) 100vw, 33vw"
+										/>
+									</div>
+									<h3 className="font-serif text-xl group-hover:text-white transition-colors mb-1">
+										{relatedPost.title}
+									</h3>
+									<div className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#b9b0a2]">
+										{relatedPost.formattedDate}
+									</div>
+								</Link>
+							))}
+						</div>
+					</div>
+				</div>
+			)}
+		</main>
+	);
 }

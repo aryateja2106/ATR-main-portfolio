@@ -1,0 +1,64 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - link "Back to systems" [ref=e4] [cursor=pointer]:
+      - /url: ./mono-index.html
+    - generic [ref=e5]: System 04 | Luxury Mono
+  - generic [ref=e6]:
+    - article [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: Arya Teja Rudraraju
+        - generic [ref=e10]: Agentic systems and personal software
+      - paragraph [ref=e11]: A more deliberate machine interface
+      - heading "The work should feel inevitable." [level=1] [ref=e12]
+      - paragraph [ref=e13]: A premium monochrome identity for high-signal writing, product launches, and the public record of building agentic tools with taste and restraint.
+      - generic [ref=e14]:
+        - link "Read the work" [ref=e15] [cursor=pointer]:
+          - /url: "#"
+        - link "Watch demos" [ref=e16] [cursor=pointer]:
+          - /url: "#"
+        - link "Study projects" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - strong [ref=e20]: "01"
+          - text: Long-form essays with polished diagrams.
+        - generic [ref=e21]:
+          - strong [ref=e22]: "02"
+          - text: Product launches that feel calm and exact.
+        - generic [ref=e23]:
+          - strong [ref=e24]: "03"
+          - text: Social assets with strong editorial identity.
+    - complementary [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - paragraph [ref=e28]: Launch post
+          - heading "The terminal is becoming a place you can direct." [level=2] [ref=e29]
+          - paragraph [ref=e30]: LeCoder MConnect
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Video opener
+          - heading "A phone, a tunnel, and an agent waiting for approval." [level=2] [ref=e33]
+          - paragraph [ref=e34]: cinematic demo
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: Brand kit
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e44]: Display
+            - strong [ref=e45]: High-contrast serif
+          - generic [ref=e46]:
+            - generic [ref=e47]: Body
+            - generic [ref=e48]: Precise, composed, restrained.
+          - generic [ref=e49]:
+            - generic [ref=e50]: Mono
+            - generic [ref=e51]: small labels, not the main voice
+      - generic [ref=e52]:
+        - paragraph [ref=e53]: Content system
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - generic [ref=e56]: essay
+            - heading "Why remote agents need interface design" [level=3] [ref=e57]
+          - generic [ref=e58]:
+            - generic [ref=e59]: launch
+            - heading "Building a mobile control layer for coding agents" [level=3] [ref=e60]
+          - generic [ref=e61]:
+            - generic [ref=e62]: brief
+            - heading "What I learned from a week of open-source audits" [level=3] [ref=e63]

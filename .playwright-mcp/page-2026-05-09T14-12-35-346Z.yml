@@ -1,0 +1,51 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "Brand lab" [ref=e3] [cursor=pointer]:
+      - /url: ./index.html
+    - generic [ref=e4]: Monochrome systems
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - paragraph [ref=e7]: Minimal modern brand selection
+      - heading "Choose the whole system, not a mood." [level=1] [ref=e8]
+    - paragraph [ref=e9]: These boards show how the website, posts, video thumbnails, writing surfaces, project cards, components, type, and palette all work together. Pick the one that feels like you can live inside it every day.
+  - region "Monochrome brand systems" [ref=e10]:
+    - link "System 01 Pure Mono Strict, quiet, product-minded. The safest minimalist direction for a modern personal site. homepage hero post type ui" [ref=e11] [cursor=pointer]:
+      - /url: ./system-01-pure-mono.html
+      - paragraph [ref=e12]: System 01
+      - heading "Pure Mono" [level=2] [ref=e13]
+      - paragraph [ref=e14]: Strict, quiet, product-minded. The safest minimalist direction for a modern personal site.
+      - generic [ref=e15]:
+        - generic [ref=e16]: homepage hero
+        - generic [ref=e17]: post
+        - generic [ref=e18]: type
+        - generic [ref=e19]: ui
+    - link "System 02 Editorial Mono Minimal, warmer, more writerly. Better if the brand becomes essays and daily field notes. article lead carousel serif index" [ref=e20] [cursor=pointer]:
+      - /url: ./system-02-editorial-mono.html
+      - paragraph [ref=e21]: System 02
+      - heading "Editorial Mono" [level=2] [ref=e22]
+      - paragraph [ref=e23]: Minimal, warmer, more writerly. Better if the brand becomes essays and daily field notes.
+      - generic [ref=e24]:
+        - generic [ref=e25]: article lead
+        - generic [ref=e26]: carousel
+        - generic [ref=e27]: serif
+        - generic [ref=e28]: index
+    - link "System 03 Technical Mono Black, sharp, all signal. Strongest for agent ops, terminal work, and engineering credibility. control surface x card mono logs" [ref=e29] [cursor=pointer]:
+      - /url: ./system-03-technical-mono.html
+      - paragraph [ref=e30]: System 03
+      - heading "Technical Mono" [level=2] [ref=e31]
+      - paragraph [ref=e32]: Black, sharp, all signal. Strongest for agent ops, terminal work, and engineering credibility.
+      - generic [ref=e33]:
+        - generic [ref=e34]: control surface
+        - generic [ref=e35]: x card
+        - generic [ref=e36]: mono
+        - generic [ref=e37]: logs
+    - link "System 04 Luxury Mono Premium monochrome, more polished. Best if the brand should feel rare and editorial. feature story launch card display folio" [ref=e38] [cursor=pointer]:
+      - /url: ./system-04-luxury-mono.html
+      - paragraph [ref=e39]: System 04
+      - heading "Luxury Mono" [level=2] [ref=e40]
+      - paragraph [ref=e41]: Premium monochrome, more polished. Best if the brand should feel rare and editorial.
+      - generic [ref=e42]:
+        - generic [ref=e43]: feature story
+        - generic [ref=e44]: launch card
+        - generic [ref=e45]: display
+        - generic [ref=e46]: folio

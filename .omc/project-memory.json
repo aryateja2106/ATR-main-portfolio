@@ -1,0 +1,363 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1777741779156,
+  "projectRoot": "/Users/aryateja/Desktop/Work/personal-website",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      }
+    ],
+    "frameworks": [],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": null,
+    "lintCommand": "npm run lint",
+    "devCommand": "npm run dev",
+    "scripts": {
+      "build": "turbo run build",
+      "dev": "turbo run dev",
+      "lint": "turbo run lint",
+      "format": "turbo run format",
+      "check-types": "turbo run check-types",
+      "prepare": "husky"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": true,
+    "workspaces": [
+      "apps/*",
+      "packages/*"
+    ],
+    "mainDirectories": [
+      "docs"
+    ],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "ai-helpful-docs": {
+      "path": "ai-helpful-docs",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1777741779105,
+      "keyFiles": [
+        "Knowledge Base for Job Applications from notion.md",
+        "nextjs15-to16-migration-guide.md"
+      ]
+    },
+    "apps": {
+      "path": "apps",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1777741779106,
+      "keyFiles": []
+    },
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 14,
+      "lastAccessed": 1777741779129,
+      "keyFiles": [
+        "Architecture.md",
+        "CONTENT.md",
+        "Database Schema.md",
+        "Deployment Guide.md",
+        "Folder Structure.md"
+      ]
+    },
+    "mydocs": {
+      "path": "mydocs",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1777741779150,
+      "keyFiles": [
+        "pdf-web-search-implementation-guide.md"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "apps/web/app/(portfolio)/_components/about.tsx",
+      "accessCount": 6,
+      "lastAccessed": 1777746883651,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/_components/hero.tsx",
+      "accessCount": 6,
+      "lastAccessed": 1777746890711,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/package.json",
+      "accessCount": 6,
+      "lastAccessed": 1777749384628,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/_components/mobile-menu.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1777744943066,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/uses/page.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1777745283651,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/next.config.ts",
+      "accessCount": 5,
+      "lastAccessed": 1777749411994,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/_components/footer.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1777745008498,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/now/page.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1777745354513,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/faq/page.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1777746804352,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/_components/experience.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1777746887483,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/_components/tech-gravity.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1777746902997,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/public/llms.txt",
+      "accessCount": 3,
+      "lastAccessed": 1777744831980,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/layout.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1777744928943,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/lib/db/schema.ts",
+      "accessCount": 3,
+      "lastAccessed": 1777745077096,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/opengraph-image.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1777745118268,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/sitemap.ts",
+      "accessCount": 2,
+      "lastAccessed": 1777744718721,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/lib/portfolio/site.ts",
+      "accessCount": 2,
+      "lastAccessed": 1777744815900,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/lib/portfolio/projects.ts",
+      "accessCount": 2,
+      "lastAccessed": 1777744926577,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/_components/header.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1777744931105,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/lib/utils.ts",
+      "accessCount": 2,
+      "lastAccessed": 1777745041270,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/about/page.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1777745207105,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/twitter-image.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1777745219653,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/opengraph-image.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1777745221730,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/twitter-image.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1777745223664,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/projects/[slug]/page.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1777745297276,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/blog/[slug]/blog-post-client.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1777745299927,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/lib/portfolio/social-image.ts",
+      "accessCount": 2,
+      "lastAccessed": 1777745323922,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/lib/og/render.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1777745326385,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/components/code-block.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1777746881042,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/public/robots.txt",
+      "accessCount": 2,
+      "lastAccessed": 1777748555072,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/lib/ai/providers.ts",
+      "accessCount": 1,
+      "lastAccessed": 1777742576719,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/lib/ai/models.ts",
+      "accessCount": 1,
+      "lastAccessed": 1777742576966,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(auth)/auth.ts",
+      "accessCount": 1,
+      "lastAccessed": 1777742579919,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/tailwind.config.ts",
+      "accessCount": 1,
+      "lastAccessed": 1777742580417,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/globals.css",
+      "accessCount": 1,
+      "lastAccessed": 1777742589905,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/page.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1777744614769,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/components/icons.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1777744688936,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/lib/portfolio/brand.ts",
+      "accessCount": 1,
+      "lastAccessed": 1777744801760,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/_components/skills.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1777745399885,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/lib/constants.ts",
+      "accessCount": 1,
+      "lastAccessed": 1777746074623,
+      "type": "file"
+    },
+    {
+      "path": "apps/web/app/(portfolio)/layout.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1777748283887,
+      "type": "file"
+    },
+    {
+      "path": "real-images/agent-sec-hk.jpeg",
+      "accessCount": 1,
+      "lastAccessed": 1777748476668,
+      "type": "file"
+    },
+    {
+      "path": "real-images/yc-robo-hk-solo.jpeg",
+      "accessCount": 1,
+      "lastAccessed": 1777748477297,
+      "type": "file"
+    },
+    {
+      "path": "vercel.json",
+      "accessCount": 1,
+      "lastAccessed": 1777748495347,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

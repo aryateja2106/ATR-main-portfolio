@@ -1,0 +1,30 @@
+name: Monthly /now refresh
+description: Track the monthly refresh of the /now, /uses, and /reading pages.
+title: "[content] Refresh /now for {YYYY-MM}"
+labels: ["content", "monthly"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Monthly cadence: refresh the indie-web personal pages so visitors and AI engines get a recent snapshot.
+
+        See [`docs/CONTENT.md`](../../docs/CONTENT.md) for the editing flow.
+
+  - type: checkboxes
+    id: tasks
+    attributes:
+      label: Tasks
+      options:
+        - label: Update `LAST_UPDATED` + `LAST_UPDATED_LABEL` in `apps/web/app/(portfolio)/now/page.tsx`
+        - label: Refresh the Building / Learning / Looking for / Not focused on sections in `/now`
+        - label: Refresh `/uses` if any tool changed (LAST_UPDATED + GROUPS)
+        - label: Refresh `/reading` (CURRENT + RECENT lists)
+        - label: Validate at https://www.aryateja.com/now after deploy
+        - label: Sanity-check ChatGPT / Perplexity surface the new info (give it 7–14 days)
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Optional notes
+      description: Anything noteworthy about this month's update.
+      placeholder: e.g. shipped LeSearch synthesis engine v2; started APM interview cycle

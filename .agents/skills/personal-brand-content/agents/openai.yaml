@@ -1,0 +1,4 @@
+interface:
+  display_name: "Personal Brand Content"
+  short_description: "Daily content and brand ops"
+  default_prompt: "Use $personal-brand-content to turn a learning, project update, or source link into a LinkedIn, X, and YouTube content package."

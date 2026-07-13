@@ -1,0 +1,243 @@
+- generic [active] [ref=e1]:
+  - region "Notifications alt+T"
+  - generic [ref=e4]:
+    - banner [ref=e5]:
+      - generic [ref=e6]:
+        - link "ATR" [ref=e7] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e8]:
+          - navigation [ref=e9]:
+            - link "Home" [ref=e10] [cursor=pointer]:
+              - /url: /
+            - link "About" [ref=e11] [cursor=pointer]:
+              - /url: "#about"
+            - link "FAQ" [ref=e12] [cursor=pointer]:
+              - /url: /faq
+            - link "Projects" [ref=e13] [cursor=pointer]:
+              - /url: "#projects"
+            - link "Stars" [ref=e14] [cursor=pointer]:
+              - /url: /github-stars
+            - link "Blog" [ref=e15] [cursor=pointer]:
+              - /url: "#blogs"
+            - link "Contact" [ref=e16] [cursor=pointer]:
+              - /url: "#contact"
+            - link "Resume" [ref=e17] [cursor=pointer]:
+              - /url: /resume/Arya_Teja_Rudraraju_Resume.pdf
+          - button "Search... Ctrl K" [ref=e18]:
+            - generic [ref=e19]:
+              - img [ref=e20]
+              - generic [ref=e22]: Search...
+            - generic [ref=e23]: Ctrl K
+    - main [ref=e24]:
+      - article [ref=e26]:
+        - generic [ref=e27]:
+          - paragraph [ref=e28]: About
+          - heading "Arya Teja Rudraraju" [level=1] [ref=e29]
+          - paragraph [ref=e30]: Agentic Engineer in San Francisco. Founder of LeSearch AI and CloudAGI. Building LeCoder MConnect.
+        - navigation "On this page" [ref=e31]:
+          - generic [ref=e32]: On this page
+          - list [ref=e33]:
+            - listitem [ref=e34]:
+              - link "TL;DR" [ref=e35] [cursor=pointer]:
+                - /url: "#tldr"
+            - listitem [ref=e36]:
+              - link "Current work" [ref=e37] [cursor=pointer]:
+                - /url: "#current-work"
+            - listitem [ref=e38]:
+              - link "Career arc" [ref=e39] [cursor=pointer]:
+                - /url: "#career-arc"
+            - listitem [ref=e40]:
+              - link "What I believe" [ref=e41] [cursor=pointer]:
+                - /url: "#what-i-believe"
+            - listitem [ref=e42]:
+              - link "What I'm open to" [ref=e43] [cursor=pointer]:
+                - /url: "#open-to"
+            - listitem [ref=e44]:
+              - link "Find me elsewhere" [ref=e45] [cursor=pointer]:
+                - /url: "#elsewhere"
+        - generic [ref=e46]:
+          - heading "TL;DR" [level=2] [ref=e47]
+          - paragraph [ref=e48]:
+            - text: I am Arya Teja Rudraraju. I work as an Agentic Engineer in San Francisco. I founded
+            - link "LeSearch AI" [ref=e49] [cursor=pointer]:
+              - /url: /projects/lesearch-ai
+            - text: and
+            - link "CloudAGI" [ref=e50] [cursor=pointer]:
+              - /url: /projects/cloudagi
+            - text: ", and I am building"
+            - link "LeCoder MConnect" [ref=e51] [cursor=pointer]:
+              - /url: /projects/lecoder-mconnect
+            - text: ": an open-source mobile control layer for Claude Code, Cursor, and OpenCode."
+          - paragraph [ref=e52]:
+            - text: I am open to
+            - strong [ref=e53]: AI Engineer
+            - text: ","
+            - strong [ref=e54]: Forward Deployed Engineer
+            - text: ", and"
+            - strong [ref=e55]: Product Engineer
+            - text: roles at AI-first companies shipping real agentic workflows. The fastest way to reach me is
+            - link "aryateja2106@gmail.com" [ref=e56] [cursor=pointer]:
+              - /url: mailto:aryateja2106@gmail.com
+            - text: .
+        - generic [ref=e57]:
+          - heading "Current work" [level=2] [ref=e58]
+          - list [ref=e59]:
+            - listitem [ref=e60]:
+              - strong [ref=e61]: LeCoder MConnect.
+              - text: Open-source mobile bridge for AI coding agents. node-pty plus Cloudflare Tunnel plus a QR pairing flow means Claude Code, Cursor, and OpenCode run from a phone with full TUI fidelity. Live at
+              - link "lecoder.lesearch.ai" [ref=e62] [cursor=pointer]:
+                - /url: https://lecoder.lesearch.ai
+              - text: .
+            - listitem [ref=e63]:
+              - strong [ref=e64]: LeSearch AI.
+              - text: Founder and product lead. RAG with hard citation grounding so the model cannot claim a fact it cannot highlight in the source. 50+ beta users, 30+ structured user interviews shaped the roadmap.
+            - listitem [ref=e65]:
+              - strong [ref=e66]: CloudAGI.
+              - text: Custom agentic workflows for small businesses on a plugin-first credit-metered runtime. TypeScript + Bun.
+            - listitem [ref=e67]:
+              - strong [ref=e68]: Software Factory.
+              - text: Early-stage system for deploying agent-built personal apps to a user's own always-on hardware (Mac mini, Raspberry Pi) over Cloudflare Tunnels. Web apps install as PWAs.
+            - listitem [ref=e69]:
+              - strong [ref=e70]: NL2Shell.
+              - text: Natural language to shell commands at
+              - link "nl2shell.com" [ref=e71] [cursor=pointer]:
+                - /url: https://nl2shell.com
+              - text: ", backed by a fine-tuned model."
+        - generic [ref=e72]:
+          - heading "Career arc" [level=2] [ref=e73]
+          - paragraph [ref=e74]: Four years in marketing leadership taught me how to mine customer signals, brief creative teams, and quantify lift on every campaign. When LLMs became real, the same instincts (discovery, copy testing, activation analysis) turned out to be the foundation of agentic engineering work.
+          - paragraph [ref=e75]: "I leaned in. I co-built LeSearch AI, owned prompt architectures, and shipped scrappy MVPs every week: SQL agents for non-technical ops teams, auto-browsing Q&A bots for scouts, due-diligence summarizers. Every launch was instrumented so we could cut scope or double down based on real user behavior, not opinions."
+          - paragraph [ref=e76]: The next layer was code. I started writing the systems myself instead of briefing them, which led to LeCoder MConnect, CloudAGI, the Software Factory bet, and a move to San Francisco to be closer to the people building this category.
+        - generic [ref=e77]:
+          - heading "What I believe" [level=2] [ref=e78]
+          - list [ref=e79]:
+            - listitem [ref=e80]:
+              - strong [ref=e81]: Mobile is the next agent surface.
+              - text: Engineers spend half their lives away from their laptop. The agent should not stop because the human stepped away.
+            - listitem [ref=e82]:
+              - strong [ref=e83]: Open beats walled.
+              - text: Composable agents on standardized protocols (MCP) will outpace any single closed ecosystem. My open-source work bets on that.
+            - listitem [ref=e84]:
+              - strong [ref=e85]: Citation grounding is non-negotiable.
+              - text: If a model cannot point to the source of a claim, it should not ship that claim. Hallucinations are not a research problem; they are a product problem.
+            - listitem [ref=e86]:
+              - strong [ref=e87]: Marketing instincts compound in product engineering.
+              - text: Discovery, briefing, copy iteration, and activation analysis translate directly. Anyone underestimating that is leaving leverage on the table.
+        - generic [ref=e88]:
+          - heading "What I'm open to" [level=2] [ref=e89]
+          - list [ref=e90]:
+            - listitem [ref=e91]:
+              - strong [ref=e92]: AI Engineer, Forward Deployed Engineer, or Product Engineer roles
+              - text: at AI-first companies shipping real agentic workflows.
+            - listitem [ref=e93]:
+              - strong [ref=e94]: Founding-team hires
+              - text: for early-stage agentic products where evaluation, customer discovery, and shipping compound.
+            - listitem [ref=e95]:
+              - strong [ref=e96]: Open-source collaboration
+              - text: on mobile agent orchestration, MCP tooling, and developer ergonomics.
+            - listitem [ref=e97]:
+              - strong [ref=e98]: Office hours / advising
+              - text: for anyone making the jump from marketing or PM into building.
+        - generic [ref=e99]:
+          - heading "Find me elsewhere" [level=2] [ref=e100]
+          - list [ref=e101]:
+            - listitem [ref=e102]:
+              - text: "Email:"
+              - link "aryateja2106@gmail.com" [ref=e103] [cursor=pointer]:
+                - /url: mailto:aryateja2106@gmail.com
+            - listitem [ref=e104]:
+              - text: "LinkedIn:"
+              - link "linkedin.com/in/arya-teja-rudraraju" [ref=e105] [cursor=pointer]:
+                - /url: https://linkedin.com/in/arya-teja-rudraraju
+            - listitem [ref=e106]:
+              - text: "GitHub:"
+              - link "github.com/aryateja2106" [ref=e107] [cursor=pointer]:
+                - /url: https://github.com/aryateja2106
+            - listitem [ref=e108]:
+              - text: "Twitter / X:"
+              - link "x.com/r_aryateja" [ref=e109] [cursor=pointer]:
+                - /url: https://x.com/r_aryateja
+            - listitem [ref=e110]:
+              - text: "npm:"
+              - link "npmjs.com/package/lecoder-mconnect" [ref=e111] [cursor=pointer]:
+                - /url: https://www.npmjs.com/package/lecoder-mconnect
+            - listitem [ref=e112]:
+              - text: "Resume PDF:"
+              - link "/resume/Arya_Teja_Rudraraju_Resume.pdf" [ref=e113] [cursor=pointer]:
+                - /url: /resume/Arya_Teja_Rudraraju_Resume.pdf
+        - complementary [ref=e114]:
+          - heading "Where to next?" [level=2] [ref=e115]
+          - generic [ref=e116]:
+            - link "/now → what I'm working on right now" [ref=e117] [cursor=pointer]:
+              - /url: /now
+            - link "/projects → full deep-dives" [ref=e118] [cursor=pointer]:
+              - /url: /projects
+            - link "/faq → pre-answered questions" [ref=e119] [cursor=pointer]:
+              - /url: /faq
+            - link "/blog → recent writing" [ref=e120] [cursor=pointer]:
+              - /url: /blog
+    - contentinfo [ref=e121]:
+      - generic [ref=e128]:
+        - generic [ref=e129]:
+          - generic [ref=e130]:
+            - heading "Arya Teja ." [level=3] [ref=e131]
+            - paragraph [ref=e132]:
+              - text: Agentic Engineer in San Francisco. Founder of LeSearch AI and CloudAGI. Building LeCoder MConnect, an open-source mobile control layer for AI coding agents.
+              - generic [ref=e133]: Shipping in public.
+          - generic [ref=e134]:
+            - heading "Knowledge base" [level=4] [ref=e135]
+            - navigation [ref=e136]:
+              - link "Long-form bio (/about)" [ref=e137] [cursor=pointer]:
+                - /url: /about
+              - link "FAQ (/faq)" [ref=e138] [cursor=pointer]:
+                - /url: /faq
+              - link "Now (/now)" [ref=e139] [cursor=pointer]:
+                - /url: /now
+            - heading "Explore" [level=4] [ref=e140]
+            - navigation [ref=e141]:
+              - link "Home" [ref=e142] [cursor=pointer]:
+                - /url: /
+              - link "Projects" [ref=e143] [cursor=pointer]:
+                - /url: /projects
+              - link "GitHub stars" [ref=e144] [cursor=pointer]:
+                - /url: /github-stars
+              - link "Blog" [ref=e145] [cursor=pointer]:
+                - /url: /blog
+              - link "Contact" [ref=e146] [cursor=pointer]:
+                - /url: /contact
+          - generic [ref=e147]:
+            - generic [ref=e148]:
+              - heading "Get in Touch" [level=4] [ref=e149]
+              - generic [ref=e150]:
+                - paragraph [ref=e151]: Open to AI Engineer, Forward Deployed Engineer, and Product Engineer roles at AI-first companies. Especially excited about teams shipping agentic workflows.
+                - generic [ref=e152]:
+                  - link "Email Me" [ref=e153] [cursor=pointer]:
+                    - /url: mailto:aryateja2106@gmail.com
+                    - img [ref=e154]
+                    - text: Email Me
+                  - link "Schedule Call" [ref=e156] [cursor=pointer]:
+                    - /url: /contact
+                    - img [ref=e157]
+                    - text: Schedule Call
+            - generic [ref=e159]:
+              - heading "Connect" [level=4] [ref=e160]
+              - generic [ref=e161]:
+                - link "GitHub" [ref=e162] [cursor=pointer]:
+                  - /url: https://github.com/aryateja2106
+                  - img [ref=e163]
+                - link "LinkedIn" [ref=e166] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/arya-teja-rudraraju
+                  - img [ref=e167]
+                - link "Twitter" [ref=e171] [cursor=pointer]:
+                  - /url: https://x.com/r_aryateja
+                  - img [ref=e172]
+        - generic [ref=e174]:
+          - paragraph [ref=e175]: © 2026 Arya Teja Rudraraju. Shipping in public.
+          - generic [ref=e176]:
+            - link "Privacy Policy" [ref=e177] [cursor=pointer]:
+              - /url: /privacy
+            - link "Terms of Service" [ref=e178] [cursor=pointer]:
+              - /url: /terms
+  - button "Open Next.js Dev Tools" [ref=e184] [cursor=pointer]:
+    - img [ref=e185]
+  - alert [ref=e188]

@@ -1,0 +1,64 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - link "Back to systems" [ref=e4] [cursor=pointer]:
+      - /url: ./mono-index.html
+    - generic [ref=e5]: System 02 | Editorial Mono
+  - generic [ref=e6]:
+    - article [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: Arya Teja Rudraraju
+        - generic [ref=e10]: Field notes from the build
+      - paragraph [ref=e11]: Agentic Engineer in San Francisco
+      - heading "A public notebook for building with agents." [level=1] [ref=e12]
+      - paragraph [ref=e13]: The work is personal software, open-source reading, remote machine control, and the daily practice of turning vague AI enthusiasm into shipped systems.
+      - generic [ref=e14]:
+        - link "Start reading" [ref=e15] [cursor=pointer]:
+          - /url: "#"
+        - link "Open source notes" [ref=e16] [cursor=pointer]:
+          - /url: "#"
+        - link "Current builds" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - strong [ref=e20]: Note
+          - text: Daily reflections with commands, sources, and screenshots.
+        - generic [ref=e21]:
+          - strong [ref=e22]: Build
+          - text: LeCoder MConnect, CloudAGI, LeSearch AI, and NL2Shell.
+        - generic [ref=e23]:
+          - strong [ref=e24]: Study
+          - text: Open-source repos and what they teach careful builders.
+    - complementary [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - paragraph [ref=e28]: Carousel cover
+          - heading "The repo was not the lesson. The workflow was." [level=2] [ref=e29]
+          - paragraph [ref=e30]: open-source field note
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Short script
+          - heading "One repo, one mistake, one pattern worth keeping." [level=2] [ref=e33]
+          - paragraph [ref=e34]: daily learning
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: Brand kit
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e44]: Display
+            - strong [ref=e45]: Editorial serif
+          - generic [ref=e46]:
+            - generic [ref=e47]: Body
+            - generic [ref=e48]: Warmer prose with technical restraint.
+          - generic [ref=e49]:
+            - generic [ref=e50]: Mono
+            - generic [ref=e51]: source links, dates, repo labels
+      - generic [ref=e52]:
+        - paragraph [ref=e53]: Content system
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - generic [ref=e56]: May 09
+            - heading "The day I stopped treating the phone as a viewer" [level=3] [ref=e57]
+          - generic [ref=e58]:
+            - generic [ref=e59]: May 10
+            - heading "A quiet framework for choosing agent tools" [level=3] [ref=e60]
+          - generic [ref=e61]:
+            - generic [ref=e62]: May 11
+            - heading "What self-hosters should ask before trusting a browser agent" [level=3] [ref=e63]

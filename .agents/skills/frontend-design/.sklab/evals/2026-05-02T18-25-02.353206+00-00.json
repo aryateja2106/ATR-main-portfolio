@@ -1,0 +1,341 @@
+{
+  "schema_version": "2.0",
+  "skill_path": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design",
+  "skill_name": "frontend-design",
+  "timestamp": "2026-05-02T18:25:02.353206+00:00",
+  "duration_ms": 1.54,
+  "quality_score": 98.81,
+  "overall_pass": true,
+  "checks_run": 32,
+  "checks_passed": 31,
+  "checks_failed": 1,
+  "results": [
+    {
+      "check_id": "structure.skill-md-exists",
+      "check_name": "SKILL.md Exists",
+      "passed": true,
+      "severity": "high",
+      "dimension": "structure",
+      "message": "SKILL.md found",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "structure.valid-frontmatter",
+      "check_name": "Valid Frontmatter",
+      "passed": true,
+      "severity": "high",
+      "dimension": "structure",
+      "message": "Valid YAML frontmatter",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "structure.scripts-valid",
+      "check_name": "Scripts Folder Valid",
+      "passed": true,
+      "severity": "medium",
+      "dimension": "structure",
+      "message": "No scripts folder present (optional)"
+    },
+    {
+      "check_id": "structure.references-valid",
+      "check_name": "References Folder Valid",
+      "passed": true,
+      "severity": "medium",
+      "dimension": "structure",
+      "message": "No references folder present (optional)"
+    },
+    {
+      "check_id": "structure.standard-frontmatter-fields",
+      "check_name": "Standard Frontmatter Fields",
+      "passed": true,
+      "severity": "medium",
+      "dimension": "structure",
+      "message": "All frontmatter fields are spec-compliant",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "structure.scripts-no-interactive",
+      "check_name": "Scripts No Interactive Input",
+      "passed": true,
+      "severity": "medium",
+      "dimension": "structure",
+      "message": "No scripts folder present (optional)"
+    },
+    {
+      "check_id": "structure.scripts-self-contained",
+      "check_name": "Scripts Self-Contained",
+      "passed": true,
+      "severity": "low",
+      "dimension": "structure",
+      "message": "No scripts folder present (optional)"
+    },
+    {
+      "check_id": "structure.files-outside-spec-dirs",
+      "check_name": "Files Outside Spec Dirs",
+      "passed": true,
+      "severity": "low",
+      "dimension": "structure",
+      "message": "All top-level items are in recognized spec directories",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design"
+    },
+    {
+      "check_id": "structure.scripts-help-support",
+      "check_name": "Scripts Help Support",
+      "passed": true,
+      "severity": "low",
+      "dimension": "structure",
+      "message": "No scripts folder present (optional)"
+    },
+    {
+      "check_id": "content.body-not-empty",
+      "check_name": "Body Not Empty",
+      "passed": true,
+      "severity": "medium",
+      "dimension": "content",
+      "message": "SKILL.md body has content (3956 characters)",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "content.line-budget",
+      "check_name": "Line Budget",
+      "passed": true,
+      "severity": "medium",
+      "dimension": "content",
+      "message": "Body within line budget (38/500)",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "content.has-examples",
+      "check_name": "Has Examples",
+      "passed": false,
+      "severity": "low",
+      "dimension": "content",
+      "message": "Content does not contain code examples",
+      "details": {
+        "suggestion": "Add code examples using fenced code blocks (```)"
+      },
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md",
+      "fix": "Add code examples using fenced code blocks"
+    },
+    {
+      "check_id": "content.reference-depth",
+      "check_name": "Reference Depth",
+      "passed": true,
+      "severity": "medium",
+      "dimension": "content",
+      "message": "No references folder to check"
+    },
+    {
+      "check_id": "content.scripts-referenced",
+      "check_name": "Scripts Referenced",
+      "passed": true,
+      "severity": "medium",
+      "dimension": "content",
+      "message": "No scripts folder present (optional)"
+    },
+    {
+      "check_id": "content.script-paths-exist",
+      "check_name": "Script Paths Exist",
+      "passed": true,
+      "severity": "medium",
+      "dimension": "content",
+      "message": "No script path references in body",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "content.compatibility-prereqs",
+      "check_name": "Compatibility Prerequisites",
+      "passed": true,
+      "severity": "low",
+      "dimension": "content",
+      "message": "No command runners referenced in body",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "content.token-budget",
+      "check_name": "Token Budget",
+      "passed": true,
+      "severity": "medium",
+      "dimension": "content",
+      "message": "Body within token budget (989/5000)",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "content.metadata-token-budget",
+      "check_name": "Metadata Token Budget",
+      "passed": true,
+      "severity": "low",
+      "dimension": "content",
+      "message": "Metadata within token budget (103/150)",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "content.description-actionable",
+      "check_name": "Description Actionable",
+      "passed": true,
+      "severity": "low",
+      "dimension": "content",
+      "message": "Description contains activation phrase: 'use this'",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "content.asset-paths-exist",
+      "check_name": "Asset Paths Exist",
+      "passed": true,
+      "severity": "medium",
+      "dimension": "content",
+      "message": "No asset path references in body",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "content.broken-internal-links",
+      "check_name": "Broken Internal Links",
+      "passed": true,
+      "severity": "medium",
+      "dimension": "content",
+      "message": "No internal file links in body",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "content.orphaned-files",
+      "check_name": "Orphaned Files",
+      "passed": true,
+      "severity": "low",
+      "dimension": "content",
+      "message": "No files in spec directories to check"
+    },
+    {
+      "check_id": "naming.matches-directory",
+      "check_name": "Name Matches Directory",
+      "passed": true,
+      "severity": "high",
+      "dimension": "naming",
+      "message": "Name 'frontend-design' matches directory name",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "naming.required",
+      "check_name": "Name Required",
+      "passed": true,
+      "severity": "high",
+      "dimension": "naming",
+      "message": "Name field present: 'frontend-design'",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "naming.format",
+      "check_name": "Name Format",
+      "passed": true,
+      "severity": "high",
+      "dimension": "naming",
+      "message": "Name 'frontend-design' follows format rules",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "description.required",
+      "check_name": "Description Required",
+      "passed": true,
+      "severity": "high",
+      "dimension": "description",
+      "message": "Description field present",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "description.not-empty",
+      "check_name": "Description Not Empty",
+      "passed": true,
+      "severity": "high",
+      "dimension": "description",
+      "message": "Description has content (399 characters)",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "description.max-length",
+      "check_name": "Description Max Length",
+      "passed": true,
+      "severity": "high",
+      "dimension": "description",
+      "message": "Description length OK (399/1024)",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "frontmatter.compatibility-length",
+      "check_name": "Compatibility Length",
+      "passed": true,
+      "severity": "high",
+      "dimension": "structure",
+      "message": "Compatibility field not present (optional)",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "frontmatter.metadata-format",
+      "check_name": "Metadata Format",
+      "passed": true,
+      "severity": "high",
+      "dimension": "structure",
+      "message": "Metadata field not present (optional)",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "frontmatter.license-format",
+      "check_name": "License Format",
+      "passed": true,
+      "severity": "medium",
+      "dimension": "structure",
+      "message": "License field is valid",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    },
+    {
+      "check_id": "frontmatter.allowed-tools-format",
+      "check_name": "Allowed Tools Format",
+      "passed": true,
+      "severity": "medium",
+      "dimension": "structure",
+      "message": "Allowed-tools field not present (optional)",
+      "location": "/Users/aryateja/Desktop/Work/personal-website/.agents/skills/frontend-design/SKILL.md"
+    }
+  ],
+  "summary": {
+    "by_severity": {
+      "high": {
+        "passed": 10,
+        "failed": 0
+      },
+      "medium": {
+        "passed": 14,
+        "failed": 0
+      },
+      "low": {
+        "passed": 7,
+        "failed": 1
+      }
+    },
+    "by_dimension": {
+      "structure": {
+        "passed": 13,
+        "failed": 0
+      },
+      "naming": {
+        "passed": 3,
+        "failed": 0
+      },
+      "description": {
+        "passed": 3,
+        "failed": 0
+      },
+      "content": {
+        "passed": 12,
+        "failed": 1
+      },
+      "execution": {
+        "passed": 0,
+        "failed": 0
+      },
+      "security": {
+        "passed": 0,
+        "failed": 0
+      }
+    }
+  },
+  "judge": null
+}

@@ -1,0 +1,33 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - link "Back to lab" [ref=e4] [cursor=pointer]:
+      - /url: ./index.html
+    - generic [ref=e5]: 08 | Personal OS
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - paragraph [ref=e8]: Personal software for builders
+      - heading "Small tools. Real leverage." [level=1] [ref=e9]
+      - paragraph [ref=e10]: A brighter brand system for approachable technical content. It feels like a personal app ecosystem, not a cyberpunk control panel.
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - strong [ref=e13]: Best for
+          - text: Personal brand warmth, product storytelling.
+        - generic [ref=e14]:
+          - strong [ref=e15]: Risk
+          - text: Needs enough grit to avoid feeling like consumer SaaS.
+        - generic [ref=e16]:
+          - strong [ref=e17]: Borrow
+          - text: Use for onboarding, social explainers, and cards.
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e24]: daily build
+        - generic [ref=e25]:
+          - paragraph [ref=e26]: today's useful thing
+          - heading "A mobile workflow that saved one hour." [level=2] [ref=e27]
+          - paragraph [ref=e28]: Not a manifesto. One workflow, one screenshot, one reusable trick.
+      - generic [ref=e29]:
+        - paragraph [ref=e30]: Carousel cover
+        - heading "I am building my own AI workbench in public." [level=2] [ref=e31]
+      - generic [ref=e32]:
+        - paragraph [ref=e33]: Shorts title
+        - heading "A tiny tool changed my day." [level=2] [ref=e34]

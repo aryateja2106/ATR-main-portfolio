@@ -1,0 +1,47 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "Mono systems" [ref=e3] [cursor=pointer]:
+      - /url: ./mono-index.html
+    - generic [ref=e4]: Luxury mono variants
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - paragraph [ref=e7]: "Chosen lane: Luxury Mono"
+      - heading "Same restraint. Different personality." [level=1] [ref=e8]
+    - paragraph [ref=e9]: These are variants of the direction you liked. They stay monochrome, minimal, and modern, but test whether the brand should feel darker, lighter, archival, or gallery-like.
+  - region "Luxury mono variants" [ref=e10]:
+    - link "Variant 01 Noir Editorial Closest to the original Luxury Mono. Dark, elegant, essay-led, and premium. site post video" [ref=e11] [cursor=pointer]:
+      - /url: ./luxury-01-noir-editorial.html
+      - paragraph [ref=e12]: Variant 01
+      - heading "Noir Editorial" [level=2] [ref=e13]
+      - paragraph [ref=e14]: Closest to the original Luxury Mono. Dark, elegant, essay-led, and premium.
+      - generic [ref=e15]:
+        - generic [ref=e16]: site
+        - generic [ref=e17]: post
+        - generic [ref=e18]: video
+    - link "Variant 02 Ivory Product Light monochrome, modern product feel, less dramatic and more approachable. site post video" [ref=e19] [cursor=pointer]:
+      - /url: ./luxury-02-ivory-product.html
+      - paragraph [ref=e20]: Variant 02
+      - heading "Ivory Product" [level=2] [ref=e21]
+      - paragraph [ref=e22]: Light monochrome, modern product feel, less dramatic and more approachable.
+      - generic [ref=e23]:
+        - generic [ref=e24]: site
+        - generic [ref=e25]: post
+        - generic [ref=e26]: video
+    - link "Variant 03 Archive Founder Founder archive, case-study depth, quiet authority, and strong writing surfaces. site post video" [ref=e27] [cursor=pointer]:
+      - /url: ./luxury-03-archive-founder.html
+      - paragraph [ref=e28]: Variant 03
+      - heading "Archive Founder" [level=2] [ref=e29]
+      - paragraph [ref=e30]: Founder archive, case-study depth, quiet authority, and strong writing surfaces.
+      - generic [ref=e31]:
+        - generic [ref=e32]: site
+        - generic [ref=e33]: post
+        - generic [ref=e34]: video
+    - link "Variant 04 Gallery Systems Minimal gallery grid, more modern and spacious. Best for projects and visuals. site post video" [ref=e35] [cursor=pointer]:
+      - /url: ./luxury-04-gallery-systems.html
+      - paragraph [ref=e36]: Variant 04
+      - heading "Gallery Systems" [level=2] [ref=e37]
+      - paragraph [ref=e38]: Minimal gallery grid, more modern and spacious. Best for projects and visuals.
+      - generic [ref=e39]:
+        - generic [ref=e40]: site
+        - generic [ref=e41]: post
+        - generic [ref=e42]: video

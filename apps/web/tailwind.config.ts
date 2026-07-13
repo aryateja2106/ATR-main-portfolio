@@ -11,7 +11,8 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['var(--font-geist)'],
-        mono: ['var(--font-geist-mono)'],
+        mono: ['var(--font-geist-mono)', 'JetBrains Mono', 'monospace'],
+        serif: ['var(--font-fraunces)', 'Georgia', 'serif'],
       },
       screens: {
         'toast-mobile': '600px',
@@ -55,6 +56,10 @@ const config: Config = {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        cream: '#e9dfc7',
+        paper: '#f6efdd',
+        ink: '#131815',
+        terracotta: '#a65728',
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',

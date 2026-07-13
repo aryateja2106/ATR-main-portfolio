@@ -14,11 +14,22 @@ const nextConfig: NextConfig = {
 	async headers() {
 		return [
 			{
+				source: "/:path*",
+				headers: [
+					{ key: "Origin-Agent-Cluster", value: "?1" },
+					{ key: "Permissions-Policy", value: "tools=(self)" },
+				],
+			},
+			{
 				source: "/resume/:path*",
 				headers: [
 					{
 						key: "Content-Disposition",
 						value: 'attachment; filename="Arya_Teja_PM_Resume.pdf"',
+					},
+					{
+						key: "X-Robots-Tag",
+						value: "noindex, nofollow",
 					},
 				],
 			},

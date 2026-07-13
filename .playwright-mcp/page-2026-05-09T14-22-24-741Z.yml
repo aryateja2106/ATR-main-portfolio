@@ -1,0 +1,64 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - link "Back to variants" [ref=e4] [cursor=pointer]:
+      - /url: ./luxury-index.html
+    - generic [ref=e5]: Ivory Product
+  - generic [ref=e6]:
+    - article [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: Arya Teja Rudraraju
+        - generic [ref=e10]: Personal software | agentic systems
+      - paragraph [ref=e11]: Minimal, modern, product-led
+      - heading "Tools for builders who want visible systems." [level=1] [ref=e12]
+      - paragraph [ref=e13]: A brighter luxury mono variant. It keeps the premium restraint but makes the brand easier to read every day across product pages, posts, and practical guides.
+      - generic [ref=e14]:
+        - link "Explore builds" [ref=e15] [cursor=pointer]:
+          - /url: "#"
+        - link "Read notes" [ref=e16] [cursor=pointer]:
+          - /url: "#"
+        - link "Follow daily" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - strong [ref=e20]: Build
+          - text: LeCoder MConnect, CloudAGI, LeSearch AI, NL2Shell.
+        - generic [ref=e21]:
+          - strong [ref=e22]: Learn
+          - text: Open-source breakdowns and practical agent workflows.
+        - generic [ref=e23]:
+          - strong [ref=e24]: Share
+          - text: LinkedIn, X, and YouTube content from the same source.
+    - complementary [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - paragraph [ref=e28]: Carousel
+          - heading "I am building my AI workbench in public." [level=2] [ref=e29]
+          - paragraph [ref=e30]: daily build log
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Short
+          - heading "One workflow that made remote agents feel real." [level=2] [ref=e33]
+          - paragraph [ref=e34]: screen plus voice
+      - generic [ref=e35]:
+        - paragraph [ref=e36]: Brand kit
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45]: Display
+            - strong [ref=e46]: Elegant product sans
+          - generic [ref=e47]:
+            - generic [ref=e48]: Body
+            - generic [ref=e49]: Accessible, clean, less dramatic.
+          - generic [ref=e50]:
+            - generic [ref=e51]: UI
+            - generic [ref=e52]: Buttons, cards, and social templates stay sparse.
+      - generic [ref=e53]:
+        - paragraph [ref=e54]: Publishing system
+        - generic [ref=e55]:
+          - generic [ref=e56]:
+            - generic [ref=e57]: Guide
+            - heading "How I choose an open-source agent tool" [level=3] [ref=e58]
+          - generic [ref=e59]:
+            - generic [ref=e60]: Build
+            - heading "The mobile control surface I wanted for coding agents" [level=3] [ref=e61]
+          - generic [ref=e62]:
+            - generic [ref=e63]: Note
+            - heading "What daily content looks like when the source is real work" [level=3] [ref=e64]

@@ -1,0 +1,379 @@
+- generic [active] [ref=e1]:
+  - region "Notifications alt+T"
+  - generic [ref=e4]:
+    - banner [ref=e5]:
+      - generic [ref=e6]:
+        - link "ATR" [ref=e7] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e8]:
+          - navigation [ref=e9]:
+            - link "Home" [ref=e10] [cursor=pointer]:
+              - /url: /
+            - link "About" [ref=e11] [cursor=pointer]:
+              - /url: "#about"
+            - link "Projects" [ref=e12] [cursor=pointer]:
+              - /url: "#projects"
+            - link "Blog" [ref=e13] [cursor=pointer]:
+              - /url: "#blogs"
+            - link "Contact" [ref=e14] [cursor=pointer]:
+              - /url: "#contact"
+            - link "Resume" [ref=e15] [cursor=pointer]:
+              - /url: /resume/Arya_Teja_PM_Resume.pdf
+            - link "Chat" [ref=e16] [cursor=pointer]:
+              - /url: /chat
+          - button "Search... Ctrl K" [ref=e17]:
+            - generic [ref=e18]:
+              - img [ref=e19]
+              - generic [ref=e21]: Search...
+            - generic [ref=e22]: Ctrl K
+    - main [ref=e23]:
+      - generic [ref=e24]:
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - generic [ref=e31]:
+              - generic [ref=e32]:
+                - text: Arya Teja
+                - generic [ref=e33]: ✨
+              - generic [ref=e34]: Rudraraju
+            - generic [ref=e36]:
+              - generic [ref=e37]: ">"
+              - generic [ref=e38]: _
+            - paragraph [ref=e40]: Building the next generation of AI Agents. Currently shipping enterprise automation at Pilvi Systems and building LeSearch AI. Focused on the intersection of LLM Reasoning, Reliability, and User Experience.
+            - generic [ref=e41]:
+              - link "Download Resume Download Resume" [ref=e42] [cursor=pointer]:
+                - /url: /resume/Arya_Teja_PM_Resume.pdf
+                - img "Download Resume" [ref=e43]
+                - generic [ref=e45]: Download Resume
+              - link "Get in Touch" [ref=e46] [cursor=pointer]:
+                - /url: "#contact"
+            - button "Press Ctrl K to explore" [ref=e48] [cursor=pointer]:
+              - generic [ref=e49]: Press
+              - generic [ref=e50]: Ctrl K
+              - generic [ref=e51]: to explore
+              - img [ref=e52]
+          - img "AI Robot Concept" [ref=e57]
+        - generic [ref=e59]:
+          - generic [ref=e61]:
+            - generic [ref=e62]:
+              - heading "Journey to AI PM" [level=2] [ref=e63]: Journey to AI PM
+              - paragraph [ref=e64]: My journey from business to AI
+            - generic [ref=e65]:
+              - paragraph [ref=e67]: From Marketing to AI PM is literally the story of my career. I led high-growth marketing teams, realized the same instincts could steer AI products, and dove headfirst into discovery, prompt design, and roadmap work. The cards below unpack how that pivot produced LeSearch AI, a cadence of scrappy MVPs, and my current search for APM roles where the marketing-to-product bridge sets me apart.
+              - img
+              - generic [ref=e68]:
+                - generic [ref=e69]:
+                  - heading "Marketing Roots to AI PM" [level=3] [ref=e70]
+                  - generic [ref=e71]:
+                    - generic [ref=e72]: 📈
+                    - paragraph [ref=e73]: Four years owning growth campaigns taught me how to mine customer signals, brief creative teams, and quantify lift. That frontline marketing context is the foundation of my AI PM work because it keeps me obsessed with the exact users, pain points, and revenue moments we are building for.
+                - generic [ref=e74]:
+                  - heading "Building LeSearch AI" [level=3] [ref=e75]
+                  - generic [ref=e76]:
+                    - generic [ref=e77]: 🤖
+                    - paragraph [ref=e78]: I co-built LeSearch AI, a GPT-4 research copilot for policy, climate, and venture analysts. I owned prompt architectures, prioritized workflows with the founders, launched features like guided briefs and source pinboards, and let user interviews dictate the backlog that drove retention.
+                - generic [ref=e79]:
+                  - heading "Shipping Scrappy MVPs" [level=3] [ref=e80]
+                  - generic [ref=e81]:
+                    - generic [ref=e82]: ⚡
+                    - paragraph [ref=e83]: Every week I shipped an MVP—SQL agents for non-technical ops teams, auto-browsing Q&A bots for scouts, summarizers for due diligence—and instrumented each launch so we could cut scope or double down based on activation, not vibes.
+                - generic [ref=e84]:
+                  - heading "Searching for APM Roles" [level=3] [ref=e85]
+                  - generic [ref=e86]:
+                    - generic [ref=e87]: 🎯
+                    - paragraph [ref=e88]: Now I am actively interviewing for Associate PM programs at AI-first teams where I can combine go-to-market intuition with hands-on prototyping. I want to run discovery, scope the AI workflows, rally eng/design, and keep iterating until we show measurable lift.
+              - generic [ref=e90]:
+                - link "View My Résumé" [ref=e91] [cursor=pointer]:
+                  - /url: /resume
+                - link "Connect on LinkedIn" [ref=e92] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/arya-teja-rudraraju
+                - link "Explore My GitHub" [ref=e93] [cursor=pointer]:
+                  - /url: https://github.com/aryateja2106
+          - generic [ref=e94]:
+            - heading "Where I've Worked" [level=2] [ref=e95]:
+              - generic [ref=e96]: Where I've
+              - generic [ref=e97]: Worked
+            - generic [ref=e99]:
+              - generic [ref=e100]:
+                - button "Pilvi Systems" [ref=e101] [cursor=pointer]
+                - button "LeSearch AI" [ref=e102] [cursor=pointer]
+                - button "mconnect" [ref=e103] [cursor=pointer]
+                - button "iSpeak AI" [ref=e104] [cursor=pointer]
+                - button "Duquesne University" [ref=e105] [cursor=pointer]
+                - button "Sage Wealth Advisory" [ref=e106] [cursor=pointer]
+              - generic [ref=e107]:
+                - generic [ref=e108]:
+                  - heading "AI Product Manager @ Pilvi Systems" [level=3] [ref=e109]:
+                    - text: AI Product Manager
+                    - generic [ref=e110]: "@ Pilvi Systems"
+                  - paragraph [ref=e111]: Aug 2025 - Present • Dallas, TX (Remote)
+                - list [ref=e112]:
+                  - listitem [ref=e113]:
+                    - img [ref=e114]
+                    - generic [ref=e116]: Leading end-to-end B2B AI automation products from 0->1, shipping 3 MVPs in 8 weeks.
+                  - listitem [ref=e117]:
+                    - img [ref=e118]
+                    - generic [ref=e120]: Designed and deployed an Amplitude analytics framework to track complex agentic workflows.
+                  - listitem [ref=e121]:
+                    - img [ref=e122]
+                    - generic [ref=e124]: Refined activation loops for technical users, driving a 19% lift in week-1 retention.
+                  - listitem [ref=e125]:
+                    - img [ref=e126]
+                    - generic [ref=e128]: Conducting ongoing customer discovery with enterprise stakeholders to align roadmap with business goals.
+          - generic [ref=e130]:
+            - paragraph [ref=e131]: I CONSTANTLY TRY TO IMPROVE
+            - heading "My Tech Stack" [level=2] [ref=e132]
+            - generic [ref=e133]:
+              - generic [ref=e134]:
+                - button "Languages" [disabled] [ref=e135]:
+                  - generic [ref=e136]:
+                    - text: Languages
+                    - img [ref=e137]
+                - button "Frameworks" [ref=e139] [cursor=pointer]:
+                  - generic [ref=e140]: Frameworks
+                - button "Tools & Infrastructure" [ref=e141] [cursor=pointer]:
+                  - generic [ref=e142]: Tools & Infrastructure
+                - button "Design & Collaboration" [ref=e143] [cursor=pointer]:
+                  - generic [ref=e144]: Design & Collaboration
+              - paragraph [ref=e147]: Passionate about exploring emerging technologies and frameworks to build scalable, efficient solutions. Always learning, always improving.
+          - generic [ref=e148]:
+            - heading "What I Bring to the Table" [level=2] [ref=e149]:
+              - generic [ref=e150]: What I
+              - generic [ref=e151]: Bring to the Table
+            - paragraph [ref=e153]: My core qualities that drive success in every AI solution I deliver
+            - generic [ref=e154]:
+              - generic [ref=e158]:
+                - generic [ref=e160]: ✨
+                - heading "Positivity" [level=3] [ref=e161]
+                - paragraph [ref=e162]: Approaching AI challenges with optimism and a solutions-oriented mindset, transforming obstacles into opportunities for innovation.
+              - generic [ref=e168]:
+                - generic [ref=e170]: 🔥
+                - heading "Passion" [level=3] [ref=e171]
+                - paragraph [ref=e172]: Driven by deep enthusiasm for AI technology that fuels continuous learning and delivers excellence in every project I undertake.
+              - generic [ref=e178]:
+                - generic [ref=e180]: 🚀
+                - heading "Ambition" [level=3] [ref=e181]
+                - paragraph [ref=e182]: Setting bold goals and persistently pursuing advancements that push the boundaries of what's possible with AI solutions.
+              - generic [ref=e188]:
+                - generic [ref=e190]: 💡
+                - heading "Innovation" [level=3] [ref=e191]
+                - paragraph [ref=e192]: Constantly exploring creative approaches to leverage AI and automation, turning complex business challenges into elegant solutions.
+              - generic [ref=e198]:
+                - generic [ref=e200]: ⚙️
+                - heading "Technical Expertise" [level=3] [ref=e201]
+                - paragraph [ref=e202]: Blending AI knowledge with practical programming skills to build intelligent systems that deliver measurable business impact.
+              - generic [ref=e208]:
+                - generic [ref=e210]: 🤝
+                - heading "Client-Focused" [level=3] [ref=e211]
+                - paragraph [ref=e212]: Maintaining exceptional satisfaction rates by translating technical concepts into clear value propositions for stakeholders.
+          - generic [ref=e216]:
+            - generic [ref=e217]:
+              - heading "Projects & Contributions" [level=2] [ref=e218]
+              - paragraph [ref=e219]: A selection of work I'm involved in, from active development and experiments to contributions and forks.
+            - generic [ref=e220]:
+              - generic [ref=e223]:
+                - generic [ref=e225]:
+                  - heading "LeCoder MConnect" [level=3] [ref=e226]
+                  - generic [ref=e227]: Active
+                - generic [ref=e228]:
+                  - paragraph [ref=e230]: Mobile-first bridge for AI coding agents enabling 100% remote dev workflows. Control Claude Code/Cursor from your phone via Node PTY and Cloudflare Tunnels.
+                  - generic [ref=e231]:
+                    - link "GitHub icon Code" [ref=e232] [cursor=pointer]:
+                      - /url: https://github.com/aryateja2106/lecoder-mconnect
+                      - generic [ref=e233]:
+                        - img "GitHub icon" [ref=e235]
+                        - text: Code
+                    - link "Demo" [ref=e238] [cursor=pointer]:
+                      - /url: https://lecoder.lesearch.ai
+                      - generic [ref=e239]:
+                        - img [ref=e240]
+                        - text: Demo
+                  - button "Technology Stack" [ref=e245] [cursor=pointer]:
+                    - text: Technology Stack
+                    - img [ref=e246]
+              - generic [ref=e250]:
+                - generic [ref=e252]:
+                  - heading "NVIDIA Dynamo Fork" [level=3] [ref=e253]
+                  - generic [ref=e254]: Forked
+                - generic [ref=e255]:
+                  - paragraph [ref=e257]: Forked NVIDIA Dynamo to allow datacenter-scale distributed inference. Experimented with multi-GPU/node topologies and Kubernetes for enterprise-grade LLM serving.
+                  - link "GitHub icon Code" [ref=e259] [cursor=pointer]:
+                    - /url: https://github.com/aryateja2106/Nvidia-dynamo
+                    - generic [ref=e260]:
+                      - img "GitHub icon" [ref=e262]
+                      - text: Code
+                  - button "Technology Stack" [ref=e268] [cursor=pointer]:
+                    - text: Technology Stack
+                    - img [ref=e269]
+              - generic [ref=e273]:
+                - generic [ref=e275]:
+                  - heading "Local SQL Agent" [level=3] [ref=e276]
+                  - generic [ref=e277]: Active
+                - generic [ref=e278]:
+                  - paragraph [ref=e280]: Privacy-first SQL agent with 2-layer safety guardrails (read-only enforcement). introspects Postgres schemas to let anyone query DBs using natural language.
+                  - link "GitHub icon Code" [ref=e282] [cursor=pointer]:
+                    - /url: https://github.com/aryateja2106/local-sql-agent
+                    - generic [ref=e283]:
+                      - img "GitHub icon" [ref=e285]
+                      - text: Code
+                  - button "Technology Stack" [ref=e291] [cursor=pointer]:
+                    - text: Technology Stack
+                    - img [ref=e292]
+              - generic [ref=e296]:
+                - generic [ref=e298]:
+                  - heading "LeSearch AI" [level=3] [ref=e299]
+                  - generic [ref=e300]: Active
+                - generic [ref=e301]:
+                  - paragraph [ref=e303]: AI research agent validated by 30+ user interviews. Features RAG for synthesis and discovery, pivoting from "Chat with PDF" to true research assistance.
+                  - generic [ref=e304]:
+                    - link "GitHub icon Code" [ref=e305] [cursor=pointer]:
+                      - /url: https://github.com/aryateja2106/lesearch-app
+                      - generic [ref=e306]:
+                        - img "GitHub icon" [ref=e308]
+                        - text: Code
+                    - link "Demo" [ref=e311] [cursor=pointer]:
+                      - /url: https://lesearch-app.vercel.app/
+                      - generic [ref=e312]:
+                        - img [ref=e313]
+                        - text: Demo
+                  - button "Technology Stack" [ref=e318] [cursor=pointer]:
+                    - text: Technology Stack
+                    - img [ref=e319]
+              - generic [ref=e323]:
+                - generic [ref=e325]:
+                  - heading "ChatterBox-TTS" [level=3] [ref=e326]
+                  - generic [ref=e327]: Showcase
+                - generic [ref=e328]:
+                  - paragraph [ref=e330]: A Text-to-Speech application demonstrating audio synthesis capabilities.
+                  - link "GitHub icon Code" [ref=e332] [cursor=pointer]:
+                    - /url: https://github.com/aryateja2106/ChatterBox-TTS
+                    - generic [ref=e333]:
+                      - img "GitHub icon" [ref=e335]
+                      - text: Code
+                  - button "Technology Stack" [ref=e341] [cursor=pointer]:
+                    - text: Technology Stack
+                    - img [ref=e342]
+              - generic [ref=e346]:
+                - generic [ref=e348]:
+                  - heading "Browser-use BYOK" [level=3] [ref=e349]
+                  - generic [ref=e350]: Forked
+                - generic [ref=e351]:
+                  - paragraph [ref=e353]: Local browser agent experiments allowing "Bring Your Own Key" configuration for flexible agent deployment.
+                  - link "GitHub icon Code" [ref=e355] [cursor=pointer]:
+                    - /url: https://github.com/aryateja2106/Browser-use-BYOK-local
+                    - generic [ref=e356]:
+                      - img "GitHub icon" [ref=e358]
+                      - text: Code
+                  - button "Technology Stack" [ref=e364] [cursor=pointer]:
+                    - text: Technology Stack
+                    - img [ref=e365]
+            - paragraph [ref=e368]: More projects coming soon!
+          - generic [ref=e369]:
+            - generic [ref=e370]:
+              - img [ref=e371]
+              - heading "My blogs" [level=2] [ref=e373]
+            - paragraph [ref=e375]: Insights on AI implementation, marketing automation, and technology innovation.
+            - generic [ref=e376]:
+              - 'link "Connecting Terminals to the Web: The mconnect Story Featured Open Source Connecting Terminals to the Web: The mconnect Story Coding agents like Claude and Cursor live in the terminal, but I wanted to control them from my phone. Here is how I built mconnect to solve the ''coffee shop problem''. October 15, 2025 6 min read Read article" [ref=e377] [cursor=pointer]':
+                - /url: /blog/connecting-terminals-to-web-mconnect
+                - generic [ref=e379]:
+                  - 'img "Connecting Terminals to the Web: The mconnect Story" [ref=e381]'
+                  - generic [ref=e384]:
+                    - generic [ref=e385]:
+                      - generic [ref=e386]: Featured
+                      - generic [ref=e387]: Open Source
+                    - 'heading "Connecting Terminals to the Web: The mconnect Story" [level=3] [ref=e388]'
+                    - paragraph [ref=e389]: Coding agents like Claude and Cursor live in the terminal, but I wanted to control them from my phone. Here is how I built mconnect to solve the 'coffee shop problem'.
+                    - generic [ref=e390]:
+                      - generic [ref=e391]:
+                        - generic [ref=e392]: October 15, 2025
+                        - generic [ref=e393]: 6 min read
+                      - generic [ref=e394]:
+                        - text: Read article
+                        - img [ref=e395]
+              - generic [ref=e397]:
+                - 'link "Building LeSearch: From Papers to Action Product Engineering 8 min read Building LeSearch: From Papers to Action Research is broken. We read 100 papers to use 1. I built LeSearch AI to turn static PDFs into active knowledge graphs and actionable insights. September 1, 2025 Read more" [ref=e398] [cursor=pointer]':
+                  - /url: /blog/building-lesearch-from-papers-to-action
+                  - generic [ref=e399]:
+                    - 'img "Building LeSearch: From Papers to Action" [ref=e401]'
+                    - generic [ref=e403]:
+                      - generic [ref=e404]:
+                        - generic [ref=e405]: Product Engineering
+                        - generic [ref=e407]: 8 min read
+                      - 'heading "Building LeSearch: From Papers to Action" [level=3] [ref=e408]'
+                      - paragraph [ref=e409]: Research is broken. We read 100 papers to use 1. I built LeSearch AI to turn static PDFs into active knowledge graphs and actionable insights.
+                      - generic [ref=e410]:
+                        - generic [ref=e411]: September 1, 2025
+                        - generic [ref=e412]:
+                          - text: Read more
+                          - img [ref=e413]
+                - link "Why I Bet on Open Source AI Agents Philosophy 5 min read Why I Bet on Open Source AI Agents Closed ecosystem agents are a dead end. The real innovation is happening where tools can talk to each other without asking for permission. Here is why I am betting my career on Open Source AI. November 10, 2025 Read more" [ref=e415] [cursor=pointer]:
+                  - /url: /blog/why-i-bet-on-open-source-agents
+                  - generic [ref=e416]:
+                    - img "Why I Bet on Open Source AI Agents" [ref=e418]
+                    - generic [ref=e420]:
+                      - generic [ref=e421]:
+                        - generic [ref=e422]: Philosophy
+                        - generic [ref=e424]: 5 min read
+                      - heading "Why I Bet on Open Source AI Agents" [level=3] [ref=e425]
+                      - paragraph [ref=e426]: Closed ecosystem agents are a dead end. The real innovation is happening where tools can talk to each other without asking for permission. Here is why I am betting my career on Open Source AI.
+                      - generic [ref=e427]:
+                        - generic [ref=e428]: November 10, 2025
+                        - generic [ref=e429]:
+                          - text: Read more
+                          - img [ref=e430]
+              - link "View all articles" [ref=e433] [cursor=pointer]:
+                - /url: /blog
+    - contentinfo [ref=e434]:
+      - generic [ref=e441]:
+        - generic [ref=e442]:
+          - generic [ref=e443]:
+            - heading "Arya Teja ." [level=3] [ref=e444]
+            - paragraph [ref=e445]:
+              - text: Building mconnect. An open source initiative from LeSearch AI that connects terminals to the web.
+              - generic [ref=e446]: Dev since Dec 2025.
+          - generic [ref=e447]:
+            - heading "Quick Links" [level=4] [ref=e448]
+            - navigation [ref=e449]:
+              - link "Home" [ref=e450] [cursor=pointer]:
+                - /url: /
+              - link "About" [ref=e451] [cursor=pointer]:
+                - /url: /about
+              - link "Projects" [ref=e452] [cursor=pointer]:
+                - /url: /projects
+              - link "Blog" [ref=e453] [cursor=pointer]:
+                - /url: /blog
+              - link "Contact" [ref=e454] [cursor=pointer]:
+                - /url: /contact
+          - generic [ref=e455]:
+            - generic [ref=e456]:
+              - heading "Get in Touch" [level=4] [ref=e457]
+              - generic [ref=e458]:
+                - paragraph [ref=e459]: AI Engineer & Marketing Specialist with a passion for creating intelligent solutions that deliver measurable business impact.
+                - generic [ref=e460]:
+                  - link "Email Me" [ref=e461] [cursor=pointer]:
+                    - /url: mailto:aryateja2106@gmail.com
+                    - img [ref=e462]
+                    - text: Email Me
+                  - link "Schedule Call" [ref=e464] [cursor=pointer]:
+                    - /url: /contact
+                    - img [ref=e465]
+                    - text: Schedule Call
+            - generic [ref=e467]:
+              - heading "Connect" [level=4] [ref=e468]
+              - generic [ref=e469]:
+                - link "GitHub" [ref=e470] [cursor=pointer]:
+                  - /url: https://github.com/aryateja2106
+                  - img [ref=e471]
+                - link "LinkedIn" [ref=e474] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/arya-teja-rudraraju
+                  - img [ref=e475]
+                - link "Twitter" [ref=e479] [cursor=pointer]:
+                  - /url: https://x.com/r_aryateja
+                  - img [ref=e480]
+        - generic [ref=e482]:
+          - paragraph [ref=e483]: © 2025 Arya Teja Rudraraju | Portfolio. All rights reserved.
+          - generic [ref=e484]:
+            - link "Privacy Policy" [ref=e485] [cursor=pointer]:
+              - /url: /privacy
+            - link "Terms of Service" [ref=e486] [cursor=pointer]:
+              - /url: /terms
