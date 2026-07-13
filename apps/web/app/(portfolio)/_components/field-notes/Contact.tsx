@@ -1,7 +1,8 @@
 "use client";
 
+import Script from "next/script";
 import type { FormEvent } from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type SubmissionStatus =
 	| { state: "idle"; message: "" }
@@ -12,14 +13,89 @@ type SubmissionStatus =
 const initialStatus: SubmissionStatus = { state: "idle", message: "" };
 const fieldClassName =
 	"mt-2 w-full rounded-sm border border-[#f7f2e8]/20 bg-[#181613] px-4 py-3 text-base text-[#f7f2e8] outline-none transition-colors placeholder:text-[#b9b0a2]/55 hover:border-[#f7f2e8]/35 focus-visible:border-[#d9a441] focus-visible:ring-2 focus-visible:ring-[#d9a441]/35";
+const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+type TurnstileApi = {
+	render: (
+		container: HTMLElement,
+		options: {
+			sitekey: string;
+			theme: "dark";
+			callback: (token: string) => void;
+			"error-callback": () => void;
+			"expired-callback": () => void;
+		},
+	) => string;
+	reset: (widgetId: string) => void;
+	remove: (widgetId: string) => void;
+};
+
+function getTurnstile() {
+	return (window as Window & { turnstile?: TurnstileApi }).turnstile;
+}
 
 export function Contact() {
-	const [startedAt, setStartedAt] = useState(0);
 	const [status, setStatus] = useState<SubmissionStatus>(initialStatus);
+	const [turnstileToken, setTurnstileToken] = useState("");
+	const [isTurnstileScriptReady, setIsTurnstileScriptReady] = useState(false);
+	const turnstileContainerRef = useRef<HTMLDivElement>(null);
+	const turnstileWidgetIdRef = useRef<string | null>(null);
+
+	useEffect(() => {
+		const container = turnstileContainerRef.current;
+		const turnstile = getTurnstile();
+		if (
+			!turnstileSiteKey ||
+			!isTurnstileScriptReady ||
+			!container ||
+			!turnstile
+		) {
+			return;
+		}
+
+		turnstileWidgetIdRef.current = turnstile.render(container, {
+			sitekey: turnstileSiteKey,
+			theme: "dark",
+			callback: (token) => {
+				setTurnstileToken(token);
+				setStatus(initialStatus);
+			},
+			"expired-callback": () => setTurnstileToken(""),
+			"error-callback": () => {
+				setTurnstileToken("");
+				setStatus({
+					state: "error",
+					message: "Human verification is unavailable. Please try again later.",
+				});
+			},
+		});
+
+		return () => {
+			if (turnstileWidgetIdRef.current) {
+				turnstile.remove(turnstileWidgetIdRef.current);
+				turnstileWidgetIdRef.current = null;
+			}
+		};
+	}, [isTurnstileScriptReady]);
+
+	function resetTurnstile() {
+		setTurnstileToken("");
+		const turnstile = getTurnstile();
+		if (turnstile && turnstileWidgetIdRef.current) {
+			turnstile.reset(turnstileWidgetIdRef.current);
+		}
+	}
 
 	async function handleSubmit(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 		if (status.state === "pending") {
+			return;
+		}
+		if (!turnstileToken) {
+			setStatus({
+				state: "error",
+				message: "Complete the human verification before sending.",
+			});
 			return;
 		}
 
@@ -31,11 +107,15 @@ export function Contact() {
 			const response = await fetch("/api/contact", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify(Object.fromEntries(formData.entries())),
+				body: JSON.stringify({
+					...Object.fromEntries(formData.entries()),
+					turnstileToken,
+				}),
 			});
 			const result: unknown = await response.json();
 
 			if (!response.ok) {
+				resetTurnstile();
 				const message =
 					typeof result === "object" &&
 					result !== null &&
@@ -48,13 +128,14 @@ export function Contact() {
 			}
 
 			form.reset();
-			setStartedAt(0);
+			resetTurnstile();
 			setStatus({
 				state: "success",
 				message:
 					"Thanks. Your inquiry is in my inbox, and I will reply by email.",
 			});
 		} catch {
+			resetTurnstile();
 			setStatus({
 				state: "error",
 				message: "The inquiry could not be sent. Please try again.",
@@ -63,6 +144,8 @@ export function Contact() {
 	}
 
 	const isPending = status.state === "pending";
+	const isSubmitDisabled =
+		isPending || !turnstileSiteKey || turnstileToken === "";
 
 	return (
 		<section
@@ -104,11 +187,6 @@ export function Contact() {
 
 				<form
 					onSubmit={handleSubmit}
-					onFocusCapture={() => {
-						if (startedAt === 0) {
-							setStartedAt(Date.now());
-						}
-					}}
 					className="border-t border-[#f7f2e8]/20 pt-8"
 				>
 					<div className="grid gap-6 sm:grid-cols-2">
@@ -173,7 +251,35 @@ export function Contact() {
 							/>
 						</label>
 					</div>
-					<input name="startedAt" type="hidden" value={startedAt} />
+
+					<fieldset
+						className="mt-6 min-h-[65px] border-0 p-0"
+						aria-describedby="turnstile-help"
+					>
+						<legend className="sr-only">Human verification</legend>
+						<div ref={turnstileContainerRef} />
+					</fieldset>
+					<p id="turnstile-help" className="mt-2 text-sm text-[#b9b0a2]">
+						Cloudflare Turnstile checks that this inquiry is not automated.
+					</p>
+					{turnstileSiteKey ? (
+						<Script
+							src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+							strategy="afterInteractive"
+							onReady={() => setIsTurnstileScriptReady(true)}
+							onError={() =>
+								setStatus({
+									state: "error",
+									message:
+										"Human verification is unavailable. Please try again later.",
+								})
+							}
+						/>
+					) : (
+						<p role="alert" className="mt-3 text-sm text-[#f0a29a]">
+							The contact form is temporarily unavailable.
+						</p>
+					)}
 
 					<p className="mt-5 text-sm leading-6 text-[#b9b0a2]">
 						This form sends your inquiry by email. Read the{" "}
@@ -194,7 +300,7 @@ export function Contact() {
 					<div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
 						<button
 							type="submit"
-							disabled={isPending}
+							disabled={isSubmitDisabled}
 							className="inline-flex min-w-48 justify-center rounded-sm bg-[#f7f2e8] px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#12110f] transition-colors hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441] focus-visible:ring-offset-2 focus-visible:ring-offset-[#12110f] disabled:cursor-wait disabled:opacity-60"
 						>
 							{isPending ? "Sending..." : "Send inquiry"}

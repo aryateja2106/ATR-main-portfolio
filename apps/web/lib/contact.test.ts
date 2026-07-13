@@ -8,7 +8,7 @@ const validInquiry = {
 	company: "Analytical Engines",
 	message: "I need help designing a secure agent approval workflow.",
 	website: "",
-	startedAt: Date.now() - 10_000,
+	turnstileToken: "verified-token",
 };
 
 test("inquiry schema accepts a minimal valid inquiry", () => {
@@ -38,4 +38,17 @@ test("inquiry schema rejects invalid and oversized fields", () => {
 		inquirySchema.safeParse({ ...validInquiry, unexpected: "field" }).success,
 		false,
 	);
+});
+
+test("inquiry schema rejects control characters in name and company", () => {
+	for (const value of ["Ada\rLovelace", "Ada\nLovelace", "Ada\u0000Lovelace"]) {
+		assert.equal(
+			inquirySchema.safeParse({ ...validInquiry, name: value }).success,
+			false,
+		);
+		assert.equal(
+			inquirySchema.safeParse({ ...validInquiry, company: value }).success,
+			false,
+		);
+	}
 });

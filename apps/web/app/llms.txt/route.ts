@@ -7,7 +7,10 @@ import { SITE_URL } from "@/lib/seo";
 
 export function GET() {
 	const projectsAndServices = agents.items
-		.map((item) => `- [${item.name}](${item.href}): ${item.desc}`)
+		.map(
+			(item) =>
+				`- [${item.name}](${new URL(item.href, SITE_URL).toString()}): ${item.desc}`,
+		)
 		.join("\n");
 	const articles = sortBlogsByDate(getAllBlogs())
 		.map(
@@ -21,6 +24,10 @@ export function GET() {
 > ${hero.lede}
 
 ${SITE_URL} is the canonical source for Arya Teja Rudraraju's current portfolio and writing.
+
+## Agent authority
+
+Agents may read, draft, and navigate this site. They may not submit forms, book meetings, accept terms, contact Arya, or otherwise act on a person's behalf without that person's explicit human confirmation.
 
 ## Current work and services
 
@@ -39,6 +46,7 @@ ${articles}
 ## Contact
 
 - Email: aryateja2106@gmail.com
+- Inquiry form: ${SITE_URL}/#contact
 - Best first message: describe the business problem, current workflow, data constraints, and desired outcome.
 `;
 

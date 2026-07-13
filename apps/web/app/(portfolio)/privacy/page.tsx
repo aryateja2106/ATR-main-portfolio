@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/seo";
 import { Footer } from "../_components/field-notes/Footer";
 import { SiteNav } from "../_components/field-notes/SiteNav";
+
+export const metadata: Metadata = {
+	title: "Privacy Notice",
+	description:
+		"How this portfolio handles inquiries, abuse protection, analytics, and service-provider data.",
+	alternates: { canonical: `${SITE_URL}/privacy` },
+};
 
 const linkClassName =
 	"text-[#f7f2e8] underline decoration-[#b9b0a2]/50 underline-offset-4 hover:decoration-[#f7f2e8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441]";
@@ -38,12 +47,14 @@ export default function PrivacyPage() {
 							Service providers
 						</h2>
 						<p className="mt-4">
-							Resend delivers the full inquiry by email. Telegram receives a
-							minimal alert that a new inquiry arrived; the alert does not
-							include your name, email, company, or message. Vercel hosts and
-							delivers this website and may process standard request data such
-							as IP addresses and device information for security and
-							operations.
+							Resend delivers the full inquiry by email. Cloudflare Turnstile
+							helps prevent automated abuse and may process standard request,
+							device, and browser information to verify a submission. If
+							enabled, Telegram receives a minimal alert that a new inquiry
+							arrived; the alert does not include your name, email, company, or
+							message. Vercel hosts and delivers this website and may process
+							standard request data such as IP addresses and device information
+							for security and operations.
 						</p>
 						<p className="mt-4">
 							If you choose the booking link, Calendly handles the booking on
@@ -55,10 +66,10 @@ export default function PrivacyPage() {
 					<section>
 						<h2 className="font-serif text-3xl text-[#f7f2e8]">Analytics</h2>
 						<p className="mt-4">
-							The site uses Google Analytics, Vercel Analytics, and Vercel Speed
-							Insights to understand page use and performance. Those services
-							may use cookies or similar technical identifiers and receive
-							device, browser, and request information.
+							The site uses Vercel Analytics and Vercel Speed Insights to
+							understand page use and performance. Those services may use
+							technical identifiers and receive device, browser, and request
+							information.
 						</p>
 					</section>
 

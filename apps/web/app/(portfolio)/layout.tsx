@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import type { ReactNode } from "react";
 import blogData from "@/lib/portfolio/blogs.json";
 import {
@@ -149,7 +148,6 @@ const jsonLd = {
 };
 
 export default function Layout({ children }: { children: ReactNode }) {
-	const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-8ELMHNMBW2";
 	const articles = blogData.blogPosts.map(
 		({ slug, title, description, category, tags }) => ({
 			slug,
@@ -168,21 +166,6 @@ export default function Layout({ children }: { children: ReactNode }) {
 				// biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data is safe here
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
-			<Script
-				src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-				strategy="afterInteractive"
-			/>
-			<Script id="google-analytics" strategy="afterInteractive">
-				{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${gaId}', {
-            page_title: document.title,
-            page_location: window.location.href,
-          });
-        `}
-			</Script>
 			{children}
 		</>
 	);

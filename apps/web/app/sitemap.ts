@@ -25,6 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "weekly" as const,
 			priority: 0.9,
 		},
+		{
+			url: `${SITE_URL}/privacy`,
+			lastModified: siteUpdatedAt,
+			changeFrequency: "yearly" as const,
+			priority: 0.3,
+		},
 	];
 
 	return [...staticRoutes, ...blogRoutes];

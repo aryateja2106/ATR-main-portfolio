@@ -76,6 +76,15 @@ export function createPortfolioTools({
 					prompt:
 						"Describe the business problem, current workflow, data constraints, and desired outcome.",
 				},
+				agentAuthority: {
+					allowed: [
+						"Read public content",
+						"Draft content",
+						"Navigate this site",
+					],
+					restriction:
+						"Agents may not submit forms, book meetings, accept terms, contact Arya, or act on a person's behalf without that person's explicit human confirmation.",
+				},
 				currentPage: currentPath,
 			}),
 		},
@@ -151,7 +160,7 @@ export function createPortfolioTools({
 		{
 			name: "navigate_portfolio",
 			description:
-				"Navigate the visible portfolio tab to Arya's work, writing, or contact section. This does not submit forms or contact Arya automatically.",
+				"Navigate the visible portfolio tab to Arya's work, writing, or contact section. Agents may navigate, but may not submit, book, accept terms, or contact Arya without explicit human confirmation.",
 			inputSchema: {
 				type: "object",
 				properties: {

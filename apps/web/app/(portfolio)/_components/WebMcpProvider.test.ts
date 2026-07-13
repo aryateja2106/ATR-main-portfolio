@@ -28,10 +28,16 @@ test("portfolio tools expose context, search articles, and validate navigation",
 		],
 	);
 
+	const context = tools.find((tool) => tool.name === "get_portfolio_context");
 	const find = tools.find((tool) => tool.name === "find_technical_articles");
 	const open = tools.find((tool) => tool.name === "open_technical_article");
 	const navigate = tools.find((tool) => tool.name === "navigate_portfolio");
-	assert.ok(find && open && navigate);
+	assert.ok(context && find && open && navigate);
+	const portfolioContext = await context.execute({});
+	assert.match(
+		JSON.stringify(portfolioContext),
+		/may not submit forms, book meetings, accept terms, contact Arya/,
+	);
 	assert.deepEqual(await find.execute({ query: "mobile" }), [
 		{
 			slug: "mconnect-guide",
