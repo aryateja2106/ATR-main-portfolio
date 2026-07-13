@@ -1,26 +1,46 @@
 import type { Metadata } from "next";
 import { BlogList } from "@/components/blog-list";
+import { SITE_URL, TWITTER_HANDLE } from "@/lib/seo";
 import { SiteNav } from "../_components/field-notes";
-import { getAllBlogs, getAllCategories, sortBlogsByDate } from "../_hooks/blog";
+import { getAllCategories, getBlogSummaries } from "../_hooks/blog";
 
 export const metadata: Metadata = {
 	title: "Writing",
 	description:
 		"Field notes on secure AI agents, local-first systems, open-source tools, and business-first implementation.",
 	alternates: {
-		canonical: "/blog",
+		canonical: `${SITE_URL}/blog`,
+		types: {
+			"application/rss+xml": `${SITE_URL}/feed.xml`,
+		},
 	},
 	openGraph: {
 		title: "Writing | Arya Teja Rudraraju",
 		description:
 			"Field notes on secure AI agents, local-first systems, open-source tools, and business-first implementation.",
 		type: "website",
-		url: "https://aryateja.com/blog",
+		url: `${SITE_URL}/blog`,
+		siteName: "Arya Teja Rudraraju",
+		images: [
+			{
+				url: "/real-images/yc-robo-hk-solo.jpeg",
+				alt: "Arya Teja Rudraraju at YC Robo in Hong Kong",
+			},
+		],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Writing | Arya Teja Rudraraju",
+		description:
+			"Field notes on secure AI agents, local-first systems, open-source tools, and business-first implementation.",
+		site: TWITTER_HANDLE,
+		creator: TWITTER_HANDLE,
+		images: ["/real-images/yc-robo-hk-solo.jpeg"],
 	},
 };
 
 export default function BlogsPage() {
-	const allBlogs = sortBlogsByDate(getAllBlogs());
+	const allBlogs = getBlogSummaries();
 	const allCategories = getAllCategories();
 
 	return (

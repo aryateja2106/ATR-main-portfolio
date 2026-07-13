@@ -32,6 +32,18 @@ export interface BlogPost {
 	};
 }
 
+export type BlogSummary = Pick<
+	BlogPost,
+	| "id"
+	| "slug"
+	| "title"
+	| "excerpt"
+	| "formattedDate"
+	| "readTime"
+	| "category"
+	| "coverImage"
+>;
+
 export interface Category {
 	id: string;
 	name: string;

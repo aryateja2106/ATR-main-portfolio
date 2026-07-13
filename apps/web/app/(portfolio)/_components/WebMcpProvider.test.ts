@@ -30,7 +30,8 @@ test("portfolio tools expose context, search articles, and validate navigation",
 
 	const find = tools.find((tool) => tool.name === "find_technical_articles");
 	const open = tools.find((tool) => tool.name === "open_technical_article");
-	assert.ok(find && open);
+	const navigate = tools.find((tool) => tool.name === "navigate_portfolio");
+	assert.ok(find && open && navigate);
 	assert.deepEqual(await find.execute({ query: "mobile" }), [
 		{
 			slug: "mconnect-guide",
@@ -46,6 +47,9 @@ test("portfolio tools expose context, search articles, and validate navigation",
 	});
 	assert.deepEqual(await open.execute({ slug: "mconnect-guide" }), {
 		navigatingTo: "/blog/mconnect-guide",
+	});
+	assert.deepEqual(await navigate.execute({ destination: "resume" }), {
+		error: "Unknown destination.",
 	});
 	assert.deepEqual(navigations, ["/blog/mconnect-guide"]);
 });

@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PERSON_ID, SITE_URL, TWITTER_HANDLE, WEBSITE_ID } from "@/lib/seo";
 import { BrandMark, SiteNav } from "../../_components/field-notes";
 import MarkdownRenderer from "../../_components/markdowmRender";
 import { getAllBlogs, getBlogBySlug, getRelatedBlogs } from "../../_hooks/blog";
-
-const siteUrl = "https://aryateja.com";
 
 type BlogPostPageProps = {
 	params: Promise<{ slug: string }>;
@@ -26,13 +25,18 @@ export async function generateMetadata({
 		return { title: "Writing" };
 	}
 
-	const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
-	const imageUrl = new URL(post.coverImage, siteUrl).toString();
+	const canonicalUrl = `${SITE_URL}/blog/${post.slug}`;
+	const imageUrl = new URL(post.coverImage, SITE_URL).toString();
 
 	return {
 		title: post.title,
 		description: post.description,
-		alternates: { canonical: canonicalUrl },
+		alternates: {
+			canonical: canonicalUrl,
+			types: {
+				"text/markdown": `${canonicalUrl}/markdown`,
+			},
+		},
 		openGraph: {
 			type: "article",
 			url: canonicalUrl,
@@ -48,6 +52,8 @@ export async function generateMetadata({
 			title: post.title,
 			description: post.description,
 			images: [imageUrl],
+			site: TWITTER_HANDLE,
+			creator: TWITTER_HANDLE,
 		},
 	};
 }
@@ -61,27 +67,28 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 	}
 
 	const relatedPosts = getRelatedBlogs(post.id);
-	const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
+	const canonicalUrl = `${SITE_URL}/blog/${post.slug}`;
 	const jsonLd = {
 		"@context": "https://schema.org",
 		"@type": "BlogPosting",
 		headline: post.title,
 		description: post.description,
-		image: new URL(post.coverImage, siteUrl).toString(),
+		image: new URL(post.coverImage, SITE_URL).toString(),
 		datePublished: post.date,
 		dateModified: post.date,
 		mainEntityOfPage: canonicalUrl,
 		author: {
 			"@type": "Person",
-			"@id": `${siteUrl}/#person`,
+			"@id": PERSON_ID,
 			name: "Arya Teja Rudraraju",
-			url: siteUrl,
+			url: SITE_URL,
 			sameAs: [
 				"https://linkedin.com/in/arya-teja-rudraraju",
 				"https://github.com/aryateja2106",
 				"https://x.com/r_aryateja",
 			],
 		},
+		publisher: { "@id": WEBSITE_ID },
 	};
 
 	return (

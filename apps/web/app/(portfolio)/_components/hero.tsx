@@ -58,6 +58,7 @@ export function Hero() {
 						<div className="absolute left-0 top-0 size-full flex flex-wrap justify-center content-start gap-3 md:gap-5">
 							{binaryDigits.map((digit, i) => (
 								<div
+									// biome-ignore lint/suspicious/noArrayIndexKey: Generated decorative digits have no stable domain identifier.
 									key={`binary-${i}-${digit.value}`}
 									className="text-teal-500 font-mono text-xs md:text-sm"
 									style={{
@@ -147,47 +148,6 @@ export function Hero() {
 							className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto"
 							variants={itemVariants}
 						>
-							{/* Primary CTA - Resume Download */}
-							<a
-								href="/resume/Arya_Teja_PM_Resume.pdf"
-								download="Arya_Teja_PM_Resume.pdf"
-								onClick={() => {
-									if (
-										typeof globalThis.window !== "undefined" &&
-										// biome-ignore lint/suspicious/noExplicitAny: Google Analytics global object is untyped
-										(globalThis.window as any).gtag
-									) {
-										// biome-ignore lint/suspicious/noExplicitAny: Google Analytics global object is untyped
-										(globalThis.window as any).gtag(
-											"event",
-											"resume_download",
-											{
-												event_category: "engagement",
-												event_label: "Resume PDF Download",
-											},
-										);
-									}
-								}}
-								className="group relative px-8 py-3.5 bg-teal-500 text-neutral-950 font-bold rounded-lg hover:bg-teal-400 transition-all duration-300 text-center overflow-hidden inline-flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)]"
-							>
-								<svg
-									className="w-5 h-5 transition-transform group-hover:-translate-y-0.5"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<title>Download Resume</title>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2.5}
-										d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-									/>
-								</svg>
-								<span className="relative z-10">Download Resume</span>
-							</a>
-
-							{/* Secondary CTA - Contact */}
 							<Link
 								href="#contact"
 								className="group relative px-8 py-3.5 border border-teal-500/30 text-teal-400 font-medium rounded-lg hover:bg-teal-500/10 transition-all duration-300 text-center backdrop-blur-sm"

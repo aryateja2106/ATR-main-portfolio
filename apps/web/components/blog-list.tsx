@@ -3,22 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import type { BlogPost } from "@/lib/types";
+import type { BlogSummary } from "@/lib/types";
 
 interface BlogListProps {
-	initialBlogs: BlogPost[];
+	initialBlogs: BlogSummary[];
 	allCategories: string[];
 }
 
 export function BlogList({ initialBlogs, allCategories }: BlogListProps) {
-	const [blogs, setBlogs] = useState<BlogPost[]>(initialBlogs);
+	const [blogs, setBlogs] = useState<BlogSummary[]>(initialBlogs);
 	const [activeCategory, setActiveCategory] = useState("all");
-
-	// We can still use the helper to sort/filter if it's available client-side,
-	// OR we can just implement simple filtering here to avoid importing the hook if it has heavy deps.
-	// The original hook likely reads from JSON, which we might not want to bundle if we can avoid it,
-	// but since it's a small JSON, it's fine.
-	// Actually, better to just filter the `initialBlogs` prop to avoid re-fetching or importing data logic.
 
 	const handleCategoryFilter = (category: string) => {
 		setActiveCategory(category);
