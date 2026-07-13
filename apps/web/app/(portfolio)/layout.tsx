@@ -2,6 +2,13 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import type { ReactNode } from "react";
 import blogData from "@/lib/portfolio/blogs.json";
+import {
+	PERSON_ID,
+	SERVICE_ID,
+	SITE_URL,
+	TWITTER_HANDLE,
+	WEBSITE_ID,
+} from "@/lib/seo";
 import { WebMcpProvider } from "./_components/WebMcpProvider";
 
 export const metadata: Metadata = {
@@ -11,7 +18,7 @@ export const metadata: Metadata = {
 	},
 	description:
 		"I help founders and teams design, secure, and ship practical AI agent systems, local-first workflows, and useful automation.",
-	metadataBase: new URL("https://aryateja.com"),
+	metadataBase: new URL(SITE_URL),
 	applicationName: "Arya Teja Rudraraju",
 	authors: [
 		{
@@ -39,7 +46,10 @@ export const metadata: Metadata = {
 		index: true,
 	},
 	alternates: {
-		canonical: "https://aryateja.com",
+		canonical: SITE_URL,
+		types: {
+			"application/rss+xml": `${SITE_URL}/feed.xml`,
+		},
 	},
 	openGraph: {
 		title: "Arya Teja Rudraraju | AI Agent Systems & Consulting",
@@ -47,7 +57,7 @@ export const metadata: Metadata = {
 			"Practical AI agent systems, secure local-first workflows, open-source tools, and field-tested notes.",
 		siteName: "Arya Teja Rudraraju",
 		type: "website",
-		url: "https://aryateja.com",
+		url: SITE_URL,
 		emails: ["aryateja2106@gmail.com"],
 		images: [
 			{
@@ -65,7 +75,8 @@ export const metadata: Metadata = {
 			"Practical AI agent systems, secure local-first workflows, open-source tools, and field-tested notes.",
 		card: "summary_large_image",
 		images: ["/real-images/yc-robo-hk-solo.jpeg"],
-		creator: "@r_aryateja",
+		site: TWITTER_HANDLE,
+		creator: TWITTER_HANDLE,
 	},
 };
 
@@ -78,41 +89,63 @@ export const viewport: Viewport = {
 
 const jsonLd = {
 	"@context": "https://schema.org",
-	"@type": "ProfilePage",
-	"@id": "https://aryateja.com/#profile",
-	name: "Arya Teja Rudraraju",
-	url: "https://aryateja.com",
-	dateModified: "2026-07-11",
-	mainEntity: {
-		"@type": "Person",
-		"@id": "https://aryateja.com/#person",
-		name: "Arya Teja Rudraraju",
-		url: "https://aryateja.com",
-		image: "https://aryateja.com/real-images/yc-robo-hk-solo.jpeg",
-		jobTitle: "Founder and Agentic Systems Builder",
-		description:
-			"Founder helping teams design, secure, and ship practical AI agent systems and local-first workflows.",
-		alumniOf: {
-			"@type": "CollegeOrUniversity",
-			name: "Duquesne University",
+	"@graph": [
+		{
+			"@type": "WebSite",
+			"@id": WEBSITE_ID,
+			name: "Arya Teja Rudraraju",
+			url: SITE_URL,
+			publisher: { "@id": PERSON_ID },
 		},
-		sameAs: [
-			"https://linkedin.com/in/arya-teja-rudraraju",
-			"https://github.com/aryateja2106",
-			"https://x.com/r_aryateja",
-		],
-		knowsAbout: [
-			"AI Agents",
-			"Agentic Engineering",
-			"Secure AI Agent Setup",
-			"Local-first AI",
-			"RAG Systems",
-			"Context Engineering",
-			"Open Source",
-			"Product Strategy",
-		],
-		publishingPrinciples: "https://aryateja.com/blog",
-	},
+		{
+			"@type": "ProfilePage",
+			"@id": `${SITE_URL}/#profile`,
+			name: "Arya Teja Rudraraju",
+			url: SITE_URL,
+			dateModified: "2026-07-11",
+			isPartOf: { "@id": WEBSITE_ID },
+			mainEntity: { "@id": PERSON_ID },
+		},
+		{
+			"@type": "Person",
+			"@id": PERSON_ID,
+			name: "Arya Teja Rudraraju",
+			url: SITE_URL,
+			image: `${SITE_URL}/real-images/yc-robo-hk-solo.jpeg`,
+			jobTitle: "Founder and Agentic Systems Builder",
+			description:
+				"Founder helping teams design, secure, and ship practical AI agent systems and local-first workflows.",
+			alumniOf: {
+				"@type": "CollegeOrUniversity",
+				name: "Duquesne University",
+			},
+			sameAs: [
+				"https://linkedin.com/in/arya-teja-rudraraju",
+				"https://github.com/aryateja2106",
+				"https://x.com/r_aryateja",
+			],
+			knowsAbout: [
+				"AI Agents",
+				"Agentic Engineering",
+				"Secure AI Agent Setup",
+				"Local-first AI",
+				"RAG Systems",
+				"Context Engineering",
+				"Open Source",
+				"Product Strategy",
+			],
+			publishingPrinciples: `${SITE_URL}/blog`,
+		},
+		{
+			"@type": "Service",
+			"@id": SERVICE_ID,
+			name: "AI agent consulting",
+			description:
+				"Direct help with secure agent setup, local-first workflows, automation, and practical implementation.",
+			url: `${SITE_URL}/#work`,
+			provider: { "@id": PERSON_ID },
+		},
+	],
 };
 
 export default function Layout({ children }: { children: ReactNode }) {

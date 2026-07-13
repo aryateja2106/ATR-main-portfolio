@@ -151,13 +151,13 @@ export function createPortfolioTools({
 		{
 			name: "navigate_portfolio",
 			description:
-				"Navigate the visible portfolio tab to Arya's work, writing, contact section, or public resume. This does not submit forms or contact Arya automatically.",
+				"Navigate the visible portfolio tab to Arya's work, writing, or contact section. This does not submit forms or contact Arya automatically.",
 			inputSchema: {
 				type: "object",
 				properties: {
 					destination: {
 						type: "string",
-						enum: ["work", "writing", "contact", "resume"],
+						enum: ["work", "writing", "contact"],
 					},
 				},
 				required: ["destination"],
@@ -168,7 +168,6 @@ export function createPortfolioTools({
 					work: "/#work",
 					writing: "/blog",
 					contact: "/#contact",
-					resume: "/resume/Arya_Teja_PM_Resume.pdf",
 				} as const;
 				if (typeof destination !== "string" || !(destination in destinations)) {
 					return { error: "Unknown destination." };

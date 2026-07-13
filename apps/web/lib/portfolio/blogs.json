@@ -8,7 +8,6 @@
 			"excerpt": "Set up a local MConnect session, connect from your phone, and supervise Claude Code, Gemini CLI, Cursor Agent, Codex, or any terminal workflow without exposing a router port.",
 			"date": "2026-07-11",
 			"formattedDate": "July 11, 2026",
-			"readTime": "15 min read",
 			"category": "Implementation Guide",
 			"tags": ["MConnect", "AI Agents", "Mobile", "Local-first", "Cloudflare"],
 			"coverImage": "/blog-images/mconnect-demo.png",
@@ -52,7 +51,6 @@
 			"excerpt": "Research is broken. We read 100 papers to use 1. I built LeSearch AI to turn static PDFs into active knowledge graphs and actionable insights.",
 			"date": "2025-09-01",
 			"formattedDate": "September 1, 2025",
-			"readTime": "8 min read",
 			"category": "Product Engineering",
 			"tags": ["RAG", "Product Management", "Startup", "React"],
 			"coverImage": "/assets/context-engineering.png",
@@ -64,7 +62,7 @@
 				"twitter": "@r_aryateja"
 			},
 			"relatedArticles": ["1", "3"],
-			"content": "Every researcher knows the pain. You find a promising paper title. You download the PDF. You skim the abstract. You realize it's irrelevant. Repeat 50 times.\n\nWhen you finally find the *right* paper, extracting the data into a usable format is a manual nightmare.\n\n## The Hypothesis\n\nI believed that LLMs could fix this funnel. Not just by \"chatting with PDF\", that's table stakes now, but by understanding the *relationships* between papers. If Paper A cites Paper B, and Paper B refutes Paper A, an AI should be able to surface that tension immediately.\n\n## Building LeSearch AI\n\n### The Beta\nI hacked together the MVP in a weekend using Next.js and Supabase. The goal was simple: Upload a PDF, get a structured summary, and see a graph of related concepts.\n\nI launched it to a small group of grad students and policy analysts. \n\n**What worked:**\n- The **Knowledge Graph** visualization was a hit. People loved seeing how concepts connected visually.\n- **Guided Briefs**: Instead of a generic summary, the AI generated a specific \"Policy Brief\" or \"Technical Memo\" based on user intent.\n\n**What failed:**\n- **Hallucinations**: Early RAG implementations were too confident. I had to implement strict citation grounding. If the AI couldn't highlight the sentence in the PDF, it wasn't allowed to say it.\n\n## The Pivot\n\nAfter 50+ beta users, I realized the real value wasn't in *reading* papers, but in *synthesizing* them. Users didn't want a faster reader; they wanted a research assistant that could say, \"Here are the 3 papers that disagree with your hypothesis.\"\n\nWe are now rebuilding LeSearch with this \"Synthesis Engine\" at the core. It's leaner, faster, and focused entirely on moving from \"Saved PDF\" to \"Actionable Insight.\"\n\n[Try the beta](https://lesearch-app.vercel.app)"
+			"content": "Every researcher knows the pain. You find a promising paper title. You download the PDF. You skim the abstract. You realize it's irrelevant. Repeat 50 times.\n\nWhen you finally find the *right* paper, extracting the data into a usable format is a manual nightmare.\n\n## The Hypothesis\n\nI believed that LLMs could fix this funnel. Not just by \"chatting with PDF\", that's table stakes now, but by understanding the *relationships* between papers. If Paper A cites Paper B, and Paper B refutes Paper A, an AI should be able to surface that tension immediately.\n\n## Building LeSearch AI\n\n### The Beta\nI hacked together the MVP in a weekend using Next.js and Supabase. The goal was simple: Upload a PDF, get a structured summary, and see a graph of related concepts.\n\nI launched it to a small group of grad students and policy analysts. \n\n**What worked:**\n- The **Knowledge Graph** visualization was a hit. People loved seeing how concepts connected visually.\n- **Guided Briefs**: Instead of a generic summary, the AI generated a specific \"Policy Brief\" or \"Technical Memo\" based on user intent.\n\n**What failed:**\n- **Hallucinations**: Early RAG implementations were too confident. I had to implement strict citation grounding. If the AI couldn't highlight the sentence in the PDF, it wasn't allowed to say it.\n\n## The Pivot\n\nAfter 50+ beta users, I realized the real value wasn't in *reading* papers, but in *synthesizing* them. Users didn't want a faster reader; they wanted a research assistant that could say, \"Here are the 3 papers that disagree with your hypothesis.\"\n\nWe are now rebuilding LeSearch with this \"Synthesis Engine\" at the core. It's leaner, faster, and focused entirely on moving from \"Saved PDF\" to \"Actionable Insight.\"\n\n[Try the beta](https://lesearch.ai)"
 		},
 		{
 			"id": "3",
@@ -74,7 +72,6 @@
 			"excerpt": "Closed ecosystem agents are a dead end. The real innovation is happening where tools can talk to each other without asking for permission. Here is why I am betting my career on Open Source AI.",
 			"date": "2025-11-10",
 			"formattedDate": "November 10, 2025",
-			"readTime": "5 min read",
 			"category": "Philosophy",
 			"tags": ["Open Source", "AI Strategy", "Future", "Agents"],
 			"coverImage": "/assets/mcp.png",
