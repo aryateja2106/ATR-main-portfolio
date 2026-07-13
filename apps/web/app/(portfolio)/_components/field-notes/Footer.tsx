@@ -3,10 +3,7 @@ import { footer } from "./content";
 
 export function Footer() {
 	return (
-		<footer
-			id="contact"
-			className="border-t border-[#f7f2e8]/15 bg-[#12110f] py-12 text-[#f7f2e8]"
-		>
+		<footer className="border-t border-[#f7f2e8]/15 bg-[#12110f] py-12 text-[#f7f2e8]">
 			<div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 px-4">
 				<div className="font-mono text-[#f7f2e8] flex items-center gap-3 text-xs uppercase tracking-[0.2em]">
 					<BrandMark />
@@ -19,11 +16,17 @@ export function Footer() {
 							href={social.href}
 							target="_blank"
 							rel="noreferrer"
-							className="font-mono uppercase text-[11px] tracking-[0.2em] text-[#b9b0a2] transition-colors hover:text-[#f7f2e8]"
+							className="font-mono uppercase text-[11px] tracking-[0.2em] text-[#b9b0a2] transition-colors hover:text-[#f7f2e8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441]"
 						>
 							{social.label}
 						</a>
 					))}
+					<a
+						href="/privacy"
+						className="font-mono uppercase text-[11px] tracking-[0.2em] text-[#b9b0a2] transition-colors hover:text-[#f7f2e8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441]"
+					>
+						Privacy
+					</a>
 				</nav>
 			</div>
 			<div className="max-w-6xl mx-auto px-4 mt-4">

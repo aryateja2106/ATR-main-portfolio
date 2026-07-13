@@ -19,8 +19,8 @@ export function Agents() {
 						</h2>
 					</div>
 					<a
-						href="mailto:aryateja2106@gmail.com"
-						className="rounded-sm border border-[#f7f2e8]/25 px-4 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#f7f2e8] transition-colors hover:border-[#f7f2e8]/60"
+						href="#contact"
+						className="rounded-sm border border-[#f7f2e8]/25 px-4 py-3 font-mono text-xs uppercase tracking-[0.2em] text-[#f7f2e8] transition-colors hover:border-[#f7f2e8]/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441] focus-visible:ring-offset-2 focus-visible:ring-offset-[#12110f]"
 					>
 						Start a conversation
 					</a>
@@ -50,7 +50,7 @@ export function Agents() {
 								href={item.href}
 								target={item.href.startsWith("http") ? "_blank" : undefined}
 								rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-								className="mt-8 inline-flex font-mono text-xs uppercase tracking-[0.22em] text-[#f7f2e8] underline decoration-[#b9b0a2]/40 underline-offset-8 transition-colors group-hover:text-white"
+								className="mt-8 inline-flex font-mono text-xs uppercase tracking-[0.22em] text-[#f7f2e8] underline decoration-[#b9b0a2]/40 underline-offset-8 transition-colors group-hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441]"
 							>
 								{item.cta}
 							</a>

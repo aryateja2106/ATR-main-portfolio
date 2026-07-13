@@ -14,7 +14,7 @@ export const hero = {
 	lede: "I help founders and teams turn practical AI agent ideas into secure, useful systems. This site shows the work, the people around it, and the lessons I can stand behind.",
 	cta: {
 		label: "Share your problem",
-		href: "mailto:aryateja2106@gmail.com?subject=AI%20agent%20project",
+		href: "#contact",
 	},
 	secondaryCta: { label: "See proof of work", href: "#work" },
 	portrait: "/real-images/yc-robo-hk-solo.jpeg",
@@ -122,7 +122,7 @@ export const agents = {
 			name: "AI agent consulting",
 			desc: "Direct help with secure agent setup, local-first workflows, automation, and practical implementation.",
 			cta: "Share a problem",
-			href: "mailto:aryateja2106@gmail.com",
+			href: "#contact",
 		},
 		{
 			mark: "03 / TOOL",

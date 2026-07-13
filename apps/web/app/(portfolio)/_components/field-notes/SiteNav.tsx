@@ -1,6 +1,11 @@
 "use client";
 
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import {
+	motion,
+	useMotionValueEvent,
+	useReducedMotion,
+	useScroll,
+} from "framer-motion";
 import { useState } from "react";
 
 import { BrandMark } from "./BrandMark";
@@ -8,6 +13,7 @@ import { nav } from "./content";
 
 export function SiteNav() {
 	const { scrollY } = useScroll();
+	const shouldReduceMotion = useReducedMotion();
 	const [scrolled, setScrolled] = useState(false);
 
 	useMotionValueEvent(scrollY, "change", (latest) => {
@@ -25,13 +31,16 @@ export function SiteNav() {
 					? "rgba(247, 242, 232, 0.16)"
 					: "rgba(247, 242, 232, 0)",
 			}}
-			transition={{ duration: 0.3, ease: [0.2, 0.65, 0.3, 0.9] }}
+			transition={{
+				duration: shouldReduceMotion ? 0 : 0.3,
+				ease: [0.2, 0.65, 0.3, 0.9],
+			}}
 			className="fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md"
 		>
 			<nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-8">
 				<a
 					href="/#top"
-					className="flex items-center gap-3 font-mono text-sm uppercase tracking-wide text-[#f7f2e8]"
+					className="flex items-center gap-3 font-mono text-sm uppercase tracking-wide text-[#f7f2e8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441]"
 				>
 					<BrandMark />
 					<span>Arya Teja</span>
@@ -49,7 +58,7 @@ export function SiteNav() {
 						>
 							<a
 								href={item.href}
-								className="font-mono text-[10px] uppercase tracking-wide text-[#f7f2e8]/65 transition-colors hover:text-[#f7f2e8] md:text-xs"
+								className="font-mono text-[10px] uppercase tracking-wide text-[#f7f2e8]/65 transition-colors hover:text-[#f7f2e8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d9a441] md:text-xs"
 							>
 								{item.label}
 							</a>
