@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 		siteName: "Arya Teja Rudraraju",
 		images: [
 			{
-				url: "/real-images/yc-robo-hk-solo.jpeg",
+				url: "/og/aryateja-og.jpg",
 				alt: "Arya Teja Rudraraju at YC Robo in Hong Kong",
 			},
 		],
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 			"Field notes on secure AI agents, local-first systems, open-source tools, and business-first implementation.",
 		site: TWITTER_HANDLE,
 		creator: TWITTER_HANDLE,
-		images: ["/real-images/yc-robo-hk-solo.jpeg"],
+		images: ["/og/aryateja-og.jpg"],
 	},
 };
 

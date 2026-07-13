@@ -61,7 +61,7 @@ export const metadata: Metadata = {
 		emails: ["aryateja2106@gmail.com"],
 		images: [
 			{
-				url: "/real-images/yc-robo-hk-solo.jpeg",
+				url: "/og/aryateja-og.jpg",
 				width: 1200,
 				height: 630,
 				alt: "Arya Teja Rudraraju at YC Robo in Hong Kong",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
 		description:
 			"Practical AI agent systems, secure local-first workflows, open-source tools, and field-tested notes.",
 		card: "summary_large_image",
-		images: ["/real-images/yc-robo-hk-solo.jpeg"],
+		images: ["/og/aryateja-og.jpg"],
 		site: TWITTER_HANDLE,
 		creator: TWITTER_HANDLE,
 	},
