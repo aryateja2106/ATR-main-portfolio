@@ -84,7 +84,7 @@ export default async function RootLayout({
 					}}
 				/>
 			</head>
-			<body className="antialiased dark scroll-smooth">
+			<body className="antialiased dark scroll-smooth motion-reduce:scroll-auto">
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="dark"
