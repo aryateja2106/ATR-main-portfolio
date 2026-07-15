@@ -72,7 +72,7 @@ export function createPortfolioTools({
 				projects: [
 					{
 						name: "LeSearch AI",
-						url: "https://lesearch.ai",
+						url: "https://github.com/LeSearch-AI",
 						status: "Active development",
 					},
 					{

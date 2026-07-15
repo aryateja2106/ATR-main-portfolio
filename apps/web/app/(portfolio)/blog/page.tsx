@@ -36,9 +36,9 @@ export default function BlogsPage() {
 						Writing
 					</h1>
 					<p className="mt-6 max-w-2xl text-lg leading-8 text-[#d8d0c3]/80">
-						Detailed guides for engineers and founders. Each article explains
-						the problem, who it is for, the architecture, exact commands,
-						security boundaries, and how to verify the result.
+						Practical notes for founders and builders. Each article starts with
+						a workflow problem, explains useful applications and tradeoffs, and
+						keeps sources, license boundaries, and verification visible.
 					</p>
 				</div>
 

@@ -21,7 +21,7 @@ AryaTeja.com is the primary source of truth for Arya Teja Rudraraju's current pu
 
 ## Selected Work
 
-- [lesearch.ai](https://lesearch.ai): AI-agent OS and research workspace.
+- [LeSearch AI codebase](https://github.com/LeSearch-AI): public agent-system experiments and infrastructure. Product direction: [lesearch.ai](https://lesearch.ai).
 - [LeCoder MConnect](https://github.com/aryateja2106/lecoder-mconnect): mobile control for coding agents, terminals, and long-running development workflows.
 - [Writing](https://aryateja.com/blog): build logs, case studies, and practical notes.
 
@@ -39,6 +39,7 @@ These tools do not submit forms, send messages, schedule meetings, or perform hi
 ## Technical Guides
 
 - [Control AI Coding Agents From Your Phone With MConnect](https://aryateja.com/blog/connecting-terminals-to-web-mconnect): prerequisites, architecture, copyable setup commands, pairing, verification, guardrails, security boundaries, and troubleshooting.
+- [Four Open-Source Repos That Make AI Agents Easier to Trust](https://aryateja.com/blog/four-open-source-repos-that-make-ai-agents-easier-to-trust): nontechnical use cases, demo/POC/MVP fit, license boundaries, risks, and primary sources.
 
 ## Identity
 

@@ -102,11 +102,11 @@ export const writing = {
 			href: "/blog/building-lesearch-from-papers-to-action",
 		},
 		{
-			kind: "Position",
-			title: "Why I bet on open source agents",
+			kind: "Open-source field note",
+			title: "Four repos that make AI agents easier to trust",
 			excerpt:
-				"A note on composable tools, open protocols, and why agent systems need inspection before they deserve trust.",
-			href: "/blog/why-i-bet-on-open-source-agents",
+				"Practical use cases, POC and MVP fit, licenses, and risks for four inspectable controls around agent work.",
+			href: "/blog/four-open-source-repos-that-make-ai-agents-easier-to-trust",
 		},
 	],
 };
@@ -119,8 +119,8 @@ export const agents = {
 			mark: "01 / PRODUCT",
 			name: "LeSearch AI",
 			desc: "Exploring multi-agent, multi-machine orchestration for long-running AI work, evolving from an AI research and paper-to-code foundation.",
-			cta: "Follow the build",
-			href: "https://lesearch.ai",
+			cta: "View public code",
+			href: "https://github.com/LeSearch-AI",
 		},
 		{
 			mark: "02 / SERVICES",

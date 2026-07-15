@@ -51,9 +51,9 @@
   "reuse": {
     "editorial": "May be summarized with attribution after source recheck.",
     "code": "Follow each upstream license and preserve required notices.",
-    "approval": "Human approval required before publishing or media generation."
+    "approval": "Recheck sources before syndication or media generation."
   },
-  "status": "draft"
+  "status": "published"
 }
 ---
 
@@ -61,7 +61,9 @@ The hardest part of using AI agents is rarely choosing the model. It is keeping 
 
 A founder asks for a feature. The agent receives a loose prompt. Important context stays in a chat. Research arrives as a wall of copied web pages. Then the same agent that wrote the code says the code looks good.
 
-I reviewed four projects that address those failure points without asking a small team to adopt one giant platform. The project descriptions and licenses below were checked against their official GitHub repositories on July 15, 2026. I have not installed or executed them for this draft, so treat this as a source-verified editorial review, not an implementation or security assessment.
+I reviewed four projects that address those failure points without asking a small team to adopt one giant platform. The project descriptions and licenses below were checked against their official GitHub repositories on July 15, 2026. I have not installed or executed them, so treat this as a source-verified editorial review, not an implementation or security assessment.
+
+This is the format I will use for Open-source Field Notes. Each edition answers five questions: what workflow problem does the repo solve, how could a nontechnical team use it, what is worth reusing, where does it fit across a demo, POC, or MVP, and what do its license and risks require? A batch may begin with 10 to 15 links, but the article will keep only the three to five that explain one coherent workflow.
 
 ## Executive summary
 
@@ -227,6 +229,10 @@ For one low-risk internal POC:
 5. Ask a human owner to approve the evidence before anything reaches a customer or production system.
 
 The useful idea is not a four-tool stack. It is four explicit controls: intent, context, input, and verification.
+
+## How this connects to my work
+
+These are the same trust questions I am exploring across the [LeSearch AI organization](https://github.com/LeSearch-AI): how agents receive context, how work moves across machines, where approvals belong, and what evidence should survive after a run. The organization is the main public codebase for LeSearch AI. The older personal LeSearch repository is not the canonical source.
 
 ## Sources
 
