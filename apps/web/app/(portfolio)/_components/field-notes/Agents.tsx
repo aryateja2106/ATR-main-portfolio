@@ -1,68 +1,63 @@
 import { agents, experience } from "./content";
 
-const workCardColors = [
-	"bg-white",
-	"bg-[#b8ef36]",
-	"bg-[#cdb6ff]",
-	"bg-[#f8e36e]",
-] as const;
-
 export function Agents() {
 	return (
 		<>
 			<section
 				id="work"
-				className="scroll-mt-20 border-y-2 border-[#171717] bg-[#ff654f] py-20 text-[#171717] md:py-28"
+				className="scroll-mt-20 bg-[#171512] py-20 text-[#f7f2e8] md:py-28"
 			>
 				<div className="mx-auto max-w-6xl px-5 md:px-8">
-					<div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
-						<div className="max-w-4xl">
-							<p className="font-mono text-[11px] uppercase tracking-[0.2em]">
+					<div className="grid gap-7 md:grid-cols-[1fr_auto] md:items-end">
+						<div>
+							<p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#bcb2a4]">
 								{agents.tag}
 							</p>
-							<h2 className="mt-4 max-w-4xl font-sans text-[clamp(48px,7vw,92px)] font-semibold leading-[0.88] tracking-[-0.065em]">
+							<h2 className="mt-4 font-serif text-[clamp(46px,7vw,82px)] leading-[0.94] tracking-[-0.04em]">
 								{agents.title}
 							</h2>
 						</div>
 						<a
 							href="mailto:aryateja2106@gmail.com"
-							className="inline-flex min-h-12 items-center justify-center rounded-lg border-2 border-[#171717] bg-[#171717] px-5 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+							className="inline-flex min-h-12 items-center justify-center rounded-sm border border-[#f7f2e8]/30 px-5 text-sm font-semibold transition-colors hover:border-[#cfdcff] hover:bg-[#cfdcff] hover:text-[#12110f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#cfdcff]"
 						>
-							Start a conversation{" "}
+							Share a problem{" "}
 							<span aria-hidden="true" className="ml-2">
 								↗
 							</span>
 						</a>
 					</div>
 
-					<div className="mt-14 grid gap-6 md:grid-cols-2">
+					<div className="mt-12 overflow-hidden border-y border-[#f7f2e8]/20 md:grid md:grid-cols-2">
 						{agents.items.map((item, index) => (
 							<article
 								key={item.name}
-								className={`group flex min-h-80 flex-col rounded-xl border-2 border-[#171717] p-6 shadow-[8px_8px_0_#171717] transition-transform hover:-translate-y-1 md:p-8 ${workCardColors[index]}`}
+								className={`group flex min-h-72 flex-col border-[#f7f2e8]/20 py-8 transition-colors md:px-8 ${
+									index % 2 === 0 ? "md:border-r" : ""
+								} ${index < 2 ? "border-b" : ""} ${index % 2 === 0 ? "md:pl-0" : "md:pr-0"}`}
 							>
-								<div className="flex items-start justify-between gap-5">
-									<p className="font-mono text-[10px] uppercase tracking-[0.2em]">
+								<div className="flex items-start justify-between gap-4">
+									<p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#bcb2a4]">
 										{item.mark}
 									</p>
 									<span
 										aria-hidden="true"
-										className="grid size-10 shrink-0 place-items-center rounded-full border-2 border-[#171717] bg-white text-lg transition-transform group-hover:rotate-12"
+										className="text-[#93adff] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
 									>
 										↗
 									</span>
 								</div>
-								<h3 className="mt-10 font-sans text-[clamp(34px,4vw,54px)] font-semibold leading-[0.95] tracking-[-0.05em]">
+								<h3 className="mt-8 font-serif text-[clamp(32px,4vw,48px)] leading-none">
 									{item.name}
 								</h3>
-								<p className="mt-5 max-w-xl text-base leading-7 text-[#171717]/75">
+								<p className="mt-5 max-w-xl text-base leading-7 text-[#ddd5c9]/80">
 									{item.desc}
 								</p>
 								<a
 									href={item.href}
 									target={item.href.startsWith("http") ? "_blank" : undefined}
 									rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-									className="mt-auto pt-8 font-mono text-[11px] uppercase tracking-[0.18em] underline decoration-2 underline-offset-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2563eb]"
+									className="mt-auto pt-8 font-mono text-[10px] uppercase tracking-[0.18em] text-[#cfdcff] underline decoration-[#93adff]/50 underline-offset-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#cfdcff]"
 								>
 									{item.cta}
 								</a>
@@ -74,54 +69,46 @@ export function Agents() {
 
 			<section
 				id="experience"
-				className="scroll-mt-20 bg-[#fbfaf7] py-20 text-[#171717] md:py-28"
+				className="scroll-mt-20 bg-[#eee8dc] py-20 text-[#171512] md:py-28"
 			>
 				<div className="mx-auto max-w-6xl px-5 md:px-8">
-					<div className="grid gap-8 md:grid-cols-[1fr_0.72fr] md:items-end">
+					<div className="grid gap-8 md:grid-cols-[1fr_0.7fr] md:items-end">
 						<div>
-							<p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#56544f]">
+							<p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#615a51]">
 								{experience.tag}
 							</p>
-							<h2 className="mt-4 font-sans text-[clamp(48px,7vw,92px)] font-semibold leading-[0.88] tracking-[-0.065em]">
+							<h2 className="mt-4 max-w-4xl font-serif text-[clamp(44px,7vw,82px)] leading-[0.94] tracking-[-0.04em]">
 								{experience.title}
 							</h2>
 						</div>
-						<div className="rounded-xl border-2 border-[#171717] bg-[#2563eb] p-6 text-white shadow-[8px_8px_0_#171717]">
+						<div className="rounded-sm border border-[#171512] bg-[#cfdcff] p-6 shadow-[5px_5px_0_#171512]">
 							<p className="font-serif text-2xl leading-snug">
 								{experience.note}
 							</p>
-							<p className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
-								Problem → prototype → proof → handoff
+							<p className="mt-5 font-mono text-[9px] uppercase tracking-[0.16em] text-[#4e5875]">
+								Problem · prototype · proof · handoff
 							</p>
 						</div>
 					</div>
 
-					<div className="relative mt-16">
-						<div
-							aria-hidden="true"
-							className="absolute bottom-8 left-6 top-8 hidden border-l-2 border-dashed border-[#171717]/30 md:block"
-						/>
-						<div className="space-y-6">
-							{experience.items.map((item, index) => (
-								<article
-									key={item.name}
-									className="relative grid gap-4 rounded-xl border-2 border-[#171717] bg-white p-6 shadow-[6px_6px_0_#d9d6cf] md:grid-cols-[64px_0.8fr_1fr_1.6fr] md:items-center md:gap-7"
-								>
-									<span className="relative z-10 grid size-12 place-items-center rounded-full border-2 border-[#171717] bg-[#b8ef36] font-mono text-xs font-semibold">
-										0{index + 1}
-									</span>
-									<h3 className="font-sans text-2xl font-semibold tracking-[-0.04em]">
-										{item.name}
-									</h3>
-									<p className="font-mono text-[10px] uppercase leading-5 tracking-[0.14em] text-[#56544f]">
-										{item.role}
-									</p>
-									<p className="text-sm leading-6 text-[#56544f]">
-										{item.detail}
-									</p>
-								</article>
-							))}
-						</div>
+					<div className="mt-14 border-t border-[#171512]/20">
+						{experience.items.map((item, index) => (
+							<article
+								key={item.name}
+								className="grid gap-3 border-b border-[#171512]/20 py-7 md:grid-cols-[56px_0.8fr_1fr_1.7fr] md:items-start md:gap-7"
+							>
+								<span className="grid size-10 place-items-center rounded-full border border-[#171512] bg-[#f8f4eb] font-mono text-[10px]">
+									0{index + 1}
+								</span>
+								<h3 className="font-serif text-2xl">{item.name}</h3>
+								<p className="font-mono text-[10px] uppercase leading-5 tracking-[0.14em] text-[#615a51]">
+									{item.role}
+								</p>
+								<p className="text-sm leading-6 text-[#514a42]">
+									{item.detail}
+								</p>
+							</article>
+						))}
 					</div>
 				</div>
 			</section>

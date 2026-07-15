@@ -1,50 +1,22 @@
+import { BrandMark } from "./BrandMark";
 import { footer } from "./content";
-
-const tileColors = [
-	"bg-[#2563eb] text-white",
-	"bg-[#b8ef36]",
-	"bg-[#f8e36e]",
-	"bg-[#ff654f]",
-	"bg-[#cdb6ff]",
-	"bg-white",
-] as const;
-
-const brandTiles = [
-	{ id: "arya-a", letter: "a" },
-	{ id: "arya-r", letter: "r" },
-	{ id: "arya-y", letter: "y" },
-	{ id: "arya-a-end", letter: "a" },
-	{ id: "teja-t", letter: "t" },
-	{ id: "teja-e", letter: "e" },
-	{ id: "teja-j", letter: "j" },
-	{ id: "teja-a", letter: "a" },
-	{ id: "period", letter: "." },
-] as const;
 
 export function Footer() {
 	return (
 		<footer
 			id="contact"
-			className="scroll-mt-20 bg-[#fbfaf7] py-12 text-[#171717]"
+			className="scroll-mt-20 border-t border-[#f7f2e8]/15 bg-[#12110f] py-12 text-[#f7f2e8]"
 		>
 			<div className="mx-auto max-w-6xl px-5 md:px-8">
-				<div className="flex flex-col gap-8 border-b border-[#171717]/15 pb-10 md:flex-row md:items-end md:justify-between">
+				<div className="flex flex-col gap-8 border-b border-[#f7f2e8]/15 pb-10 md:flex-row md:items-end md:justify-between">
 					<div>
-						<div className="flex flex-wrap gap-1">
-							<span className="sr-only">Arya Teja</span>
-							{brandTiles.map((tile, index) => (
-								<span
-									key={tile.id}
-									aria-hidden="true"
-									className={`grid size-9 place-items-center rounded-full border-2 border-[#171717] text-sm font-semibold ${tileColors[index % tileColors.length]}`}
-								>
-									{tile.letter}
-								</span>
-							))}
+						<div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.18em]">
+							<BrandMark />
+							{footer.brand}
 						</div>
-						<p className="mt-4 max-w-md text-sm leading-6 text-[#56544f]">
-							Applied AI systems, built close to the problem and handed over
-							with evidence.
+						<p className="mt-4 max-w-md text-sm leading-6 text-[#c6bdb0]">
+							Applied AI systems built close to the problem, tested in context,
+							and handed over with evidence.
 						</p>
 					</div>
 
@@ -55,23 +27,23 @@ export function Footer() {
 								href={social.href}
 								target="_blank"
 								rel="noreferrer"
-								className="text-sm font-semibold underline decoration-2 underline-offset-8 transition-colors hover:text-[#2563eb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2563eb]"
+								className="text-sm font-semibold underline decoration-[#93adff]/50 underline-offset-8 transition-colors hover:text-[#cfdcff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#cfdcff]"
 							>
 								{social.label}
 							</a>
 						))}
 						<a
 							href="mailto:aryateja2106@gmail.com"
-							className="text-sm font-semibold underline decoration-2 underline-offset-8 transition-colors hover:text-[#2563eb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2563eb]"
+							className="text-sm font-semibold underline decoration-[#93adff]/50 underline-offset-8 transition-colors hover:text-[#cfdcff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#cfdcff]"
 						>
 							Email
 						</a>
 					</nav>
 				</div>
 
-				<div className="mt-6 flex flex-col gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-[#908d87] sm:flex-row sm:items-center sm:justify-between">
+				<div className="mt-6 flex flex-col gap-2 font-mono text-[9px] uppercase tracking-[0.14em] text-[#9f9588] sm:flex-row sm:items-center sm:justify-between">
 					<p>{footer.copyright}</p>
-					<p>Content and agents. One accountable loop.</p>
+					<p>Content, agents, and accountable delivery.</p>
 				</div>
 			</div>
 		</footer>

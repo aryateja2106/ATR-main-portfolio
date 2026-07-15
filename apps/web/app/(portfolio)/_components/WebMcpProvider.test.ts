@@ -38,11 +38,14 @@ test("portfolio tools expose context, search articles, and validate navigation",
 	const find = tools.find((tool) => tool.name === "find_technical_articles");
 	const open = tools.find((tool) => tool.name === "open_technical_article");
 	const context = tools.find((tool) => tool.name === "get_portfolio_context");
-	assert.ok(context && find && open);
+	const navigate = tools.find((tool) => tool.name === "navigate_portfolio");
+	assert.ok(context && find && open && navigate);
 	const portfolio = (await context.execute({})) as {
 		contact: { policy: string };
+		workingStack: { agents: string[] };
 	};
 	assert.match(portfolio.contact.policy, /human review/i);
+	assert.ok(portfolio.workingStack.agents.includes("WebMCP"));
 	assert.deepEqual(await find.execute({ query: "mobile" }), [
 		{
 			slug: "mconnect-guide",
@@ -71,4 +74,8 @@ test("portfolio tools expose context, search articles, and validate navigation",
 		navigatingTo: "/blog/mconnect-guide",
 	});
 	assert.deepEqual(navigations, ["/blog/mconnect-guide"]);
+	assert.deepEqual(await navigate.execute({ destination: "stack" }), {
+		navigatingTo: "/#stack",
+	});
+	assert.deepEqual(navigations, ["/blog/mconnect-guide", "/#stack"]);
 });

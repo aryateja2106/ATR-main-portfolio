@@ -10,13 +10,13 @@ export function Writing() {
 		>
 			<div className="mx-auto max-w-6xl px-5 md:px-8">
 				<div className="mx-auto max-w-4xl text-center">
-					<p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/75">
+					<p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white">
 						{writing.tag}
 					</p>
 					<h2 className="mt-4 font-sans text-[clamp(54px,9vw,108px)] font-semibold leading-[0.88] tracking-[-0.07em]">
 						Ideas that compound.
 					</h2>
-					<p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/75">
+					<p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white">
 						Build notes, case studies, and practical field guides from the
 						systems I am testing in public.
 					</p>

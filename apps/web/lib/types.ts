@@ -1,7 +1,6 @@
 export interface Author {
 	id: string;
 	name: string;
-	avatar: string;
 	bio: string;
 	twitter?: string;
 	github?: string;
@@ -46,10 +45,4 @@ export interface BlogPost {
 		code?: string;
 		approval?: string;
 	};
-}
-
-export interface Category {
-	id: string;
-	name: string;
-	description: string;
 }

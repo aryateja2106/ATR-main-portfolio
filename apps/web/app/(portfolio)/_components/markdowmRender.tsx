@@ -1,5 +1,7 @@
+import { Children, isValidElement, type ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { createHeadingIdGenerator } from "@/lib/portfolio/headings";
 
 interface MarkdownRendererProps {
 	content: string;
@@ -8,23 +10,33 @@ interface MarkdownRendererProps {
 
 interface CodeComponentProps {
 	className?: string;
-	children: React.ReactNode;
+	children: ReactNode;
 	inline?: boolean;
 	[key: string]: unknown;
 }
 
-function headingId(children: React.ReactNode) {
-	return String(children)
-		.toLowerCase()
-		.replace(/[^a-z0-9\s-]/g, "")
-		.trim()
-		.replace(/\s+/g, "-");
+function headingText(children: ReactNode): string {
+	return Children.toArray(children)
+		.map((child) => {
+			if (typeof child === "string" || typeof child === "number") {
+				return String(child);
+			}
+
+			if (isValidElement<{ children?: ReactNode }>(child)) {
+				return headingText(child.props.children);
+			}
+
+			return "";
+		})
+		.join("");
 }
 
 export default function MarkdownRenderer({
 	content,
 	className = "",
 }: MarkdownRendererProps) {
+	const nextHeadingId = createHeadingIdGenerator();
+
 	return (
 		<div className={`prose prose-lg max-w-none ${className}`}>
 			<ReactMarkdown
@@ -68,22 +80,52 @@ export default function MarkdownRenderer({
 						);
 					},
 					h2({ children }) {
+						const title = headingText(children);
+						const id = nextHeadingId(title);
+
 						return (
 							<h2
-								id={headingId(children)}
-								className="scroll-mt-28 mt-16 mb-5 font-serif text-[clamp(32px,5vw,48px)] leading-tight text-[#171512]"
+								id={id}
+								className="group scroll-mt-28 mt-16 mb-5 font-serif text-[clamp(32px,5vw,48px)] leading-tight text-[#171512]"
 							>
-								{children}
+								<a
+									href={`#${id}`}
+									aria-label={`Link to ${title}`}
+									className="text-inherit no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2563eb]"
+								>
+									{children}
+									<span
+										aria-hidden="true"
+										className="ml-2 align-middle font-mono text-[0.45em] text-[#8d451e] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100"
+									>
+										#
+									</span>
+								</a>
 							</h2>
 						);
 					},
 					h3({ children }) {
+						const title = headingText(children);
+						const id = nextHeadingId(title);
+
 						return (
 							<h3
-								id={headingId(children)}
-								className="scroll-mt-28 mt-10 mb-4 font-serif text-2xl text-[#171512]"
+								id={id}
+								className="group scroll-mt-28 mt-10 mb-4 font-serif text-2xl text-[#171512]"
 							>
-								{children}
+								<a
+									href={`#${id}`}
+									aria-label={`Link to ${title}`}
+									className="text-inherit no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2563eb]"
+								>
+									{children}
+									<span
+										aria-hidden="true"
+										className="ml-2 align-middle font-mono text-[0.55em] text-[#8d451e] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100"
+									>
+										#
+									</span>
+								</a>
 							</h3>
 						);
 					},

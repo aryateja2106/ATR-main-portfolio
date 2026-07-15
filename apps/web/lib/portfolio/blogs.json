@@ -10,7 +10,13 @@
 			"formattedDate": "July 11, 2026",
 			"readTime": "11 min read",
 			"category": "Implementation Guide",
-			"tags": ["MConnect", "AI Agents", "Mobile", "Local-first", "Cloudflare"],
+			"tags": [
+				"MConnect",
+				"AI Agents",
+				"Mobile",
+				"Local-first",
+				"Cloudflare"
+			],
 			"coverImage": "/blog-images/mconnect-demo.webp",
 			"author": {
 				"id": "1",
@@ -19,7 +25,10 @@
 				"bio": "Agentic Systems Founder",
 				"twitter": "@r_aryateja"
 			},
-			"relatedArticles": ["2", "3"],
+			"relatedArticles": [
+				"2",
+				"3"
+			],
 			"guide": {
 				"purpose": "Run a coding-agent terminal on your computer and supervise it from your phone.",
 				"audience": [
@@ -54,7 +63,12 @@
 			"formattedDate": "July 12, 2026",
 			"readTime": "3 min read",
 			"category": "Build Note",
-			"tags": ["LeSearch", "Agent Systems", "Research", "Local-first"],
+			"tags": [
+				"LeSearch",
+				"Agent Systems",
+				"Research",
+				"Local-first"
+			],
 			"coverImage": "/api/blog-cover/building-lesearch-from-papers-to-action",
 			"author": {
 				"id": "1",
@@ -63,7 +77,10 @@
 				"bio": "Agentic Systems Founder",
 				"twitter": "@r_aryateja"
 			},
-			"relatedArticles": ["1", "3"],
+			"relatedArticles": [
+				"1",
+				"3"
+			],
 			"content": "LeSearch started from a frustration I kept running into while learning and building: useful information was everywhere, but decisions were still manual.\n\nA paper lived in one folder. A coding-agent session lived in another app. Notes from an event were in my phone. The command that finally worked was buried in terminal history. Search could retrieve pieces, but it did not give me a reliable view of what mattered next.\n\nThat is the problem I am building toward with LeSearch.\n\n## Who this is for\n\nThis direction is useful for builders, researchers, and small teams working across several sources and several agents. It is especially relevant when the cost of losing context is higher than the cost of generating another answer.\n\nFor a nontechnical founder, the question is not \"which model should we use?\" It is simpler:\n\n- What information can the system read?\n- Which source supports this recommendation?\n- Which agent is doing the work?\n- What still needs a human decision?\n- Can the owner move the workflow without giving up control of the data?\n\n## The product lesson\n\nMy early instinct was to focus on research output: summaries, relationships between documents, and better ways to inspect a body of work.\n\nThe harder problem sits one level above that. A useful system has to connect research, agent sessions, approvals, and memory without turning them into one opaque black box.\n\nThe current LeSearch direction is therefore less about \"chat with a PDF\" and more about a control surface for work:\n\n```text\nsource material\n    -> bounded retrieval\n    -> source-backed context\n    -> agent work\n    -> visible approval\n    -> durable decision or artifact\n```\n\nEach arrow is a trust boundary. The user should be able to see what crossed it.\n\n## What I can stand behind\n\nThe public LeSearch work currently shows two honest lines of exploration:\n\n- A generative UI second-brain experiment built for an AI Tinkerers hackathon.\n- A broader agent-infrastructure direction around seeing and controlling agents across machines.\n\nThese are active build directions, not evidence of a finished platform or customer outcomes. I am publishing the system thinking because it is useful on its own, while keeping product maturity separate from the idea.\n\n## The next proof I want\n\nThe next convincing demo is small:\n\n1. Start two agent sessions on two machines.\n2. Show their state in one control surface.\n3. Attach a source-backed context packet to a task.\n4. Hold one sensitive action for approval.\n5. Approve or reject it from a phone.\n6. Save the result with its source and decision history.\n\nThat would prove more than a large feature list. It would show that context, control, and accountability can live in the same workflow.\n\n## Source and status\n\nLeSearch remains an active, early build. The main public codebase is organized under the [LeSearch AI GitHub organization](https://github.com/LeSearch-AI), and the current product direction is summarized on [LeSearch AI](https://lesearch.ai).\n\nI will keep updating this note as the product earns stronger proof through working demos, screenshots, and repeatable setup steps."
 		},
 		{
@@ -76,7 +93,12 @@
 			"formattedDate": "November 10, 2025",
 			"readTime": "3 min read",
 			"category": "Position",
-			"tags": ["Open Source", "AI Agents", "MCP", "Local-first"],
+			"tags": [
+				"Open Source",
+				"AI Agents",
+				"MCP",
+				"Local-first"
+			],
 			"coverImage": "/api/blog-cover/why-i-bet-on-open-source-agents",
 			"author": {
 				"id": "1",
@@ -85,7 +107,10 @@
 				"bio": "Agentic Systems Founder",
 				"twitter": "@r_aryateja"
 			},
-			"relatedArticles": ["1", "2"],
+			"relatedArticles": [
+				"1",
+				"2"
+			],
 			"content": "I keep returning to one requirement for agent systems: the owner should be able to change the model, inspect the tools, control the data, and decide which actions need approval.\n\nThat does not require every component to be open source. It does require the system to avoid making one vendor the permanent owner of the workflow.\n\n## Why this matters\n\nAn agent becomes useful when it can act across tools. It reads files, queries data, opens a browser, calls an API, or runs a command. Every new capability increases both the value and the blast radius.\n\nIf those connections are hidden inside one product, the team inherits three problems:\n\n- It is difficult to inspect what the agent can do.\n- Replacing the model may require rebuilding every integration.\n- Moving sensitive work local can become impossible without changing the whole system.\n\nOpen protocols and inspectable tools do not solve security automatically. They make the boundaries visible enough to review.\n\n## The architecture I prefer\n\n```text\nmodel\n  -> explicit tool contract\n  -> policy and approval layer\n  -> local or remote execution\n  -> visible result and audit trail\n```\n\nThe model can change. The tool contract should stay understandable. The execution environment should hold the credentials, not the prompt. High-risk actions should stop for a human.\n\nThis is why I am interested in protocols such as [MCP](https://modelcontextprotocol.io/) and browser work such as [WebMCP](https://github.com/webmachinelearning/webmcp). They create shared ways to describe tools without forcing every agent and every website into one closed integration path.\n\n## What openness gives me\n\n### Inspection\n\nI can read the code or at least inspect the request and response contract before giving an agent access to a machine or business system.\n\n### Replaceability\n\nI can move from a hosted model to a local model, or from one coding agent to another, without discarding the surrounding workflow.\n\n### Local control\n\nThe repository, credentials, memory, and logs can stay on hardware the owner controls. External models can still be used deliberately when the data boundary permits it.\n\n### Smaller experiments\n\nOpen components make it easier to test one layer at a time. I can replace the tunnel, memory store, model, or agent without pretending the entire stack must be rebuilt.\n\n## The tradeoffs\n\nOpen systems shift responsibility to the operator. Someone still has to patch dependencies, scope credentials, review licenses, monitor exposure, and decide what gets logged.\n\nThe right promise is not \"open means safe.\" The right promise is \"open gives us enough visibility and control to build a safer workflow.\"\n\nThat is also why I prefer narrow tools over giant agent platforms. A small secret broker, a clear remote-control bridge, or a local memory layer is easier to reason about than a system that owns every part of the work.\n\n## What I am building around this position\n\nMy current projects explore this idea from different angles:\n\n- [LeCoder MConnect](https://github.com/aryateja2106/lecoder-mconnect) keeps coding-agent sessions on the host machine and adds mobile supervision.\n- [lockshell](https://github.com/aryateja2106/lockshell) explores resolving credentials locally instead of exposing them to the model.\n- [LeSearch](https://lesearch.ai) is moving toward a control surface for context, agents, and approvals across machines.\n\nEach project is still responsible for proving its own security and usefulness. The shared position is simpler: business owners should not have to surrender control of their systems to gain the benefits of agents."
 		},
 		{

@@ -81,6 +81,17 @@ export function createPortfolioTools({
 						status: "Open source",
 					},
 				],
+				workingStack: {
+					build: ["TypeScript", "React", "Next.js", "Node.js", "Python"],
+					agents: ["Codex", "Claude Code", "MCP", "WebMCP", "Playwright"],
+					dataAndInfra: [
+						"PostgreSQL",
+						"Drizzle ORM",
+						"SQLite",
+						"Docker",
+						"Vercel",
+					],
+				},
 				contact: {
 					email: "aryateja2106@gmail.com",
 					prompt:
@@ -166,13 +177,13 @@ export function createPortfolioTools({
 		{
 			name: "navigate_portfolio",
 			description:
-				"Navigate the visible portfolio tab to Arya's work, experience, writing, or contact section. This does not submit forms or contact Arya automatically.",
+				"Navigate the visible portfolio tab to Arya's work, experience, working stack, writing, or contact section. This does not submit forms or contact Arya automatically.",
 			inputSchema: {
 				type: "object",
 				properties: {
 					destination: {
 						type: "string",
-						enum: ["work", "experience", "writing", "contact"],
+						enum: ["work", "experience", "stack", "writing", "contact"],
 					},
 				},
 				required: ["destination"],
@@ -182,6 +193,7 @@ export function createPortfolioTools({
 				const destinations = {
 					work: "/#work",
 					experience: "/#experience",
+					stack: "/#stack",
 					writing: "/blog",
 					contact: "/#contact",
 				} as const;

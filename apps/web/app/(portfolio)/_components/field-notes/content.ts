@@ -4,6 +4,7 @@
 export const nav = [
 	{ label: "Work", href: "/#work" },
 	{ label: "Experience", href: "/#experience" },
+	{ label: "Stack", href: "/#stack" },
 	{ label: "About", href: "/#about" },
 	{ label: "Writing", href: "/blog" },
 	{ label: "Contact", href: "/#contact" },
@@ -11,7 +12,7 @@ export const nav = [
 
 export const hero = {
 	kicker: "Arya Teja Rudraraju · Applied AI · forward-deployed delivery",
-	headline: ["Ambiguity in.", "Working agents out."],
+	headline: ["Arya Teja Rudraraju", "Agent systems", "that earn trust."],
 	lede: "I turn ambiguous workflows into agentic POCs, MVPs, and reliable tools by combining stakeholder discovery, hands-on implementation, and practical deployment.",
 	availability:
 		"Based in India · previously in the United States · open to remote Applied AI and Forward Deployed Engineering roles",
@@ -112,7 +113,7 @@ export const writing = {
 };
 
 export const agents = {
-	title: "One practice. Four ways I ship.",
+	title: "Current work",
 	tag: "Products, services, open source",
 	items: [
 		{
@@ -148,7 +149,7 @@ export const agents = {
 
 export const experience = {
 	tag: "Experience and fit",
-	title: "The work compounds.",
+	title: "Applied AI, from ambiguity to deployment.",
 	note: "I work across problem framing, prototypes, system design, evaluation, and practical handoff.",
 	items: [
 		{
@@ -175,6 +176,39 @@ export const experience = {
 			detail:
 				"Business and marketing foundations that still shape how I discover needs, communicate value, and ship useful systems.",
 		},
+	],
+};
+
+export const stack = {
+	tag: "Tools I reach for",
+	title: "A working stack, not a trophy shelf.",
+	note: "The tool changes when the constraint changes. These are the technologies I currently use to prototype, evaluate, deploy, and supervise agent systems.",
+	categories: [
+		{
+			name: "Build systems",
+			detail: "Product surfaces and service layers",
+			items: ["TypeScript", "React", "Next.js", "Node.js", "Python"],
+		},
+		{
+			name: "Agent work",
+			detail: "Implementation, evaluation, and browser control",
+			items: ["Codex", "Claude Code", "MCP", "WebMCP", "Playwright"],
+		},
+		{
+			name: "Data and infra",
+			detail: "State, deployment, and local execution",
+			items: ["PostgreSQL", "Drizzle ORM", "SQLite", "Docker", "Vercel"],
+		},
+		{
+			name: "Operating tools",
+			detail: "The daily environment around the work",
+			items: ["GitHub", "Bun", "Linux", "LM Studio", "Cloudflare Tunnel"],
+		},
+	],
+	principles: [
+		"Local-first when the data boundary matters",
+		"Inspectable tools before opaque automation",
+		"Browser and workflow tests before handoff",
 	],
 };
 

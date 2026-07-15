@@ -1,273 +1,86 @@
-# Architecture Documentation
+# Application architecture
 
-## System Overview
+## Scope
 
-The AI Chatbot is built on a modern web architecture using Next.js with the App Router pattern. It leverages Azure OpenAI services for AI capabilities and PostgreSQL for data persistence. The application follows a component-based architecture with server-side rendering and client-side interactivity.
+This repository contains two intentionally separated products in one Next.js app:
 
-```mermaid
-flowchart TD
-    Client["Client Browser"]
-    NextServer["Next.js Server"]
-    ReactUI["React UI Components"]
-    ServerActions["Server Actions"]
-    APIRoutes["API Routes"]
-    PostgreSQL["PostgreSQL Database\n(Supabase)"]
-    AzureOpenAI["Azure OpenAI Services"]
-    
-    Client <--> NextServer
-    NextServer --- ReactUI
-    NextServer --- ServerActions
-    NextServer --- APIRoutes
-    ServerActions <--> PostgreSQL
-    ServerActions <--> AzureOpenAI
-    APIRoutes <--> PostgreSQL
-    APIRoutes <--> AzureOpenAI
+1. The public portfolio and field journal.
+2. A retained authenticated AI chat and artifact workspace.
+
+The portfolio is the primary product. The chat subsystem remains functional and protected, but it is not part of the public navigation or portfolio design language.
+
+## Repository map
+
+```text
+apps/web/
+  app/
+    (portfolio)/          public portfolio, blog, and WebMCP context
+    (chat)/               authenticated chat UI and chat APIs
+    (auth)/               login, registration, and Auth.js endpoint
+    api/blog-cover/       generated fallback blog cover images
+  components/             shared UI and retained chat components
+  lib/
+    portfolio/            synchronized public blog data and heading helpers
+    ai/                   retained model, prompt, and tool integration
+    db/                   retained Drizzle schema, queries, and migrations
+  public/                 real portfolio media and discovery files
+  scripts/                content synchronization and production utilities
 ```
 
-## Core Components
+## Public route flow
 
-### 1. Frontend Architecture
+```text
+field-notes/content.ts
+        |
+        +--> homepage server components
+        +--> JSON-LD and WebMCP portfolio context
+        +--> content contract tests
 
-The frontend is built with React and Next.js, utilizing the App Router pattern for routing and navigation.
-
-#### Key Components:
-
-- **Chat Interface**: Handles user input and displays AI responses
-- **Model Selector**: Allows users to choose different AI models
-- **Multimodal Input**: Supports text, file uploads, and other input types
-- **Artifact Display**: Renders various types of AI-generated content
-
-#### UI Framework:
-
-- **Styling**: Tailwind CSS for utility-first styling
-- **Components**: Radix UI primitives with shadcn/ui for accessible components
-- **State Management**: React hooks and SWR for data fetching and caching
-
-### 2. Backend Architecture
-
-The backend is implemented using Next.js API routes and Server Actions.
-
-#### Key Components:
-
-- **API Routes**: Handle HTTP requests for chat, history, and other features
-- **Server Actions**: Process form submissions and perform server-side operations
-- **Authentication**: Auth.js for user authentication and session management
-- **Database Access**: Drizzle ORM for type-safe database operations
-
-### 3. AI Integration
-
-The application integrates with Azure OpenAI services for various AI capabilities.
-
-#### Key Components:
-
-- **AI Provider**: Custom provider configuration for Azure OpenAI
-- **Model Management**: Support for multiple model types and configurations
-- **Streaming**: Real-time streaming of AI responses with smooth rendering
-- **Tool Integration**: Framework for AI to use external tools (weather, document creation, etc.)
-
-### 4. Database Architecture
-
-The application uses PostgreSQL (via Supabase) for data persistence.
-
-#### Key Components:
-
-- **Schema**: Defined using Drizzle ORM with migrations
-- **Tables**: Users, Chats, Messages, Artifacts, etc.
-- **Migrations**: Automated schema updates and versioning
-- **Queries**: Optimized database access patterns
-
-## Data Flow
-
-### 1. Chat Interaction Flow
-
-```mermaid
-sequenceDiagram
-    participant Client
-    participant Server
-    participant AI as Azure OpenAI
-    participant DB as Database
-    
-    Client->>Server: Send message
-    Server->>AI: Forward request
-    AI->>AI: Generate response
-    AI-->>Server: Stream response
-    Server-->>Client: Stream to client
-    Server->>DB: Save messages
+content source
+        |
+        +--> scripts/sync-blog-content.mjs
+        +--> lib/portfolio/blogs.json
+        +--> /blog and /blog/[slug]
 ```
 
-### 2. Authentication Flow
+`field-notes/content.ts` is the source of truth for homepage claims and navigation. Shared claims should be imported from it instead of repeated in client components.
 
-```mermaid
-sequenceDiagram
-    participant Client
-    participant Auth as Auth.js
-    participant DB as Database
-    
-    Client->>Auth: Submit credentials
-    Auth->>DB: Validate credentials
-    DB-->>Auth: Return user data
-    Auth->>Auth: Create session
-    Auth-->>Client: Return session token
-```
+`blogs.json` is generated data. The synchronization script validates and normalizes source material before public pages consume it. Heading IDs are generated by one shared helper so the renderer and contents navigation cannot drift.
 
-### 3. Artifact Generation Flow
+## Rendering boundaries
 
-```mermaid
-sequenceDiagram
-    participant Client
-    participant Server
-    participant AI as Azure OpenAI
-    participant Storage as Blob Storage
-    
-    Client->>Server: Request artifact
-    Server->>AI: Generate request
-    AI-->>Server: Return artifact
-    Server->>Storage: Store artifact
-    Server->>DB: Save reference
-    Server-->>Client: Display artifact
-```
+- Homepage sections, blog lists, and articles are server components by default.
+- The navigation is a small client component only because it closes the native mobile disclosure after selection.
+- WebMCP registration is progressive enhancement. Unsupported browsers still receive the complete semantic site and `llms.txt` context.
+- Chat-only `react-data-grid` styles are imported inside the chat route group rather than the root layout.
 
-## Technology Stack
+## Agent discovery
 
-### Frontend
-- **Framework**: Next.js 15+
-- **UI Library**: React 19+
-- **Styling**: Tailwind CSS
-- **Data Fetching**: SWR
-- **Components**: Radix UI / shadcn/ui
+Software agents can use:
 
-### Backend
-- **Runtime**: Node.js
-- **Framework**: Next.js App Router
-- **Authentication**: Auth.js (NextAuth)
-- **API**: REST endpoints
+- semantic HTML and metadata on public pages;
+- `BlogPosting` JSON-LD on article routes;
+- `sitemap.xml`, `robots.txt`, and `llms.txt`;
+- bounded WebMCP tools for reading context, finding articles, opening an article visibly, and navigating the portfolio visibly.
 
-### Database
-- **Primary Database**: PostgreSQL (Supabase)
-- **ORM**: Drizzle ORM
-- **File Storage**: Vercel Blob
+WebMCP tools must not send email, submit forms, schedule calls, expose credentials, or perform hidden background actions.
 
-### AI Services
-- **Provider**: Azure OpenAI
-- **Models**:
-  - GPT-4o (chat)
-  - GPT-4o Mini (reasoning)
-  - DALL-E 3 (image generation)
+## Retained chat subsystem
 
-### DevOps
-- **Hosting**: Vercel
-- **Environment**: Node.js
-- **Package Manager**: pnpm
+The chat routes use Auth.js, PostgreSQL through Drizzle, AI SDK providers, artifacts, uploads, and route-specific components. The proxy protects only `/chat`, `/login`, and `/register` so public portfolio requests do not pay an authentication cost.
 
-## Code Organization
+Treat this subsystem as a separate product boundary. Cleanup inside `(portfolio)` must not delete chat components, database code, API handlers, or dependencies just because the portfolio does not import them.
 
-The application follows a modular structure organized by feature and function:
+## Verification
 
-```
-/
-├── app/                    # Next.js App Router
-│   ├── (auth)/             # Authentication routes and components
-│   ├── (chat)/             # Chat interface routes and API
-│   │   ├── api/            # API routes for chat functionality
-│   │   ├── chat/           # Chat UI pages
-│   ├── (portfolio)/        # Portfolio section
-├── components/             # Shared React components
-│   ├── ui/                 # UI primitives and base components
-├── lib/                    # Shared utilities and business logic
-│   ├── ai/                 # AI integration and providers
-│   │   ├── tools/          # Tool implementations for AI
-│   ├── db/                 # Database schema and queries
-│   │   ├── migrations/     # Database migrations
-├── public/                 # Static assets
-├── artifacts/              # Generated content storage
-```
+Before merging a portfolio change:
 
-## Security Architecture
+1. Run the content synchronization tests and portfolio contract tests.
+2. Run TypeScript and Biome checks.
+3. Build the application when required services are available.
+4. Inspect `/`, `/blog`, and one `/blog/[slug]` route at desktop and 390-pixel mobile widths.
+5. Confirm mobile navigation, focus states, heading anchors, page overflow, images, metadata, and failed requests.
 
-### Authentication
-- JWT-based authentication using Auth.js
-- Secure session management
-- CSRF protection
+## Cleanup boundary
 
-### Data Protection
-- Input validation and sanitization
-- Parameterized queries to prevent SQL injection
-- Content security policies
-
-### API Security
-- Rate limiting
-- API key protection
-- Request validation
-
-## Scalability Considerations
-
-### Performance Optimization
-- Edge caching for static content
-- Optimistic UI updates
-- Incremental Static Regeneration where applicable
-
-### Database Scaling
-- Connection pooling
-- Indexed queries
-- Efficient schema design
-
-### AI Service Scaling
-- Request throttling
-- Fallback mechanisms
-- Caching of common responses
-
-## Deployment Architecture
-
-The application is designed to be deployed on Vercel's platform:
-
-```mermaid
-flowchart TD
-    subgraph Vercel["Vercel Platform"]
-        Edge["Edge Network"]
-        Serverless["Serverless Functions"]
-        Blob["Vercel Blob"]
-    end
-    
-    PostgreSQL["PostgreSQL Database\n(Supabase)"]
-    AzureOpenAI["Azure OpenAI Services"]
-    
-    Edge <--> Serverless
-    Serverless <--> Blob
-    Serverless <--> PostgreSQL
-    Serverless <--> AzureOpenAI
-```
-
-1. Static assets and UI components are served from the Edge Network
-2. API routes and Server Actions run as Serverless Functions
-3. Generated artifacts are stored in Vercel Blob
-4. Database operations connect to PostgreSQL
-5. AI requests are forwarded to Azure OpenAI
-
-## Integration Points
-
-### External Services
-- Azure OpenAI API for AI capabilities
-- Supabase for PostgreSQL database
-- Vercel Blob for file storage
-
-### Internal APIs
-- Chat API for conversation management
-- History API for retrieving past conversations
-- Document API for artifact management
-- Suggestions API for content recommendations
-- Weather API for weather information
-
-## Future Architecture Considerations
-
-### Microservices Evolution
-- Potential to split into specialized services
-- Dedicated artifact generation service
-- Separate authentication service
-
-### Advanced Caching
-- Redis integration for session and response caching
-- CDN integration for static assets
-
-### Real-time Features
-- WebSocket integration for real-time collaboration
-- Pub/Sub architecture for notifications
+Delete a file only after confirming it is not imported by production code, tests, content scripts, or the retained chat/auth subsystem. Prefer removing an abandoned component family over leaving several competing redesigns beside the live one. Keep generated output, screenshots, experiments, and temporary research out of production source folders.

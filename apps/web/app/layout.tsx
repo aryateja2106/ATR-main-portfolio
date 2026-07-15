@@ -6,7 +6,6 @@ import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import "./globals.css";
-import "react-data-grid/lib/styles.css";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://aryateja.com"),

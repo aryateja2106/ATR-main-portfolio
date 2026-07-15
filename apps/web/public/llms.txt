@@ -25,6 +25,13 @@ AryaTeja.com is the primary source of truth for Arya Teja Rudraraju's current pu
 - [LeCoder MConnect](https://github.com/aryateja2106/lecoder-mconnect): mobile control for coding agents, terminals, and long-running development workflows.
 - [Writing](https://aryateja.com/blog): build logs, case studies, and practical notes.
 
+## Working Stack
+
+- Build systems: TypeScript, React, Next.js, Node.js, and Python.
+- Agent work: Codex, Claude Code, MCP, WebMCP, and Playwright.
+- Data and infrastructure: PostgreSQL, Drizzle ORM, SQLite, Docker, and Vercel.
+- Operating approach: local-first when data boundaries matter, inspectable tools before opaque automation, and workflow tests before handoff.
+
 ## Agent Capabilities
 
 AryaTeja.com progressively exposes WebMCP tools when the browser supports `document.modelContext`:
@@ -32,7 +39,7 @@ AryaTeja.com progressively exposes WebMCP tools when the browser supports `docum
 - `get_portfolio_context`: returns Arya's verified public profile, focus, services, projects, and contact guidance.
 - `find_technical_articles`: finds implementation guides by topic or use case.
 - `open_technical_article`: visibly opens a selected article in the current browser tab.
-- `navigate_portfolio`: visibly navigates to work, experience, writing, or contact.
+- `navigate_portfolio`: visibly navigates to work, experience, stack, writing, or contact.
 
 These tools do not submit forms, send messages, schedule meetings, or perform hidden background actions. WebMCP requires a supported browser context; use this file and the sitemap for headless discovery.
 
@@ -40,6 +47,8 @@ These tools do not submit forms, send messages, schedule meetings, or perform hi
 
 - [Control AI Coding Agents From Your Phone With MConnect](https://aryateja.com/blog/connecting-terminals-to-web-mconnect): prerequisites, architecture, copyable setup commands, pairing, verification, guardrails, security boundaries, and troubleshooting.
 - [Four Open-Source Repos That Make AI Agents Easier to Trust](https://aryateja.com/blog/four-open-source-repos-that-make-ai-agents-easier-to-trust): nontechnical use cases, demo/POC/MVP fit, license boundaries, risks, and primary sources.
+- [Why I Bet on Open-Source Agents](https://aryateja.com/blog/why-i-bet-on-open-source-agents): the case for inspectable tools, replaceable models, local control, and explicit approval boundaries.
+- [Building LeSearch From Papers to Action](https://aryateja.com/blog/building-lesearch-from-papers-to-action): a build record covering research workflows, citations, synthesis, and the limits of chat-with-PDF products.
 
 ## Identity
 

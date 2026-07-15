@@ -51,7 +51,7 @@ export function Journey() {
 			<div className="mx-auto max-w-6xl px-5 md:px-8">
 				<div className="grid gap-8 md:grid-cols-[1fr_0.7fr] md:items-end">
 					<div>
-						<span className="inline-flex rounded-full border-2 border-white bg-[#b8ef36] px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[#171717]">
+						<span className="inline-flex rounded-full border border-white/70 bg-[#cfdcff] px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[#171717]">
 							{journey.tag}
 						</span>
 						<h2 className="mt-5 font-sans text-[clamp(48px,8vw,100px)] font-semibold leading-[0.88] tracking-[-0.065em]">
@@ -62,7 +62,7 @@ export function Journey() {
 						<svg
 							aria-hidden="true"
 							viewBox="0 0 420 100"
-							className="mb-2 h-auto w-full text-[#b8ef36]"
+							className="mb-2 h-auto w-full text-[#93adff]"
 						>
 							<path
 								d="M8 32C96 2 141 83 226 48c61-25 105-24 170 18"
@@ -91,7 +91,7 @@ export function Journey() {
 						alt={journey.feature.alt}
 						caption={journey.feature.caption}
 						aspectClass="aspect-[3/4]"
-						shadowClass="shadow-[7px_7px_0_#2563eb]"
+						shadowClass="shadow-[7px_7px_0_#4968bd]"
 						className="md:col-start-1 md:row-span-2"
 					/>
 					<PhotoCard
@@ -99,7 +99,7 @@ export function Journey() {
 						alt={journey.photos[0].alt}
 						caption={journey.photos[0].caption}
 						aspectClass="aspect-[3/2]"
-						shadowClass="shadow-[7px_7px_0_#ff654f]"
+						shadowClass="shadow-[7px_7px_0_#7c5b49]"
 						className="md:col-start-2 md:row-start-1"
 					/>
 					<PhotoCard
@@ -107,7 +107,7 @@ export function Journey() {
 						alt={journey.photos[1].alt}
 						caption={journey.photos[1].caption}
 						aspectClass="aspect-[3/2]"
-						shadowClass="shadow-[7px_7px_0_#b8ef36]"
+						shadowClass="shadow-[7px_7px_0_#4968bd]"
 						className="md:col-start-3 md:row-start-1 md:translate-y-8"
 					/>
 					<PhotoCard
@@ -115,7 +115,7 @@ export function Journey() {
 						alt={journey.photos[2].alt}
 						caption={journey.photos[2].caption}
 						aspectClass="aspect-[4/5] md:aspect-[3/2]"
-						shadowClass="shadow-[7px_7px_0_#cdb6ff]"
+						shadowClass="shadow-[7px_7px_0_#7c5b49]"
 						objectPosition={journey.photos[2].objectPosition}
 						className="md:col-start-2 md:row-start-2"
 					/>
@@ -124,7 +124,7 @@ export function Journey() {
 						alt={journey.photos[3].alt}
 						caption={journey.photos[3].caption}
 						aspectClass="aspect-[3/2]"
-						shadowClass="shadow-[7px_7px_0_#f8e36e]"
+						shadowClass="shadow-[7px_7px_0_#4968bd]"
 						className="md:col-start-3 md:row-start-2 md:translate-y-8"
 					/>
 					<PhotoCard
@@ -132,7 +132,7 @@ export function Journey() {
 						alt={journey.photos[4].alt}
 						caption={journey.photos[4].caption}
 						aspectClass="aspect-[3/2]"
-						shadowClass="shadow-[7px_7px_0_#2563eb]"
+						shadowClass="shadow-[7px_7px_0_#7c5b49]"
 						sizes="(max-width: 768px) 100vw, 100vw"
 						className="mt-1 md:col-span-3 md:col-start-1 md:row-start-3 md:mt-10"
 					/>
