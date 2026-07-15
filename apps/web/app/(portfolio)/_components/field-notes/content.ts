@@ -4,6 +4,7 @@
 export const nav = [
 	{ label: "Work", href: "/#work" },
 	{ label: "Experience", href: "/#experience" },
+	{ label: "About", href: "/#about" },
 	{ label: "Writing", href: "/blog" },
 	{ label: "Contact", href: "/#contact" },
 ];
