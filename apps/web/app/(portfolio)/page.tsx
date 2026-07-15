@@ -7,10 +7,10 @@ import { Writing } from "./_components/field-notes/Writing";
 
 export default function Page() {
 	return (
-		<div className="min-h-screen bg-[#12110f] text-[#f7f2e8]">
+		<div className="min-h-screen bg-[#fbfaf7] text-[#171717] [color-scheme:light]">
 			<a
 				href="#main-content"
-				className="sr-only z-[60] bg-[#f7f2e8] px-4 py-3 text-[#12110f] focus:not-sr-only focus:fixed focus:left-3 focus:top-3"
+				className="sr-only z-[60] bg-[#2563eb] px-4 py-3 text-white focus:not-sr-only focus:fixed focus:left-3 focus:top-3"
 			>
 				Skip to content
 			</a>

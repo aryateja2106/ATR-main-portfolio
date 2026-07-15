@@ -10,8 +10,8 @@ export const nav = [
 ];
 
 export const hero = {
-	kicker: "Applied AI · agent systems · forward-deployed delivery",
-	headline: ["Arya Teja Rudraraju", "Agent systems", "that earn trust."],
+	kicker: "Arya Teja Rudraraju · Applied AI · forward-deployed delivery",
+	headline: ["Ambiguity in.", "Working agents out."],
 	lede: "I turn ambiguous workflows into agentic POCs, MVPs, and reliable tools by combining stakeholder discovery, hands-on implementation, and practical deployment.",
 	availability:
 		"Based in India · previously in the United States · open to remote Applied AI and Forward Deployed Engineering roles",
@@ -112,7 +112,7 @@ export const writing = {
 };
 
 export const agents = {
-	title: "Current work",
+	title: "One practice. Four ways I ship.",
 	tag: "Products, services, open source",
 	items: [
 		{
@@ -148,7 +148,7 @@ export const agents = {
 
 export const experience = {
 	tag: "Experience and fit",
-	title: "Applied AI, from ambiguity to deployment.",
+	title: "The work compounds.",
 	note: "I work across problem framing, prototypes, system design, evaluation, and practical handoff.",
 	items: [
 		{
