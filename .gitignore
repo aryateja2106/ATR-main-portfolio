@@ -31,6 +31,7 @@ yarn-error.log*
 
 # turbo
 .turbo
+.content-output/
 
 .env
 .vercel

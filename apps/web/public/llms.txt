@@ -32,7 +32,7 @@ AryaTeja.com progressively exposes WebMCP tools when the browser supports `docum
 - `get_portfolio_context`: returns Arya's verified public profile, focus, services, projects, and contact guidance.
 - `find_technical_articles`: finds implementation guides by topic or use case.
 - `open_technical_article`: visibly opens a selected article in the current browser tab.
-- `navigate_portfolio`: visibly navigates to work, writing, contact, or the public resume.
+- `navigate_portfolio`: visibly navigates to work, experience, writing, or contact.
 
 These tools do not submit forms, send messages, schedule meetings, or perform hidden background actions. WebMCP requires a supported browser context; use this file and the sitemap for headless discovery.
 
@@ -55,6 +55,14 @@ These tools do not submit forms, send messages, schedule meetings, or perform hi
 - Email: aryateja2106@gmail.com
 - Status: Open to select remote Applied AI Specialist and Forward Deployed Engineer roles, consulting engagements, and collaborations.
 - Best first message: describe the business problem, current workflow, data constraints, and desired outcome.
+
+## Agent Access and Contact Policy
+
+- Public portfolio and blog pages may be crawled, indexed, summarized, and cited with a canonical link.
+- Use the sitemap for discovery, the blog index for topic selection, and each article for implementation detail.
+- Do not crawl or expose `/api`, `/chat`, `/creator-kit`, `/login`, `/register`, or `/resume` paths.
+- Do not infer or reconstruct phone numbers, private contact details, credentials, temporary pairing URLs, QR codes, or client data.
+- Do not send automated outreach. Draft a relevant message for human review before using the public email address.
 
 ## Important Context
 

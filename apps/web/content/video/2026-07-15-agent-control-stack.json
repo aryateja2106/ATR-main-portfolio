@@ -1,0 +1,34 @@
+{
+	"id": "agent-control-stack",
+	"articleUrl": "https://aryateja.com/blog/four-open-source-repos-that-make-ai-agents-easier-to-trust",
+	"modelId": "eleven_multilingual_v2",
+	"renderer": "hyperframes",
+	"format": "vertical-1080x1920",
+	"scenes": [
+		{
+			"id": "hook",
+			"text": "Most AI agent failures start before the model writes code. The goal is vague, context disappears, web research gets noisy, and the agent reviews its own work.",
+			"visual": "Four failure labels enter one at a time around a simple agent workflow."
+		},
+		{
+			"id": "controls",
+			"text": "Instead of another giant platform, add one control where the workflow is already failing: ProductSpec for intent, ContextVC for memory, ax for smaller web inputs, or Cloudflare's audit skill for a structured second review.",
+			"visual": "Map each repository to intent, context, input, or verification."
+		},
+		{
+			"id": "use-case",
+			"text": "For a small POC, start with the document or review pattern before installing the entire tool. Keep the business owner responsible for scope, evidence, and approval.",
+			"visual": "Show a lightweight POC path: document, agent work, human approval."
+		},
+		{
+			"id": "boundary",
+			"text": "Three projects use MIT licenses. ContextVC uses Apache 2.0. Recheck the exact license and preserve required notices before distributing modified code. This is not legal advice.",
+			"visual": "Show a compact license table with a recheck reminder."
+		},
+		{
+			"id": "close",
+			"text": "The useful idea is not a four-tool stack. It is four visible controls: intent, context, input, and verification. Read the full source-backed field note on aryateja.com.",
+			"visual": "Resolve the four controls into the article title and canonical URL."
+		}
+	]
+}

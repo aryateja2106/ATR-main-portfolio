@@ -30,6 +30,22 @@ export interface BlogPost {
 		prerequisites: string[];
 		verifiedAt: string;
 	};
+	executiveSummary?: string;
+	agentNavigation?: {
+		useFor: string[];
+		startAt: string;
+	};
+	sourceLicenses?: Array<{
+		source: string;
+		license: string;
+		licenseUrl?: string;
+		verifiedAt?: string;
+	}>;
+	reuse?: {
+		editorial?: string;
+		code?: string;
+		approval?: string;
+	};
 }
 
 export interface Category {

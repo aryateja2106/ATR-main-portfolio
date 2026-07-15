@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /chat
+Disallow: /creator-kit
+Disallow: /login
+Disallow: /register
+Disallow: /resume
 
 Sitemap: https://aryateja.com/sitemap.xml

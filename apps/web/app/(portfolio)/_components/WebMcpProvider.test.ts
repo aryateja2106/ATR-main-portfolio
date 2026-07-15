@@ -12,6 +12,13 @@ test("portfolio tools expose context, search articles, and validate navigation",
 				description: "Control coding agents from a phone",
 				category: "Implementation Guide",
 				tags: ["Mobile", "Agents"],
+				executiveSummary: "A founder-friendly mobile supervision guide.",
+				agentNavigation: {
+					useFor: ["Supervising long-running agents"],
+					startAt: "Practical use cases",
+				},
+				sourceLicenses: [{ source: "MConnect", license: "MIT" }],
+				reuse: { editorial: "Cite the canonical article." },
 			},
 		],
 		currentPath: "/blog",
@@ -30,7 +37,12 @@ test("portfolio tools expose context, search articles, and validate navigation",
 
 	const find = tools.find((tool) => tool.name === "find_technical_articles");
 	const open = tools.find((tool) => tool.name === "open_technical_article");
-	assert.ok(find && open);
+	const context = tools.find((tool) => tool.name === "get_portfolio_context");
+	assert.ok(context && find && open);
+	const portfolio = (await context.execute({})) as {
+		contact: { policy: string };
+	};
+	assert.match(portfolio.contact.policy, /human review/i);
 	assert.deepEqual(await find.execute({ query: "mobile" }), [
 		{
 			slug: "mconnect-guide",
@@ -38,9 +50,20 @@ test("portfolio tools expose context, search articles, and validate navigation",
 			description: "Control coding agents from a phone",
 			category: "Implementation Guide",
 			tags: ["Mobile", "Agents"],
+			executiveSummary: "A founder-friendly mobile supervision guide.",
+			agentNavigation: {
+				useFor: ["Supervising long-running agents"],
+				startAt: "Practical use cases",
+			},
+			sourceLicenses: [{ source: "MConnect", license: "MIT" }],
+			reuse: { editorial: "Cite the canonical article." },
 			path: "/blog/mconnect-guide",
 		},
 	]);
+	assert.equal(
+		((await find.execute({ query: "supervising" })) as unknown[]).length,
+		1,
+	);
 	assert.deepEqual(await open.execute({ slug: "unknown" }), {
 		error: "Unknown article slug. Call find_technical_articles first.",
 	});

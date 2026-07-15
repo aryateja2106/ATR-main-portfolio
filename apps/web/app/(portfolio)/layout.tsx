@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import type { ReactNode } from "react";
 import blogData from "@/lib/portfolio/blogs.json";
+import type { BlogPost } from "@/lib/types";
 import { WebMcpProvider } from "./_components/WebMcpProvider";
 
 export const metadata: Metadata = {
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
 		emails: ["aryateja2106@gmail.com"],
 		images: [
 			{
-				url: "/aryateja-og.jpg",
+				url: "/aryateja-og.webp",
 				width: 1200,
 				height: 630,
 				alt: "Arya Teja Rudraraju at YC Robo in Hong Kong",
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
 		description:
 			"Applied AI delivery, practical agent systems, POCs, MVPs, testing automation, and multi-machine orchestration.",
 		card: "summary_large_image",
-		images: ["/aryateja-og.jpg"],
+		images: ["/aryateja-og.webp"],
 		creator: "@r_aryateja",
 	},
 };
@@ -90,7 +91,7 @@ const jsonLd = {
 		"@id": "https://aryateja.com/#person",
 		name: "Arya Teja Rudraraju",
 		url: "https://aryateja.com",
-		image: "https://aryateja.com/real-images/yc-robo-hk-solo.jpeg",
+		image: "https://aryateja.com/real-images/yc-robo-hk-solo.webp",
 		jobTitle: "Applied AI Specialist and Agent Systems Builder",
 		description:
 			"Applied AI specialist and forward deployed engineer building practical agent systems, POCs, MVPs, testing automation, and multi-machine orchestration.",
@@ -125,13 +126,27 @@ const jsonLd = {
 
 export default function Layout({ children }: { children: ReactNode }) {
 	const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-8ELMHNMBW2";
-	const articles = blogData.blogPosts.map(
-		({ slug, title, description, category, tags }) => ({
+	const articles = (blogData.blogPosts as BlogPost[]).map(
+		({
 			slug,
 			title,
 			description,
 			category,
 			tags,
+			executiveSummary,
+			agentNavigation,
+			sourceLicenses,
+			reuse,
+		}) => ({
+			slug,
+			title,
+			description,
+			category,
+			tags,
+			executiveSummary,
+			agentNavigation,
+			sourceLicenses,
+			reuse,
 		}),
 	);
 

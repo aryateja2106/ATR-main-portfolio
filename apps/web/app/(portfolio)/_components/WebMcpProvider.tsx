@@ -1,14 +1,20 @@
 "use client";
 
 import { useEffect } from "react";
+import type { BlogPost } from "@/lib/types";
 
-export type ArticleSummary = {
-	slug: string;
-	title: string;
-	description: string;
-	category: string;
-	tags: string[];
-};
+export type ArticleSummary = Pick<
+	BlogPost,
+	| "slug"
+	| "title"
+	| "description"
+	| "category"
+	| "tags"
+	| "executiveSummary"
+	| "agentNavigation"
+	| "sourceLicenses"
+	| "reuse"
+>;
 
 export type WebMcpTool = {
 	name: string;
@@ -79,6 +85,8 @@ export function createPortfolioTools({
 					email: "aryateja2106@gmail.com",
 					prompt:
 						"Describe the business problem, current workflow, data constraints, and desired outcome.",
+					policy:
+						"Draft relevant outreach for human review. Do not send automated messages or infer private contact details.",
 				},
 				currentPage: currentPath,
 			}),
@@ -86,7 +94,7 @@ export function createPortfolioTools({
 		{
 			name: "find_technical_articles",
 			description:
-				"Find Arya's implementation guides and technical articles by keyword. Returns titles, summaries, categories, tags, and canonical paths.",
+				"Find Arya's implementation guides and technical articles by keyword. Returns summaries, agent navigation, source licenses, reuse guidance, and canonical paths when published.",
 			inputSchema: {
 				type: "object",
 				properties: {
@@ -108,7 +116,10 @@ export function createPortfolioTools({
 								article.description,
 								article.category,
 								...article.tags,
+								article.executiveSummary,
+								...(article.agentNavigation?.useFor ?? []),
 							]
+								.filter(Boolean)
 								.join(" ")
 								.toLowerCase()
 								.includes(normalized),

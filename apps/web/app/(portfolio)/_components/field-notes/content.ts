@@ -20,7 +20,7 @@ export const hero = {
 		href: "mailto:aryateja2106@gmail.com?subject=Applied%20AI%20role%20or%20project",
 	},
 	secondaryCta: { label: "Review selected work", href: "#work" },
-	portrait: "/real-images/yc-robo-hk-solo.jpeg",
+	portrait: "/real-images/yc-robo-hk-solo.webp",
 	portraitAlt: "Arya at YC Robo, Hong Kong",
 	records: [
 		{
@@ -49,34 +49,34 @@ export const journey = {
 	tag: "Builder log 2024-2026",
 	note: "Real rooms, real teams, real conversations. Trust should be sourced, not staged.",
 	feature: {
-		src: "/real-images/nevermined-hk-team.JPG",
+		src: "/real-images/nevermined-hk-team.webp",
 		alt: "Arya with the Nevermined team in Hong Kong",
 		caption: "Nevermined · HK team",
 	},
 	photos: [
 		{
-			src: "/real-images/world-model-hk-team.JPG",
+			src: "/real-images/world-model-hk-team.webp",
 			alt: "World Model team, Hong Kong",
 			caption: "World Model · HK team",
 		},
 		{
-			src: "/real-images/Raycast-builder-event.JPG",
+			src: "/real-images/raycast-builder-event.webp",
 			alt: "Raycast builder event",
 			caption: "Raycast builder event",
 		},
 		{
-			src: "/real-images/Factory-builder-event.JPG",
+			src: "/real-images/factory-builder-event.webp",
 			alt: "Factory builder event",
 			caption: "Factory builder event",
 			objectPosition: "object-[50%_24%]",
 		},
 		{
-			src: "/real-images/agent-sec-hk.jpeg",
+			src: "/real-images/agent-sec-hk.webp",
 			alt: "Agent security builders in Hong Kong",
 			caption: "Agent security · HK",
 		},
 		{
-			src: "/real-images/YC-robo-hk-team.JPG",
+			src: "/real-images/yc-robo-hk-team.webp",
 			alt: "YC Robo team, Hong Kong",
 			caption: "YC Robo · HK team",
 		},

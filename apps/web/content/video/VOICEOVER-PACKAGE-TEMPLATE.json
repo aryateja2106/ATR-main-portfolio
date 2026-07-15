@@ -1,0 +1,28 @@
+{
+	"id": "replace-with-weekly-topic-slug",
+	"modelId": "eleven_multilingual_v2",
+	"renderer": "remotion-or-hyperframes",
+	"format": "vertical-1080x1920",
+	"scenes": [
+		{
+			"id": "hook",
+			"text": "Name one workflow problem the viewer already recognizes.",
+			"visual": "Show the problem in one clear frame."
+		},
+		{
+			"id": "use-case",
+			"text": "Explain one practical use case without assuming technical knowledge.",
+			"visual": "Show input, action, and visible result."
+		},
+		{
+			"id": "boundary",
+			"text": "State the license or safety boundary that matters before reuse.",
+			"visual": "Highlight what is allowed, what needs review, and the source link."
+		},
+		{
+			"id": "close",
+			"text": "Point viewers to the full source-backed article on aryateja.com.",
+			"visual": "Show the article title and canonical URL."
+		}
+	]
+}
