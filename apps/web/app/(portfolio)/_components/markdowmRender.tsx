@@ -1,10 +1,4 @@
-"use client";
-
-import { Check, Copy } from "lucide-react";
-import { useState } from "react";
 import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import remarkGfm from "remark-gfm";
 
 interface MarkdownRendererProps {
@@ -27,50 +21,6 @@ function headingId(children: React.ReactNode) {
 		.replace(/\s+/g, "-");
 }
 
-function CopyCodeButton({ code }: { code: string }) {
-	const [copied, setCopied] = useState(false);
-
-	const copyWithFallback = () => {
-		const textarea = document.createElement("textarea");
-		textarea.value = code;
-		textarea.style.position = "fixed";
-		textarea.style.opacity = "0";
-		document.body.appendChild(textarea);
-		textarea.select();
-		const success = document.execCommand("copy");
-		textarea.remove();
-		return success;
-	};
-
-	return (
-		<button
-			type="button"
-			onClick={async () => {
-				let success = false;
-				try {
-					if (navigator.clipboard) {
-						await navigator.clipboard.writeText(code);
-						success = true;
-					}
-				} catch {
-					success = false;
-				}
-
-				if (!success) success = copyWithFallback();
-				if (!success) return;
-
-				setCopied(true);
-				window.setTimeout(() => setCopied(false), 4000);
-			}}
-			className="inline-flex size-8 items-center justify-center text-[#b9b0a2] transition-colors hover:text-[#f7f2e8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f7f2e8]"
-			aria-label={copied ? "Code copied" : "Copy code"}
-			title={copied ? "Copied" : "Copy code"}
-		>
-			{copied ? <Check className="size-4" /> : <Copy className="size-4" />}
-		</button>
-	);
-}
-
 export default function MarkdownRenderer({
 	content,
 	className = "",
@@ -89,25 +39,16 @@ export default function MarkdownRenderer({
 
 						return !inline && match ? (
 							<div className="not-prose my-8 overflow-hidden rounded-sm border border-[#2d2a25] bg-[#12110f]">
-								<div className="flex h-11 items-center justify-between border-b border-[#f7f2e8]/10 px-4">
+								<div className="flex h-11 items-center border-b border-[#f7f2e8]/10 px-4">
 									<span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#b9b0a2]">
 										{match[1]}
 									</span>
-									<CopyCodeButton code={code} />
 								</div>
-								<SyntaxHighlighter
-									style={vscDarkPlus}
-									language={match[1]}
-									PreTag="div"
-									customStyle={{
-										margin: 0,
-										padding: "1.25rem",
-										background: "#12110f",
-									}}
-									{...rest}
-								>
-									{code}
-								</SyntaxHighlighter>
+								<pre className="overflow-x-auto p-5 text-sm leading-6 text-[#f7f2e8]">
+									<code className={className} {...rest}>
+										{code}
+									</code>
+								</pre>
 							</div>
 						) : (
 							<code

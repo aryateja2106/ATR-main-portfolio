@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { BlogList } from "@/components/blog-list";
-import { SiteNav } from "../_components/field-notes";
+import { SiteNav } from "../_components/field-notes/SiteNav";
 import { getAllBlogs, getAllCategories, sortBlogsByDate } from "../_hooks/blog";
 
 export const metadata: Metadata = {

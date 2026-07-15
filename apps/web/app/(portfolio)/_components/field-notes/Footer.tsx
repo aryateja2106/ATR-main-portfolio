@@ -5,7 +5,7 @@ export function Footer() {
 	return (
 		<footer
 			id="contact"
-			className="border-t border-[#f7f2e8]/15 bg-[#12110f] py-12 text-[#f7f2e8]"
+			className="scroll-mt-20 border-t border-[#f7f2e8]/15 bg-[#12110f] py-12 text-[#f7f2e8]"
 		>
 			<div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 px-4">
 				<div className="font-mono text-[#f7f2e8] flex items-center gap-3 text-xs uppercase tracking-[0.2em]">

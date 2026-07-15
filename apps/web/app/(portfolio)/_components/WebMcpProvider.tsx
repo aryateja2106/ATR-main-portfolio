@@ -46,14 +46,18 @@ export function createPortfolioTools({
 		{
 			name: "get_portfolio_context",
 			description:
-				"Return verified public context about Arya Teja Rudraraju, his current focus, services, projects, and contact options.",
+				"Return verified public context about Arya Teja Rudraraju, his Applied AI experience, projects, availability, and contact options.",
 			inputSchema: { type: "object", properties: {} },
 			annotations: readOnly,
 			execute: () => ({
 				name: "Arya Teja Rudraraju",
-				role: "Founder and agentic systems builder",
+				role: "Applied AI specialist and agent systems builder",
 				location: "India; previously based in the United States",
+				availability:
+					"Open to select remote Applied AI and Forward Deployed Engineering roles, consulting engagements, and collaborations.",
 				focus: [
+					"Applied AI POCs and MVPs",
+					"Forward deployed discovery and delivery",
 					"Local-first AI agent systems",
 					"Multi-agent and multi-machine orchestration",
 					"Mobile control for coding agents",
@@ -151,13 +155,13 @@ export function createPortfolioTools({
 		{
 			name: "navigate_portfolio",
 			description:
-				"Navigate the visible portfolio tab to Arya's work, writing, contact section, or public resume. This does not submit forms or contact Arya automatically.",
+				"Navigate the visible portfolio tab to Arya's work, experience, writing, or contact section. This does not submit forms or contact Arya automatically.",
 			inputSchema: {
 				type: "object",
 				properties: {
 					destination: {
 						type: "string",
-						enum: ["work", "writing", "contact", "resume"],
+						enum: ["work", "experience", "writing", "contact"],
 					},
 				},
 				required: ["destination"],
@@ -166,9 +170,9 @@ export function createPortfolioTools({
 			execute: ({ destination }) => {
 				const destinations = {
 					work: "/#work",
+					experience: "/#experience",
 					writing: "/blog",
 					contact: "/#contact",
-					resume: "/resume/Arya_Teja_PM_Resume.pdf",
 				} as const;
 				if (typeof destination !== "string" || !(destination in destinations)) {
 					return { error: "Unknown destination." };

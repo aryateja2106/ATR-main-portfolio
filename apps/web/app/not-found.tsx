@@ -1,17 +1,9 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function NotFound() {
 	return (
 		<div className="flex min-h-screen w-full flex-col items-center justify-center bg-black text-white p-4">
-			<motion.div
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.5 }}
-				className="text-center space-y-8"
-			>
+			<div className="space-y-8 text-center">
 				{/* 404 Glitch Effect */}
 				<div className="relative">
 					<h1 className="text-9xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-500 blur-[2px] opacity-50 absolute inset-0 animate-pulse">
@@ -39,6 +31,7 @@ export default function NotFound() {
 					>
 						<span className="mr-2">Return Home</span>
 						<svg
+							aria-hidden="true"
 							className="h-4 w-4 transition-transform group-hover:translate-x-1"
 							fill="none"
 							stroke="currentColor"
@@ -50,12 +43,11 @@ export default function NotFound() {
 								strokeWidth={2}
 								d="M17 8l4 4m0 0l-4 4m4-4H3"
 							/>
-							<title>Arrow Right</title>
 						</svg>
 						<div className="absolute inset-0 -z-10 bg-gradient-to-r from-teal-500/10 to-emerald-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 					</Link>
 				</div>
-			</motion.div>
+			</div>
 
 			{/* Background decoration */}
 			<div className="fixed inset-0 -z-10 h-full w-full bg-black">

@@ -1,10 +1,6 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 import { journey } from "./content";
-import { fadeUp, reveal, stagger } from "./motion";
 
 function PhotoCard({
 	src,
@@ -12,20 +8,19 @@ function PhotoCard({
 	caption,
 	className,
 	aspectClass,
+	objectPosition = "object-center",
+	sizes = "(max-width: 768px) 100vw, 33vw",
 }: {
 	src: string;
 	alt: string;
 	caption: string;
 	className?: string;
 	aspectClass: string;
+	objectPosition?: string;
+	sizes?: string;
 }) {
 	return (
-		<motion.div
-			className={className}
-			variants={fadeUp}
-			whileHover={{ scale: 1.03 }}
-			transition={{ duration: 0.4, ease: [0.2, 0.65, 0.3, 0.9] }}
-		>
+		<div className={className}>
 			<div
 				className={`group relative ${aspectClass} overflow-hidden border border-[#f7f2e8]/15`}
 			>
@@ -33,21 +28,24 @@ function PhotoCard({
 					src={src}
 					alt={alt}
 					fill
-					sizes="(max-width: 768px) 100vw, 33vw"
-					className="object-cover saturate-0 transition duration-500 group-hover:saturate-50"
+					sizes={sizes}
+					className={`object-cover ${objectPosition} saturate-0 transition duration-500 group-hover:scale-[1.02] group-hover:saturate-50`}
 				/>
 				<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#12110f]/80 via-transparent to-black/30" />
 				<span className="absolute bottom-3 left-3 right-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#f7f2e8]">
 					{caption}
 				</span>
 			</div>
-		</motion.div>
+		</div>
 	);
 }
 
 export function Journey() {
 	return (
-		<section id="about" className="bg-[#12110f] py-24 text-[#f7f2e8]">
+		<section
+			id="about"
+			className="scroll-mt-20 bg-[#12110f] py-16 text-[#f7f2e8] md:py-24"
+		>
 			<div className="mx-auto max-w-6xl px-4 md:px-6">
 				<div className="flex flex-wrap items-baseline justify-between gap-2">
 					<h2 className="font-serif text-[clamp(34px,5vw,58px)] leading-tight">
@@ -58,11 +56,7 @@ export function Journey() {
 					</span>
 				</div>
 
-				<motion.div
-					className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3"
-					variants={stagger(0.1)}
-					{...reveal}
-				>
+				<div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
 					<PhotoCard
 						src={journey.feature.src}
 						alt={journey.feature.alt}
@@ -88,7 +82,8 @@ export function Journey() {
 						src={journey.photos[2].src}
 						alt={journey.photos[2].alt}
 						caption={journey.photos[2].caption}
-						aspectClass="aspect-[3/2]"
+						aspectClass="aspect-[4/5] md:aspect-[3/2]"
+						objectPosition={journey.photos[2].objectPosition}
 						className="md:col-start-2 md:row-start-2"
 					/>
 					<PhotoCard
@@ -103,9 +98,10 @@ export function Journey() {
 						alt={journey.photos[4].alt}
 						caption={journey.photos[4].caption}
 						aspectClass="aspect-[3/2]"
+						sizes="(max-width: 768px) 100vw, 100vw"
 						className="md:col-span-3 md:col-start-1 md:row-start-3"
 					/>
-				</motion.div>
+				</div>
 
 				<p className="mt-6 max-w-2xl font-mono text-[11px] uppercase leading-6 tracking-[0.2em] text-[#b9b0a2]">
 					{journey.note}

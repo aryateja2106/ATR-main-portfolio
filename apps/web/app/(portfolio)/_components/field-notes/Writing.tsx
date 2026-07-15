@@ -1,13 +1,11 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 import { writing } from "./content";
-import { fadeUp, reveal, stagger } from "./motion";
 
 export function Writing() {
 	return (
-		<section id="writing" className="bg-[#1c1a17] py-24 text-[#f7f2e8]">
+		<section
+			id="writing"
+			className="scroll-mt-20 bg-[#1c1a17] py-16 text-[#f7f2e8] md:py-24"
+		>
 			<div className="mx-auto grid max-w-6xl gap-12 px-5 md:grid-cols-[0.8fr_1.2fr] md:px-8">
 				<div>
 					<p className="font-mono text-xs uppercase tracking-[0.24em] text-[#b9b0a2]">
@@ -18,15 +16,10 @@ export function Writing() {
 					</h2>
 				</div>
 
-				<motion.div
-					className="border-t border-[#f7f2e8]/15"
-					variants={stagger(0.1)}
-					{...reveal}
-				>
+				<div className="border-t border-[#f7f2e8]/15">
 					{writing.items.map((item) => (
-						<motion.article
+						<article
 							key={item.title}
-							variants={fadeUp}
 							className="group border-b border-[#f7f2e8]/15 py-8"
 						>
 							<a href={item.href} className="block">
@@ -44,9 +37,9 @@ export function Writing() {
 									</div>
 								</div>
 							</a>
-						</motion.article>
+						</article>
 					))}
-				</motion.div>
+				</div>
 			</div>
 		</section>
 	);

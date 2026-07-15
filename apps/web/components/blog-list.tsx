@@ -11,39 +11,23 @@ interface BlogListProps {
 }
 
 export function BlogList({ initialBlogs, allCategories }: BlogListProps) {
-	const [blogs, setBlogs] = useState<BlogPost[]>(initialBlogs);
 	const [activeCategory, setActiveCategory] = useState("all");
-
-	// We can still use the helper to sort/filter if it's available client-side,
-	// OR we can just implement simple filtering here to avoid importing the hook if it has heavy deps.
-	// The original hook likely reads from JSON, which we might not want to bundle if we can avoid it,
-	// but since it's a small JSON, it's fine.
-	// Actually, better to just filter the `initialBlogs` prop to avoid re-fetching or importing data logic.
+	const blogs =
+		activeCategory === "all"
+			? initialBlogs
+			: initialBlogs.filter((blog) => blog.category === activeCategory);
 
 	const handleCategoryFilter = (category: string) => {
 		setActiveCategory(category);
-		if (category === "all") {
-			setBlogs(initialBlogs);
-		} else {
-			const filtered = initialBlogs.filter(
-				(blog) => blog.category === category,
-			);
-			setBlogs(filtered);
-		}
 	};
 
 	return (
 		<div className="w-full">
-			<div
-				className="flex flex-wrap gap-3 mb-10"
-				role="tablist"
-				aria-label="Blog categories"
-			>
+			<fieldset className="flex flex-wrap gap-3 mb-10">
+				<legend className="sr-only">Blog categories</legend>
 				<button
 					type="button"
-					role="tab"
-					aria-controls="blog-posts"
-					id="tab-all"
+					aria-pressed={activeCategory === "all"}
 					className={`rounded-sm border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
 						activeCategory === "all"
 							? "border-[#f7f2e8] bg-[#f7f2e8] text-[#12110f]"
@@ -58,9 +42,7 @@ export function BlogList({ initialBlogs, allCategories }: BlogListProps) {
 					<button
 						key={category}
 						type="button"
-						role="tab"
-						aria-controls="blog-posts"
-						id={`tab-${category.toLowerCase().replace(/\s+/g, "-")}`}
+						aria-pressed={activeCategory === category}
 						className={`rounded-sm border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
 							activeCategory === category
 								? "border-[#f7f2e8] bg-[#f7f2e8] text-[#12110f]"
@@ -71,7 +53,7 @@ export function BlogList({ initialBlogs, allCategories }: BlogListProps) {
 						{category}
 					</button>
 				))}
-			</div>
+			</fieldset>
 
 			{/* Empty state */}
 			{blogs.length === 0 && (
@@ -90,12 +72,8 @@ export function BlogList({ initialBlogs, allCategories }: BlogListProps) {
 			)}
 
 			{blogs.length > 0 && (
-				<div
-					id="blog-posts"
-					role="tabpanel"
-					className="border-t border-[#f7f2e8]/15"
-				>
-					{blogs.map((post) => (
+				<div id="blog-posts" className="border-t border-[#f7f2e8]/15">
+					{blogs.map((post, index) => (
 						<Link
 							href={`/blog/${post.slug}`}
 							key={post.id}
@@ -148,9 +126,7 @@ export function BlogList({ initialBlogs, allCategories }: BlogListProps) {
 											fill
 											className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
 											sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 384px"
-											loading={
-												Number.parseInt(post.id, 10) <= 4 ? "eager" : "lazy"
-											}
+											loading={index === 0 ? "eager" : "lazy"}
 										/>
 									</div>
 								) : (

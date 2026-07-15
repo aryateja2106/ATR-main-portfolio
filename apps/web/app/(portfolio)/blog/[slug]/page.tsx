@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BrandMark, SiteNav } from "../../_components/field-notes";
+import { BrandMark } from "../../_components/field-notes/BrandMark";
+import { SiteNav } from "../../_components/field-notes/SiteNav";
 import MarkdownRenderer from "../../_components/markdowmRender";
 import { getAllBlogs, getBlogBySlug, getRelatedBlogs } from "../../_hooks/blog";
 
@@ -160,7 +161,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 							alt={post.title}
 							fill
 							sizes="(max-width: 768px) 100vw, 896px"
-							loading="eager"
+							preload
 							className="object-cover"
 						/>
 					</div>
