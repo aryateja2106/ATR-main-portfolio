@@ -1,0 +1,1 @@
+Bring AryaTeja.com from its current live baseline to a market-ready professional launch: reconcile parallel work, visually review generated assets, resolve SEO/AEO identity contradictions, decide and document whether client onboarding and scheduling require a database, implement the approved conversion path, verify production, and merge through clean review gates.

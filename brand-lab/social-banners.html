@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Social Banners | Field Notes Brand Lab</title>
+    <!-- Import official design fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+      :root {
+        --fn-bg: #e9dfc7;
+        --fn-paper: #f6efdd;
+        --fn-ink: #131815;
+        --fn-muted: rgba(19, 24, 21, 0.62);
+        --fn-line: rgba(19, 24, 21, 0.18);
+        --fn-accent: #a65728;
+        --fn-accent-soft: #c98a5a;
+        --font-serif: "Fraunces", Georgia, serif;
+        --font-mono: "JetBrains Mono", monospace;
+        --font-sans: "Geist", system-ui, sans-serif;
+      }
+
+      body.field-notes-banners {
+        background: var(--fn-bg);
+        color: var(--fn-ink);
+        font-family: var(--font-sans);
+        padding: 40px 24px;
+        min-height: 100vh;
+      }
+
+      .banners-header {
+        max-width: 1584px;
+        margin: 0 auto 40px auto;
+        border-bottom: 1px solid var(--fn-line);
+        padding-bottom: 24px;
+      }
+
+      .banners-header h1 {
+        font-family: var(--font-serif);
+        font-size: 40px;
+        font-weight: 500;
+        margin: 8px 0;
+      }
+
+      .banners-header .kicker {
+        color: var(--fn-accent);
+        font-weight: 600;
+      }
+
+      .banners-header p.desc {
+        font-size: 16px;
+        color: var(--fn-muted);
+        max-width: 600px;
+        margin-top: 10px;
+        line-height: 1.5;
+      }
+
+      .banner-section {
+        max-width: 1584px;
+        margin: 0 auto 60px auto;
+      }
+
+      .banner-title-bar {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        border-bottom: 1px dashed var(--fn-line);
+        padding-bottom: 8px;
+      }
+
+      .banner-title-bar h2 {
+        font-family: var(--font-serif);
+        font-size: 22px;
+        font-weight: 500;
+      }
+
+      .banner-title-bar .meta {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--fn-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      /* LinkedIn Banner (1584 x 396 px) */
+      .banner-container-linkedin {
+        width: 100%;
+        max-width: 1584px;
+        height: 396px;
+        background: var(--fn-bg);
+        border: 1px solid var(--fn-line);
+        position: relative;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        padding: 48px;
+        box-sizing: border-box;
+      }
+
+      .banner-linkedin-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+
+      .banner-linkedin-left .kicker {
+        color: var(--fn-accent);
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+      }
+
+      .banner-linkedin-left h3 {
+        font-family: var(--font-serif);
+        font-size: 48px;
+        font-weight: 500;
+        line-height: 1.05;
+        margin: 16px 0 12px 0;
+        max-width: 18ch;
+      }
+
+      .banner-linkedin-left p.tagline {
+        font-size: 16px;
+        color: var(--fn-muted);
+        max-width: 480px;
+        line-height: 1.45;
+      }
+
+      .banner-linkedin-right {
+        border-left: 1px solid var(--fn-line);
+        padding-left: 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .banner-record-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .banner-record-item .label {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--fn-accent);
+        margin-bottom: 4px;
+      }
+
+      .banner-record-item .value {
+        font-family: var(--font-serif);
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      .banner-record-item .detail {
+        font-size: 12px;
+        color: var(--fn-muted);
+        margin-top: 2px;
+        line-height: 1.4;
+      }
+
+      /* X Header Banner (1500 x 500 px) */
+      .banner-container-x {
+        width: 100%;
+        max-width: 1500px;
+        height: 500px;
+        background: var(--fn-bg);
+        border: 1px solid var(--fn-line);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 56px;
+        box-sizing: border-box;
+      }
+
+      .banner-x-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .banner-x-logo {
+        font-family: var(--font-serif);
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+
+      .banner-x-top .kicker {
+        color: var(--fn-accent);
+        font-family: var(--font-mono);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        border: 1px solid var(--fn-accent);
+        padding: 4px 10px;
+        border-radius: 2px;
+      }
+
+      .banner-x-middle h3 {
+        font-family: var(--font-serif);
+        font-size: 56px;
+        font-weight: 500;
+        line-height: 1.05;
+        margin-bottom: 12px;
+        max-width: 20ch;
+      }
+
+      .banner-x-middle p.tagline {
+        font-size: 18px;
+        color: var(--fn-muted);
+        max-width: 600px;
+        line-height: 1.5;
+      }
+
+      .banner-x-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid var(--fn-line);
+        padding-top: 24px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--fn-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .banner-x-footer span.accent-dot {
+        color: var(--fn-accent);
+        margin: 0 8px;
+      }
+
+      /* X Square Card (1080 x 1080 px) styled as preview */
+      .banner-container-square {
+        width: 100%;
+        max-width: 600px;
+        aspect-ratio: 1 / 1;
+        border: 1px solid var(--fn-line);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background-image: url('../apps/web/public/real-images/yc-robo-hk-solo.jpeg');
+        background-size: cover;
+        background-position: 62% 35%;
+        box-sizing: border-box;
+      }
+
+      .banner-square-overlay {
+        background: rgba(246, 239, 221, 0.96);
+        border-top: 1px solid var(--fn-line);
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        backdrop-filter: blur(8px);
+      }
+
+      .banner-square-overlay .kicker {
+        color: var(--fn-accent);
+        font-family: var(--font-mono);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        font-weight: 600;
+      }
+
+      .banner-square-overlay h3 {
+        font-family: var(--font-serif);
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 1.25;
+        color: var(--fn-ink);
+      }
+
+      .banner-square-overlay .meta {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        color: var(--fn-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-top: 4px;
+      }
+
+      /* Scale down wrappers for high-res items so they fit nicely on the screen */
+      .banner-scale-wrapper {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(19, 24, 21, 0.08);
+      }
+    </style>
+  </head>
+  <body class="sample-page field-notes-banners">
+    <main class="lab-shell">
+      <nav class="sample-nav">
+        <a href="./index.html" class="lab-mark">Back to lab</a>
+        <span>02 | Social Banners (Field Notes)</span>
+      </nav>
+
+      <header class="banners-header">
+        <span class="kicker">Social assets</span>
+        <h1>Portfolio Video & Social Assets</h1>
+        <p class="desc">
+          LinkedIn headers, X banners, and story card assets designed to match the editorial, evidence-led cream/terracotta visual system.
+        </p>
+      </header>
+
+      <!-- Section 1: LinkedIn Personal Banner -->
+      <section class="banner-section">
+        <div class="banner-title-bar">
+          <h2>LinkedIn Personal Banner</h2>
+          <span class="meta">1584 × 396 px &middot; Aspect 4:1</span>
+        </div>
+        <div class="banner-scale-wrapper">
+          <div class="banner-container-linkedin">
+            <div class="banner-linkedin-left">
+              <span class="kicker">Arya Teja Rudraraju &middot; Founder</span>
+              <h3>Agent systems that earn trust.</h3>
+              <p class="tagline">Practical AI agent consulting, secure local-first control, and verifiable proof of work.</p>
+            </div>
+            <div class="banner-linkedin-right">
+              <div class="banner-record-item">
+                <span class="label">Focus</span>
+                <span class="value">AI Agent Consulting</span>
+                <span class="detail">Secure setup, workflows, and audits</span>
+              </div>
+              <div class="banner-record-item">
+                <span class="label">Product</span>
+                <span class="value">LeSearch AI</span>
+                <span class="detail">Apple mission control for coding agents</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: X Header Banner -->
+      <section class="banner-section">
+        <div class="banner-title-bar">
+          <h2>X Header Banner</h2>
+          <span class="meta">1500 × 500 px &middot; Aspect 3:1</span>
+        </div>
+        <div class="banner-scale-wrapper">
+          <div class="banner-container-x">
+            <div class="banner-x-top">
+              <span class="banner-x-logo">A.T.R.</span>
+              <span class="kicker">Builder Journal</span>
+            </div>
+            <div class="banner-x-middle">
+              <h3>Learning in public, with receipts.</h3>
+              <p class="tagline">Auditing workflows, building secure systems, and documenting the edge of agent capabilities.</p>
+            </div>
+            <div class="banner-x-footer">
+              <span>aryateja.com</span>
+              <div>
+                <span>leSearch AI</span>
+                <span class="accent-dot">&middot;</span>
+                <span>leCoder MConnect</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: X Post Square Card -->
+      <section class="banner-section">
+        <div class="banner-title-bar">
+          <h2>X Post / Journey Square Card</h2>
+          <span class="meta">1080 × 1080 px &middot; Aspect 1:1 (Scaled preview)</span>
+        </div>
+        <div class="banner-scale-wrapper" style="max-width: 600px;">
+          <div class="banner-container-square">
+            <div class="banner-square-overlay">
+              <span class="kicker">Field Evidence</span>
+              <h3>The best content I can make is the thing I just learned.</h3>
+              <div class="meta">YC Robo, HK &middot; Founder journal &middot; 2026</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "planId": "portfolio-live-readiness",
+  "createdAt": "2026-07-13T06:01:06.520Z",
+  "updatedAt": "2026-07-13T06:01:14.022Z",
+  "briefPath": ".omc/ultragoal/plans/portfolio-live-readiness/brief.md",
+  "goalsPath": ".omc/ultragoal/plans/portfolio-live-readiness/goals.json",
+  "ledgerPath": ".omc/ultragoal/plans/portfolio-live-readiness/ledger.jsonl",
+  "claudeGoalMode": "aggregate",
+  "goals": [
+    {
+      "id": "G001-reconcile",
+      "title": "Reconcile",
+      "objective": "Inventory current branch, SEO audit, PR #5, parallel-agent output, and ownership without overwriting uncommitted work",
+      "status": "in_progress",
+      "attempt": 1,
+      "createdAt": "2026-07-13T06:01:06.520Z",
+      "updatedAt": "2026-07-13T06:01:14.022Z",
+      "startedAt": "2026-07-13T06:01:14.022Z"
+    },
+    {
+      "id": "G002-asset-review",
+      "title": "Asset review",
+      "objective": "Review generated social banners and video assets against DESIGN.md, accessibility, performance, and market quality; create an actionable verdict",
+      "status": "pending",
+      "attempt": 0,
+      "createdAt": "2026-07-13T06:01:06.520Z",
+      "updatedAt": "2026-07-13T06:01:06.520Z"
+    },
+    {
+      "id": "G003-seo-and-identity",
+      "title": "SEO and identity",
+      "objective": "Resolve canonical-host and stale-resume contradictions, then implement the highest-impact safe P1 SEO/AEO fixes",
+      "status": "pending",
+      "attempt": 0,
+      "createdAt": "2026-07-13T06:01:06.520Z",
+      "updatedAt": "2026-07-13T06:01:06.520Z"
+    },
+    {
+      "id": "G004-client-onboarding-architecture",
+      "title": "Client onboarding architecture",
+      "objective": "Decide no-database versus database-backed contact, scheduling, lead tracking, and agent-triggered actions using privacy, reliability, and operational complexity evidence",
+      "status": "pending",
+      "attempt": 0,
+      "createdAt": "2026-07-13T06:01:06.520Z",
+      "updatedAt": "2026-07-13T06:01:06.520Z"
+    },
+    {
+      "id": "G005-conversion-implementation",
+      "title": "Conversion implementation",
+      "objective": "Implement the approved inquiry, scheduling, and client-onboarding flow with explicit consent and safe automation boundaries",
+      "status": "pending",
+      "attempt": 0,
+      "createdAt": "2026-07-13T06:01:06.520Z",
+      "updatedAt": "2026-07-13T06:01:06.520Z"
+    },
+    {
+      "id": "G006-release-verification",
+      "title": "Release verification",
+      "objective": "Run build, tests, accessibility, SEO, structured-data, asset-performance, and live-domain checks; resolve blockers",
+      "status": "pending",
+      "attempt": 0,
+      "createdAt": "2026-07-13T06:01:06.520Z",
+      "updatedAt": "2026-07-13T06:01:06.520Z"
+    },
+    {
+      "id": "G007-publish",
+      "title": "Publish",
+      "objective": "Pass ai-slop-cleaner, verification, and code review gates; merge the release PR and verify aryateja.com production",
+      "status": "pending",
+      "attempt": 0,
+      "createdAt": "2026-07-13T06:01:06.520Z",
+      "updatedAt": "2026-07-13T06:01:06.520Z"
+    }
+  ],
+  "claudeObjective": "Complete all ultragoal stories in .omc/ultragoal/plans/portfolio-live-readiness/goals.json: G001-reconcile Reconcile; G002-asset-review Asset review; G003-seo-and-identity SEO and identity; G004-client-onboarding-architecture Client onboarding architecture; G005-conversion-implementation Conversion implementation; G006-release-verification Release verification; G007-publish Publish",
+  "activeGoalId": "G001-reconcile"
+}
