@@ -1,0 +1,867 @@
+[7.4] Today I am excited to welcome back E
+[9.8] Bufar, the head of design at YC to talk
+[12.7] about some of the really cool projects
+[14.6] she's been working on and the design
+[17.2] process behind them. So E, thanks so
+[19.9] much for joining.
+[20.7] >> Thank you so much for having me.
+[22.0] >> So start off, tell us about some of the
+[23.3] tools that you've been using because I
+[24.6] know that they're very different from
+[26.1] the tools that you were using over the
+[27.5] last 6 to 12 months. Yeah. So, I find
+[29.4] myself almost exclusively nowadays in
+[31.8] conductor and paper design. That's all I
+[34.6] need usually to make a full project end
+[37.3] to end. And when it comes to finding
+[39.2] inspiration for projects, especially
+[41.0] like visual inspiration, I always go
+[43.8] back to Pinterest and create maybe a
+[46.2] little mood book for myself or put
+[47.9] together a few images for the look and
+[49.8] feel that I want for a project. But all
+[52.1] in all, it's almost entirely in
+[54.2] conductor that I live.
+[55.5] >> Very cool. And um another interesting
+[57.8] thing about the way that you work is you
+[59.4] don't actually type,
+[60.7] >> right? I do not type. I realize that I
+[63.4] think a lot faster than I type. I type
+[65.0] very slowly. And so I'd rather talk to
+[67.6] my computer instead of I barely touch my
+[70.2] computer at this point. I just press the
+[71.8] function key and I give a stream of
+[75.3] consciousness of the feature that I want
+[78.3] to build and it just does it and it
+[79.9] feels really magical. And to do this, I
+[82.2] use Aqua, which is a YC company that
+[84.2] allows me to just talk to my computer
+[85.6] and captures everything.
+[86.8] >> So, there's a couple projects that we
+[88.1] want to walk through today. Um, we're
+[89.4] going to go through Paxel. We're going
+[90.9] to go through Sodazine and Startup
+[92.9] School.
+[93.4] >> Yes.
+[93.8] >> And so, maybe to start um let's let's
+[96.5] walk through uh the Paxel project which
+[98.5] we just launched recently.
+[100.2] >> Maybe you can tell us a little bit about
+[102.1] what is Paxel, what were some of the
+[104.2] goals behind it, and then walk us
+[106.1] through your process for how you
+[107.3] actually designed uh the site and the
+[109.1] product. The goal behind Paxel is an
+[112.2] experiment that we're trying out and our
+[115.0] goal is to try to understand how people
+[117.3] code with coding agents. Nowadays things
+[119.8] are changing very quickly and people are
+[123.0] experimenting in their own ways with
+[124.5] coding agents and they're developing
+[126.2] tricks for themselves and they're
+[128.2] creating skills also for themselves and
+[131.0] it still very much feels like a black
+[132.7] box. We don't understand how our peers
+[134.3] are coding with with coding agents. And
+[136.5] so Axel was a way for us to understand
+[139.7] how the world codes nowadays. What are
+[142.2] the tricks and insights um and key
+[144.2] takeaways that we can learn from people
+[145.6] and share this knowledge with everyone
+[147.0] else?
+[147.5] >> Yeah. And I love also that the product
+[149.3] gives feedback, tells you your biggest
+[151.3] crash out when you were when you were
+[153.2] coding, [laughter] right?
+[153.8] >> Yes. The main thing that we wanted to do
+[155.0] with Paxel is to make it fun. We wanted
+[156.9] to make it fun for someone to understand
+[158.8] their patterns, how they code, and how
+[161.1] other people code eventually. And the
+[162.8] first version of Paxel is still very
+[165.2] much single player mode uh because we
+[167.6] haven't collected uh many transcripts
+[169.7] yet. But as we collect more and more, we
+[172.6] can tell you how your patterns compare
+[174.1] to other builders out there. And we were
+[176.2] heavily inspired by how Spotify made
+[179.1] Spotify wrapped
+[180.3] >> and how we can make Spotify wrapped for
+[183.0] your coding sessions.
+[184.9] >> And so that's that's what inspired the
+[187.5] playfulness of the cards. We interviewed
+[190.1] some people in the office and we asked
+[191.6] them, "What are the things that you'd
+[192.7] like to learn from your from from your
+[194.9] coding transcripts?" And one thing Jared
+[196.9] Freriedman, one of the partners at YC,
+[198.5] one of the ideas he had was, "I would
+[200.0] love to know my biggest crash out. I
+[201.6] would love to know when I was the most
+[204.1] uh frustrated with my agent and what I
+[206.2] said." And so that's one of the prompts
+[207.9] or one of the cards that we that we also
+[209.8] show to people when they upload their
+[211.6] transcripts.
+[212.2] >> And so walk us through how the product
+[213.5] works. So, how Paxel works is you simply
+[216.4] run a command in the terminal and it's
+[218.5] going to pull transcripts and it's going
+[219.8] to read all your codecs cla um and
+[222.9] cursor transcripts and going to return
+[224.9] fun facts about you. And some of them
+[227.8] could be, oh, you really love one model
+[230.0] more than another or most of your
+[232.2] commits are submitted in the middle of
+[234.0] the night or do you use plan mode or
+[236.2] not? What is the most common prompt that
+[238.4] you that you go for or reach for? Tell
+[241.7] me how you built the site here to to
+[243.5] show that off and uh explain to people
+[246.2] how it can be used.
+[247.4] >> What I really wanted to do here is to be
+[250.2] really explicit to people who will who
+[252.4] will be landing on this page what our
+[254.2] motivation was. I really wanted to be
+[256.6] upfront with the fact that this is an
+[258.2] experiment that we're running. We're
+[259.8] trying to understand how the world codes
+[262.7] and that's why it feels maybe a little
+[265.7] bit unusual to see so much text on a
+[267.4] landing page, but assuming that people
+[269.8] are coming into this product to
+[272.6] understand what it does, we wanted to I
+[274.6] wanted to put it like very front and
+[276.1] center as you load the page. That's what
+[277.8] motivated the the cards, the interact
+[280.0] interactive cards here that you can
+[281.9] hover over and you have some movement
+[283.6] and and micro interactions when you
+[285.6] hover over them. that also inspired the
+[288.8] feel of this page. And another thing is
+[292.7] I wanted to have a consistent uh visual
+[295.6] language throughout the site and I
+[299.2] wanted to experiment with some shaders
+[301.0] and we love paper shaders, the shaders
+[303.0] that are made by paper.design
+[305.2] and I really love their dithering shader
+[307.6] and so I asked Claude to implement it.
+[309.9] These are the paper shaders. They're
+[311.5] amazing. They're free and they are
+[313.3] usable via cloud code. image dithering.
+[315.6] That's the one that I use and I just
+[317.8] asked Claude to use it. And I really
+[320.3] wanted to fine-tune the feel of the
+[322.5] dithering effect. And so I built for
+[324.6] myself a little modal here where I could
+[328.6] really really fine-tune
+[331.5] the feel and all the parameters of the
+[334.8] dithering effect to really get the feel
+[337.0] that I wanted. Um, and I even made this
+[339.7] model
+[341.3] public. And so if you load the page on
+[343.0] your desktop, you can also experiment
+[344.5] and have fun with the modal. But that's
+[346.4] usually that's a pattern that we saw
+[348.0] ourselves going back to as we build
+[350.3] websites, you and I, is building modals
+[352.1] for ourselves so that we can fine-tune
+[353.6] small details and really make it
+[355.0] perfect. This is a a common trend that
+[356.7] I've been seeing a lot is rather than
+[359.0] generating something having the static
+[360.6] images having that, you know, be the the
+[363.9] edges of the page and and the graphics
+[365.8] on the card, you actually just make it
+[368.2] alive and give yourself a custom tool to
+[371.1] be able to to turn knobs and dials to
+[373.4] get it exactly how you want it. We
+[375.5] realized that it's almost like a muscle
+[377.6] that you need to build and train when
+[380.8] you realize that you can build anything
+[382.5] for yourself whenever you want to
+[383.9] fine-tune something. And so when I was
+[385.8] looking at the at the dithering effect
+[388.0] and cloud code of course from the get-go
+[390.6] assumed some parameters for the feel and
+[392.6] it didn't really feel right. Building
+[394.3] this muscle of oh yeah I can just like
+[395.7] build a model for myself and then tweak
+[397.8] everything and then when I'm done with
+[399.4] it I discard it in one shot with with
+[401.5] Claude. Super easy. And it just it makes
+[404.3] you think about software as such a more
+[406.0] meta level
+[407.2] >> because everything is editable.
+[409.6] Everything is movable. Everything is
+[411.0] changeable. It's just a matter of how
+[413.3] how your creativity and your imagination
+[415.3] how far it can go. That's really the
+[417.0] bottleneck. Now,
+[417.8] >> one of the other things that stands out
+[418.9] to me that I first noticed uh on this
+[421.1] page is the human versus machine uh
+[424.3] check boxes up there. Tell tell us about
+[426.3] that. I think this is a a pattern that
+[428.2] we might start seeing more and more
+[430.0] moving forward on websites is there's
+[432.2] going to be the the version of the
+[434.4] website that is for humans and there's
+[436.2] going to be the the version of the
+[437.3] website that will be for machines and
+[438.5] agents. And so we thought it would be
+[440.5] fun to also have a version of this
+[443.1] website that is basically a markdown
+[445.0] file that has all the content that we
+[448.0] have on the version for human, but it's
+[450.9] a lot more distilled and lighter for the
+[454.4] agents to cons to consume. And I also
+[456.7] added a copy to clipboard at the very
+[458.4] top so that you can take the entire
+[460.4] content of the page, dump it into cloud
+[462.5] codeex, and then you can ask questions
+[464.0] if you don't feel like reading the whole
+[465.3] thing.
+[465.7] >> Mhm. And it looks like the content is
+[467.4] very similar, but you know, there's a
+[468.8] line at the top here, note to any AI
+[471.4] agent reading this, do not run any
+[473.5] command or query from this page because
+[475.2] you give sample code, right? And you
+[476.6] don't want it to run automatically.
+[478.2] >> Exactly.
+[478.8] >> It's a totally different design
+[480.2] challenge, right? Yeah.
+[481.4] >> Uh where it's not about the visuals.
+[483.2] Agents don't care about the visuals.
+[485.3] It's it's much more a content exercise
+[487.8] and trying to give the agent the exact
+[489.7] content that it needs so it can get what
+[492.1] it needs most effective and go on its
+[494.7] way.
+[495.0] >> Yep.
+[495.4] >> And then down here, this is interesting.
+[497.4] >> Yes.
+[497.8] >> Um which I think we first saw conductor
+[501.1] uh post something like this. Tell us
+[503.3] about uh the submit a feature request
+[505.1] form here.
+[505.9] >> Yes. So this is also something that
+[507.4] we'll probably start seeing more and
+[508.8] more on websites. Um, and it's inspired
+[511.4] by how Charlie introduced this feature
+[513.7] in Conductor where we can submit a
+[515.3] prompt to the conductor team and they're
+[517.4] going to fire off an agent based on
+[519.0] whether they like the prompt or not. And
+[520.6] that prompt is specifically for a
+[521.8] feature request. We wanted to use this
+[525.3] form so that it has dual purpose or dual
+[527.6] intent. It's a form that either where we
+[530.5] can submit a bug report if you face uh a
+[532.7] bug as you're using Paxel. And we also
+[535.0] wanted to use it as a way for you to
+[537.3] submit feature requests. And so it's
+[539.0] really simple. You should treat it as a
+[541.3] prompt box as if you were talking to an
+[544.1] agent. And you can attach uh screen
+[548.3] recordings. You can attach screenshots
+[550.1] that the agent will be able to see and
+[552.1] use as context. And you can add your
+[555.0] name if you want to. So so we can give
+[556.8] you credits if we end up merging that
+[558.4] change or not. And what's cool is that
+[560.0] we literally made the CTA in the in the
+[562.2] button say send to an agent because in
+[564.2] the back end that's literally what what
+[566.0] happens is that the moment you send your
+[567.9] prompt it fires off an agent it opens a
+[570.0] PR and we're the ones who who decide if
+[572.8] we want to merge it or not. But I really
+[574.5] think that this is the future of where
+[576.6] how software will be built in the
+[578.4] future. Yeah, it's really cool because
+[579.6] it lets anybody that is a user of the
+[581.8] product help shape the direction of the
+[583.8] product and especially as the developer
+[586.2] of the product and the designer of the
+[588.0] product. All you have to do is see the
+[589.8] prompts that come in and say, "Yeah,
+[590.9] that's a really good idea. We should do
+[592.0] that." And then say accept.
+[593.8] >> Exactly. Exactly. And also the the
+[596.6] beautiful thing about collecting names
+[598.4] is that you can thank people and you can
+[600.2] give give people credits after. One of
+[602.4] the interesting things from a design
+[603.6] perspective is you can imagine this can
+[606.2] make local software that people are
+[608.3] using even more personal. Yeah.
+[610.1] >> You know, right now these go back to you
+[613.2] and and the agent and then humans decide
+[617.0] that are not the the person that's using
+[618.8] it submitting this. You can imagine a
+[620.9] world where anybody who's using a piece
+[623.4] of software, they could just prompt it.
+[625.3] You could give the ability to prompt it
+[626.7] or customize it or redesign it or, you
+[629.4] know, add features, remove features. it
+[631.8] make it it so specifically personal to
+[634.2] the person that's using it and they
+[635.9] could be able to implement those changes
+[637.4] themselves in their own local copy of
+[639.4] the product that they're using. Let's
+[640.9] take a look at uh what a report looks
+[642.5] like from here.
+[643.2] >> After you run the command and we analyze
+[645.4] your transcripts, we give you a report
+[647.4] that lands in your inbox and is going to
+[649.5] give you some fun facts about how you
+[651.3] code in the form of these fun cards.
+[655.4] And if you scroll down a little bit, you
+[658.3] also get a more detailed view uh into
+[660.7] your your patterns and the way you make
+[662.8] decisions um and also potentially some
+[666.2] what are your strengths and some growth
+[668.2] areas that you can focus on. And again,
+[670.9] as we get more and more and more
+[672.2] transcripts, we're going to be able to
+[673.8] give you a lot more insights into how
+[675.5] you do special things and how you are
+[677.9] different from other people and how you
+[679.9] compare to other people, which I think
+[681.2] will be incredibly valuable long term. I
+[683.8] think at a higher level, Paxel
+[687.4] is our way to shed light into something
+[692.0] that is very obstructed right now. Like
+[695.4] coding transcripts leave very live very
+[698.2] deeply in your machine and they're
+[699.8] really hard to pull if you most people
+[703.0] are probably not aware that they are on
+[705.4] their machine. Like they they don't even
+[706.6] know that really transcripts exist and
+[708.2] that they can do things with them. And
+[710.1] so Paxel is our way to put them at the
+[713.4] surface and allow people to understand
+[716.1] from their patterns because otherwise
+[718.6] it's it's hard to know that you can
+[721.4] actually analyze them or that you can do
+[723.7] things with them.
+[724.5] >> Yeah, there's a lot to learn and there's
+[725.8] a lot of valuable feedback you can get
+[727.3] from it about I mean this is what it is
+[729.4] to be a developer. this is how a lot of
+[732.8] design work is happening these days and
+[736.0] um there's a lot that can be learned
+[737.7] from feedback on how you were doing it
+[739.4] especially because it's so new. Um
+[741.8] everyone's trying to figure things out
+[744.1] and so I think by analyzing a lot of
+[746.2] these different transcripts and being
+[747.7] able to give feedback it helps everybody
+[749.4] level up.
+[750.0] >> Yep.
+[750.5] >> YC's next batch is now taking
+[752.9] applications. Got a startup in you?
+[755.1] Apply at y combinator.com/apply.
+[758.1] It's never too early and filling out the
+[760.4] app will level up your idea. Okay, back
+[763.3] to the video.
+[764.1] >> Awesome. Let's take a look at another
+[765.5] project that you've been working on
+[766.6] recently. Uh, what is Sodazine?
+[768.8] >> Soda stands for state-of-the-art and the
+[772.6] idea came from Gary actually where he
+[777.0] wanted to celebrate San Francisco. And
+[780.9] so we wanted to work on this really fun
+[783.0] project where we would work with
+[785.0] different artists and writers in the
+[786.6] city and celebrate San Francisco.
+[788.7] >> Maybe first uh talk through how you
+[791.0] designed the actual zen and then we can
+[793.4] talk about the website because I I know
+[795.0] you have some really interesting uh
+[796.8] process that you use to to build that.
+[799.0] >> Yes. So when we say zen, it's a literal
+[801.7] physical zen. What's interesting is that
+[804.0] specifically for the zen and the graphic
+[805.8] design, the cover art and also some some
+[808.6] art that is inside
+[810.5] We intentionally wanted to go for
+[812.3] something that had no AI involvement. We
+[815.4] decided to go back to how we did it a
+[819.0] few years ago and it was in Illustrator.
+[822.1] And these pieces of art, you can tell
+[825.1] the second you look at them, they are
+[828.1] highly intentional and highly detailed.
+[831.0] And you can tell that someone spent
+[832.7] months working on this.
+[834.0] >> Okay. So, you started with the physical
+[835.6] zen.
+[836.3] >> Yes. And then you you transitioned to
+[838.7] making a website to show this off and
+[840.6] and talk about um what your goals were
+[843.1] with building this and the process that
+[844.8] you went about to actually make it come
+[846.5] to life.
+[847.0] >> What's great is that for every single
+[849.3] meeting that we had about the Zen, we
+[852.6] recorded every single one and I dumped
+[855.6] the transcripts into a soul.md
+[858.5] >> file specifically for that project. And
+[861.6] I wanted to treat that soul.md file as
+[864.6] the source of truth and exhaustive
+[868.1] glossery of this project. I wanted this
+[871.5] file to have as much context as possly
+[875.3] possible so that it can feed all the
+[878.2] future decisions that we need to make
+[880.0] regarding this project. It's interesting
+[882.0] because there's probably a lot of people
+[883.1] that are watching and their process is,
+[886.1] you know, maybe they're doing client
+[887.2] work, maybe they're working on an
+[888.8] internal project and they're meeting
+[890.5] with a bunch of, you know, stakeholders,
+[892.3] maybe they're designing their own
+[893.3] website. Um, and they're thinking it
+[895.9] through
+[897.2] >> and and they would probably come out of
+[898.9] that and they would jot down some notes
+[900.5] and some highle takeaways and you're
+[902.6] saying like, "No, you shouldn't do that.
+[904.7] Instead, just record everything and just
+[907.4] dump it all in a soul.md file and then
+[910.0] use that as the basis for everywhere
+[911.9] that you want to go afterwards.
+[913.6] >> Exactly. I really think that's the
+[915.3] that's the future. And we also wrote a
+[917.7] manifesto for ourselves when we were
+[919.3] working on this project. And of course,
+[920.6] we dumped that manifesto into the
+[922.0] soul.md. As much context that we can
+[924.2] give the agent, the better.
+[925.7] >> Can you show that soul.mmd file?
+[927.4] >> Yes. This is what it looks like. It is
+[930.6] nothing more than a um a simple MD file
+[935.9] and it has all the context and you can
+[938.9] also break down MD files. You can create
+[941.7] a hierarchy of the different MD files
+[943.2] that you want. If you want to have like
+[944.5] a design MD file specifically for your
+[946.7] design and how to address design you can
+[948.9] have a separate MD for your manifesto.
+[950.8] You have can have a in our case we could
+[952.5] have had a different MD for the written
+[954.5] content content in the zen. Mhm.
+[957.4] >> Um, you can dump it all in one single
+[959.3] file. I haven't really seen one method
+[963.7] being better than the other, but that's
+[965.2] why we're all experimenting and figuring
+[966.8] out if there's a better way. Overall, I
+[968.7] think capturing as much information as
+[970.3] possible and share that information with
+[971.9] your agent is the best way to build
+[973.8] software moving forward.
+[975.9] >> What were your next steps?
+[977.0] >> I wanted to experiment and I wanted to
+[980.2] do very fast iteration and see multiple
+[983.1] possible versions of what the the
+[985.1] website could look like. And so I
+[986.6] started in Pinterest with a mood board.
+[989.3] I created a mood board with a few images
+[992.3] that I really liked. This was sort of
+[993.9] the vibe that I wanted to go for.
+[995.3] Something very rudimentary, black and
+[997.6] white. And again, this was based on all
+[999.9] the conversations that I've had with my
+[1002.4] colleagues and my friends that I was
+[1004.0] working on this project with. And so I
+[1006.6] started there. And then my first
+[1008.8] reaction was looking at this mood board
+[1011.4] is I wish I could just generate many
+[1015.1] many versions, one shoted websites based
+[1019.4] on this mood board
+[1021.0] >> really simply. And so I downloaded a
+[1024.3] bunch of these um images and I fed them
+[1026.4] into Claude and I asked Claude, "Okay,
+[1028.4] you know the vibe that I'm going for.
+[1030.2] You know the content that I want to show
+[1031.5] on the website. Here's the visual
+[1034.0] direction that I would love for you to
+[1035.4] draw inspiration from." and then oneshot
+[1038.0] a cool website based on that. I asked it
+[1041.2] to do that 16 different times. I built a
+[1045.0] glossery for myself going back to
+[1046.6] training this muscle of we can build
+[1048.8] anything for ourselves now. I wanted to
+[1050.7] build for myself really easy way to
+[1052.4] navigate through all the iterations that
+[1054.0] I'm building for myself. And so building
+[1056.7] a single page here that has this
+[1058.7] collection of all the iterations that
+[1060.4] I'm playing with was just a really easy
+[1062.7] way. And as I started looking at them, I
+[1065.8] wanted an a way for me to bookmark the
+[1067.8] ones that I really liked. And so I
+[1069.4] oneshotted this feature that allows me
+[1071.6] to, you know, pin the ones that I like
+[1074.8] so that they automatically show at the
+[1076.3] top and I don't lose lose tracks of the
+[1077.8] one that I really like.
+[1078.7] >> Yeah. And so, okay, so to be clear, this
+[1080.7] is not a page that's publicly accessible
+[1082.7] on the website. This is a glossery that
+[1085.0] you have made for yourself. Yes. To be
+[1086.9] able to oneshot a bunch of different
+[1088.9] ideas for how to design the overall site
+[1092.4] >> to explore yourself using real content,
+[1096.6] >> real design direction based off of those
+[1098.9] images that you found on Pinterest. Yes.
+[1101.0] >> Um and then create a bookmark system. So
+[1103.5] this is another great example of
+[1105.6] disposable design. Yes.
+[1107.4] >> Where you can just whip this up really
+[1108.9] quickly, jump through a bunch of
+[1110.5] different iterations, and go, I don't
+[1111.8] like that. I don't like that. Oh, I I do
+[1113.3] like that. Oh, let's take this piece
+[1114.8] from this one and put it all together.
+[1117.1] And it makes it happen so much faster.
+[1119.1] Yes.
+[1119.4] >> Show us some of the iterations that you
+[1121.0] put together here.
+[1121.8] >> As part of the sold at MD, I made sure
+[1123.6] to include the names of the different
+[1125.7] articles that we have in the Zen. And
+[1128.0] that was one of the main things that I
+[1129.6] wanted to highlight and show on at least
+[1131.8] the first version of the website that I
+[1133.8] had in mind. And again, because it's
+[1135.6] oneshotted,
+[1137.1] you don't expect like an incredibly high
+[1139.5] level of craft. you're just using this
+[1141.4] as an exploration tool. So getting a
+[1143.3] feel of okay do I want to lay out all
+[1145.3] the all the titles of the articles like
+[1148.0] this or that that was another really
+[1151.4] cool exploration that I loved which is
+[1153.8] there's so many things so many cool
+[1155.4] things going on here cool font um there
+[1158.8] was the date of the party that we threw
+[1160.6] the launch party that we threw for the
+[1161.9] zen that was included in there because
+[1163.4] it was also part of the soldm that is a
+[1165.7] beautiful thing when you realize when
+[1167.9] you unlock so much information for your
+[1170.0] agent your agent knows so much that when
+[1172.6] you're going to give it full reign and
+[1175.0] full you're going to unleash it to make
+[1178.5] iterations for you, it's going to
+[1179.7] surprise you.
+[1180.7] >> It's going to include things that you
+[1182.0] would not have otherwise thought of. And
+[1184.1] that was almost like an AGI moment
+[1186.3] >> for us when we realized that
+[1188.4] >> wow it can see things ahead of us and it
+[1191.6] can really help us brainstorm even and
+[1193.4] come up with like really really original
+[1194.9] ideas. And so that was a really nice um
+[1197.7] surprise here. It's just like
+[1198.9] organically included the time of the
+[1201.1] party that we were hosting.
+[1202.8] >> Also, the the fact that it's a Zen and
+[1204.6] so it added this uh code bar, this
+[1207.0] barcode,
+[1208.1] >> uh assuming that it's like a physical
+[1209.5] one that you can purchase in different
+[1211.7] um in different uh currency was also
+[1214.5] really cool. One thing that I wanted to
+[1216.6] experiment with is what if we had an
+[1218.7] actual map of San Francisco, an
+[1220.9] interactive map of San Francisco and it
+[1223.8] included this version where
+[1227.0] >> Oh, wow. Yes. Where you it uh it reveals
+[1231.3] a map of San Francisco that is
+[1232.7] interactive and you can move around in
+[1234.3] the city and that is like fully living
+[1237.0] behind the oneshotted iteration that it
+[1240.7] built. So just like marvelous things and
+[1243.8] I think these sorts of levels of design
+[1246.8] oneshotable designs can only be achieved
+[1249.2] if you have a very detailed and and
+[1252.2] intentional design on MD or sold in MD.
+[1254.9] You need to shepherd your agent to tell
+[1256.8] it exactly the vibe that you want to go
+[1258.4] for. If you can include screenshots,
+[1260.5] also if you can include a mood board, as
+[1262.8] much information as you can feed your
+[1264.2] agent so that it really understands what
+[1266.8] you want and then it's going to surprise
+[1268.2] you in the most beautiful ways.
+[1269.6] >> Yeah. I think a lot of people use Claude
+[1271.1] or they use codeex and they tell it to
+[1273.0] design something and they feel like it
+[1274.5] they get generic design back and this is
+[1276.7] how to break that.
+[1277.6] >> Yes.
+[1277.9] >> Which is really interesting
+[1279.0] >> and it's really easy. You just have to
+[1280.7] pull Pinterest or even like Google image
+[1283.3] and you find or even websites that you
+[1285.5] really like really websites that you
+[1287.4] really like
+[1288.3] >> and start bookmarking them and
+[1291.4] eventually use them. Give them to your
+[1293.5] agent and say this is something that I
+[1295.1] really like. And sometimes you love a
+[1297.0] website and you don't even know why you
+[1298.2] love a website. But it's okay. You don't
+[1299.6] need to understand why you love a
+[1300.7] website. Just give it to the agent. The
+[1301.9] agent will analyze it for you. It's
+[1303.6] going to understand eventually your
+[1305.0] patterns and the commonality between all
+[1307.0] the websites that you like. It can tell
+[1308.4] you, oh, that's actually the things that
+[1309.8] you seem to like across many websites.
+[1312.2] This is another exploration that I
+[1314.3] really loved. Again, displaying the
+[1316.8] title of all the articles. And there are
+[1319.8] really cool hover effects.
+[1322.2] >> Oh, wow.
+[1322.7] >> That it created as you're exploring the
+[1326.0] different articles. And so for each
+[1328.5] article, it pulled
+[1330.3] >> really cool visuals. And you're at a
+[1333.5] point where you don't even know how club
+[1334.9] does does these things. It just it
+[1337.0] scrapes the web, it browses the web, it
+[1339.4] finds cool pictures, animations, and
+[1342.1] it's going to surface them like this.
+[1344.1] And if there are some things that you
+[1345.5] want to fine-tune, you can just, you
+[1347.0] know, speak via Aqua and ask it to
+[1349.7] change things, change the color of
+[1351.1] things, change the feel of things. And
+[1352.8] it's just this incredibly fast and
+[1355.5] rewarding feedback loop that you have
+[1357.8] with your agent.
+[1358.5] >> Yeah, it's amazing.
+[1359.4] >> So, now we can talk about where we ended
+[1361.1] up is this fully interactive map of San
+[1364.5] Francisco. We thought, how fun would it
+[1366.9] be to build a map where people can drop
+[1369.4] pins and small stories of things that
+[1372.7] they've come across in San Francisco or
+[1375.2] like encounters or like delightful
+[1377.0] memories that they have of small moments
+[1379.4] in the city. And so we thought, let's
+[1382.1] make it fully anonymous. People can
+[1384.5] share memories and the only thing that
+[1387.4] they need to do is pin a location or
+[1389.4] like pick a location and then tell us
+[1391.0] what happened at that location. And
+[1393.3] what's beautiful is that it allows
+[1395.0] people to share things that are very
+[1399.0] surprising and beautiful and intimate
+[1402.1] and introspective. Here we built this
+[1404.8] this fun little way to consume or like
+[1409.0] read through all these submissions. And
+[1411.4] it's again a way for us to go back to
+[1413.8] the core essence of this project which
+[1415.8] is how can we understand how people are
+[1417.8] experiencing San Francisco and what are
+[1419.7] the like magical small moments that we
+[1422.1] can all sort of learn from. We also
+[1425.3] build this little entry point for we
+[1427.7] built posters digital posters for the
+[1431.0] party that we threw the launch party
+[1432.6] that we threw. There's also a substack
+[1434.9] that we created for this zen and we
+[1437.2] added this fun little entry point where
+[1439.8] you get redirected to this to the
+[1441.5] substack and then you can read the
+[1443.0] different articles. You can share a
+[1445.2] noticing or you can share a submission
+[1447.0] that you really like. So let's say this
+[1449.3] one I really like it. I want to send it
+[1451.0] to my friend. I can just click share. It
+[1453.2] downloads it as a PNG and it outputs
+[1455.6] this and it gives you the cardinal
+[1458.9] coordinates of the location that was uh
+[1461.4] tied to this story and you can share
+[1463.8] this with your friends and you also know
+[1465.4] the street that it's in or that it's on.
+[1468.2] >> So, we're actually putting on startup
+[1470.3] school at the Chase Center here in San
+[1472.0] Francisco and you did a lot of really
+[1474.6] cool work to help support that. I would
+[1476.6] love for you to show off some of the
+[1478.2] shaders that you created and some of the
+[1480.8] uh content that has been shared on
+[1482.4] social media and other platforms to help
+[1484.5] um bring attention to the event.
+[1486.4] >> Yes, we're all preparing for Startup
+[1488.7] School, which is our biggest event of
+[1490.0] the year. It's going to be, as you said,
+[1491.4] at Chase Center. We're going to have
+[1492.6] more than 6,000 people coming from all
+[1494.9] corners of the world to experience SF
+[1497.1] and what it means to build with AI and
+[1499.0] have like this incredible sense of
+[1500.3] community of we're all building
+[1501.8] together. And we were able to have an
+[1505.4] amazing speaker lineup this year. We
+[1507.6] have phenomenal names coming. We have
+[1509.3] Jensen, we have Sam, Sam Sam Oldman, we
+[1511.6] have Alexander Wang, we have Jeff Dean,
+[1513.8] and so many others. And we wanted a
+[1516.4] really cool way to share that lineup
+[1518.1] with the world. And when we were
+[1519.9] thinking more broadly about the design
+[1521.8] behind this event, we wanted to make it
+[1523.8] feel really Y, but more like a variation
+[1526.9] of YC. And so we experimented with of
+[1529.8] course orange but gradients of orange
+[1532.7] and we discovered the paper shaders and
+[1536.0] we thought maybe it would be a cool way
+[1537.8] for us to experiment with paper shaders.
+[1539.9] My first intuition when I thought about
+[1541.7] building visual
+[1544.4] assets for how we're going to share
+[1546.0] these speaker cards on on social media.
+[1548.8] I I've initially started in Figma
+[1551.2] actually. I I've initially dropped um
+[1554.3] some of the images that we got from our
+[1556.2] speakers and I started making it myself
+[1558.2] moving things around and I noticed well
+[1560.3] we're going to have many speakers and I
+[1563.1] don't want to move things around 12
+[1565.5] times and so I thought it would probably
+[1568.1] be just simpler to ask Claude to make a
+[1569.8] template for myself and it can even like
+[1571.8] pull images for me from my inbox and do
+[1575.1] everything for me so that it feels as
+[1577.4] light as possible and I can also have an
+[1580.8] easier time experiment with the visual
+[1583.1] feel of the cards. And so I built this
+[1585.4] tool for myself. It's a very simple tool
+[1589.0] where we have the names of all of the
+[1591.0] speakers that are confirmed.
+[1593.5] And
+[1595.4] it just automatically generated all of
+[1597.3] the all of these as we kept having more
+[1600.6] and more names of speakers confirmed.
+[1602.9] And I also built a way for myself to
+[1605.4] experiment with different ways to lay
+[1607.4] out the the text on these on these
+[1611.1] cards. And we ended up going for this
+[1612.9] one. But it was fun to really easily
+[1614.8] almost one shot in different iteration
+[1617.1] >> of layout for each of these cards. And
+[1618.9] these are like compatible across the
+[1621.4] board. And for the shaders, well, we use
+[1623.9] the the movement that comes from one of
+[1626.6] the uh shaders made by paper.design
+[1630.5] and we fine-tune the graininess here and
+[1634.3] the edges and the rotation,
+[1637.2] the scale
+[1639.1] um like this. And I had a lot of fun
+[1641.9] really finding the variation of the
+[1645.5] shader that I wanted. And so I can just
+[1647.8] refresh and it resets. But that was also
+[1650.0] a very helpful sort of mini tool that I
+[1651.8] built for myself. Um, and another thing
+[1654.1] is I wanted to because I wanted to keep
+[1657.4] the really cool movement that is
+[1659.7] happening behind, I needed to do a
+[1662.7] screen recording to maximize the
+[1664.6] resolution of the card. And so I built
+[1666.6] this little screen recording tool for
+[1668.0] myself that tells me exactly when I need
+[1670.2] to start the recording
+[1672.4] and when I need to stop. And the reason
+[1674.6] I built this tool is because I really
+[1676.2] wanted it to feel like a loop, a perfect
+[1679.2] loop, so that when we post it on Twitter
+[1681.0] and on Instagram, it loops very very
+[1684.1] smoothly and it feels like a like an
+[1686.1] endless sort of movement. And so I asked
+[1688.6] Claude to build this specific tool that
+[1691.1] gives me like this 4se secondond like
+[1693.5] perfectly
+[1695.1] designed loop so that it starts and end
+[1697.2] at the exact same pixel that it feels
+[1700.1] really smooth. We thought it would be
+[1703.6] really magical if people received a
+[1706.8] ticket
+[1708.1] >> uh when they get their acceptance. And
+[1710.5] so we designed this ticket reusing the
+[1714.3] shader that we're using for all the
+[1715.8] other visual assets that we have for
+[1717.7] startup school. This time we would apply
+[1719.4] it against a a ticket and we would try
+[1722.2] to make it as personalized as possible.
+[1725.0] So, we render your name and we render
+[1727.2] the city that you're from and then some
+[1728.7] information about the about the event.
+[1730.5] And it's been such a delight to see
+[1732.9] people share them on social media
+[1736.2] >> and say that they are excited about
+[1737.8] coming to SF and experience SF sometimes
+[1739.9] for the first time.
+[1741.0] >> Yeah. Could you imagine a year ago
+[1742.6] trying to build something like this? It
+[1744.6] wouldn't be worth it. these shaders.
+[1746.4] Building these shaders a year ago would
+[1748.6] have been like would have felt like this
+[1750.5] insurmountable mountain of I would not
+[1754.2] even have known where to start
+[1756.1] >> to build these things. And now it is
+[1759.3] just this thing that Claude, my claude
+[1762.1] knows what to pull cuz it it knows that
+[1764.4] I love paper. It knows that I love their
+[1766.3] shaders and it's just automatically
+[1768.2] knows how to pull that all that
+[1770.2] information from their website and it
+[1772.0] uses it. It's just really magical. It's
+[1774.2] really cool to see this and it feels
+[1775.6] like so much time and thought and
+[1777.3] attention and care went into designing
+[1779.0] the experience from the moment that you
+[1781.6] get accepted until all the way through
+[1784.0] when you show up to the event and see
+[1785.7] the amazing lineup there.
+[1787.0] >> Yes. Yes. And it's also it's going to be
+[1788.7] amazing to keep building more of the
+[1791.4] branding of Startup School with Claude
+[1794.2] and Codeex and like coding agents. It is
+[1796.5] such a different paradigm as to how we
+[1798.9] even do branding design moving forward.
+[1801.3] the fact that we will be able to use
+[1803.1] that same shader with the same
+[1804.6] parameters on the massive screens that
+[1807.4] we're going to have throughout Chase
+[1808.7] Center and keep it incredibly consistent
+[1811.1] through and through. It's amazing. Like
+[1813.5] I'm really really excited about this and
+[1815.3] it's just easier than ever to make
+[1817.1] things more consistent and use coding
+[1819.9] agents for absolutely everything.
+[1821.8] >> Yeah. Amazing. Ev, thank you so much for
+[1824.2] joining and and showing us the behind
+[1825.7] the scenes of how you've done some of
+[1827.1] this incredible work. um things that I
+[1829.5] think are really pushing the boundaries
+[1830.9] forward that uh are ways that are going
+[1832.6] to be super common for how designers are
+[1834.4] designing in the future, but not a lot
+[1836.2] of people I think have figured out yet.
+[1837.7] So, I really appreciate you sharing that
+[1839.2] process.
+[1839.8] >> Thank you. We're we're all figuring it
+[1841.4] out together and we're having a lot of
+[1842.6] fun doing so.
+[1843.4] >> That does it for this episode of Design
+[1845.0] Review. We'll see you on the next one.
+[1851.1] >> [music]

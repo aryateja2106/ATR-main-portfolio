@@ -9,10 +9,10 @@ Use this skill to turn one source of learning into a daily multi-channel content
 
 ## Source Order
 
-1. Read `apps/web/lib/portfolio/brand.ts` for identity, links, location, and voice rules.
-2. Read `PRODUCT.md` for audience, positioning, and content product goals.
-3. Read `DESIGN.md` for brand visuals and social asset direction.
-4. Read `docs/CONTENT.md` for the daily content runbook.
+1. Read `apps/web/public/llms.txt` for current public identity, links, services, and status warnings.
+2. Read `apps/web/app/(portfolio)/_components/field-notes/content.ts` for current homepage positioning.
+3. Read `PRODUCT.md` for audience, positioning, anti-references, and site goals.
+4. Read `docs/content-creator/README.md` and the specific creator-kit file that matches the task.
 5. Read only the specific reference file below that matches the task.
 
 ## Reference Map
