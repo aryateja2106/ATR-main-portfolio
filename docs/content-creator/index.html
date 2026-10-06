@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arya Content Creator Kit</title>
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg: #0b0c0d;
+      --panel: #1c1a17;
+      --text: #f7f2e8;
+      --muted: #b9b0a2;
+      --line: #3a352f;
+      --accent: #b94436;
+      --paper: #f2ecdf;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    header,
+    main,
+    footer {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 56px 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 1.35rem;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .lede {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      padding: 24px 0;
+    }
+
+    .card {
+      min-height: 160px;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .band {
+      margin: 8px 0 24px;
+      padding: 18px;
+      background: #171512;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 4px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    footer {
+      padding: 24px 0 48px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px;">
+      <span aria-hidden="true" style="display:grid;place-items:center;width:48px;height:48px;background:var(--paper);color:#12110f;border-radius:4px;font:italic 700 34px Georgia,serif;">A</span>
+      <span class="tag" style="margin:0;">Arya Teja Rudraraju</span>
+    </div>
+    <span class="tag">One-week contractor kit</span>
+    <h1>Arya Content Creator Kit</h1>
+    <p class="lede">Create practical, sourced content for Arya Teja Rudraraju without inventing facts, leaking private context, or drifting into stale positioning.</p>
+  </header>
+
+  <main>
+    <section class="grid" aria-labelledby="files-heading">
+      <h2 id="files-heading" style="position:absolute;left:-9999px;">Kit files</h2>
+      <article class="card">
+        <span class="tag">Start</span>
+        <h3><a href="./README.md">README.md</a></h3>
+        <p>Week goal, file order, output target, and non-negotiables.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Brand</span>
+        <h3><a href="./BRAND-GUIDELINES.md">BRAND-GUIDELINES.md</a></h3>
+        <p>Voice, positioning, proof boundaries, visual rules, and CTA patterns.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Audience</span>
+        <h3><a href="./ICP.md">ICP.md</a></h3>
+        <p>Primary audience, secondary audience, high-fit problems, and content fit.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Workflow</span>
+        <h3><a href="./CONTENT-PLAYBOOK.md">CONTENT-PLAYBOOK.md</a></h3>
+        <p>Daily workflow, LinkedIn and X rules, checklists, topics, and file naming.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Agents</span>
+        <h3><a href="./AGENT-CONTEXT.md">AGENT-CONTEXT.md</a></h3>
+        <p>Source hierarchy, known public facts, unknowns, and reusable agent prompts.</p>
+      </article>
+    </section>
+
+    <section class="band" aria-labelledby="rules-heading">
+      <h2 id="rules-heading">Publishing Rules</h2>
+      <ul>
+        <li>Use current public site sources first: <code>apps/web/public/llms.txt</code>, homepage content, then <code>PRODUCT.md</code>.</li>
+        <li>Mark missing facts as <code>TODO:</code>. Do not fill gaps from memory.</li>
+        <li>Do not publish metrics, testimonials, security claims, client outcomes, or project status without direct proof.</li>
+        <li>Do not publish secrets, private SecondBrain context, active tunnels, QR codes, client data, or private repo paths.</li>
+        <li>Arya or an authorized human must approve final copy and visuals before posting.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Local viewing file for <code>docs/content-creator/</code>. Generated as a static, self-contained HTML summary.
+  </footer>
+</body>
+</html>

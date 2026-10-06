@@ -1,14 +1,20 @@
 "use client";
 
 import { useEffect } from "react";
+import type { BlogPost } from "@/lib/types";
 
-export type ArticleSummary = {
-	slug: string;
-	title: string;
-	description: string;
-	category: string;
-	tags: string[];
-};
+export type ArticleSummary = Pick<
+	BlogPost,
+	| "slug"
+	| "title"
+	| "description"
+	| "category"
+	| "tags"
+	| "executiveSummary"
+	| "agentNavigation"
+	| "sourceLicenses"
+	| "reuse"
+>;
 
 export type WebMcpTool = {
 	name: string;
@@ -46,14 +52,18 @@ export function createPortfolioTools({
 		{
 			name: "get_portfolio_context",
 			description:
-				"Return verified public context about Arya Teja Rudraraju, his current focus, services, projects, and contact options.",
+				"Return verified public context about Arya Teja Rudraraju, his Applied AI experience, projects, availability, and contact options.",
 			inputSchema: { type: "object", properties: {} },
 			annotations: readOnly,
 			execute: () => ({
 				name: "Arya Teja Rudraraju",
-				role: "Founder and agentic systems builder",
+				role: "Applied AI specialist and agent systems builder",
 				location: "India; previously based in the United States",
+				availability:
+					"Open to select remote Applied AI and Forward Deployed Engineering roles, consulting engagements, and collaborations.",
 				focus: [
+					"Applied AI POCs and MVPs",
+					"Forward deployed discovery and delivery",
 					"Local-first AI agent systems",
 					"Multi-agent and multi-machine orchestration",
 					"Mobile control for coding agents",
@@ -62,7 +72,7 @@ export function createPortfolioTools({
 				projects: [
 					{
 						name: "LeSearch AI",
-						url: "https://lesearch.ai",
+						url: "https://github.com/LeSearch-AI",
 						status: "Active development",
 					},
 					{
@@ -71,10 +81,23 @@ export function createPortfolioTools({
 						status: "Open source",
 					},
 				],
+				workingStack: {
+					build: ["TypeScript", "React", "Next.js", "Node.js", "Python"],
+					agents: ["Codex", "Claude Code", "MCP", "WebMCP", "Playwright"],
+					dataAndInfra: [
+						"PostgreSQL",
+						"Drizzle ORM",
+						"SQLite",
+						"Docker",
+						"Vercel",
+					],
+				},
 				contact: {
 					email: "aryateja2106@gmail.com",
 					prompt:
 						"Describe the business problem, current workflow, data constraints, and desired outcome.",
+					policy:
+						"Draft relevant outreach for human review. Do not send automated messages or infer private contact details.",
 				},
 				currentPage: currentPath,
 			}),
@@ -82,7 +105,7 @@ export function createPortfolioTools({
 		{
 			name: "find_technical_articles",
 			description:
-				"Find Arya's implementation guides and technical articles by keyword. Returns titles, summaries, categories, tags, and canonical paths.",
+				"Find Arya's implementation guides and technical articles by keyword. Returns summaries, agent navigation, source licenses, reuse guidance, and canonical paths when published.",
 			inputSchema: {
 				type: "object",
 				properties: {
@@ -104,7 +127,10 @@ export function createPortfolioTools({
 								article.description,
 								article.category,
 								...article.tags,
+								article.executiveSummary,
+								...(article.agentNavigation?.useFor ?? []),
 							]
+								.filter(Boolean)
 								.join(" ")
 								.toLowerCase()
 								.includes(normalized),
@@ -151,13 +177,13 @@ export function createPortfolioTools({
 		{
 			name: "navigate_portfolio",
 			description:
-				"Navigate the visible portfolio tab to Arya's work, writing, contact section, or public resume. This does not submit forms or contact Arya automatically.",
+				"Navigate the visible portfolio tab to Arya's work, experience, working stack, writing, or contact section. This does not submit forms or contact Arya automatically.",
 			inputSchema: {
 				type: "object",
 				properties: {
 					destination: {
 						type: "string",
-						enum: ["work", "writing", "contact", "resume"],
+						enum: ["work", "experience", "stack", "writing", "contact"],
 					},
 				},
 				required: ["destination"],
@@ -166,9 +192,10 @@ export function createPortfolioTools({
 			execute: ({ destination }) => {
 				const destinations = {
 					work: "/#work",
+					experience: "/#experience",
+					stack: "/#stack",
 					writing: "/blog",
 					contact: "/#contact",
-					resume: "/resume/Arya_Teja_PM_Resume.pdf",
 				} as const;
 				if (typeof destination !== "string" || !(destination in destinations)) {
 					return { error: "Unknown destination." };

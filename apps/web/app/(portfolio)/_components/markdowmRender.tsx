@@ -1,11 +1,7 @@
-"use client";
-
-import { Check, Copy } from "lucide-react";
-import { useState } from "react";
+import { Children, isValidElement, type ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import remarkGfm from "remark-gfm";
+import { createHeadingIdGenerator } from "@/lib/portfolio/headings";
 
 interface MarkdownRendererProps {
 	content: string;
@@ -14,67 +10,33 @@ interface MarkdownRendererProps {
 
 interface CodeComponentProps {
 	className?: string;
-	children: React.ReactNode;
+	children: ReactNode;
 	inline?: boolean;
 	[key: string]: unknown;
 }
 
-function headingId(children: React.ReactNode) {
-	return String(children)
-		.toLowerCase()
-		.replace(/[^a-z0-9\s-]/g, "")
-		.trim()
-		.replace(/\s+/g, "-");
-}
+function headingText(children: ReactNode): string {
+	return Children.toArray(children)
+		.map((child) => {
+			if (typeof child === "string" || typeof child === "number") {
+				return String(child);
+			}
 
-function CopyCodeButton({ code }: { code: string }) {
-	const [copied, setCopied] = useState(false);
+			if (isValidElement<{ children?: ReactNode }>(child)) {
+				return headingText(child.props.children);
+			}
 
-	const copyWithFallback = () => {
-		const textarea = document.createElement("textarea");
-		textarea.value = code;
-		textarea.style.position = "fixed";
-		textarea.style.opacity = "0";
-		document.body.appendChild(textarea);
-		textarea.select();
-		const success = document.execCommand("copy");
-		textarea.remove();
-		return success;
-	};
-
-	return (
-		<button
-			type="button"
-			onClick={async () => {
-				let success = false;
-				try {
-					if (navigator.clipboard) {
-						await navigator.clipboard.writeText(code);
-						success = true;
-					}
-				} catch {
-					success = false;
-				}
-
-				if (!success) success = copyWithFallback();
-				if (!success) return;
-
-				setCopied(true);
-				window.setTimeout(() => setCopied(false), 4000);
-			}}
-			className="inline-flex size-8 items-center justify-center text-[#b9b0a2] transition-colors hover:text-[#f7f2e8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f7f2e8]"
-			aria-label={copied ? "Code copied" : "Copy code"}
-			title={copied ? "Copied" : "Copy code"}
-		>
-			{copied ? <Check className="size-4" /> : <Copy className="size-4" />}
-		</button>
-	);
+			return "";
+		})
+		.join("");
 }
 
 export default function MarkdownRenderer({
 	content,
 	className = "",
 }: MarkdownRendererProps) {
+	const nextHeadingId = createHeadingIdGenerator();
+
 	return (
 		<div className={`prose prose-lg max-w-none ${className}`}>
 			<ReactMarkdown
@@ -89,25 +51,16 @@ export default function MarkdownRenderer({
 
 						return !inline && match ? (
 							<div className="not-prose my-8 overflow-hidden rounded-sm border border-[#2d2a25] bg-[#12110f]">
-								<div className="flex h-11 items-center justify-between border-b border-[#f7f2e8]/10 px-4">
+								<div className="flex h-11 items-center border-b border-[#f7f2e8]/10 px-4">
 									<span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#b9b0a2]">
 										{match[1]}
 									</span>
-									<CopyCodeButton code={code} />
 								</div>
-								<SyntaxHighlighter
-									style={vscDarkPlus}
-									language={match[1]}
-									PreTag="div"
-									customStyle={{
-										margin: 0,
-										padding: "1.25rem",
-										background: "#12110f",
-									}}
-									{...rest}
-								>
-									{code}
-								</SyntaxHighlighter>
+								<pre className="overflow-x-auto p-5 text-sm leading-6 text-[#f7f2e8]">
+									<code className={className} {...rest}>
+										{code}
+									</code>
+								</pre>
 							</div>
 						) : (
 							<code
@@ -127,22 +80,52 @@ export default function MarkdownRenderer({
 						);
 					},
 					h2({ children }) {
+						const title = headingText(children);
+						const id = nextHeadingId(title);
+
 						return (
 							<h2
-								id={headingId(children)}
-								className="scroll-mt-28 mt-16 mb-5 font-serif text-[clamp(32px,5vw,48px)] leading-tight text-[#171512]"
+								id={id}
+								className="group scroll-mt-28 mt-16 mb-5 font-serif text-[clamp(32px,5vw,48px)] leading-tight text-[#171512]"
 							>
-								{children}
+								<a
+									href={`#${id}`}
+									aria-label={`Link to ${title}`}
+									className="text-inherit no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2563eb]"
+								>
+									{children}
+									<span
+										aria-hidden="true"
+										className="ml-2 align-middle font-mono text-[0.45em] text-[#8d451e] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100"
+									>
+										#
+									</span>
+								</a>
 							</h2>
 						);
 					},
 					h3({ children }) {
+						const title = headingText(children);
+						const id = nextHeadingId(title);
+
 						return (
 							<h3
-								id={headingId(children)}
-								className="scroll-mt-28 mt-10 mb-4 font-serif text-2xl text-[#171512]"
+								id={id}
+								className="group scroll-mt-28 mt-10 mb-4 font-serif text-2xl text-[#171512]"
 							>
-								{children}
+								<a
+									href={`#${id}`}
+									aria-label={`Link to ${title}`}
+									className="text-inherit no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2563eb]"
+								>
+									{children}
+									<span
+										aria-hidden="true"
+										className="ml-2 align-middle font-mono text-[0.55em] text-[#8d451e] opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100"
+									>
+										#
+									</span>
+								</a>
 							</h3>
 						);
 					},

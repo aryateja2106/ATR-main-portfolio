@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arya Teja · Control Room (exploration)</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #07110f;
+        --ink: #f3f4ed;
+        --muted: #9aa39b;
+        --line: rgba(243, 244, 237, 0.14);
+        --accent: #00f58a;
+        --accent2: #f6b73c;
+        --panel: #0e1a17;
+        --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        --serif: "Fraunces", Georgia, serif;
+        --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0; color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased;
+        background:
+          linear-gradient(90deg, rgba(0, 245, 138, 0.045) 1px, transparent 1px),
+          linear-gradient(rgba(0, 245, 138, 0.04) 1px, transparent 1px),
+          radial-gradient(circle at 80% 12%, rgba(19, 214, 242, 0.14), transparent 34%),
+          var(--bg);
+        background-size: 40px 40px, 40px 40px, auto, auto;
+      }
+      a { color: inherit; }
+
+      header { position: sticky; top: 0; z-index: 10; background: rgba(7, 17, 15, 0.82); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav { max-width: 1140px; margin: 0 auto; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; }
+      .brand { font-family: var(--mono); font-weight: 700; letter-spacing: 0.05em; font-size: 15px; display: inline-flex; align-items: center; gap: 10px; }
+      .brand::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 18px var(--accent); }
+      .brand span { color: var(--accent); }
+      .links { display: flex; gap: 24px; font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+      .links a { text-decoration: none; }
+      .links a:hover { color: var(--ink); }
+      .wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+
+      .hero { padding: 92px 0 72px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr); gap: 48px; align-items: center; }
+      .kicker { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 22px; }
+      h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(46px, 7vw, 92px); line-height: 0.95; margin: 0 0 26px; }
+      .lede { font-size: 19px; line-height: 1.55; color: var(--muted); max-width: 52ch; margin: 0 0 32px; }
+      .cta { display: inline-flex; gap: 14px; align-items: center; font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; background: var(--accent); color: #04231a; padding: 14px 22px; border-radius: 8px; text-decoration: none; font-weight: 700; }
+      .portrait { aspect-ratio: 4/5; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--panel); }
+      .portrait img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.3) contrast(1.05); }
+
+      .sec { padding: 72px 0; border-top: 1px solid var(--line); }
+      .sec-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 38px; }
+      .sec-head h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 4vw, 46px); margin: 0; }
+      .sec-head .tag { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+
+      .journey { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .photo { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 3/2; background: var(--panel); }
+      .photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.25) contrast(1.05); }
+      .photo.tall { grid-row: span 2; aspect-ratio: 3/4; }
+      .journey-note { font-family: var(--mono); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 18px; }
+
+      .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+      .card { border: 1px solid var(--line); border-radius: 12px; padding: 22px; background: var(--panel); text-decoration: none; color: inherit; transition: transform 150ms ease, border-color 150ms ease; }
+      .card:hover { transform: translateY(-3px); border-color: rgba(0, 245, 138, 0.5); }
+      .card .meta { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); margin-bottom: 12px; }
+      .card h3 { font-family: var(--serif); font-weight: 400; font-size: 23px; line-height: 1.05; margin: 0 0 10px; }
+      .card p { color: var(--muted); font-size: 14px; line-height: 1.5; margin: 0; }
+
+      .agents { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+      .agent { border: 1px solid var(--line); border-radius: 12px; padding: 26px 22px; background: var(--panel); position: relative; overflow: hidden; }
+      .agent::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); }
+      .agent .mk { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--accent2); }
+      .agent h3 { font-family: var(--serif); font-weight: 400; font-size: 28px; margin: 10px 0 10px; }
+      .agent p { font-size: 14px; line-height: 1.55; color: var(--muted); margin: 0 0 16px; }
+      .agent .lnk { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--accent); padding-bottom: 3px; }
+
+      footer { border-top: 1px solid var(--line); padding: 48px 0 64px; }
+      .foot { display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+      .badge { position: fixed; bottom: 18px; right: 18px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; background: var(--accent); color: #04231a; padding: 8px 12px; border-radius: 999px; font-weight: 700; opacity: 0.95; }
+
+      @media (max-width: 900px) {
+        .hero, .journey, .cards, .agents { grid-template-columns: 1fr; }
+        .photo.tall { aspect-ratio: 3/2; }
+        .links { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">ARYA<span>.</span>TEJA</div>
+        <nav class="links">
+          <a href="#writing">Writing</a>
+          <a href="#work">Work</a>
+          <a href="#agents">Agents</a>
+          <a href="#about">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="wrap hero">
+      <div>
+        <div class="kicker">Agentic engineer · AI-agent OS</div>
+        <h1>The remote machine is the new creative surface.</h1>
+        <p class="lede">
+          I'm Arya Teja Rudraraju — solo founder orchestrating the agent-native stack: an AI-agent
+          OS, consulting that ships, and the merch for people who live in the terminal.
+        </p>
+        <a class="cta" href="#writing">Open the logs →</a>
+      </div>
+      <div class="portrait">
+        <img src="../real-images/yc-robo-hk-solo.jpeg" alt="Arya at YC Robo, Hong Kong" />
+      </div>
+    </section>
+
+    <section class="wrap sec" id="about">
+      <div class="sec-head"><h2>Signal from the field</h2><span class="tag">Deploy log · 2024–26</span></div>
+      <div class="journey">
+        <div class="photo tall"><img src="../real-images/world-model-hk-team.JPG" alt="World model team, HK" /></div>
+        <div class="photo"><img src="../real-images/Raycast-builder-event.JPG" alt="Raycast builder event" /></div>
+        <div class="photo"><img src="../real-images/Factory-builder-event.JPG" alt="Factory builder event" /></div>
+        <div class="photo"><img src="../real-images/nevermined-hk-team.JPG" alt="Nevermined team, HK" /></div>
+        <div class="photo"><img src="../real-images/YC-robo-hk-team.JPG" alt="YC Robo team, HK" /></div>
+      </div>
+      <p class="journey-note">Build sites & team nodes across SF, HK, and the YC orbit.</p>
+    </section>
+
+    <section class="wrap sec" id="writing">
+      <div class="sec-head"><h2>Field reports</h2><span class="tag">Essays · Case studies · Notes</span></div>
+      <div class="cards">
+        <a class="card" href="#"><div class="meta">Essay</div><h3>Agents are becoming interfaces to machines</h3><p>A long-form argument with diagrams, screenshots, and source links.</p></a>
+        <a class="card" href="#"><div class="meta">Case study</div><h3>CloudAGI's first revenue quarter, shipped</h3><p>What consulting looked like end-to-end, and the part worth copying.</p></a>
+        <a class="card" href="#"><div class="meta">Video → notes</div><h3>YC's design lead on designing with AI</h3><p>Notes from a talk, distilled into a working principle.</p></a>
+      </div>
+    </section>
+
+    <section class="wrap sec" id="agents">
+      <div class="sec-head"><h2>Agents & products</h2><span class="tag">Runtime · active</span></div>
+      <div class="agents">
+        <div class="agent">
+          <div class="mk">01 / OS</div>
+          <h3>lesearch.ai</h3>
+          <p>Product & AI-agent OS — the system for serious researchers and builders.</p>
+          <span class="lnk">Inspect →</span>
+        </div>
+        <div class="agent">
+          <div class="mk">02 / SERVICES</div>
+          <h3>cloudagi.ai</h3>
+          <p>AI consulting that ships. Revenue-first, pragmatic, done with you.</p>
+          <span class="lnk">Inspect →</span>
+        </div>
+        <div class="agent">
+          <div class="mk">03 / MERCH</div>
+          <h3>agentfirst.shop</h3>
+          <p>Agent-native merch for people who live in the terminal.</p>
+          <span class="lnk">Inspect →</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap foot">
+        <span>© 2026 Arya Teja Rudraraju</span>
+        <span>LinkedIn · X · YouTube</span>
+      </div>
+    </footer>
+
+    <div class="badge">Style 03 · Control Room</div>
+  </body>
+</html>

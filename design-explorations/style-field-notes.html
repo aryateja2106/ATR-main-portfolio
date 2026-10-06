@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arya Teja · Field Notes (exploration)</title>
+    <style>
+      :root {
+        --bg: #e9dfc7;
+        --ink: #131815;
+        --muted: rgba(19, 24, 21, 0.66);
+        --line: rgba(19, 24, 21, 0.18);
+        --accent: #a65728;
+        --paper: #f6efdd;
+        --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        --serif: "Fraunces", Georgia, serif;
+        --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+      a { color: inherit; }
+
+      header { position: sticky; top: 0; z-index: 10; background: rgba(233, 223, 199, 0.88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+      .nav { max-width: 1140px; margin: 0 auto; padding: 18px 28px; display: flex; align-items: center; justify-content: space-between; }
+      .brand { font-family: var(--serif); font-weight: 600; font-size: 22px; letter-spacing: -0.01em; }
+      .brand span { color: var(--accent); }
+      .links { display: flex; gap: 26px; font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+      .links a { text-decoration: none; }
+      .links a:hover { color: var(--ink); }
+      .wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+
+      .hero { padding: 88px 0 64px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr); gap: 44px; align-items: center; }
+      .kicker { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 20px; }
+      h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(44px, 6.5vw, 84px); line-height: 0.98; margin: 0 0 24px; }
+      .lede { font-size: 19px; line-height: 1.6; color: var(--muted); max-width: 50ch; margin: 0 0 30px; }
+      .cta { display: inline-flex; gap: 12px; align-items: center; font-family: var(--mono); font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; background: var(--ink); color: var(--bg); padding: 13px 20px; border-radius: 8px; text-decoration: none; }
+      .portrait { aspect-ratio: 4/5; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--paper); transform: rotate(-1.2deg); }
+      .portrait img { width: 100%; height: 100%; object-fit: cover; filter: sepia(0.18) contrast(1.02); }
+
+      .sec { padding: 68px 0; border-top: 1px solid var(--line); }
+      .sec-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 36px; }
+      .sec-head h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(30px, 4vw, 46px); margin: 0; }
+      .sec-head .tag { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+
+      .journey { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .photo { border-radius: 10px; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 3/2; background: var(--paper); }
+      .photo img { width: 100%; height: 100%; object-fit: cover; filter: sepia(0.12); }
+      .photo.tall { grid-row: span 2; aspect-ratio: 3/4; }
+      .journey-note { font-family: var(--mono); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 18px; }
+
+      .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+      .card { border: 1px solid var(--line); border-radius: 10px; padding: 22px; background: var(--paper); text-decoration: none; color: inherit; transition: transform 150ms ease; }
+      .card:hover { transform: translateY(-3px) rotate(-0.4deg); }
+      .card .meta { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent); margin-bottom: 12px; }
+      .card h3 { font-family: var(--serif); font-weight: 500; font-size: 23px; line-height: 1.08; margin: 0 0 10px; }
+      .card p { color: var(--muted); font-size: 14px; line-height: 1.5; margin: 0; }
+
+      .agents { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+      .agent { border: 1px solid var(--line); border-radius: 10px; padding: 26px 22px; background: var(--ink); color: var(--bg); }
+      .agent .mk { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; opacity: 0.7; }
+      .agent h3 { font-family: var(--serif); font-weight: 500; font-size: 28px; margin: 10px 0 10px; }
+      .agent p { font-size: 14px; line-height: 1.55; opacity: 0.84; margin: 0 0 16px; }
+      .agent .lnk { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--accent); padding-bottom: 3px; }
+
+      footer { border-top: 1px solid var(--line); padding: 46px 0 60px; }
+      .foot { display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+      .badge { position: fixed; bottom: 18px; right: 18px; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; background: var(--ink); color: var(--bg); padding: 8px 12px; border-radius: 999px; opacity: 0.9; }
+
+      @media (max-width: 900px) {
+        .hero, .journey, .cards, .agents { grid-template-columns: 1fr; }
+        .photo.tall { aspect-ratio: 3/2; }
+        .links { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">Arya<span>.</span>teja</div>
+        <nav class="links">
+          <a href="#writing">Writing</a>
+          <a href="#work">Work</a>
+          <a href="#agents">Agents</a>
+          <a href="#about">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="wrap hero">
+      <div>
+        <div class="kicker">Learning in public · with receipts</div>
+        <h1>Building the agent-native stack, out loud.</h1>
+        <p class="lede">
+          I'm Arya Teja Rudraraju — solo founder. I write as I build: the mistakes, the wins, and
+          the patterns worth keeping. lesearch.ai, cloudagi.ai, agentfirst.shop.
+        </p>
+        <a class="cta" href="#writing">Read the notes →</a>
+      </div>
+      <div class="portrait">
+        <img src="../real-images/yc-robo-hk-solo.jpeg" alt="Arya at YC Robo, Hong Kong" />
+      </div>
+    </section>
+
+    <section class="wrap sec" id="about">
+      <div class="sec-head"><h2>From the field</h2><span class="tag">Builder log · 2024–26</span></div>
+      <div class="journey">
+        <div class="photo tall"><img src="../real-images/world-model-hk-team.JPG" alt="World model team, HK" /></div>
+        <div class="photo"><img src="../real-images/Raycast-builder-event.JPG" alt="Raycast builder event" /></div>
+        <div class="photo"><img src="../real-images/Factory-builder-event.JPG" alt="Factory builder event" /></div>
+        <div class="photo"><img src="../real-images/nevermined-hk-team.JPG" alt="Nevermined team, HK" /></div>
+        <div class="photo"><img src="../real-images/YC-robo-hk-team.JPG" alt="YC Robo team, HK" /></div>
+      </div>
+      <p class="journey-note">Chapters from SF, HK, and the YC orbit — the real backdrop to the work.</p>
+    </section>
+
+    <section class="wrap sec" id="writing">
+      <div class="sec-head"><h2>Recent notes</h2><span class="tag">Essays · Case studies</span></div>
+      <div class="cards">
+        <a class="card" href="#"><div class="meta">Essay</div><h3>What this repo taught me about agent workflows</h3><p>Not a hot take. A working note with setup cost, risks, and the part worth copying.</p></a>
+        <a class="card" href="#"><div class="meta">Case study</div><h3>CloudAGI's first revenue quarter, unpacked</h3><p>An honest build log of consulting that shipped and paid.</p></a>
+        <a class="card" href="#"><div class="meta">Video → notes</div><h3>Notes from YC's design-with-AI talk</h3><p>The best content I can make is the thing I just learned.</p></a>
+      </div>
+    </section>
+
+    <section class="wrap sec" id="agents">
+      <div class="sec-head"><h2>What I'm building</h2><span class="tag">Agents & products</span></div>
+      <div class="agents">
+        <div class="agent">
+          <div class="mk">01 / OS</div>
+          <h3>lesearch.ai</h3>
+          <p>Product & AI-agent OS — the system for serious researchers and builders.</p>
+          <span class="lnk">Explore →</span>
+        </div>
+        <div class="agent">
+          <div class="mk">02 / SERVICES</div>
+          <h3>cloudagi.ai</h3>
+          <p>AI consulting that ships. Revenue-first, pragmatic, done with you.</p>
+          <span class="lnk">Explore →</span>
+        </div>
+        <div class="agent">
+          <div class="mk">03 / MERCH</div>
+          <h3>agentfirst.shop</h3>
+          <p>Agent-native merch for people who live in the terminal.</p>
+          <span class="lnk">Explore →</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap foot">
+        <span>© 2026 Arya Teja Rudraraju</span>
+        <span>LinkedIn · X · YouTube</span>
+      </div>
+    </footer>
+
+    <div class="badge">Style 02 · Field Notes</div>
+  </body>
+</html>

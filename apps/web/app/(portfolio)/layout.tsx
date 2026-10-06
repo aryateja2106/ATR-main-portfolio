@@ -2,15 +2,16 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import type { ReactNode } from "react";
 import blogData from "@/lib/portfolio/blogs.json";
+import type { BlogPost } from "@/lib/types";
 import { WebMcpProvider } from "./_components/WebMcpProvider";
 
 export const metadata: Metadata = {
 	title: {
-		default: "Arya Teja Rudraraju | AI Agent Systems & Consulting",
+		default: "Applied AI & Forward Deployed Engineer | Arya Teja",
 		template: "%s • Arya Teja Rudraraju",
 	},
 	description:
-		"I help founders and teams design, secure, and ship practical AI agent systems, local-first workflows, and useful automation.",
+		"Applied AI specialist and forward deployed engineer building practical agent systems, POCs, MVPs, testing automation, and multi-machine orchestration.",
 	metadataBase: new URL("https://aryateja.com"),
 	applicationName: "Arya Teja Rudraraju",
 	authors: [
@@ -19,8 +20,10 @@ export const metadata: Metadata = {
 			url: "https://linkedin.com/in/arya-teja-rudraraju",
 		},
 	],
-	category: "AI Consulting",
+	category: "Applied AI",
 	keywords: [
+		"Applied AI Specialist",
+		"Forward Deployed Engineer",
 		"Agentic Engineer",
 		"AI Agents",
 		"LeSearch AI",
@@ -42,16 +45,16 @@ export const metadata: Metadata = {
 		canonical: "https://aryateja.com",
 	},
 	openGraph: {
-		title: "Arya Teja Rudraraju | AI Agent Systems & Consulting",
+		title: "Applied AI & Forward Deployed Engineer | Arya Teja",
 		description:
-			"Practical AI agent systems, secure local-first workflows, open-source tools, and field-tested notes.",
+			"Applied AI delivery, practical agent systems, POCs, MVPs, testing automation, and multi-machine orchestration.",
 		siteName: "Arya Teja Rudraraju",
 		type: "website",
 		url: "https://aryateja.com",
 		emails: ["aryateja2106@gmail.com"],
 		images: [
 			{
-				url: "/real-images/yc-robo-hk-solo.jpeg",
+				url: "/aryateja-og.webp",
 				width: 1200,
 				height: 630,
 				alt: "Arya Teja Rudraraju at YC Robo in Hong Kong",
@@ -60,11 +63,11 @@ export const metadata: Metadata = {
 		locale: "en_US",
 	},
 	twitter: {
-		title: "Arya Teja Rudraraju | AI Agent Systems & Consulting",
+		title: "Applied AI & Forward Deployed Engineer | Arya Teja",
 		description:
-			"Practical AI agent systems, secure local-first workflows, open-source tools, and field-tested notes.",
+			"Applied AI delivery, practical agent systems, POCs, MVPs, testing automation, and multi-machine orchestration.",
 		card: "summary_large_image",
-		images: ["/real-images/yc-robo-hk-solo.jpeg"],
+		images: ["/aryateja-og.webp"],
 		creator: "@r_aryateja",
 	},
 };
@@ -82,16 +85,20 @@ const jsonLd = {
 	"@id": "https://aryateja.com/#profile",
 	name: "Arya Teja Rudraraju",
 	url: "https://aryateja.com",
-	dateModified: "2026-07-11",
+	dateModified: "2026-07-15",
 	mainEntity: {
 		"@type": "Person",
 		"@id": "https://aryateja.com/#person",
 		name: "Arya Teja Rudraraju",
 		url: "https://aryateja.com",
-		image: "https://aryateja.com/real-images/yc-robo-hk-solo.jpeg",
-		jobTitle: "Founder and Agentic Systems Builder",
+		image: "https://aryateja.com/real-images/yc-robo-hk-solo.webp",
+		jobTitle: "Applied AI Specialist and Agent Systems Builder",
 		description:
-			"Founder helping teams design, secure, and ship practical AI agent systems and local-first workflows.",
+			"Applied AI specialist and forward deployed engineer building practical agent systems, POCs, MVPs, testing automation, and multi-machine orchestration.",
+		homeLocation: {
+			"@type": "Country",
+			name: "India",
+		},
 		alumniOf: {
 			"@type": "CollegeOrUniversity",
 			name: "Duquesne University",
@@ -102,12 +109,18 @@ const jsonLd = {
 			"https://x.com/r_aryateja",
 		],
 		knowsAbout: [
+			"Applied AI",
+			"Forward Deployed Engineering",
 			"AI Agents",
 			"Agentic Engineering",
 			"Secure AI Agent Setup",
 			"Local-first AI",
 			"RAG Systems",
 			"Context Engineering",
+			"TypeScript",
+			"Next.js",
+			"Playwright",
+			"Model Context Protocol",
 			"Open Source",
 			"Product Strategy",
 		],
@@ -117,13 +130,27 @@ const jsonLd = {
 
 export default function Layout({ children }: { children: ReactNode }) {
 	const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-8ELMHNMBW2";
-	const articles = blogData.blogPosts.map(
-		({ slug, title, description, category, tags }) => ({
+	const articles = (blogData.blogPosts as BlogPost[]).map(
+		({
 			slug,
 			title,
 			description,
 			category,
 			tags,
+			executiveSummary,
+			agentNavigation,
+			sourceLicenses,
+			reuse,
+		}) => ({
+			slug,
+			title,
+			description,
+			category,
+			tags,
+			executiveSummary,
+			agentNavigation,
+			sourceLicenses,
+			reuse,
 		}),
 	);
 
@@ -137,9 +164,9 @@ export default function Layout({ children }: { children: ReactNode }) {
 			/>
 			<Script
 				src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-				strategy="afterInteractive"
+				strategy="lazyOnload"
 			/>
-			<Script id="google-analytics" strategy="afterInteractive">
+			<Script id="google-analytics" strategy="lazyOnload">
 				{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
