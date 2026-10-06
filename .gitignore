@@ -13,6 +13,9 @@ coverage
 out/
 build
 
+# agent skill eval artifacts (regenerated locally)
+.sklab/
+
 # misc
 .DS_Store
 *.pem
